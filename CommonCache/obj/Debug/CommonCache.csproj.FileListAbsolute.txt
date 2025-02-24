@@ -10,3 +10,9 @@ D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\RestriccionVisitas\Commo
 D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\RestriccionVisitas\CommonCache\obj\Debug\CommonCache.csproj.CoreCompileInputs.cache
 D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\RestriccionVisitas\CommonCache\obj\Debug\CommonCache.dll
 D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\RestriccionVisitas\CommonCache\obj\Debug\CommonCache.pdb
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\CommonCache\bin\Debug\CommonCache.dll
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\CommonCache\bin\Debug\CommonCache.pdb
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\CommonCache\obj\Debug\CommonCache.csproj.AssemblyReference.cache
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\CommonCache\obj\Debug\CommonCache.csproj.CoreCompileInputs.cache
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\CommonCache\obj\Debug\CommonCache.dll
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\CommonCache\obj\Debug\CommonCache.pdb

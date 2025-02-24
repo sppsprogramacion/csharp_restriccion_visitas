@@ -16,3 +16,9 @@ D:\programacion-spps\C-Sharp\PROYECTOS\SPPS\Restriccion-Visitas\RestriccionVisit
 D:\programacion-spps\C-Sharp\PROYECTOS\SPPS\Restriccion-Visitas\RestriccionVisitas\Conexion\obj\Debug\Conexion.csproj.CoreCompileInputs.cache
 D:\programacion-spps\C-Sharp\PROYECTOS\SPPS\Restriccion-Visitas\RestriccionVisitas\Conexion\obj\Debug\Conexion.dll
 D:\programacion-spps\C-Sharp\PROYECTOS\SPPS\Restriccion-Visitas\RestriccionVisitas\Conexion\obj\Debug\Conexion.pdb
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\Conexion\bin\Debug\Conexion.dll
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\Conexion\bin\Debug\Conexion.pdb
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\Conexion\obj\Debug\Conexion.csproj.AssemblyReference.cache
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\Conexion\obj\Debug\Conexion.csproj.CoreCompileInputs.cache
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\Conexion\obj\Debug\Conexion.dll
+D:\Programar\C-Sharp\Proyectos\SPPS\Restriccion-Visitas\Conexion\obj\Debug\Conexion.pdb
