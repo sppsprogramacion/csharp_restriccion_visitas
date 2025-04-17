@@ -75,8 +75,6 @@ namespace DAOImplement
         //EDITAR PROHIBICION
         public async Task<(bool, string error)> EditarProhibicionVisita(int id,string prohibicionVisita)
         {
-            
-
             try
             {
                               
