@@ -146,6 +146,7 @@
             this.dgvNovedades = new System.Windows.Forms.DataGridView();
             this.btnVerNovedades = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -164,6 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabNovedades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNovedades)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -1078,9 +1080,9 @@
             // 
             // tabVinculos
             // 
+            this.tabVinculos.Controls.Add(this.groupBox7);
             this.tabVinculos.Controls.Add(this.groupBox6);
             this.tabVinculos.Controls.Add(this.groupBox5);
-            this.tabVinculos.Controls.Add(this.dtgvParentescos);
             this.tabVinculos.Controls.Add(this.btnVerParentescos);
             this.tabVinculos.Location = new System.Drawing.Point(4, 25);
             this.tabVinculos.Name = "tabVinculos";
@@ -1099,29 +1101,32 @@
             this.groupBox6.Controls.Add(this.cmbParentescos);
             this.groupBox6.Controls.Add(this.btnGuardarModificarParentesco);
             this.groupBox6.Controls.Add(this.btnCancelarModificarParentesco);
-            this.groupBox6.Location = new System.Drawing.Point(419, 319);
+            this.groupBox6.Location = new System.Drawing.Point(414, 319);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(556, 166);
+            this.groupBox6.Size = new System.Drawing.Size(569, 193);
             this.groupBox6.TabIndex = 80;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Modificar parentesco";
             // 
             // btnModificarParentesco
             // 
-            this.btnModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarParentesco.Location = new System.Drawing.Point(460, 16);
+            this.btnModificarParentesco.BackColor = System.Drawing.Color.Indigo;
+            this.btnModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnModificarParentesco.Location = new System.Drawing.Point(460, 26);
             this.btnModificarParentesco.Name = "btnModificarParentesco";
-            this.btnModificarParentesco.Size = new System.Drawing.Size(89, 37);
+            this.btnModificarParentesco.Size = new System.Drawing.Size(100, 45);
             this.btnModificarParentesco.TabIndex = 76;
             this.btnModificarParentesco.Text = "MODIFICAR";
-            this.btnModificarParentesco.UseVisualStyleBackColor = true;
+            this.btnModificarParentesco.UseVisualStyleBackColor = false;
             this.btnModificarParentesco.Click += new System.EventHandler(this.btnModificarParentesco_Click);
             // 
             // label41
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(6, 65);
+            this.label41.Location = new System.Drawing.Point(6, 76);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(62, 16);
             this.label41.TabIndex = 75;
@@ -1131,17 +1136,17 @@
             // 
             this.txtMotivoModificarParentesco.Enabled = false;
             this.txtMotivoModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotivoModificarParentesco.Location = new System.Drawing.Point(9, 85);
+            this.txtMotivoModificarParentesco.Location = new System.Drawing.Point(9, 95);
             this.txtMotivoModificarParentesco.Multiline = true;
             this.txtMotivoModificarParentesco.Name = "txtMotivoModificarParentesco";
-            this.txtMotivoModificarParentesco.Size = new System.Drawing.Size(442, 74);
+            this.txtMotivoModificarParentesco.Size = new System.Drawing.Size(433, 74);
             this.txtMotivoModificarParentesco.TabIndex = 74;
             // 
             // label40
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(6, 17);
+            this.label40.Location = new System.Drawing.Point(6, 27);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(112, 16);
             this.label40.TabIndex = 73;
@@ -1152,31 +1157,38 @@
             this.cmbParentescos.Enabled = false;
             this.cmbParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbParentescos.FormattingEnabled = true;
-            this.cmbParentescos.Location = new System.Drawing.Point(9, 36);
+            this.cmbParentescos.Location = new System.Drawing.Point(9, 46);
             this.cmbParentescos.Name = "cmbParentescos";
             this.cmbParentescos.Size = new System.Drawing.Size(250, 24);
             this.cmbParentescos.TabIndex = 71;
             // 
             // btnGuardarModificarParentesco
             // 
-            this.btnGuardarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarModificarParentesco.Location = new System.Drawing.Point(460, 68);
+            this.btnGuardarModificarParentesco.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarModificarParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarModificarParentesco.Location = new System.Drawing.Point(460, 78);
             this.btnGuardarModificarParentesco.Name = "btnGuardarModificarParentesco";
-            this.btnGuardarModificarParentesco.Size = new System.Drawing.Size(89, 37);
+            this.btnGuardarModificarParentesco.Size = new System.Drawing.Size(100, 45);
             this.btnGuardarModificarParentesco.TabIndex = 70;
             this.btnGuardarModificarParentesco.Text = "GUARDAR";
-            this.btnGuardarModificarParentesco.UseVisualStyleBackColor = true;
+            this.btnGuardarModificarParentesco.UseVisualStyleBackColor = false;
             this.btnGuardarModificarParentesco.Click += new System.EventHandler(this.btnGuardarModificarParentesco_Click);
             // 
             // btnCancelarModificarParentesco
             // 
-            this.btnCancelarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarModificarParentesco.Location = new System.Drawing.Point(460, 111);
+            this.btnCancelarModificarParentesco.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarModificarParentesco.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarModificarParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarModificarParentesco.Location = new System.Drawing.Point(460, 128);
             this.btnCancelarModificarParentesco.Name = "btnCancelarModificarParentesco";
-            this.btnCancelarModificarParentesco.Size = new System.Drawing.Size(89, 37);
+            this.btnCancelarModificarParentesco.Size = new System.Drawing.Size(100, 45);
             this.btnCancelarModificarParentesco.TabIndex = 69;
             this.btnCancelarModificarParentesco.Text = "CANCELAR";
-            this.btnCancelarModificarParentesco.UseVisualStyleBackColor = true;
+            this.btnCancelarModificarParentesco.UseVisualStyleBackColor = false;
             this.btnCancelarModificarParentesco.Click += new System.EventHandler(this.btnCancelarModificarParentesco_Click);
             // 
             // groupBox5
@@ -1187,18 +1199,18 @@
             this.groupBox5.Controls.Add(this.label26);
             this.groupBox5.Controls.Add(this.txtIdVisitaInterno);
             this.groupBox5.Controls.Add(this.label25);
-            this.groupBox5.Location = new System.Drawing.Point(15, 319);
+            this.groupBox5.Location = new System.Drawing.Point(10, 319);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(396, 166);
+            this.groupBox5.Size = new System.Drawing.Size(396, 193);
             this.groupBox5.TabIndex = 79;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Parentesco";
+            this.groupBox5.Text = "Parentesco actual";
             // 
             // txtParentesco
             // 
             this.txtParentesco.Enabled = false;
             this.txtParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtParentesco.Location = new System.Drawing.Point(9, 137);
+            this.txtParentesco.Location = new System.Drawing.Point(9, 145);
             this.txtParentesco.Name = "txtParentesco";
             this.txtParentesco.Size = new System.Drawing.Size(227, 22);
             this.txtParentesco.TabIndex = 80;
@@ -1207,7 +1219,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(6, 16);
+            this.label39.Location = new System.Drawing.Point(6, 24);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(23, 16);
             this.label39.TabIndex = 78;
@@ -1217,16 +1229,16 @@
             // 
             this.txtInternoVinculado.Enabled = false;
             this.txtInternoVinculado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInternoVinculado.Location = new System.Drawing.Point(9, 85);
+            this.txtInternoVinculado.Location = new System.Drawing.Point(9, 93);
             this.txtInternoVinculado.Name = "txtInternoVinculado";
-            this.txtInternoVinculado.Size = new System.Drawing.Size(381, 22);
+            this.txtInternoVinculado.Size = new System.Drawing.Size(372, 22);
             this.txtInternoVinculado.TabIndex = 64;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(6, 65);
+            this.label26.Location = new System.Drawing.Point(6, 73);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(71, 16);
             this.label26.TabIndex = 66;
@@ -1236,7 +1248,7 @@
             // 
             this.txtIdVisitaInterno.Enabled = false;
             this.txtIdVisitaInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdVisitaInterno.Location = new System.Drawing.Point(9, 36);
+            this.txtIdVisitaInterno.Location = new System.Drawing.Point(9, 44);
             this.txtIdVisitaInterno.Name = "txtIdVisitaInterno";
             this.txtIdVisitaInterno.Size = new System.Drawing.Size(80, 22);
             this.txtIdVisitaInterno.TabIndex = 77;
@@ -1245,7 +1257,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(5, 118);
+            this.label25.Location = new System.Drawing.Point(5, 126);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(103, 16);
             this.label25.TabIndex = 72;
@@ -1254,22 +1266,26 @@
             // dtgvParentescos
             // 
             this.dtgvParentescos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvParentescos.Location = new System.Drawing.Point(15, 86);
+            this.dtgvParentescos.Location = new System.Drawing.Point(6, 19);
             this.dtgvParentescos.Name = "dtgvParentescos";
             this.dtgvParentescos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvParentescos.Size = new System.Drawing.Size(861, 212);
+            this.dtgvParentescos.Size = new System.Drawing.Size(959, 212);
             this.dtgvParentescos.TabIndex = 63;
             this.dtgvParentescos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvParentescos_KeyDown);
             // 
             // btnVerParentescos
             // 
-            this.btnVerParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerParentescos.Location = new System.Drawing.Point(15, 41);
+            this.btnVerParentescos.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerParentescos.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerParentescos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerParentescos.ForeColor = System.Drawing.Color.White;
+            this.btnVerParentescos.Location = new System.Drawing.Point(15, 16);
             this.btnVerParentescos.Name = "btnVerParentescos";
-            this.btnVerParentescos.Size = new System.Drawing.Size(134, 39);
+            this.btnVerParentescos.Size = new System.Drawing.Size(141, 45);
             this.btnVerParentescos.TabIndex = 62;
             this.btnVerParentescos.Text = "Ver parentesco";
-            this.btnVerParentescos.UseVisualStyleBackColor = true;
+            this.btnVerParentescos.UseVisualStyleBackColor = false;
             this.btnVerParentescos.Click += new System.EventHandler(this.btnVerParentescos_Click);
             // 
             // tabSabana
@@ -1491,6 +1507,17 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.dtgvParentescos);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(9, 66);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(974, 237);
+            this.groupBox7.TabIndex = 92;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Prohibiciones";
+            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1529,6 +1556,7 @@
             this.tabNovedades.ResumeLayout(false);
             this.tabNovedades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNovedades)).EndInit();
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1653,5 +1681,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox txtOrganismoAlta;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }

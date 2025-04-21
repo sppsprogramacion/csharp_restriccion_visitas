@@ -20,7 +20,8 @@ namespace CapaDatos
         public DateTime fecha_fin { get; set; }
         public bool vigente { get; set; }
         public bool anulado { get; set; }
-        
+        public int usuario_id { get; set; }
+        public DUsuario usuario { get; set; }
 
     }
 }
