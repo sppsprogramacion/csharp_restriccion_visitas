@@ -22,6 +22,7 @@ namespace CapaDatos
         public bool anulado { get; set; }
         public int usuario_id { get; set; }
         public DUsuario usuario { get; set; }
+        public string tipo_levantamiento { get; set; }
 
     }
 }

@@ -108,6 +108,8 @@
             this.dtgvHistorialProhibicion = new System.Windows.Forms.DataGridView();
             this.btnVerProhibiciones = new System.Windows.Forms.Button();
             this.tabVinculos = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.dtgvParentescos = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnModificarParentesco = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
@@ -123,7 +125,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txtIdVisitaInterno = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.dtgvParentescos = new System.Windows.Forms.DataGridView();
             this.btnVerParentescos = new System.Windows.Forms.Button();
             this.tabSabana = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
@@ -146,7 +147,6 @@
             this.dgvNovedades = new System.Windows.Forms.DataGridView();
             this.btnVerNovedades = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -158,14 +158,14 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).BeginInit();
             this.tabVinculos.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).BeginInit();
             this.tabSabana.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabNovedades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNovedades)).BeginInit();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -900,7 +900,7 @@
             // dtgvProhibiciones
             // 
             this.dtgvProhibiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvProhibiciones.Location = new System.Drawing.Point(6, 18);
+            this.dtgvProhibiciones.Location = new System.Drawing.Point(6, 20);
             this.dtgvProhibiciones.Name = "dtgvProhibiciones";
             this.dtgvProhibiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvProhibiciones.Size = new System.Drawing.Size(1036, 206);
@@ -1092,6 +1092,27 @@
             this.tabVinculos.Text = "Vinculos";
             this.tabVinculos.UseVisualStyleBackColor = true;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.dtgvParentescos);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(9, 66);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(974, 237);
+            this.groupBox7.TabIndex = 92;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Prohibiciones";
+            // 
+            // dtgvParentescos
+            // 
+            this.dtgvParentescos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvParentescos.Location = new System.Drawing.Point(6, 20);
+            this.dtgvParentescos.Name = "dtgvParentescos";
+            this.dtgvParentescos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvParentescos.Size = new System.Drawing.Size(959, 212);
+            this.dtgvParentescos.TabIndex = 63;
+            this.dtgvParentescos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvParentescos_KeyDown);
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.btnModificarParentesco);
@@ -1165,6 +1186,7 @@
             // btnGuardarModificarParentesco
             // 
             this.btnGuardarModificarParentesco.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarModificarParentesco.Enabled = false;
             this.btnGuardarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarModificarParentesco.ForeColor = System.Drawing.Color.White;
@@ -1179,6 +1201,7 @@
             // btnCancelarModificarParentesco
             // 
             this.btnCancelarModificarParentesco.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarModificarParentesco.Enabled = false;
             this.btnCancelarModificarParentesco.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCancelarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1262,16 +1285,6 @@
             this.label25.Size = new System.Drawing.Size(103, 16);
             this.label25.TabIndex = 72;
             this.label25.Text = "PARENTESCO:";
-            // 
-            // dtgvParentescos
-            // 
-            this.dtgvParentescos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvParentescos.Location = new System.Drawing.Point(6, 19);
-            this.dtgvParentescos.Name = "dtgvParentescos";
-            this.dtgvParentescos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvParentescos.Size = new System.Drawing.Size(959, 212);
-            this.dtgvParentescos.TabIndex = 63;
-            this.dtgvParentescos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvParentescos_KeyDown);
             // 
             // btnVerParentescos
             // 
@@ -1507,17 +1520,6 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.dtgvParentescos);
-            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(9, 66);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(974, 237);
-            this.groupBox7.TabIndex = 92;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Prohibiciones";
-            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1545,18 +1547,18 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).EndInit();
             this.tabVinculos.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).EndInit();
             this.tabSabana.ResumeLayout(false);
             this.tabSabana.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabNovedades.ResumeLayout(false);
             this.tabNovedades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNovedades)).EndInit();
-            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

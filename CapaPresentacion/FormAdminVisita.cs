@@ -473,6 +473,7 @@ namespace CapaPresentacion
                     FechaProhibicion = c.fecha_prohibicion,
                     Organismo = c.organismo.organismo,
                     Vigente = c.vigente,
+                    TipoLevantamiento = c.tipo_levantamiento,
                     Anulado = c.anulado
 
                 })
@@ -628,6 +629,19 @@ namespace CapaPresentacion
 
         private void btnVerParentescos_Click(object sender, EventArgs e)
         {
+            //formulario parentesco actual
+            txtIdVisitaInterno.Text = "";
+            txtInternoVinculado.Text = "";
+            txtParentesco.Text = "";
+
+            //formulario modificacion
+            cmbParentescos.Enabled = false;
+            txtMotivoModificarParentesco.Text = "";
+            txtMotivoModificarParentesco.Enabled = false;
+            btnModificarParentesco.Enabled = true;
+            btnGuardarModificarParentesco.Enabled = false;
+            btnCancelarModificarParentesco.Enabled = false;
+
             this.CargarDataGridParentescos();
         }
 
@@ -689,6 +703,12 @@ namespace CapaPresentacion
                         //cargar lista de prhibiciones en datagrid
                         this.CargarDataGridParentescos();
 
+                        //formulario parentesco actual
+                        txtIdVisitaInterno.Text = "";
+                        txtInternoVinculado.Text = "";
+                        txtParentesco.Text = "";
+
+                        //formulario modificacion
                         cmbParentescos.Enabled = false;
                         txtMotivoModificarParentesco.Text = "";
                         txtMotivoModificarParentesco.Enabled = false;
@@ -716,6 +736,12 @@ namespace CapaPresentacion
 
         private void btnModificarParentesco_Click(object sender, EventArgs e)
         {
+            if (txtIdVisitaInterno.Text == null || txtIdVisitaInterno.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar una vinculación", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             cmbParentescos.Enabled = true;
             txtMotivoModificarParentesco.Enabled = true;
             btnModificarParentesco.Enabled = false;
@@ -725,12 +751,18 @@ namespace CapaPresentacion
 
         private void btnCancelarModificarParentesco_Click(object sender, EventArgs e)
         {
+            //formulario parentesco actual
+            txtIdVisitaInterno.Text = "";
+            txtInternoVinculado.Text = "";
+            txtParentesco.Text = "";
+
+            //formulario modificacion
             cmbParentescos.Enabled = false;
             txtMotivoModificarParentesco.Text = "";
             txtMotivoModificarParentesco.Enabled = false;
-            btnModificarParentesco.Enabled = false;
-            btnGuardarModificarParentesco.Enabled = true;
-            btnCancelarModificarParentesco.Enabled = true;
+            btnModificarParentesco.Enabled = true;
+            btnGuardarModificarParentesco.Enabled = false;
+            btnCancelarModificarParentesco.Enabled = false;
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
