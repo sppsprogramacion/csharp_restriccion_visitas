@@ -13,13 +13,13 @@ namespace CapaNegocio
     public class NVisitaInterno
     {
         //CAMBIAR PARENTESCO
-        public async Task<HttpResponseMessage> CambiarParentesco(int id, string prohibicioVisita)
+        public async Task<(bool, string error)> CambiarParentesco(int id, string prohibicioVisita)
         {
             IVisitaInternoDao visitaInternoDao = new VisitaInternoDaoImpl();
 
-            HttpResponseMessage visitaInternoResponse = await visitaInternoDao.CambiarParentesco(id, prohibicioVisita);
+            (bool visitaInternoResponse, string error) = await visitaInternoDao.CambiarParentesco(id, prohibicioVisita);
 
-            return visitaInternoResponse;
+            return (visitaInternoResponse, error); ;
         }
         //FIN CAMBIAR PARENTESCO..................................
 

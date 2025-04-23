@@ -689,10 +689,10 @@ namespace CapaPresentacion
 
                 try
                 {
-                    HttpResponseMessage httpResponse = await nVisitaInterno.CambiarParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataVisitaInterno);
-                    if (httpResponse.IsSuccessStatusCode)
+                    (bool respuestaEditar, string errorResponse) = await nVisitaInterno.CambiarParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataVisitaInterno);
+
+                    if (respuestaEditar)
                     {
-                        var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
 
                         MessageBox.Show("El cambio de parentesco se realizó correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -718,9 +718,7 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        MessageBox.Show("No se pudo insertar el registro.");
-                        MessageBox.Show($"Error de la API: {errorMessage}", $"Error {httpResponse.StatusCode}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }

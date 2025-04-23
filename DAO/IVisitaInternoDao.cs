@@ -12,7 +12,7 @@ namespace DAO
     {
         Task<HttpResponseMessage> CrearParentesco(string visitaInterno);
 
-        Task<HttpResponseMessage> CambiarParentesco(int id, string dataCambiar);
+        Task<(bool, string error)> CambiarParentesco(int id, string dataCambiar);
 
         Task<HttpResponseMessage> AnularParentesco(int id, string dataAnular);
 
