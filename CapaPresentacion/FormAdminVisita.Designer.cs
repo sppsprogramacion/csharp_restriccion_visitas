@@ -1101,7 +1101,7 @@
             this.groupBox7.Size = new System.Drawing.Size(974, 237);
             this.groupBox7.TabIndex = 92;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Prohibiciones";
+            this.groupBox7.Text = "Parentescos";
             // 
             // dtgvParentescos
             // 
@@ -1297,7 +1297,7 @@
             this.btnVerParentescos.Name = "btnVerParentescos";
             this.btnVerParentescos.Size = new System.Drawing.Size(141, 45);
             this.btnVerParentescos.TabIndex = 62;
-            this.btnVerParentescos.Text = "Ver parentesco";
+            this.btnVerParentescos.Text = "Ver parentescos";
             this.btnVerParentescos.UseVisualStyleBackColor = false;
             this.btnVerParentescos.Click += new System.EventHandler(this.btnVerParentescos_Click);
             // 
