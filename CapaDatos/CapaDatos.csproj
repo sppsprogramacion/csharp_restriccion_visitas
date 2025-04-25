@@ -49,6 +49,7 @@
     <Compile Include="DLoginResponse.cs" />
     <Compile Include="DMunicipio.cs" />
     <Compile Include="DNacionalidad.cs" />
+    <Compile Include="DNovedadCiudadano.cs" />
     <Compile Include="DOrganismo.cs" />
     <Compile Include="DPais.cs" />
     <Compile Include="DParentesco.cs" />

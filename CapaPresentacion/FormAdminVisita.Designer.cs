@@ -96,7 +96,6 @@
             this.dtgvProhibiciones = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAnular = new System.Windows.Forms.Button();
-            this.btnProhibir = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnCancelarQP = new System.Windows.Forms.Button();
             this.btnGuardarQP = new System.Windows.Forms.Button();
@@ -910,7 +909,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnAnular);
-            this.groupBox2.Controls.Add(this.btnProhibir);
             this.groupBox2.Controls.Add(this.btnQuitar);
             this.groupBox2.Controls.Add(this.btnCancelarQP);
             this.groupBox2.Controls.Add(this.btnGuardarQP);
@@ -924,7 +922,7 @@
             this.groupBox2.Size = new System.Drawing.Size(300, 288);
             this.groupBox2.TabIndex = 90;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Levantar / Prohibir / Anular";
+            this.groupBox2.Text = "Levantar / Anular";
             // 
             // btnAnular
             // 
@@ -933,28 +931,13 @@
             this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnular.ForeColor = System.Drawing.Color.White;
-            this.btnAnular.Location = new System.Drawing.Point(210, 20);
+            this.btnAnular.Location = new System.Drawing.Point(116, 20);
             this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(83, 37);
+            this.btnAnular.Size = new System.Drawing.Size(93, 37);
             this.btnAnular.TabIndex = 83;
             this.btnAnular.Text = "ANULAR";
             this.btnAnular.UseVisualStyleBackColor = false;
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
-            // 
-            // btnProhibir
-            // 
-            this.btnProhibir.BackColor = System.Drawing.Color.Indigo;
-            this.btnProhibir.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnProhibir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProhibir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProhibir.ForeColor = System.Drawing.Color.White;
-            this.btnProhibir.Location = new System.Drawing.Point(114, 21);
-            this.btnProhibir.Name = "btnProhibir";
-            this.btnProhibir.Size = new System.Drawing.Size(91, 37);
-            this.btnProhibir.TabIndex = 82;
-            this.btnProhibir.Text = "PROHIBIR";
-            this.btnProhibir.UseVisualStyleBackColor = false;
-            this.btnProhibir.Click += new System.EventHandler(this.btnProhibir_Click);
             // 
             // btnQuitar
             // 
@@ -1663,7 +1646,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaFinQP;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button btnGuardarQP;
-        private System.Windows.Forms.Button btnProhibir;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnCancelarQP;
         private System.Windows.Forms.Label label39;

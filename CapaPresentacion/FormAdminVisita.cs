@@ -51,7 +51,6 @@ namespace CapaPresentacion
             //acceder a la instancia de FormTramites abierta.
             FormVisitas formVisitas = Application.OpenForms["FormVisitas"] as FormVisitas;
             NCiudadano nCiudadano = new NCiudadano();
-            //DCiudadano dCiudadano = new DCiudadano();
 
             idCiudadano = Convert.ToInt32(formVisitas.idCiudadanoGlobal);
             (DCiudadano dCiudadanoX, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
@@ -103,20 +102,21 @@ namespace CapaPresentacion
             NParentesco nParentesco = new NParentesco();
             cmbParentescos.ValueMember = "id_parentesco";
             cmbParentescos.DisplayMember = "parentesco";
-            //List<DParentesco> listaParentescos = new List<DParentesco>();
-            //listaParentescos = await nParentesco.RetornarListaParentescos();
-            //cmbParentescos.DataSource = listaParentescos;
             cmbParentescos.DataSource = await nParentesco.RetornarListaParentescos();
         }
 
-        
+
+        //REGION PROHIBICIONES
+        #region Prohibiciones
+        //VER PROHIBICIONES
         private void btnVerProhibiciones_Click(object sender, EventArgs e)
         {
             this.CargarDataGridProhibiciones();
 
         }
+        //FIN VER PROHIBICIONES................................
 
-        
+        //GUARDAR NUEVA PROHIBICION O NODIFICACION
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
@@ -229,8 +229,10 @@ namespace CapaPresentacion
 
             }
             //FIN EDITAR.........................................................
-        }        
+        }
+        //FIN GUARDAR NUEVA PROHIBICION O NODIFICACION.........................
 
+        //DATA GRID PROHIBICIONES
         private void dtgvProhibiciones_KeyDown(object sender, KeyEventArgs e)
         {
             //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
@@ -270,7 +272,9 @@ namespace CapaPresentacion
                 }
             }
         }
-        
+        //FIN DATA GRID PROHIBICIONES...............................................
+
+        //CANCELAR NUEVA PROHIBICION O MODIFICIACION
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.HabilitarControles(false);
@@ -281,7 +285,9 @@ namespace CapaPresentacion
             btnGuardar.Enabled = false;
             btnCancelar.Enabled = false;
         }
+        //FIN CANCELAR NUEVA PROHIBICION O MODIFICIACION..............................
 
+        //HABILITAR EDICION
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (txtIdProhibicion.Text == null || txtIdProhibicion.Text == "")
@@ -297,7 +303,10 @@ namespace CapaPresentacion
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
         }
+        //FIN HABILITAR EDICION................................................
 
+
+        //HABILITAR PARA NUEVA PROHIBICION
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             this.LimpiarControles();
@@ -308,7 +317,9 @@ namespace CapaPresentacion
             btnCancelar.Enabled = true;
             dtgvHistorialProhibicion.DataSource = "";
         }
+        //FIN HABILITAR PARA NUEVA PROHIBICION.........................
 
+        //LEVANTAR PROHIBICION
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             if (txtIdProhibicion.Text == null || txtIdProhibicion.Text == "")
@@ -320,20 +331,10 @@ namespace CapaPresentacion
             this.accionProhibir = "levantar";
             this.HabilitarControlesQP(true);
         }
+        //FIN LEVANTAR PROHIBICION............................................
 
-        private void btnProhibir_Click(object sender, EventArgs e)
-        {
-            if (txtIdProhibicion.Text == null || txtIdProhibicion.Text == "")
-            {
-                MessageBox.Show("Debe seleccionar una prohibición", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            this.accionProhibir = "prohibir";
-            this.HabilitarControlesQP(true);
-            
-        }
-
+       
+        //ANULAR PROHIBICION
         private void btnAnular_Click(object sender, EventArgs e)
         {
             if (txtIdProhibicion.Text == null || txtIdProhibicion.Text == "")
@@ -345,17 +346,19 @@ namespace CapaPresentacion
             this.accionProhibir = "anular";
             this.HabilitarControlesQP(true);
         }
+        //FIN ANULAR PROHIBICION...............................................................
 
+        //CANCELAR LEVANTAR Y ANULAR
         private void btnCancelarQP_Click(object sender, EventArgs e)
         {
             btnQuitar.Enabled = true;
-            btnProhibir.Enabled = true;
             btnAnular.Enabled = true;
             this.HabilitarControlesQP(false);
             this.LimpiarControlesQP();
         }
+        //FIN CANCELAR LEVANTAR Y ANULAR .......................
 
-        //GUARDAR LEVANTAR, PROHIBIR Y ANULAR
+        //GUARDAR LEVANTAR Y ANULAR
         private async void btnGuardarQP_Click(object sender, EventArgs e)
         {
             NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
@@ -388,21 +391,7 @@ namespace CapaPresentacion
                     mensajeRespuesta = errorResponse;
                 }
             }
-
-            if (this.accionProhibir == "prohibir")
-            {
-                (bool respuestaEditar, string errorResponse) = await nProhibicionVisita.ProhibirManualProhibicion(Convert.ToInt32(txtIdProhibicion.Text), dataEnviar);
-
-                if (respuestaEditar)
-                {
-                    respuestaOk = true;
-                    mensajeRespuesta = "La prohibición se realizó correctamente";
-                }
-                else
-                {
-                    mensajeRespuesta = errorResponse;
-                }
-            }
+            
 
             if (this.accionProhibir == "anular")
             {
@@ -503,9 +492,10 @@ namespace CapaPresentacion
             }
 
 
-        } //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES...........
+        } 
+        //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES...........
 
-        //METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES
+        //METODO PARA OBTENER HISTORIAL DE UNA PROHIBICION Y CARGARLO EN UN DATA GRID  
         private async void CargarDataGridHistorialProhibiciones(int idProhibicion)
         {
             NBitacoraProhibicionVisita nBitacoraProhibicionVisita = new NBitacoraProhibicionVisita();
@@ -532,8 +522,9 @@ namespace CapaPresentacion
 
             dtgvHistorialProhibicion.DataSource = datosfiltrados;            
 
-        } //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES...........
-        
+        }
+        //FIN METODO PARA OBTENER HISTORIAL DE UNA PROHIBICION Y CARGARLO EN UN DATA GRID...........
+
         //HABILITAR CONTROLES
         private void HabilitarControles(bool valor)
         {            
@@ -546,7 +537,6 @@ namespace CapaPresentacion
 
             //botnes de quitar prohibicion
             btnQuitar.Enabled = !valor;
-            btnProhibir.Enabled = !valor;
             btnAnular.Enabled = !valor;
         }        
         //FIN HABILITAR CONTROLES
@@ -567,9 +557,11 @@ namespace CapaPresentacion
             chkVigente.Checked = false;
             chkAnulado.Checked = false;
             txtMotivo.Text = string.Empty;
-        }//FIN LIMPIAR CONTROLES...................................
+        }
+        //FIN LIMPIAR CONTROLES...................................
 
         
+
         //HABILITAR CONTROLES QUITAR/PROHIBIR
         private void HabilitarControlesQP(bool valor)
         {
@@ -577,7 +569,6 @@ namespace CapaPresentacion
             txtMotivoQP.Enabled = valor;
 
             btnAnular.Enabled = !valor;
-            btnProhibir.Enabled = !valor;
             btnQuitar.Enabled = !valor;
 
             btnGuardarQP.Enabled = valor;
@@ -596,9 +587,28 @@ namespace CapaPresentacion
             txtMotivoQP.Text = string.Empty;
             
         }
+        //FIN LIMPIAR QUITAR/PRHIBIR........................
 
+        //HISTORIAL DE UNA PROHIBICION
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            if (txtIdProhibicion.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar una prohibición","Restricción Visitas",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else
+            {
+                this.CargarDataGridHistorialProhibiciones(Convert.ToInt32(txtIdProhibicion.Text));
+            }
+        }
+        //FIN HISTORIAL DE UNA PROHIBICION.....................
 
-        //FIN LIMPIAR QUITAR/PRHIBIR
+        #endregion
+        //FIN REGION PROHIBICIONES............................................................
+        //........................................................................................
+
+        //REGION PARENTESCOS
+        #region Parentescos
 
         //METODO PARA OBTENER LA LISTA DE PARENTESCOS Y CARGARLO EN UN DATA GRID 
         async private void CargarDataGridParentescos()
@@ -763,18 +773,20 @@ namespace CapaPresentacion
             btnCancelarModificarParentesco.Enabled = false;
         }
 
-        private void btnHistorial_Click(object sender, EventArgs e)
-        {
-            if (txtIdProhibicion.Text == "")
-            {
-                MessageBox.Show("Debe seleccionar una prohibición","Restricción Visitas",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
-            else
-            {
-                this.CargarDataGridHistorialProhibiciones(Convert.ToInt32(txtIdProhibicion.Text));
-            }
-        }
-        
+        #endregion
+        //FIN REGION PARENTESCOS..........................................................
+        //.................................................................................
+
+
+        //REGION NOVEDADES
+        #region Novedades
+
+
+
+        #endregion
+
+        //FIN REGION NOVEDADES............................................................
+        //.................................................................................
     }
 
 
