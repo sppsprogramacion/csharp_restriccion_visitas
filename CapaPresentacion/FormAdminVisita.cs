@@ -108,6 +108,7 @@ namespace CapaPresentacion
 
         //REGION PROHIBICIONES
         #region Prohibiciones
+
         //VER PROHIBICIONES
         private void btnVerProhibiciones_Click(object sender, EventArgs e)
         {
@@ -636,7 +637,7 @@ namespace CapaPresentacion
 
         } //FIN METODO PARA OBTENER LA LISTA DE PARENTESCOS EN UN DATA GRID ...........
 
-
+        //BOTON VER PARENTESCOS
         private void btnVerParentescos_Click(object sender, EventArgs e)
         {
             //formulario parentesco actual
@@ -654,6 +655,7 @@ namespace CapaPresentacion
 
             this.CargarDataGridParentescos();
         }
+        //FIN VER´PARENTESCOS....................................................
 
         private void dtgvParentescos_KeyDown(object sender, KeyEventArgs e)
         {
@@ -781,7 +783,55 @@ namespace CapaPresentacion
         //REGION NOVEDADES
         #region Novedades
 
+        //VER NOVEDADES
+        private void btnVerNovedades_Click(object sender, EventArgs e)
+        {
+            this.CargarDataGridNovedades();
 
+        }
+        //FIN VER NOVEDADES................................
+
+        //METODO PARA OBTENER LA LISTA DE NOVEDADES Y CARGARLO EN UN DATA GRID
+        async private void CargarDataGridNovedades()
+        {
+            NNovedadCiudadano nNovedadCiudadano = new NNovedadCiudadano();
+
+            (List<DNovedadCiudadano> listaNovedades, string errorResponse) = await nNovedadCiudadano.RetornarListaNovedadesCiudadano(this.dCiudadano.id_ciudadano);
+
+            if (listaNovedades == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var datosfiltrados = listaNovedades
+                .Select(c => new
+                {
+                    Id = c.id_novedad_ciudadano,
+                    Novedad = c.novedad,
+                    Detalle = c.novedad_detalle,
+                    FechaNovedad = c.fecha_novedad,
+                    Organismo = c.organismo.organismo,
+                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
+
+                })
+                .ToList();
+
+            dtgvNovedades.DataSource = datosfiltrados;
+
+            if (listaNovedades.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                
+                dtgvNovedades.Columns[1].Width = 200;
+                dtgvNovedades.Columns[2].Width = 400;
+            }
+        }
+        //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ...........
 
         #endregion
 

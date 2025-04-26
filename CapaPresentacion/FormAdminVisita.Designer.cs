@@ -143,7 +143,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.dgvNovedades = new System.Windows.Forms.DataGridView();
+            this.dtgvNovedades = new System.Windows.Forms.DataGridView();
             this.btnVerNovedades = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.tabVisita.SuspendLayout();
@@ -164,7 +164,7 @@
             this.tabSabana.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabNovedades.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNovedades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).BeginInit();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -1378,7 +1378,7 @@
             this.tabNovedades.Controls.Add(this.label22);
             this.tabNovedades.Controls.Add(this.textBox1);
             this.tabNovedades.Controls.Add(this.label23);
-            this.tabNovedades.Controls.Add(this.dgvNovedades);
+            this.tabNovedades.Controls.Add(this.dtgvNovedades);
             this.tabNovedades.Controls.Add(this.btnVerNovedades);
             this.tabNovedades.Location = new System.Drawing.Point(4, 25);
             this.tabNovedades.Name = "tabNovedades";
@@ -1473,23 +1473,28 @@
             this.label23.TabIndex = 52;
             this.label23.Text = "DETALLE:";
             // 
-            // dgvNovedades
+            // dtgvNovedades
             // 
-            this.dgvNovedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNovedades.Location = new System.Drawing.Point(17, 241);
-            this.dgvNovedades.Name = "dgvNovedades";
-            this.dgvNovedades.Size = new System.Drawing.Size(756, 269);
-            this.dgvNovedades.TabIndex = 49;
+            this.dtgvNovedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvNovedades.Location = new System.Drawing.Point(17, 241);
+            this.dtgvNovedades.Name = "dtgvNovedades";
+            this.dtgvNovedades.Size = new System.Drawing.Size(1035, 269);
+            this.dtgvNovedades.TabIndex = 49;
             // 
             // btnVerNovedades
             // 
-            this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerNovedades.Location = new System.Drawing.Point(17, 196);
+            this.btnVerNovedades.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerNovedades.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerNovedades.ForeColor = System.Drawing.Color.White;
+            this.btnVerNovedades.Location = new System.Drawing.Point(17, 188);
             this.btnVerNovedades.Name = "btnVerNovedades";
-            this.btnVerNovedades.Size = new System.Drawing.Size(134, 39);
+            this.btnVerNovedades.Size = new System.Drawing.Size(141, 45);
             this.btnVerNovedades.TabIndex = 48;
             this.btnVerNovedades.Text = "Ver novedades";
-            this.btnVerNovedades.UseVisualStyleBackColor = true;
+            this.btnVerNovedades.UseVisualStyleBackColor = false;
+            this.btnVerNovedades.Click += new System.EventHandler(this.btnVerNovedades_Click);
             // 
             // label28
             // 
@@ -1541,7 +1546,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabNovedades.ResumeLayout(false);
             this.tabNovedades.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNovedades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1605,7 +1610,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DataGridView dgvNovedades;
+        private System.Windows.Forms.DataGridView dtgvNovedades;
         private System.Windows.Forms.Button btnVerNovedades;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label21;

@@ -22,6 +22,7 @@ namespace DAOImplement
             throw new NotImplementedException();
         }
 
+        //LISTA DE NOVEDADES POR CIUDADANO
         public async Task<(List<DNovedadCiudadano>, string error)> RetornarNovedadesCiudadanoXCiudadano(int idCiudadano)
         {
             List<DNovedadCiudadano> listaNovedades = new List<DNovedadCiudadano>();
@@ -63,5 +64,7 @@ namespace DAOImplement
             }
 
         }
+        
+        // FIN LISTA DE NOVEDADES POR CIUDADANO.................
     }
 }
