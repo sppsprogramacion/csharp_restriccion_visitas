@@ -94,9 +94,9 @@
             this.txtContrasenia.Location = new System.Drawing.Point(248, 211);
             this.txtContrasenia.Multiline = true;
             this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(195, 30);
             this.txtContrasenia.TabIndex = 3;
-            this.txtContrasenia.UseSystemPasswordChar = true;
             // 
             // btnCerrarSistema
             // 

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -301,26 +302,29 @@ namespace DAOImplement
         async public Task<(List<DProhibicionVisita>, string error)> RetornarProhibicionesVisitaXCiudadano(int idCiudadano)
         {
             List<DProhibicionVisita> listaProhibiciones = new List<DProhibicionVisita>();
+            string token = SessionManager.Token; // Aquí pones tu token real
 
             try
             {
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/prohibiciones-visita/buscar-xciudadano?id_ciudadano=" + idCiudadano);
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var content = await httpResponse.Content.ReadAsStringAsync();
-                        listaProhibiciones = JsonConvert.DeserializeObject<List<DProhibicionVisita>>(content);
-                        return (listaProhibiciones, null);
-                    }
-                    else
-                    {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                        return (null, $"Error en la busqueda: {mensaje}");
-                    }
+                
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/prohibiciones-visita/buscar-xciudadano?id_ciudadano=" + idCiudadano);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaProhibiciones = JsonConvert.DeserializeObject<List<DProhibicionVisita>>(content);
+                    return (listaProhibiciones, null);
                 }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
+                
             }
             catch (HttpRequestException httpRequestException)
             {

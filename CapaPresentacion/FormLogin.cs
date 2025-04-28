@@ -26,6 +26,13 @@ namespace CapaPresentacion
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            txtUsuario.Multiline = true;
+            txtUsuario.ScrollBars = ScrollBars.None;
+            txtUsuario.TextAlign = HorizontalAlignment.Left;
+            txtUsuario.Padding = new Padding(20, 20, 20, 0); // Ajusta para que se vea bien
+            txtContrasenia.PasswordChar = '●';
+            txtContrasenia.TextAlign = HorizontalAlignment.Left;
+            txtContrasenia.Padding = new Padding(15, 15, 15, 15); // Ajusta para que se vea bien
 
         }
 
