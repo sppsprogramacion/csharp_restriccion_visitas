@@ -12,16 +12,7 @@ namespace CapaNegocio
 {
     public class NVisitaInterno
     {
-        //CAMBIAR PARENTESCO
-        public async Task<(bool, string error)> CambiarParentesco(int id, string prohibicioVisita)
-        {
-            IVisitaInternoDao visitaInternoDao = new VisitaInternoDaoImpl();
-
-            (bool visitaInternoResponse, string error) = await visitaInternoDao.CambiarParentesco(id, prohibicioVisita);
-
-            return (visitaInternoResponse, error); ;
-        }
-        //FIN CAMBIAR PARENTESCO..................................
+        
 
         //RETORNAR PARENTESCOS POR CIUDADANO
         public async Task<List<DVisitaInterno>> RetornarListaParentescos(int idCiudadano)
@@ -34,5 +25,27 @@ namespace CapaNegocio
             return listaParentescos;
         }
         //FIN RETORNAR PARENTESCOS POR CIUDADANO..................................
+
+        //CAMBIAR PARENTESCO
+        public async Task<(bool, string error)> CambiarParentesco(int id, string prohibicioVisita)
+        {
+            IVisitaInternoDao visitaInternoDao = new VisitaInternoDaoImpl();
+
+            (bool visitaInternoResponse, string error) = await visitaInternoDao.CambiarParentesco(id, prohibicioVisita);
+
+            return (visitaInternoResponse, error); ;
+        }
+        //FIN CAMBIAR PARENTESCO..................................
+
+        //PROHIBIR PARENTESCO
+        public async Task<(bool, string error)> ProhibirParentesco(int id, string prohibicionParentesco)
+        {
+            IVisitaInternoDao visitaInternoDao = new VisitaInternoDaoImpl();
+
+            (bool visitaInternoResponse, string error) = await visitaInternoDao.ProhibirParentesco(id, prohibicionParentesco);
+
+            return (visitaInternoResponse, error); ;
+        }
+        //FIN PROHIBIR PARENTESCO..................................
     }
 }

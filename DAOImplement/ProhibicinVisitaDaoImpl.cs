@@ -308,8 +308,7 @@ namespace DAOImplement
             {
                 // Agregar el token en los headers
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-                
+                                
                 HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/prohibiciones-visita/buscar-xciudadano?id_ciudadano=" + idCiudadano);
 
                 if (httpResponse.IsSuccessStatusCode)

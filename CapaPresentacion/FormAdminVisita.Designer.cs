@@ -107,8 +107,12 @@
             this.dtgvHistorialProhibicion = new System.Windows.Forms.DataGridView();
             this.btnVerProhibiciones = new System.Windows.Forms.Button();
             this.tabVinculos = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.dtgvParentescos = new System.Windows.Forms.DataGridView();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btnAnularParent = new System.Windows.Forms.Button();
+            this.btnCancelarAnularPar = new System.Windows.Forms.Button();
+            this.btnGuardarAnularPar = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txtDetalleAnularParentesco = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnModificarParentesco = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
@@ -117,6 +121,19 @@
             this.cmbParentescos = new System.Windows.Forms.ComboBox();
             this.btnGuardarModificarParentesco = new System.Windows.Forms.Button();
             this.btnCancelarModificarParentesco = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dtpFechaFinProhibirParentesco = new System.Windows.Forms.DateTimePicker();
+            this.btnLevantarProhibirParent = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.btnProhibirParent = new System.Windows.Forms.Button();
+            this.btnCancelarPohibPar = new System.Windows.Forms.Button();
+            this.btnGuardarPohibPar = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txtDetalleProhibirParentesco = new System.Windows.Forms.TextBox();
+            this.dtpFechaIniProhibirParentesco = new System.Windows.Forms.DateTimePicker();
+            this.label32 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.dtgvParentescos = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtParentesco = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
@@ -146,15 +163,6 @@
             this.dtgvNovedades = new System.Windows.Forms.DataGridView();
             this.btnVerNovedades = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label31 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.label32 = new System.Windows.Forms.Label();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -166,15 +174,16 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).BeginInit();
             this.tabVinculos.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).BeginInit();
-            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabSabana.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabNovedades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).BeginInit();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -185,7 +194,7 @@
             this.tabVisita.Controls.Add(this.tabSabana);
             this.tabVisita.Controls.Add(this.tabNovedades);
             this.tabVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabVisita.Location = new System.Drawing.Point(2, 43);
+            this.tabVisita.Location = new System.Drawing.Point(2, 53);
             this.tabVisita.Name = "tabVisita";
             this.tabVisita.SelectedIndex = 0;
             this.tabVisita.Size = new System.Drawing.Size(1080, 844);
@@ -1073,9 +1082,10 @@
             // 
             // tabVinculos
             // 
+            this.tabVinculos.Controls.Add(this.groupBox9);
+            this.tabVinculos.Controls.Add(this.groupBox6);
             this.tabVinculos.Controls.Add(this.groupBox8);
             this.tabVinculos.Controls.Add(this.groupBox7);
-            this.tabVinculos.Controls.Add(this.groupBox6);
             this.tabVinculos.Controls.Add(this.groupBox5);
             this.tabVinculos.Controls.Add(this.btnVerParentescos);
             this.tabVinculos.Location = new System.Drawing.Point(4, 25);
@@ -1085,6 +1095,327 @@
             this.tabVinculos.TabIndex = 2;
             this.tabVinculos.Text = "Vinculos";
             this.tabVinculos.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.btnAnularParent);
+            this.groupBox9.Controls.Add(this.btnCancelarAnularPar);
+            this.groupBox9.Controls.Add(this.btnGuardarAnularPar);
+            this.groupBox9.Controls.Add(this.label42);
+            this.groupBox9.Controls.Add(this.txtDetalleAnularParentesco);
+            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox9.Location = new System.Drawing.Point(317, 388);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(294, 279);
+            this.groupBox9.TabIndex = 94;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Anular parentesco";
+            // 
+            // btnAnularParent
+            // 
+            this.btnAnularParent.BackColor = System.Drawing.Color.Indigo;
+            this.btnAnularParent.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAnularParent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnularParent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularParent.ForeColor = System.Drawing.Color.White;
+            this.btnAnularParent.Location = new System.Drawing.Point(8, 20);
+            this.btnAnularParent.Name = "btnAnularParent";
+            this.btnAnularParent.Size = new System.Drawing.Size(93, 37);
+            this.btnAnularParent.TabIndex = 83;
+            this.btnAnularParent.Text = "ANULAR";
+            this.btnAnularParent.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelarAnularPar
+            // 
+            this.btnCancelarAnularPar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarAnularPar.Enabled = false;
+            this.btnCancelarAnularPar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarAnularPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarAnularPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarAnularPar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarAnularPar.Location = new System.Drawing.Point(109, 225);
+            this.btnCancelarAnularPar.Name = "btnCancelarAnularPar";
+            this.btnCancelarAnularPar.Size = new System.Drawing.Size(98, 40);
+            this.btnCancelarAnularPar.TabIndex = 80;
+            this.btnCancelarAnularPar.Text = "CANCELAR";
+            this.btnCancelarAnularPar.UseVisualStyleBackColor = false;
+            // 
+            // btnGuardarAnularPar
+            // 
+            this.btnGuardarAnularPar.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarAnularPar.Enabled = false;
+            this.btnGuardarAnularPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarAnularPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarAnularPar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarAnularPar.Location = new System.Drawing.Point(8, 225);
+            this.btnGuardarAnularPar.Name = "btnGuardarAnularPar";
+            this.btnGuardarAnularPar.Size = new System.Drawing.Size(98, 40);
+            this.btnGuardarAnularPar.TabIndex = 79;
+            this.btnGuardarAnularPar.Text = "GUARDAR";
+            this.btnGuardarAnularPar.UseVisualStyleBackColor = false;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(5, 122);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(70, 16);
+            this.label42.TabIndex = 78;
+            this.label42.Text = "DETALLE:";
+            // 
+            // txtDetalleAnularParentesco
+            // 
+            this.txtDetalleAnularParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetalleAnularParentesco.Enabled = false;
+            this.txtDetalleAnularParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleAnularParentesco.Location = new System.Drawing.Point(8, 141);
+            this.txtDetalleAnularParentesco.Multiline = true;
+            this.txtDetalleAnularParentesco.Name = "txtDetalleAnularParentesco";
+            this.txtDetalleAnularParentesco.Size = new System.Drawing.Size(274, 67);
+            this.txtDetalleAnularParentesco.TabIndex = 77;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btnModificarParentesco);
+            this.groupBox6.Controls.Add(this.label41);
+            this.groupBox6.Controls.Add(this.txtMotivoModificarParentesco);
+            this.groupBox6.Controls.Add(this.label40);
+            this.groupBox6.Controls.Add(this.cmbParentescos);
+            this.groupBox6.Controls.Add(this.btnGuardarModificarParentesco);
+            this.groupBox6.Controls.Add(this.btnCancelarModificarParentesco);
+            this.groupBox6.Location = new System.Drawing.Point(619, 388);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(433, 275);
+            this.groupBox6.TabIndex = 80;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Modificar parentesco";
+            // 
+            // btnModificarParentesco
+            // 
+            this.btnModificarParentesco.BackColor = System.Drawing.Color.Indigo;
+            this.btnModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnModificarParentesco.Location = new System.Drawing.Point(325, 44);
+            this.btnModificarParentesco.Name = "btnModificarParentesco";
+            this.btnModificarParentesco.Size = new System.Drawing.Size(100, 45);
+            this.btnModificarParentesco.TabIndex = 76;
+            this.btnModificarParentesco.Text = "MODIFICAR";
+            this.btnModificarParentesco.UseVisualStyleBackColor = false;
+            this.btnModificarParentesco.Click += new System.EventHandler(this.btnModificarParentesco_Click);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(8, 76);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(62, 16);
+            this.label41.TabIndex = 75;
+            this.label41.Text = "MOTIVO:";
+            // 
+            // txtMotivoModificarParentesco
+            // 
+            this.txtMotivoModificarParentesco.Enabled = false;
+            this.txtMotivoModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotivoModificarParentesco.Location = new System.Drawing.Point(11, 95);
+            this.txtMotivoModificarParentesco.Multiline = true;
+            this.txtMotivoModificarParentesco.Name = "txtMotivoModificarParentesco";
+            this.txtMotivoModificarParentesco.Size = new System.Drawing.Size(301, 113);
+            this.txtMotivoModificarParentesco.TabIndex = 74;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(8, 27);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(112, 16);
+            this.label40.TabIndex = 73;
+            this.label40.Text = "PARENTESCOS:";
+            // 
+            // cmbParentescos
+            // 
+            this.cmbParentescos.Enabled = false;
+            this.cmbParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbParentescos.FormattingEnabled = true;
+            this.cmbParentescos.Location = new System.Drawing.Point(11, 46);
+            this.cmbParentescos.Name = "cmbParentescos";
+            this.cmbParentescos.Size = new System.Drawing.Size(250, 24);
+            this.cmbParentescos.TabIndex = 71;
+            // 
+            // btnGuardarModificarParentesco
+            // 
+            this.btnGuardarModificarParentesco.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarModificarParentesco.Enabled = false;
+            this.btnGuardarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarModificarParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarModificarParentesco.Location = new System.Drawing.Point(325, 96);
+            this.btnGuardarModificarParentesco.Name = "btnGuardarModificarParentesco";
+            this.btnGuardarModificarParentesco.Size = new System.Drawing.Size(100, 45);
+            this.btnGuardarModificarParentesco.TabIndex = 70;
+            this.btnGuardarModificarParentesco.Text = "GUARDAR";
+            this.btnGuardarModificarParentesco.UseVisualStyleBackColor = false;
+            this.btnGuardarModificarParentesco.Click += new System.EventHandler(this.btnGuardarModificarParentesco_Click);
+            // 
+            // btnCancelarModificarParentesco
+            // 
+            this.btnCancelarModificarParentesco.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarModificarParentesco.Enabled = false;
+            this.btnCancelarModificarParentesco.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarModificarParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarModificarParentesco.Location = new System.Drawing.Point(325, 146);
+            this.btnCancelarModificarParentesco.Name = "btnCancelarModificarParentesco";
+            this.btnCancelarModificarParentesco.Size = new System.Drawing.Size(100, 45);
+            this.btnCancelarModificarParentesco.TabIndex = 69;
+            this.btnCancelarModificarParentesco.Text = "CANCELAR";
+            this.btnCancelarModificarParentesco.UseVisualStyleBackColor = false;
+            this.btnCancelarModificarParentesco.Click += new System.EventHandler(this.btnCancelarModificarParentesco_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dtpFechaFinProhibirParentesco);
+            this.groupBox8.Controls.Add(this.btnLevantarProhibirParent);
+            this.groupBox8.Controls.Add(this.label44);
+            this.groupBox8.Controls.Add(this.btnProhibirParent);
+            this.groupBox8.Controls.Add(this.btnCancelarPohibPar);
+            this.groupBox8.Controls.Add(this.btnGuardarPohibPar);
+            this.groupBox8.Controls.Add(this.label31);
+            this.groupBox8.Controls.Add(this.txtDetalleProhibirParentesco);
+            this.groupBox8.Controls.Add(this.dtpFechaIniProhibirParentesco);
+            this.groupBox8.Controls.Add(this.label32);
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(13, 388);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(294, 279);
+            this.groupBox8.TabIndex = 93;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Prohibir parentesco / Levantar";
+            // 
+            // dtpFechaFinProhibirParentesco
+            // 
+            this.dtpFechaFinProhibirParentesco.Enabled = false;
+            this.dtpFechaFinProhibirParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFinProhibirParentesco.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFinProhibirParentesco.Location = new System.Drawing.Point(140, 87);
+            this.dtpFechaFinProhibirParentesco.Name = "dtpFechaFinProhibirParentesco";
+            this.dtpFechaFinProhibirParentesco.Size = new System.Drawing.Size(115, 22);
+            this.dtpFechaFinProhibirParentesco.TabIndex = 82;
+            // 
+            // btnLevantarProhibirParent
+            // 
+            this.btnLevantarProhibirParent.BackColor = System.Drawing.Color.Indigo;
+            this.btnLevantarProhibirParent.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLevantarProhibirParent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLevantarProhibirParent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLevantarProhibirParent.ForeColor = System.Drawing.Color.White;
+            this.btnLevantarProhibirParent.Location = new System.Drawing.Point(124, 20);
+            this.btnLevantarProhibirParent.Name = "btnLevantarProhibirParent";
+            this.btnLevantarProhibirParent.Size = new System.Drawing.Size(101, 37);
+            this.btnLevantarProhibirParent.TabIndex = 81;
+            this.btnLevantarProhibirParent.Text = "LEVANTAR";
+            this.btnLevantarProhibirParent.UseVisualStyleBackColor = false;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(137, 68);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(79, 16);
+            this.label44.TabIndex = 83;
+            this.label44.Text = "FECHA FIN:";
+            // 
+            // btnProhibirParent
+            // 
+            this.btnProhibirParent.BackColor = System.Drawing.Color.Indigo;
+            this.btnProhibirParent.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnProhibirParent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProhibirParent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProhibirParent.ForeColor = System.Drawing.Color.White;
+            this.btnProhibirParent.Location = new System.Drawing.Point(8, 20);
+            this.btnProhibirParent.Name = "btnProhibirParent";
+            this.btnProhibirParent.Size = new System.Drawing.Size(101, 37);
+            this.btnProhibirParent.TabIndex = 81;
+            this.btnProhibirParent.Text = "PROHIBIR";
+            this.btnProhibirParent.UseVisualStyleBackColor = false;
+            this.btnProhibirParent.Click += new System.EventHandler(this.btnProhibirParent_Click);
+            // 
+            // btnCancelarPohibPar
+            // 
+            this.btnCancelarPohibPar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarPohibPar.Enabled = false;
+            this.btnCancelarPohibPar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarPohibPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarPohibPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarPohibPar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarPohibPar.Location = new System.Drawing.Point(109, 225);
+            this.btnCancelarPohibPar.Name = "btnCancelarPohibPar";
+            this.btnCancelarPohibPar.Size = new System.Drawing.Size(98, 40);
+            this.btnCancelarPohibPar.TabIndex = 80;
+            this.btnCancelarPohibPar.Text = "CANCELAR";
+            this.btnCancelarPohibPar.UseVisualStyleBackColor = false;
+            this.btnCancelarPohibPar.Click += new System.EventHandler(this.btnCancelarPohibPar_Click);
+            // 
+            // btnGuardarPohibPar
+            // 
+            this.btnGuardarPohibPar.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarPohibPar.Enabled = false;
+            this.btnGuardarPohibPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarPohibPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarPohibPar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarPohibPar.Location = new System.Drawing.Point(8, 225);
+            this.btnGuardarPohibPar.Name = "btnGuardarPohibPar";
+            this.btnGuardarPohibPar.Size = new System.Drawing.Size(98, 40);
+            this.btnGuardarPohibPar.TabIndex = 79;
+            this.btnGuardarPohibPar.Text = "GUARDAR";
+            this.btnGuardarPohibPar.UseVisualStyleBackColor = false;
+            this.btnGuardarPohibPar.Click += new System.EventHandler(this.btnGuardarPohibPar_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(5, 122);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(70, 16);
+            this.label31.TabIndex = 78;
+            this.label31.Text = "DETALLE:";
+            // 
+            // txtDetalleProhibirParentesco
+            // 
+            this.txtDetalleProhibirParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetalleProhibirParentesco.Enabled = false;
+            this.txtDetalleProhibirParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleProhibirParentesco.Location = new System.Drawing.Point(8, 141);
+            this.txtDetalleProhibirParentesco.Multiline = true;
+            this.txtDetalleProhibirParentesco.Name = "txtDetalleProhibirParentesco";
+            this.txtDetalleProhibirParentesco.Size = new System.Drawing.Size(274, 67);
+            this.txtDetalleProhibirParentesco.TabIndex = 77;
+            // 
+            // dtpFechaIniProhibirParentesco
+            // 
+            this.dtpFechaIniProhibirParentesco.Enabled = false;
+            this.dtpFechaIniProhibirParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaIniProhibirParentesco.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaIniProhibirParentesco.Location = new System.Drawing.Point(8, 87);
+            this.dtpFechaIniProhibirParentesco.Name = "dtpFechaIniProhibirParentesco";
+            this.dtpFechaIniProhibirParentesco.Size = new System.Drawing.Size(115, 22);
+            this.dtpFechaIniProhibirParentesco.TabIndex = 43;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(5, 68);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(96, 16);
+            this.label32.TabIndex = 44;
+            this.label32.Text = "FECHA INICIO:";
             // 
             // groupBox7
             // 
@@ -1106,107 +1437,6 @@
             this.dtgvParentescos.Size = new System.Drawing.Size(959, 171);
             this.dtgvParentescos.TabIndex = 63;
             this.dtgvParentescos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvParentescos_KeyDown);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.btnModificarParentesco);
-            this.groupBox6.Controls.Add(this.label41);
-            this.groupBox6.Controls.Add(this.txtMotivoModificarParentesco);
-            this.groupBox6.Controls.Add(this.label40);
-            this.groupBox6.Controls.Add(this.cmbParentescos);
-            this.groupBox6.Controls.Add(this.btnGuardarModificarParentesco);
-            this.groupBox6.Controls.Add(this.btnCancelarModificarParentesco);
-            this.groupBox6.Location = new System.Drawing.Point(486, 392);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(569, 193);
-            this.groupBox6.TabIndex = 80;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Modificar parentesco";
-            // 
-            // btnModificarParentesco
-            // 
-            this.btnModificarParentesco.BackColor = System.Drawing.Color.Indigo;
-            this.btnModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnModificarParentesco.Location = new System.Drawing.Point(460, 26);
-            this.btnModificarParentesco.Name = "btnModificarParentesco";
-            this.btnModificarParentesco.Size = new System.Drawing.Size(100, 45);
-            this.btnModificarParentesco.TabIndex = 76;
-            this.btnModificarParentesco.Text = "MODIFICAR";
-            this.btnModificarParentesco.UseVisualStyleBackColor = false;
-            this.btnModificarParentesco.Click += new System.EventHandler(this.btnModificarParentesco_Click);
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(6, 76);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(62, 16);
-            this.label41.TabIndex = 75;
-            this.label41.Text = "MOTIVO:";
-            // 
-            // txtMotivoModificarParentesco
-            // 
-            this.txtMotivoModificarParentesco.Enabled = false;
-            this.txtMotivoModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotivoModificarParentesco.Location = new System.Drawing.Point(9, 95);
-            this.txtMotivoModificarParentesco.Multiline = true;
-            this.txtMotivoModificarParentesco.Name = "txtMotivoModificarParentesco";
-            this.txtMotivoModificarParentesco.Size = new System.Drawing.Size(433, 74);
-            this.txtMotivoModificarParentesco.TabIndex = 74;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(6, 27);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(112, 16);
-            this.label40.TabIndex = 73;
-            this.label40.Text = "PARENTESCOS:";
-            // 
-            // cmbParentescos
-            // 
-            this.cmbParentescos.Enabled = false;
-            this.cmbParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbParentescos.FormattingEnabled = true;
-            this.cmbParentescos.Location = new System.Drawing.Point(9, 46);
-            this.cmbParentescos.Name = "cmbParentescos";
-            this.cmbParentescos.Size = new System.Drawing.Size(250, 24);
-            this.cmbParentescos.TabIndex = 71;
-            // 
-            // btnGuardarModificarParentesco
-            // 
-            this.btnGuardarModificarParentesco.BackColor = System.Drawing.Color.Green;
-            this.btnGuardarModificarParentesco.Enabled = false;
-            this.btnGuardarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarModificarParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarModificarParentesco.Location = new System.Drawing.Point(460, 78);
-            this.btnGuardarModificarParentesco.Name = "btnGuardarModificarParentesco";
-            this.btnGuardarModificarParentesco.Size = new System.Drawing.Size(100, 45);
-            this.btnGuardarModificarParentesco.TabIndex = 70;
-            this.btnGuardarModificarParentesco.Text = "GUARDAR";
-            this.btnGuardarModificarParentesco.UseVisualStyleBackColor = false;
-            this.btnGuardarModificarParentesco.Click += new System.EventHandler(this.btnGuardarModificarParentesco_Click);
-            // 
-            // btnCancelarModificarParentesco
-            // 
-            this.btnCancelarModificarParentesco.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCancelarModificarParentesco.Enabled = false;
-            this.btnCancelarModificarParentesco.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnCancelarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarModificarParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarModificarParentesco.Location = new System.Drawing.Point(460, 128);
-            this.btnCancelarModificarParentesco.Name = "btnCancelarModificarParentesco";
-            this.btnCancelarModificarParentesco.Size = new System.Drawing.Size(100, 45);
-            this.btnCancelarModificarParentesco.TabIndex = 69;
-            this.btnCancelarModificarParentesco.Text = "CANCELAR";
-            this.btnCancelarModificarParentesco.UseVisualStyleBackColor = false;
-            this.btnCancelarModificarParentesco.Click += new System.EventHandler(this.btnCancelarModificarParentesco_Click);
             // 
             // groupBox5
             // 
@@ -1519,122 +1749,6 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.button5);
-            this.groupBox8.Controls.Add(this.button6);
-            this.groupBox8.Controls.Add(this.button7);
-            this.groupBox8.Controls.Add(this.button8);
-            this.groupBox8.Controls.Add(this.label31);
-            this.groupBox8.Controls.Add(this.textBox3);
-            this.groupBox8.Controls.Add(this.dateTimePicker4);
-            this.groupBox8.Controls.Add(this.label32);
-            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(13, 388);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(383, 279);
-            this.groupBox8.TabIndex = 93;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Levantar / Anular";
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Indigo;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(116, 20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(93, 37);
-            this.button5.TabIndex = 83;
-            this.button5.Text = "ANULAR";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Indigo;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(8, 21);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(101, 37);
-            this.button6.TabIndex = 81;
-            this.button6.Text = "LEVANTAR";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.DarkOrange;
-            this.button7.Enabled = false;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(109, 225);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(98, 40);
-            this.button7.TabIndex = 80;
-            this.button7.Text = "CANCELAR";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Green;
-            this.button8.Enabled = false;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(8, 225);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(98, 40);
-            this.button8.TabIndex = 79;
-            this.button8.Text = "GUARDAR";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(5, 122);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(62, 16);
-            this.label31.TabIndex = 78;
-            this.label31.Text = "MOTIVO:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(8, 141);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(274, 67);
-            this.textBox3.TabIndex = 77;
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Enabled = false;
-            this.dateTimePicker4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(8, 87);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(115, 22);
-            this.dateTimePicker4.TabIndex = 43;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(5, 68);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(79, 16);
-            this.label32.TabIndex = 44;
-            this.label32.Text = "FECHA FIN:";
-            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1662,10 +1776,14 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).EndInit();
             this.tabVinculos.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).EndInit();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.tabSabana.ResumeLayout(false);
@@ -1674,8 +1792,6 @@
             this.tabNovedades.ResumeLayout(false);
             this.tabNovedades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1801,13 +1917,21 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnProhibirParent;
+        private System.Windows.Forms.Button btnCancelarPohibPar;
+        private System.Windows.Forms.Button btnGuardarPohibPar;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.TextBox txtDetalleProhibirParentesco;
+        private System.Windows.Forms.DateTimePicker dtpFechaIniProhibirParentesco;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Button btnAnularParent;
+        private System.Windows.Forms.Button btnLevantarProhibirParent;
+        private System.Windows.Forms.Button btnCancelarAnularPar;
+        private System.Windows.Forms.Button btnGuardarAnularPar;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox txtDetalleAnularParentesco;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinProhibirParentesco;
+        private System.Windows.Forms.Label label44;
     }
 }

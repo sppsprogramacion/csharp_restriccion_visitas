@@ -23,7 +23,7 @@ namespace CapaPresentacion
         private ErrorProvider errorProvider = new ErrorProvider();
         //la accion puede ser prohibir, levantar o quitar
         string accionProhibir = "";
-        
+        string accionProhibirParentesco = "";
 
         public FormAdminVisita()
         {
@@ -657,6 +657,95 @@ namespace CapaPresentacion
         }
         //FIN VER´PARENTESCOS....................................................
 
+        //BOTON PROHIBIR PARENTESCO
+        private void btnProhibirParent_Click(object sender, EventArgs e)
+        {
+            if (txtIdVisitaInterno.Text == null || txtIdVisitaInterno.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un parentesco", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            this.accionProhibirParentesco = "prohibir";
+
+            //habilitar controles
+            dtpFechaIniProhibirParentesco.Enabled = true;
+            dtpFechaFinProhibirParentesco.Enabled = true;
+            txtDetalleProhibirParentesco.Enabled = true;
+            btnProhibirParent.Enabled = false;
+            btnLevantarProhibirParent.Enabled = false;
+            btnGuardarPohibPar.Enabled = true;
+            btnCancelarPohibPar.Enabled = true;
+
+        }
+        //FIN BOTON PROHIBIR PARENTESCO
+
+
+        //BOTON GUARDAR PROHIBIR PARENTESCO
+        private async void btnGuardarPohibPar_Click(object sender, EventArgs e)
+        {
+            NVisitaInterno nVisitaInterno = new NVisitaInterno();
+
+            var data = new
+            {
+                fecha_inicio = dtpFechaIniProhibirParentesco.Value,
+                fecha_fin = dtpFechaFinProhibirParentesco.Value,
+                detalles_prohibicion = txtDetalleProhibirParentesco.Text,
+            };
+
+            string dataEnviar = JsonConvert.SerializeObject(data);
+
+
+            bool respuestaOk = false;
+            string mensajeRespuesta = "";
+
+            //determinar cual es la accion a realizar con la prohibicion
+            //usar el respectivo metodo
+
+            if (this.accionProhibirParentesco == "prohibir")
+            {
+                (bool respuestaEditar, string errorResponse) = await nVisitaInterno.ProhibirParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataEnviar);
+
+                if (respuestaEditar)
+                {
+                    respuestaOk = true;
+                    mensajeRespuesta = "El parentesco se prohibió correctamente";
+                }
+                else
+                {
+                    mensajeRespuesta = errorResponse;
+                }
+            }
+
+            //verificar respuesta de la peticion
+            if (respuestaOk)
+            {
+
+                MessageBox.Show(mensajeRespuesta, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mensajeRespuesta = "";
+
+                //INICIALIZACION CONTROLES LEVANTAMIENTO                        
+                
+
+                //INICIALIZACION DE CONTROLES PROHIBICION
+                //this.LimpiarControles();
+                //this.HabilitarControles(false);
+
+                //cargar lista de prhibiciones en datagrid
+                this.CargarDataGridParentescos();
+
+                //btnNuevo.Enabled = true;
+                //btnEditar.Enabled = true;
+                //btnGuardar.Enabled = false;
+                //btnCancelar.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show(mensajeRespuesta, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //FIN BOTON GUARDAR PROHIBIR PARENTESCO.........................................
+
         private void dtgvParentescos_KeyDown(object sender, KeyEventArgs e)
         {
             //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
@@ -830,6 +919,21 @@ namespace CapaPresentacion
                 dtgvNovedades.Columns[1].Width = 200;
                 dtgvNovedades.Columns[2].Width = 400;
             }
+        }
+
+        private void btnCancelarPohibPar_Click(object sender, EventArgs e)
+        {
+            this.accionProhibirParentesco = "";
+
+            //deshabilitar controles
+            dtpFechaIniProhibirParentesco.Enabled = false;
+            dtpFechaFinProhibirParentesco.Enabled = false;
+            txtDetalleProhibirParentesco.Enabled = false;
+            txtDetalleProhibirParentesco.Text = "";
+            btnProhibirParent.Enabled = true;
+            btnLevantarProhibirParent.Enabled = true;
+            btnGuardarPohibPar.Enabled = false;
+            btnCancelarPohibPar.Enabled = false;
         }
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ...........
 
