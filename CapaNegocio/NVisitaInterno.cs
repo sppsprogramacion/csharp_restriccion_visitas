@@ -47,5 +47,16 @@ namespace CapaNegocio
             return (visitaInternoResponse, error); ;
         }
         //FIN PROHIBIR PARENTESCO..................................
+
+        //LEVANTAR PROHIBICION PARENTESCO
+        public async Task<(bool, string error)> LevantarProhibicionParentesco(int id, string dataLevantar)
+        {
+            IVisitaInternoDao visitaInternoDao = new VisitaInternoDaoImpl();
+
+            (bool visitaInternoResponse, string error) = await visitaInternoDao.LevantarProhibicionParentesco(id, dataLevantar);
+
+            return (visitaInternoResponse, error); ;
+        }
+        //FIN LEVANTAR PROHIBICION PARENTESCO..................................
     }
 }
