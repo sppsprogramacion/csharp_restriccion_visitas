@@ -1038,6 +1038,62 @@ namespace CapaPresentacion
 
         }
 
+        private void btnNuevaNovedad_Click(object sender, EventArgs e)
+        {
+            txtNuevaNovedad.Enabled = true;
+            btnNuevaNovedad.Enabled = false;
+            btnGuardarNovedad.Enabled = true;
+            btnCancelarNovedad.Enabled = true;
+        }
+
+        private void btnCancelarNovedad_Click(object sender, EventArgs e)
+        {
+            txtNuevaNovedad.Enabled = false;
+            txtNuevaNovedad.Text = "";
+            btnNuevaNovedad.Enabled = true;
+            btnGuardarNovedad.Enabled = false;
+            btnCancelarNovedad.Enabled = false;
+        }
+
+        private async void btnGuardarNovedad_Click(object sender, EventArgs e)
+        {
+            NNovedadCiudadano nNovedadCiudadano = new NNovedadCiudadano();
+
+            bool respuestaOk = false;
+            string mensajeRespuesta = "";
+
+            
+            var data = new
+            {
+                ciudadano_id = Convert.ToInt32(txtIdCiudadano.Text),
+                novedad_detalle = txtNuevaNovedad.Text,
+            };
+
+            string dataNovedad = JsonConvert.SerializeObject(data);
+
+            (DNovedadCiudadano respuestaNovedad, string errorResponse) = await nNovedadCiudadano.CrearNovedad(dataNovedad);
+
+            if (respuestaNovedad != null)
+            {
+                MessageBox.Show("La novedad se guardo correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtNuevaNovedad.Enabled = false;
+                txtNuevaNovedad.Text = "";
+                btnNuevaNovedad.Enabled = true;
+                btnGuardarNovedad.Enabled = false;
+                btnCancelarNovedad.Enabled = false;
+
+                //cargar lista de ciudadanos en datagrid
+                this.CargarDataGridNovedades();
+            }
+            else
+            {
+                MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+
+
+        }
 
         #endregion
 

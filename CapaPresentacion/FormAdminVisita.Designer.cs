@@ -151,27 +151,28 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnVerSabana = new System.Windows.Forms.Button();
             this.tabNovedades = new System.Windows.Forms.TabPage();
-            this.dtgvNovedades = new System.Windows.Forms.DataGridView();
-            this.btnVerNovedades = new System.Windows.Forms.Button();
-            this.label28 = new System.Windows.Forms.Label();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.btnCancelarNovedad = new System.Windows.Forms.Button();
+            this.btnGuardarNovedad = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtNuevaNovedad = new System.Windows.Forms.TextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.txtNovedad = new System.Windows.Forms.TextBox();
+            this.txtUsuarioNovedad = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtDetalleNovedad = new System.Windows.Forms.TextBox();
             this.txtOrganismoNovedad = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.txtFechaNovedad = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.txtIdNovedad = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtDetalleNovedad = new System.Windows.Forms.TextBox();
-            this.txtUsuarioNovedad = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.txtNovedad = new System.Windows.Forms.TextBox();
+            this.dtgvNovedades = new System.Windows.Forms.DataGridView();
+            this.btnVerNovedades = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.btnNuevaNovedad = new System.Windows.Forms.Button();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -192,9 +193,9 @@
             this.tabSabana.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabNovedades.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).BeginInit();
-            this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).BeginInit();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -1652,42 +1653,72 @@
             this.tabNovedades.Text = "Novedades";
             this.tabNovedades.UseVisualStyleBackColor = true;
             // 
-            // dtgvNovedades
+            // groupBox11
             // 
-            this.dtgvNovedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvNovedades.Location = new System.Drawing.Point(17, 212);
-            this.dtgvNovedades.Name = "dtgvNovedades";
-            this.dtgvNovedades.Size = new System.Drawing.Size(1035, 310);
-            this.dtgvNovedades.TabIndex = 49;
-            this.dtgvNovedades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvNovedades_CellContentClick);
-            this.dtgvNovedades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvNovedades_KeyDown);
+            this.groupBox11.Controls.Add(this.btnNuevaNovedad);
+            this.groupBox11.Controls.Add(this.btnCancelarNovedad);
+            this.groupBox11.Controls.Add(this.btnGuardarNovedad);
+            this.groupBox11.Controls.Add(this.label22);
+            this.groupBox11.Controls.Add(this.txtNuevaNovedad);
+            this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox11.Location = new System.Drawing.Point(17, 11);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(525, 152);
+            this.groupBox11.TabIndex = 94;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Cargar novedad";
             // 
-            // btnVerNovedades
+            // btnCancelarNovedad
             // 
-            this.btnVerNovedades.BackColor = System.Drawing.Color.Indigo;
-            this.btnVerNovedades.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnVerNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerNovedades.ForeColor = System.Drawing.Color.White;
-            this.btnVerNovedades.Location = new System.Drawing.Point(17, 159);
-            this.btnVerNovedades.Name = "btnVerNovedades";
-            this.btnVerNovedades.Size = new System.Drawing.Size(141, 45);
-            this.btnVerNovedades.TabIndex = 48;
-            this.btnVerNovedades.Text = "Ver novedades";
-            this.btnVerNovedades.UseVisualStyleBackColor = false;
-            this.btnVerNovedades.Click += new System.EventHandler(this.btnVerNovedades_Click);
+            this.btnCancelarNovedad.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarNovedad.Enabled = false;
+            this.btnCancelarNovedad.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarNovedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarNovedad.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarNovedad.Location = new System.Drawing.Point(416, 100);
+            this.btnCancelarNovedad.Name = "btnCancelarNovedad";
+            this.btnCancelarNovedad.Size = new System.Drawing.Size(98, 40);
+            this.btnCancelarNovedad.TabIndex = 80;
+            this.btnCancelarNovedad.Text = "CANCELAR";
+            this.btnCancelarNovedad.UseVisualStyleBackColor = false;
+            this.btnCancelarNovedad.Click += new System.EventHandler(this.btnCancelarNovedad_Click);
             // 
-            // label28
+            // btnGuardarNovedad
             // 
-            this.label28.BackColor = System.Drawing.Color.Indigo;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(2, 1);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(1090, 29);
-            this.label28.TabIndex = 74;
-            this.label28.Text = "ADMINISTRAR VISITA";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnGuardarNovedad.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarNovedad.Enabled = false;
+            this.btnGuardarNovedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarNovedad.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarNovedad.Location = new System.Drawing.Point(416, 54);
+            this.btnGuardarNovedad.Name = "btnGuardarNovedad";
+            this.btnGuardarNovedad.Size = new System.Drawing.Size(98, 40);
+            this.btnGuardarNovedad.TabIndex = 79;
+            this.btnGuardarNovedad.Text = "GUARDAR";
+            this.btnGuardarNovedad.UseVisualStyleBackColor = false;
+            this.btnGuardarNovedad.Click += new System.EventHandler(this.btnGuardarNovedad_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(5, 21);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(70, 16);
+            this.label22.TabIndex = 78;
+            this.label22.Text = "DETALLE:";
+            // 
+            // txtNuevaNovedad
+            // 
+            this.txtNuevaNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNuevaNovedad.Enabled = false;
+            this.txtNuevaNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNuevaNovedad.Location = new System.Drawing.Point(8, 40);
+            this.txtNuevaNovedad.Multiline = true;
+            this.txtNuevaNovedad.Name = "txtNuevaNovedad";
+            this.txtNuevaNovedad.Size = new System.Drawing.Size(391, 86);
+            this.txtNuevaNovedad.TabIndex = 77;
             // 
             // groupBox10
             // 
@@ -1703,13 +1734,74 @@
             this.groupBox10.Controls.Add(this.label45);
             this.groupBox10.Controls.Add(this.txtIdNovedad);
             this.groupBox10.Controls.Add(this.label46);
-            this.groupBox10.Location = new System.Drawing.Point(17, 535);
+            this.groupBox10.Location = new System.Drawing.Point(17, 546);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(1035, 206);
+            this.groupBox10.Size = new System.Drawing.Size(1035, 186);
             this.groupBox10.TabIndex = 80;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Novedad";
             this.groupBox10.Enter += new System.EventHandler(this.groupBox10_Enter);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(6, 79);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(77, 16);
+            this.label47.TabIndex = 86;
+            this.label47.Text = "NOVEDAD:";
+            // 
+            // txtNovedad
+            // 
+            this.txtNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNovedad.Location = new System.Drawing.Point(9, 98);
+            this.txtNovedad.Multiline = true;
+            this.txtNovedad.Name = "txtNovedad";
+            this.txtNovedad.ReadOnly = true;
+            this.txtNovedad.Size = new System.Drawing.Size(317, 67);
+            this.txtNovedad.TabIndex = 85;
+            // 
+            // txtUsuarioNovedad
+            // 
+            this.txtUsuarioNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuarioNovedad.Location = new System.Drawing.Point(570, 43);
+            this.txtUsuarioNovedad.Name = "txtUsuarioNovedad";
+            this.txtUsuarioNovedad.ReadOnly = true;
+            this.txtUsuarioNovedad.Size = new System.Drawing.Size(227, 22);
+            this.txtUsuarioNovedad.TabIndex = 84;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(566, 24);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(71, 16);
+            this.label23.TabIndex = 83;
+            this.label23.Text = "USUARIO:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(335, 79);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(70, 16);
+            this.label20.TabIndex = 82;
+            this.label20.Text = "DETALLE:";
+            // 
+            // txtDetalleNovedad
+            // 
+            this.txtDetalleNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetalleNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleNovedad.Location = new System.Drawing.Point(338, 98);
+            this.txtDetalleNovedad.Multiline = true;
+            this.txtDetalleNovedad.Name = "txtDetalleNovedad";
+            this.txtDetalleNovedad.ReadOnly = true;
+            this.txtDetalleNovedad.Size = new System.Drawing.Size(682, 67);
+            this.txtDetalleNovedad.TabIndex = 81;
             // 
             // txtOrganismoNovedad
             // 
@@ -1768,130 +1860,57 @@
             this.label46.TabIndex = 72;
             this.label46.Text = "ORGANISMO:";
             // 
-            // groupBox11
+            // dtgvNovedades
             // 
-            this.groupBox11.Controls.Add(this.button3);
-            this.groupBox11.Controls.Add(this.button5);
-            this.groupBox11.Controls.Add(this.label22);
-            this.groupBox11.Controls.Add(this.textBox1);
-            this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox11.Location = new System.Drawing.Point(17, 11);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(525, 135);
-            this.groupBox11.TabIndex = 94;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Cargar novedad";
+            this.dtgvNovedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvNovedades.Location = new System.Drawing.Point(17, 222);
+            this.dtgvNovedades.Name = "dtgvNovedades";
+            this.dtgvNovedades.Size = new System.Drawing.Size(1035, 310);
+            this.dtgvNovedades.TabIndex = 49;
+            this.dtgvNovedades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvNovedades_CellContentClick);
+            this.dtgvNovedades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvNovedades_KeyDown);
             // 
-            // button3
+            // btnVerNovedades
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkOrange;
-            this.button3.Enabled = false;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(416, 86);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 40);
-            this.button3.TabIndex = 80;
-            this.button3.Text = "CANCELAR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnVerNovedades.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerNovedades.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerNovedades.ForeColor = System.Drawing.Color.White;
+            this.btnVerNovedades.Location = new System.Drawing.Point(17, 169);
+            this.btnVerNovedades.Name = "btnVerNovedades";
+            this.btnVerNovedades.Size = new System.Drawing.Size(141, 45);
+            this.btnVerNovedades.TabIndex = 48;
+            this.btnVerNovedades.Text = "Ver novedades";
+            this.btnVerNovedades.UseVisualStyleBackColor = false;
+            this.btnVerNovedades.Click += new System.EventHandler(this.btnVerNovedades_Click);
             // 
-            // button5
+            // label28
             // 
-            this.button5.BackColor = System.Drawing.Color.Green;
-            this.button5.Enabled = false;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(416, 40);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(98, 40);
-            this.button5.TabIndex = 79;
-            this.button5.Text = "GUARDAR";
-            this.button5.UseVisualStyleBackColor = false;
+            this.label28.BackColor = System.Drawing.Color.Indigo;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(2, 1);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(1090, 29);
+            this.label28.TabIndex = 74;
+            this.label28.Text = "ADMINISTRAR VISITA";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label22
+            // btnNuevaNovedad
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(5, 21);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(70, 16);
-            this.label22.TabIndex = 78;
-            this.label22.Text = "DETALLE:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(8, 40);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(391, 86);
-            this.textBox1.TabIndex = 77;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(335, 79);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 16);
-            this.label20.TabIndex = 82;
-            this.label20.Text = "DETALLE:";
-            // 
-            // txtDetalleNovedad
-            // 
-            this.txtDetalleNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetalleNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetalleNovedad.Location = new System.Drawing.Point(338, 98);
-            this.txtDetalleNovedad.Multiline = true;
-            this.txtDetalleNovedad.Name = "txtDetalleNovedad";
-            this.txtDetalleNovedad.ReadOnly = true;
-            this.txtDetalleNovedad.Size = new System.Drawing.Size(682, 77);
-            this.txtDetalleNovedad.TabIndex = 81;
-            // 
-            // txtUsuarioNovedad
-            // 
-            this.txtUsuarioNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarioNovedad.Location = new System.Drawing.Point(570, 43);
-            this.txtUsuarioNovedad.Name = "txtUsuarioNovedad";
-            this.txtUsuarioNovedad.ReadOnly = true;
-            this.txtUsuarioNovedad.Size = new System.Drawing.Size(227, 22);
-            this.txtUsuarioNovedad.TabIndex = 84;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(566, 24);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(71, 16);
-            this.label23.TabIndex = 83;
-            this.label23.Text = "USUARIO:";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(6, 79);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(77, 16);
-            this.label47.TabIndex = 86;
-            this.label47.Text = "NOVEDAD:";
-            // 
-            // txtNovedad
-            // 
-            this.txtNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNovedad.Location = new System.Drawing.Point(9, 98);
-            this.txtNovedad.Multiline = true;
-            this.txtNovedad.Name = "txtNovedad";
-            this.txtNovedad.ReadOnly = true;
-            this.txtNovedad.Size = new System.Drawing.Size(317, 77);
-            this.txtNovedad.TabIndex = 85;
+            this.btnNuevaNovedad.BackColor = System.Drawing.Color.Indigo;
+            this.btnNuevaNovedad.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNuevaNovedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevaNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaNovedad.ForeColor = System.Drawing.Color.White;
+            this.btnNuevaNovedad.Location = new System.Drawing.Point(416, 11);
+            this.btnNuevaNovedad.Name = "btnNuevaNovedad";
+            this.btnNuevaNovedad.Size = new System.Drawing.Size(98, 37);
+            this.btnNuevaNovedad.TabIndex = 82;
+            this.btnNuevaNovedad.Text = "NUEVA";
+            this.btnNuevaNovedad.UseVisualStyleBackColor = false;
+            this.btnNuevaNovedad.Click += new System.EventHandler(this.btnNuevaNovedad_Click);
             // 
             // FormAdminVisita
             // 
@@ -1934,11 +1953,11 @@
             this.tabSabana.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabNovedades.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).EndInit();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2079,15 +2098,16 @@
         private System.Windows.Forms.TextBox txtIdNovedad;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCancelarNovedad;
+        private System.Windows.Forms.Button btnGuardarNovedad;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNuevaNovedad;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtDetalleNovedad;
         private System.Windows.Forms.TextBox txtUsuarioNovedad;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox txtNovedad;
+        private System.Windows.Forms.Button btnNuevaNovedad;
     }
 }
