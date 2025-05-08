@@ -1095,6 +1095,11 @@ namespace CapaPresentacion
 
         }
 
+        private void groupBox12_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
 
         //FIN REGION NOVEDADES............................................................
