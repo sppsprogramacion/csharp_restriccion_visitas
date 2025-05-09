@@ -172,7 +172,6 @@
             this.label46 = new System.Windows.Forms.Label();
             this.dtgvNovedades = new System.Windows.Forms.DataGridView();
             this.btnVerNovedades = new System.Windows.Forms.Button();
-            this.label28 = new System.Windows.Forms.Label();
             this.tabExepcionIngreso = new System.Windows.Forms.TabPage();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.label48 = new System.Windows.Forms.Label();
@@ -184,6 +183,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label52 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -1914,18 +1914,6 @@
             this.btnVerNovedades.UseVisualStyleBackColor = false;
             this.btnVerNovedades.Click += new System.EventHandler(this.btnVerNovedades_Click);
             // 
-            // label28
-            // 
-            this.label28.BackColor = System.Drawing.Color.Indigo;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(2, 1);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(1090, 29);
-            this.label28.TabIndex = 74;
-            this.label28.Text = "ADMINISTRAR VISITA";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tabExepcionIngreso
             // 
             this.tabExepcionIngreso.Controls.Add(this.groupBox12);
@@ -2058,6 +2046,18 @@
             this.label52.Size = new System.Drawing.Size(128, 16);
             this.label52.TabIndex = 44;
             this.label52.Text = "FECHA EXEPCION::";
+            // 
+            // label28
+            // 
+            this.label28.BackColor = System.Drawing.Color.Indigo;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(2, 1);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(1090, 29);
+            this.label28.TabIndex = 74;
+            this.label28.Text = "ADMINISTRAR VISITA";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormAdminVisita
             // 

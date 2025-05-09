@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommonCache
+namespace DAOImplement
 {
-    public static class SessionManager
+    internal class ExcepcionIngresoVisitaDaoImpl
     {
-        public static string Token { get; set; }
-
-        
     }
 }
