@@ -26,32 +26,28 @@ namespace DAOImplement
             DProhibicionVisita dataProhibicion = new DProhibicionVisita();
 
             try
-            {
-               
-                using (HttpClient httpClient = new HttpClient())
+            {               
+                // Crear el contenido de la solicitud HTTP
+                StringContent content = new StringContent(prohibicionVisita, Encoding.UTF8, "application/json");
+
+                // Enviar la solicitud HTTP POST
+                HttpResponseMessage httpResponse = await this.httpClient.PostAsync(url_base + "/prohibiciones-visita", content);
+
+                if (httpResponse.IsSuccessStatusCode)
                 {
-                    // Crear el contenido de la solicitud HTTP
-                    StringContent content = new StringContent(prohibicionVisita, Encoding.UTF8, "application/json");
-
-                    // Enviar la solicitud HTTP POST
-                    HttpResponseMessage httpResponse = await this.httpClient.PostAsync(url_base + "/prohibiciones-visita", content);
-
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                        dataProhibicion = JsonConvert.DeserializeObject<DProhibicionVisita>(contentRespuesta);
+                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
+                    dataProhibicion = JsonConvert.DeserializeObject<DProhibicionVisita>(contentRespuesta);
                         
-                        // Puedes procesar el token o el resultado adicional aquí.
-                        // Establecer el usuario actual
-                        return (dataProhibicion, null);
-                    }
-                    else
-                    {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                        return (null, $"Error al crear: {mensaje}");
-                    }
+                    // Puedes procesar el token o el resultado adicional aquí.
+                    // Establecer el usuario actual
+                    return (dataProhibicion, null);
                 }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error al crear: {mensaje}");
+                }                
 
             }
             catch (HttpRequestException httpRequestException)

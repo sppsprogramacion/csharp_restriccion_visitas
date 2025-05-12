@@ -1023,7 +1023,7 @@ namespace CapaPresentacion
                         txtUsuarioNovedad.Text = dtgvNovedades.CurrentRow.Cells["Usuario"].Value.ToString();
                         txtNovedad.Text = dtgvNovedades.CurrentRow.Cells["Novedad"].Value.ToString();
                         txtDetalleNovedad.Text = dtgvNovedades.CurrentRow.Cells["Detalle"].Value.ToString();
-
+                        
                     }
                     else
                     {
@@ -1091,19 +1091,185 @@ namespace CapaPresentacion
                 MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-
-
-        }
-
-        private void groupBox12_Enter(object sender, EventArgs e)
-        {
-
         }
 
         #endregion
 
         //FIN REGION NOVEDADES............................................................
         //.................................................................................
+
+        //REGION EXCEPCIONES
+        #region Excepciones
+        private void btnNuevaExcepcion_Click(object sender, EventArgs e)
+        {
+
+            //habilitar controles
+            this.HabilitarControlesExcepcion(true);
+        }
+
+        private void btnCancelarExcepcion_Click(object sender, EventArgs e)
+        {
+            //deshabilitar controles
+            this.HabilitarControlesExcepcion(false);
+        }
+
+        //BOTON GUARDAR EXCEPCION
+        private async void btnGuardarExcepcion_Click(object sender, EventArgs e)
+        {
+            NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
+
+            bool respuestaOk = false;
+            string mensajeRespuesta = "";
+
+
+            var data = new
+            {
+                ciudadano_id = Convert.ToInt32(txtIdCiudadano.Text),
+                motivo = txtMotivoExcepcion.Text,
+                detalle_excepcion = txtDetalleExcepcion.Text,
+                fecha_excepcion = dtpFechaExcepcion.Value
+            };
+
+            string dataExcepcion = JsonConvert.SerializeObject(data);
+
+            (DExcepcionIngresoVisita respuestaExcepcion, string errorResponse) = await nExcepcionIngresoVisita.CrearExcepcion(dataExcepcion);
+
+            if (respuestaExcepcion != null)
+            {
+                MessageBox.Show("La excepción se guardó correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //deshabilitar controles
+                this.HabilitarControlesExcepcion(false);
+
+                //cargar lista de ciudadanos en datagrid
+                this.CargarDataGridNovedades();
+            }
+            else
+            {
+                MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        //FIN BOTON GUARDAR EXCEPCION...........................................................
+
+
+        private void btnVerExcepciones_Click(object sender, EventArgs e)
+        {
+
+            this.CargarDataGridExcepciones();   
+        }
+
+        //DATA GRID eXCEPCIONES
+        private void dtgvExcepcionesIngreso_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                if (dtgvExcepcionesIngreso.SelectedRows.Count > 0)
+                {
+                    int id_excepcion_ingreso;
+                    id_excepcion_ingreso = Convert.ToInt32(dtgvExcepcionesIngreso.CurrentRow.Cells["ID"].Value.ToString());
+
+                    if (id_excepcion_ingreso > 0)
+                    {
+                        txtIdExcepcion.Text = id_excepcion_ingreso.ToString();
+                        txtMotivoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["MotivoExcepcion"].Value.ToString();
+                        txtDetalleExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Detalle"].Value.ToString();
+                        dtpFechaExcepcion.Value = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaExcepcion"].Value.ToString());
+                        txtFechaCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["FechaCarga"].Value.ToString();
+                        txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
+                        txtUsuarioCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Usuario"].Value.ToString();
+                        chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Vigente"].Value.ToString());
+                        chkAnuladoExcepcion.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Vigente"].Value.ToString());
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una excepcion.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+        //FIN DATAGRID EXCEPCIONES........................................................
+
+
+        //HABILITAR CONTROLES
+        private void HabilitarControlesExcepcion(bool habilitar)
+        {
+            //habilita controles
+            dtpFechaExcepcion.Enabled = habilitar;
+            dtpFechaExcepcion.ResetText();
+            txtMotivoExcepcion.Enabled = habilitar;
+            txtMotivoExcepcion.Text = string.Empty;
+            txtDetalleExcepcion.ReadOnly = !habilitar;
+            txtDetalleExcepcion.Text = string.Empty;
+
+            //limpia
+            txtIdExcepcion.Text = string.Empty;
+            txtFechaCargaExcepcion.Text = string.Empty;
+            txtOrganismoExepcion.Text = string.Empty;
+            txtUsuarioCargaExcepcion.Text = string.Empty;
+            chkCumplimentadoExcepcion.Checked = false;
+            chkAnuladoExcepcion.Checked = false;
+
+            //habilita botones
+            btnNuevaExcepcion.Enabled = !habilitar;
+            btnGuardarExcepcion.Enabled = habilitar;
+            btnCancelarExcepcion.Enabled = habilitar;
+        }
+
+        //FIN HABILITAR CONTROLES..............................
+
+        //METODO PARA OBTENER LA LISTA DE EXCEPCIONES Y CARGARLO EN UN DATA GRID
+        async private void CargarDataGridExcepciones()
+        {
+            NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
+
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.RetornarListaExcepcionesIngreso(this.dCiudadano.id_ciudadano);
+
+            if (listaExcepcionesIngreso == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var datosfiltrados = listaExcepcionesIngreso
+                .Select(c => new
+                {
+                    Id = c.id_excepcion_ingreso_visita,
+                    FechaExcepcion = c.fecha_excepcion,
+                    MotivoExcepcion = c.motivo,
+                    Detalle = c.detalle_excepcion,
+                    FechaCarga = c.fecha_carga,
+                    Organismo = c.organismo.organismo,
+                    Usuario = c.usuario.apellido + " " + c.usuario.nombre,
+                    Cumplimentado = c.cumplimentado,
+                    Anulado = c.anulado
+
+                })
+                .ToList();
+
+            dtgvExcepcionesIngreso.DataSource = datosfiltrados;
+
+            if (listaExcepcionesIngreso.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dtgvNovedades.Columns[2].Width = 200;
+                dtgvNovedades.Columns[3].Width = 400;
+            }
+        }
+
+        //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ...........
+        
+
+        #endregion Excepxiones
+        //FIN REGION EXCEPCIONES
     }
 
 
