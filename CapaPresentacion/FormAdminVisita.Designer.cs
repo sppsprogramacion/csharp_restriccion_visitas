@@ -176,7 +176,7 @@
             this.dtgvExcepcionesIngreso = new System.Windows.Forms.DataGridView();
             this.btnVerExcepciones = new System.Windows.Forms.Button();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAnularExcepcion = new System.Windows.Forms.Button();
             this.btnCumplimentarExcepcion = new System.Windows.Forms.Button();
             this.btnCancelarCumplAnularExcepcion = new System.Windows.Forms.Button();
             this.btnGuardarCumplAnularExcepcion = new System.Windows.Forms.Button();
@@ -1975,7 +1975,7 @@
             // 
             // groupBox13
             // 
-            this.groupBox13.Controls.Add(this.button1);
+            this.groupBox13.Controls.Add(this.btnAnularExcepcion);
             this.groupBox13.Controls.Add(this.btnCumplimentarExcepcion);
             this.groupBox13.Controls.Add(this.btnCancelarCumplAnularExcepcion);
             this.groupBox13.Controls.Add(this.btnGuardarCumplAnularExcepcion);
@@ -1984,24 +1984,25 @@
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.Location = new System.Drawing.Point(795, 5);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(266, 308);
+            this.groupBox13.Size = new System.Drawing.Size(266, 297);
             this.groupBox13.TabIndex = 94;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Cumplimentar / Anular";
             // 
-            // button1
+            // btnAnularExcepcion
             // 
-            this.button1.BackColor = System.Drawing.Color.Indigo;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(160, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 37);
-            this.button1.TabIndex = 83;
-            this.button1.Text = "ANULAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAnularExcepcion.BackColor = System.Drawing.Color.Indigo;
+            this.btnAnularExcepcion.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAnularExcepcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnularExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularExcepcion.ForeColor = System.Drawing.Color.White;
+            this.btnAnularExcepcion.Location = new System.Drawing.Point(160, 20);
+            this.btnAnularExcepcion.Name = "btnAnularExcepcion";
+            this.btnAnularExcepcion.Size = new System.Drawing.Size(93, 37);
+            this.btnAnularExcepcion.TabIndex = 83;
+            this.btnAnularExcepcion.Text = "ANULAR";
+            this.btnAnularExcepcion.UseVisualStyleBackColor = false;
+            this.btnAnularExcepcion.Click += new System.EventHandler(this.btnAnularExcepcion_Click);
             // 
             // btnCumplimentarExcepcion
             // 
@@ -2016,6 +2017,7 @@
             this.btnCumplimentarExcepcion.TabIndex = 81;
             this.btnCumplimentarExcepcion.Text = "CUMPLIMENTAR";
             this.btnCumplimentarExcepcion.UseVisualStyleBackColor = false;
+            this.btnCumplimentarExcepcion.Click += new System.EventHandler(this.btnCumplimentarExcepcion_Click);
             // 
             // btnCancelarCumplAnularExcepcion
             // 
@@ -2025,12 +2027,13 @@
             this.btnCancelarCumplAnularExcepcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarCumplAnularExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarCumplAnularExcepcion.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarCumplAnularExcepcion.Location = new System.Drawing.Point(109, 257);
+            this.btnCancelarCumplAnularExcepcion.Location = new System.Drawing.Point(109, 245);
             this.btnCancelarCumplAnularExcepcion.Name = "btnCancelarCumplAnularExcepcion";
             this.btnCancelarCumplAnularExcepcion.Size = new System.Drawing.Size(98, 40);
             this.btnCancelarCumplAnularExcepcion.TabIndex = 80;
             this.btnCancelarCumplAnularExcepcion.Text = "CANCELAR";
             this.btnCancelarCumplAnularExcepcion.UseVisualStyleBackColor = false;
+            this.btnCancelarCumplAnularExcepcion.Click += new System.EventHandler(this.btnCancelarCumplAnularExcepcion_Click);
             // 
             // btnGuardarCumplAnularExcepcion
             // 
@@ -2039,12 +2042,13 @@
             this.btnGuardarCumplAnularExcepcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarCumplAnularExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarCumplAnularExcepcion.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarCumplAnularExcepcion.Location = new System.Drawing.Point(8, 257);
+            this.btnGuardarCumplAnularExcepcion.Location = new System.Drawing.Point(8, 245);
             this.btnGuardarCumplAnularExcepcion.Name = "btnGuardarCumplAnularExcepcion";
             this.btnGuardarCumplAnularExcepcion.Size = new System.Drawing.Size(98, 40);
             this.btnGuardarCumplAnularExcepcion.TabIndex = 79;
             this.btnGuardarCumplAnularExcepcion.Text = "GUARDAR";
             this.btnGuardarCumplAnularExcepcion.UseVisualStyleBackColor = false;
+            this.btnGuardarCumplAnularExcepcion.Click += new System.EventHandler(this.btnGuardarCumplAnularExcepcion_Click);
             // 
             // label55
             // 
@@ -2064,7 +2068,7 @@
             this.txtDetalleCumplAnularExcepcion.Location = new System.Drawing.Point(8, 92);
             this.txtDetalleCumplAnularExcepcion.Multiline = true;
             this.txtDetalleCumplAnularExcepcion.Name = "txtDetalleCumplAnularExcepcion";
-            this.txtDetalleCumplAnularExcepcion.Size = new System.Drawing.Size(249, 156);
+            this.txtDetalleCumplAnularExcepcion.Size = new System.Drawing.Size(249, 140);
             this.txtDetalleCumplAnularExcepcion.TabIndex = 77;
             // 
             // groupBox12
@@ -2535,7 +2539,7 @@
         private System.Windows.Forms.CheckBox chkCumplimentadoExcepcion;
         private System.Windows.Forms.CheckBox chkAnuladoExcepcion;
         private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAnularExcepcion;
         private System.Windows.Forms.Button btnCumplimentarExcepcion;
         private System.Windows.Forms.Button btnCancelarCumplAnularExcepcion;
         private System.Windows.Forms.Button btnGuardarCumplAnularExcepcion;

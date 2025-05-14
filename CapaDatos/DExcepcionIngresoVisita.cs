@@ -15,14 +15,12 @@ namespace CapaDatos
         public string detalle_excepcion { get; set; }
         public DateTime fecha_excepcion { get; set; }
         public bool cumplimentado { get; set; }
-        public bool anulado { get; set; }
-        public string detalle_anulado { get; set; }
-        public string usuario_anula { get; set; }
+        public bool anulado { get; set; }        
         public DateTime fecha_carga { get; set; }
         public int organismo_id { get; set; }
         public DOrganismo organismo { get; set; }
         public int usuario_id { get; set; }
-        public DUsuario usuario { get; set; }
+        public DUsuario usuario_carga { get; set; }
 
     }
 }

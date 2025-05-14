@@ -21,40 +21,29 @@ namespace CapaNegocio
             return (excepcionIngresoResponse, errorResponse);
         }
         //FIN CREAR EXCEPCION..................................
-                
+                        
 
-        //LEVANTAR MANUAL PROHIBICION
-        public async Task<(bool, string error)> LevantarManualProhibicion(int id, string dataLevantar)
+        //CUMPLIMENTAR UNA EXCEPCION
+        public async Task<(bool, string error)> CumplimentarExcepcion(int id, string dataCumplimentar)
         {
-            IProhibicionVisitaDao prohibicionVisitaDao = new ProhibicinVisitaDaoImpl();
+            IExcepcionIngresoVisitaDao excepcionIngresoVisitaDao = new ExcepcionIngresoVisitaDaoImpl();
 
-            (bool prohibicionResponse, string error) = await prohibicionVisitaDao.LevantarProhibicionVisita(id, dataLevantar);
+            (bool excepcionIngresoResponse, string error) = await excepcionIngresoVisitaDao.CumplimentarExcepcion(id, dataCumplimentar);
 
-            return (prohibicionResponse, error);
+            return (excepcionIngresoResponse, error);
         }
-        //FIN LEVANTAR MANUAL PROHIBICION..................................
+        //FIN CUMPLIMENTAR UNA EXCEPCION..................................
 
-        //PROHIBIR UNA PROHIBICION
-        public async Task<(bool, string error)> ProhibirManualProhibicion(int id, string dataProhibir)
+        //ANULAR UNA EXCEPCION
+        public async Task<(bool, string error)> AnularExcepcion(int id, string dataAnular)
         {
-            IProhibicionVisitaDao prohibicionVisitaDao = new ProhibicinVisitaDaoImpl();
+            IExcepcionIngresoVisitaDao excepcionIngresoVisitaDao = new ExcepcionIngresoVisitaDaoImpl();
 
-            (bool prohibicionResponse, string error) = await prohibicionVisitaDao.ProhibirProhibicionVisita(id, dataProhibir);
+            (bool excepcionIngresoResponse, string error) = await excepcionIngresoVisitaDao.AnularExcepcion(id, dataAnular);
 
-            return (prohibicionResponse, error);
+            return (excepcionIngresoResponse, error);
         }
-        //FIN PROHIBIR UNA PROHIBICION..................................
-
-        //ANULAR UNA PROHIBICION
-        public async Task<(bool, string error)> AnularProhibicion(int id, string dataAnular)
-        {
-            IProhibicionVisitaDao prohibicionVisitaDao = new ProhibicinVisitaDaoImpl();
-
-            (bool prohibicionResponse, string error) = await prohibicionVisitaDao.AnularProhibicionVisita(id, dataAnular);
-
-            return (prohibicionResponse, error);
-        }
-        //FIN ANULAR UNA PROHIBICION..................................
+        //FIN ANULAR UNA EXCEPCION..................................
 
 
         //LISTA EXCEPCIONES INGRESO POR CIUDADANO

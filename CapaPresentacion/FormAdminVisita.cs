@@ -24,6 +24,9 @@ namespace CapaPresentacion
         //la accion puede ser prohibir, levantar o quitar
         string accionProhibir = "";
         string accionProhibirParentesco = "";
+        //cumplimentar/anular excepcion
+        bool accionCumplimentarExcepcion = false;
+        bool accionAnularExcepcion = false;
 
         public FormAdminVisita()
         {
@@ -1141,8 +1144,8 @@ namespace CapaPresentacion
                 //deshabilitar controles
                 this.HabilitarControlesExcepcion(false);
 
-                //cargar lista de ciudadanos en datagrid
-                this.CargarDataGridNovedades();
+                //cargar lista de excepciones en datagrid
+                this.CargarDataGridExcepciones();
             }
             else
             {
@@ -1173,6 +1176,11 @@ namespace CapaPresentacion
 
                     if (id_excepcion_ingreso > 0)
                     {
+                        //deshabilitar controles
+                        this.HabilitarControlesExcepcion(false);
+                        this.HabilitarControlesCumplimentarAnularExcepcion(false);
+
+                        //cargar datos de datagrid a controles
                         txtIdExcepcion.Text = id_excepcion_ingreso.ToString();
                         txtMotivoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["MotivoExcepcion"].Value.ToString();
                         txtDetalleExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Detalle"].Value.ToString();
@@ -1180,8 +1188,8 @@ namespace CapaPresentacion
                         txtFechaCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["FechaCarga"].Value.ToString();
                         txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
                         txtUsuarioCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Usuario"].Value.ToString();
-                        chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Vigente"].Value.ToString());
-                        chkAnuladoExcepcion.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Vigente"].Value.ToString());
+                        chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Cumplimentado"].Value.ToString());
+                        chkAnuladoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Anulado"].Value.ToString());
 
                     }
                     else
@@ -1194,7 +1202,39 @@ namespace CapaPresentacion
         //FIN DATAGRID EXCEPCIONES........................................................
 
 
-        //HABILITAR CONTROLES
+        private void btnAnularExcepcion_Click(object sender, EventArgs e)
+        {
+            if (txtIdExcepcion.Text == string.Empty)
+            {
+                MessageBox.Show("Debe selecionar una excepción para anular", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            this.accionAnularExcepcion = true;
+            this.HabilitarControlesCumplimentarAnularExcepcion(true);
+        }
+
+        private void btnCumplimentarExcepcion_Click(object sender, EventArgs e)
+        {
+            if (txtIdExcepcion.Text == string.Empty)
+            {
+                MessageBox.Show("Debe selecionar una excepción para cumplimentar", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            this.accionCumplimentarExcepcion = true;
+            this.HabilitarControlesCumplimentarAnularExcepcion(true);
+        }
+
+        private void btnCancelarCumplAnularExcepcion_Click(object sender, EventArgs e)
+        {
+            this.accionCumplimentarExcepcion = false;
+            this.accionAnularExcepcion = false;
+            this.HabilitarControlesCumplimentarAnularExcepcion(false);
+        }
+
+
+        //HABILITAR CONTROLES NUEVA EXCEPCION
         private void HabilitarControlesExcepcion(bool habilitar)
         {
             //habilita controles
@@ -1217,9 +1257,35 @@ namespace CapaPresentacion
             btnNuevaExcepcion.Enabled = !habilitar;
             btnGuardarExcepcion.Enabled = habilitar;
             btnCancelarExcepcion.Enabled = habilitar;
+
+            //habilitar botones cumplimentar/anular
+            btnCumplimentarExcepcion.Enabled = !habilitar;
+            btnAnularExcepcion.Enabled = !habilitar;
         }
 
-        //FIN HABILITAR CONTROLES..............................
+        //FIN HABILITAR CONTROLES NUEVA EXCEPCION..............................
+
+        //HABILITAR CONTROLES CUMPLIMENTAR/ANULAR EXCEPCION
+        private void HabilitarControlesCumplimentarAnularExcepcion(bool habilitar)
+        {
+            //habilita controles
+            txtDetalleCumplAnularExcepcion.Enabled = habilitar;
+
+            //limpia
+            txtDetalleCumplAnularExcepcion.Text = string.Empty;
+
+
+            //habilita botones
+            btnAnularExcepcion.Enabled = !habilitar;
+            btnCumplimentarExcepcion.Enabled = !habilitar;
+            btnGuardarCumplAnularExcepcion.Enabled = habilitar;
+            btnCancelarCumplAnularExcepcion.Enabled = habilitar;
+
+            //habilitar botones nueva excepcion
+            btnNuevaExcepcion.Enabled = !habilitar;
+        }
+
+        //FIN HABILITAR CONTROLES CUMPLIMENTAR/ANULAR EXCEPCION..............................
 
         //METODO PARA OBTENER LA LISTA DE EXCEPCIONES Y CARGARLO EN UN DATA GRID
         async private void CargarDataGridExcepciones()
@@ -1243,7 +1309,7 @@ namespace CapaPresentacion
                     Detalle = c.detalle_excepcion,
                     FechaCarga = c.fecha_carga,
                     Organismo = c.organismo.organismo,
-                    Usuario = c.usuario.apellido + " " + c.usuario.nombre,
+                    Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
                     Cumplimentado = c.cumplimentado,
                     Anulado = c.anulado
 
@@ -1260,13 +1326,76 @@ namespace CapaPresentacion
             else
             {
 
-                dtgvNovedades.Columns[2].Width = 200;
-                dtgvNovedades.Columns[3].Width = 400;
+                dtgvExcepcionesIngreso.Columns[2].Width = 200;
+                dtgvExcepcionesIngreso.Columns[3].Width = 400;
             }
         }
 
+        private async void btnGuardarCumplAnularExcepcion_Click(object sender, EventArgs e)
+        {
+            NExcepcionIngresoVisita nExcepcionIngreso = new NExcepcionIngresoVisita();
+
+            var data = new
+            {
+                detalle_cambio = txtDetalleCumplAnularExcepcion.Text,
+            };
+
+            string dataEnviar = JsonConvert.SerializeObject(data);
+
+
+            bool respuestaOk = false;
+            string mensajeRespuesta = "";
+
+            //determinar cual es la accion a realizar con la prohibicion
+            //usar el respectivo metodo
+            if (this.accionAnularExcepcion)
+            {
+                (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.AnularExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
+
+                if (respuestaEditar)
+                {
+                    respuestaOk = true;
+                    mensajeRespuesta = "La excepción se anuló correctamente";
+                }
+                else
+                {
+                    mensajeRespuesta = errorResponse;
+                }
+            }
+
+
+            if (this.accionCumplimentarExcepcion)
+            {
+                (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.CumplimentarExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
+
+                if (respuestaEditar)
+                {
+                    respuestaOk = true;
+                    mensajeRespuesta = "La prohibición se cumplimentó correctamente";
+                }
+                else
+                {
+                    mensajeRespuesta = errorResponse;
+                }
+            }
+
+            //verificar respuesta de la peticion
+            if (respuestaOk)
+            {
+
+                MessageBox.Show(mensajeRespuesta, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mensajeRespuesta = "";
+
+                this.HabilitarControlesExcepcion(false);
+                this.HabilitarControlesCumplimentarAnularExcepcion(false);
+            }
+            else
+            {
+                MessageBox.Show(mensajeRespuesta, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ...........
-        
+
 
         #endregion Excepxiones
         //FIN REGION EXCEPCIONES
