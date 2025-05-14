@@ -225,7 +225,7 @@ namespace DAOImplement
                 {
                     string errorMessage = await httpResponse.Content.ReadAsStringAsync();
                     var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                    return (false, $"Error al anular: {mensaje}");
+                    return (false, $"Error al cumplimentar: {mensaje}");
                 }
 
             }

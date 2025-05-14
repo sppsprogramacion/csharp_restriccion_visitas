@@ -107,12 +107,6 @@
             this.dtgvHistorialProhibicion = new System.Windows.Forms.DataGridView();
             this.btnVerProhibiciones = new System.Windows.Forms.Button();
             this.tabVinculos = new System.Windows.Forms.TabPage();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.btnAnularParent = new System.Windows.Forms.Button();
-            this.btnCancelarAnularPar = new System.Windows.Forms.Button();
-            this.btnGuardarAnularPar = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
-            this.txtDetalleAnularParentesco = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnModificarParentesco = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
@@ -180,7 +174,7 @@
             this.btnCumplimentarExcepcion = new System.Windows.Forms.Button();
             this.btnCancelarCumplAnularExcepcion = new System.Windows.Forms.Button();
             this.btnGuardarCumplAnularExcepcion = new System.Windows.Forms.Button();
-            this.label55 = new System.Windows.Forms.Label();
+            this.lblDetalleCumplAnularExcepcion = new System.Windows.Forms.Label();
             this.txtDetalleCumplAnularExcepcion = new System.Windows.Forms.TextBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.txtFechaCargaExcepcion = new System.Windows.Forms.TextBox();
@@ -203,6 +197,13 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label52 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btnDesvincular = new System.Windows.Forms.Button();
+            this.btnRevincular = new System.Windows.Forms.Button();
+            this.btnCancelarVinculacionParentesco = new System.Windows.Forms.Button();
+            this.btnGuardarVinculacionParentesco = new System.Windows.Forms.Button();
+            this.label55 = new System.Windows.Forms.Label();
+            this.txtDetalleVinculacionParentesco = new System.Windows.Forms.TextBox();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -214,7 +215,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).BeginInit();
             this.tabVinculos.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -230,6 +230,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvExcepcionesIngreso)).BeginInit();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -1161,85 +1162,6 @@
             this.tabVinculos.Text = "Vinculos";
             this.tabVinculos.UseVisualStyleBackColor = true;
             // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.btnAnularParent);
-            this.groupBox9.Controls.Add(this.btnCancelarAnularPar);
-            this.groupBox9.Controls.Add(this.btnGuardarAnularPar);
-            this.groupBox9.Controls.Add(this.label42);
-            this.groupBox9.Controls.Add(this.txtDetalleAnularParentesco);
-            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(317, 388);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(294, 279);
-            this.groupBox9.TabIndex = 94;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Anular parentesco";
-            // 
-            // btnAnularParent
-            // 
-            this.btnAnularParent.BackColor = System.Drawing.Color.Indigo;
-            this.btnAnularParent.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAnularParent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnularParent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnularParent.ForeColor = System.Drawing.Color.White;
-            this.btnAnularParent.Location = new System.Drawing.Point(8, 20);
-            this.btnAnularParent.Name = "btnAnularParent";
-            this.btnAnularParent.Size = new System.Drawing.Size(93, 37);
-            this.btnAnularParent.TabIndex = 83;
-            this.btnAnularParent.Text = "ANULAR";
-            this.btnAnularParent.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelarAnularPar
-            // 
-            this.btnCancelarAnularPar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCancelarAnularPar.Enabled = false;
-            this.btnCancelarAnularPar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnCancelarAnularPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarAnularPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarAnularPar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarAnularPar.Location = new System.Drawing.Point(109, 225);
-            this.btnCancelarAnularPar.Name = "btnCancelarAnularPar";
-            this.btnCancelarAnularPar.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelarAnularPar.TabIndex = 80;
-            this.btnCancelarAnularPar.Text = "CANCELAR";
-            this.btnCancelarAnularPar.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardarAnularPar
-            // 
-            this.btnGuardarAnularPar.BackColor = System.Drawing.Color.Green;
-            this.btnGuardarAnularPar.Enabled = false;
-            this.btnGuardarAnularPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarAnularPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarAnularPar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarAnularPar.Location = new System.Drawing.Point(8, 225);
-            this.btnGuardarAnularPar.Name = "btnGuardarAnularPar";
-            this.btnGuardarAnularPar.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardarAnularPar.TabIndex = 79;
-            this.btnGuardarAnularPar.Text = "GUARDAR";
-            this.btnGuardarAnularPar.UseVisualStyleBackColor = false;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(5, 122);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(70, 16);
-            this.label42.TabIndex = 78;
-            this.label42.Text = "DETALLE:";
-            // 
-            // txtDetalleAnularParentesco
-            // 
-            this.txtDetalleAnularParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetalleAnularParentesco.Enabled = false;
-            this.txtDetalleAnularParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetalleAnularParentesco.Location = new System.Drawing.Point(8, 141);
-            this.txtDetalleAnularParentesco.Multiline = true;
-            this.txtDetalleAnularParentesco.Name = "txtDetalleAnularParentesco";
-            this.txtDetalleAnularParentesco.Size = new System.Drawing.Size(274, 67);
-            this.txtDetalleAnularParentesco.TabIndex = 77;
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.btnModificarParentesco);
@@ -1249,9 +1171,9 @@
             this.groupBox6.Controls.Add(this.cmbParentescos);
             this.groupBox6.Controls.Add(this.btnGuardarModificarParentesco);
             this.groupBox6.Controls.Add(this.btnCancelarModificarParentesco);
-            this.groupBox6.Location = new System.Drawing.Point(619, 388);
+            this.groupBox6.Location = new System.Drawing.Point(733, 370);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(433, 275);
+            this.groupBox6.Size = new System.Drawing.Size(329, 299);
             this.groupBox6.TabIndex = 80;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Modificar parentesco";
@@ -1262,9 +1184,9 @@
             this.btnModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnModificarParentesco.Location = new System.Drawing.Point(325, 44);
+            this.btnModificarParentesco.Location = new System.Drawing.Point(11, 20);
             this.btnModificarParentesco.Name = "btnModificarParentesco";
-            this.btnModificarParentesco.Size = new System.Drawing.Size(100, 45);
+            this.btnModificarParentesco.Size = new System.Drawing.Size(100, 37);
             this.btnModificarParentesco.TabIndex = 76;
             this.btnModificarParentesco.Text = "MODIFICAR";
             this.btnModificarParentesco.UseVisualStyleBackColor = false;
@@ -1274,7 +1196,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(8, 76);
+            this.label41.Location = new System.Drawing.Point(8, 116);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(62, 16);
             this.label41.TabIndex = 75;
@@ -1284,17 +1206,17 @@
             // 
             this.txtMotivoModificarParentesco.Enabled = false;
             this.txtMotivoModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotivoModificarParentesco.Location = new System.Drawing.Point(11, 95);
+            this.txtMotivoModificarParentesco.Location = new System.Drawing.Point(11, 141);
             this.txtMotivoModificarParentesco.Multiline = true;
             this.txtMotivoModificarParentesco.Name = "txtMotivoModificarParentesco";
-            this.txtMotivoModificarParentesco.Size = new System.Drawing.Size(301, 113);
+            this.txtMotivoModificarParentesco.Size = new System.Drawing.Size(310, 95);
             this.txtMotivoModificarParentesco.TabIndex = 74;
             // 
             // label40
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(8, 27);
+            this.label40.Location = new System.Drawing.Point(8, 67);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(112, 16);
             this.label40.TabIndex = 73;
@@ -1305,7 +1227,7 @@
             this.cmbParentescos.Enabled = false;
             this.cmbParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbParentescos.FormattingEnabled = true;
-            this.cmbParentescos.Location = new System.Drawing.Point(11, 46);
+            this.cmbParentescos.Location = new System.Drawing.Point(11, 86);
             this.cmbParentescos.Name = "cmbParentescos";
             this.cmbParentescos.Size = new System.Drawing.Size(250, 24);
             this.cmbParentescos.TabIndex = 71;
@@ -1317,9 +1239,9 @@
             this.btnGuardarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarModificarParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarModificarParentesco.Location = new System.Drawing.Point(325, 96);
+            this.btnGuardarModificarParentesco.Location = new System.Drawing.Point(11, 243);
             this.btnGuardarModificarParentesco.Name = "btnGuardarModificarParentesco";
-            this.btnGuardarModificarParentesco.Size = new System.Drawing.Size(100, 45);
+            this.btnGuardarModificarParentesco.Size = new System.Drawing.Size(100, 40);
             this.btnGuardarModificarParentesco.TabIndex = 70;
             this.btnGuardarModificarParentesco.Text = "GUARDAR";
             this.btnGuardarModificarParentesco.UseVisualStyleBackColor = false;
@@ -1333,9 +1255,9 @@
             this.btnCancelarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarModificarParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarModificarParentesco.Location = new System.Drawing.Point(325, 146);
+            this.btnCancelarModificarParentesco.Location = new System.Drawing.Point(117, 243);
             this.btnCancelarModificarParentesco.Name = "btnCancelarModificarParentesco";
-            this.btnCancelarModificarParentesco.Size = new System.Drawing.Size(100, 45);
+            this.btnCancelarModificarParentesco.Size = new System.Drawing.Size(100, 40);
             this.btnCancelarModificarParentesco.TabIndex = 69;
             this.btnCancelarModificarParentesco.Text = "CANCELAR";
             this.btnCancelarModificarParentesco.UseVisualStyleBackColor = false;
@@ -1354,9 +1276,9 @@
             this.groupBox8.Controls.Add(this.dtpFechaIniProhibirParentesco);
             this.groupBox8.Controls.Add(this.label32);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(13, 388);
+            this.groupBox8.Location = new System.Drawing.Point(13, 370);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(294, 279);
+            this.groupBox8.Size = new System.Drawing.Size(350, 299);
             this.groupBox8.TabIndex = 93;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Prohibir parentesco / Levantar";
@@ -1366,9 +1288,9 @@
             this.dtpFechaFinProhibirParentesco.Enabled = false;
             this.dtpFechaFinProhibirParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFinProhibirParentesco.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFinProhibirParentesco.Location = new System.Drawing.Point(140, 87);
+            this.dtpFechaFinProhibirParentesco.Location = new System.Drawing.Point(127, 87);
             this.dtpFechaFinProhibirParentesco.Name = "dtpFechaFinProhibirParentesco";
-            this.dtpFechaFinProhibirParentesco.Size = new System.Drawing.Size(115, 22);
+            this.dtpFechaFinProhibirParentesco.Size = new System.Drawing.Size(101, 22);
             this.dtpFechaFinProhibirParentesco.TabIndex = 82;
             // 
             // btnLevantarProhibirParent
@@ -1390,7 +1312,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(137, 68);
+            this.label44.Location = new System.Drawing.Point(124, 68);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(79, 16);
             this.label44.TabIndex = 83;
@@ -1419,7 +1341,7 @@
             this.btnCancelarPohibPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarPohibPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarPohibPar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarPohibPar.Location = new System.Drawing.Point(109, 225);
+            this.btnCancelarPohibPar.Location = new System.Drawing.Point(109, 245);
             this.btnCancelarPohibPar.Name = "btnCancelarPohibPar";
             this.btnCancelarPohibPar.Size = new System.Drawing.Size(98, 40);
             this.btnCancelarPohibPar.TabIndex = 80;
@@ -1434,7 +1356,7 @@
             this.btnGuardarPohibPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarPohibPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarPohibPar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarPohibPar.Location = new System.Drawing.Point(8, 225);
+            this.btnGuardarPohibPar.Location = new System.Drawing.Point(8, 244);
             this.btnGuardarPohibPar.Name = "btnGuardarPohibPar";
             this.btnGuardarPohibPar.Size = new System.Drawing.Size(98, 40);
             this.btnGuardarPohibPar.TabIndex = 79;
@@ -1460,7 +1382,7 @@
             this.txtDetalleProhibirParentesco.Location = new System.Drawing.Point(8, 141);
             this.txtDetalleProhibirParentesco.Multiline = true;
             this.txtDetalleProhibirParentesco.Name = "txtDetalleProhibirParentesco";
-            this.txtDetalleProhibirParentesco.Size = new System.Drawing.Size(274, 67);
+            this.txtDetalleProhibirParentesco.Size = new System.Drawing.Size(335, 95);
             this.txtDetalleProhibirParentesco.TabIndex = 77;
             // 
             // dtpFechaIniProhibirParentesco
@@ -1470,7 +1392,7 @@
             this.dtpFechaIniProhibirParentesco.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaIniProhibirParentesco.Location = new System.Drawing.Point(8, 87);
             this.dtpFechaIniProhibirParentesco.Name = "dtpFechaIniProhibirParentesco";
-            this.dtpFechaIniProhibirParentesco.Size = new System.Drawing.Size(115, 22);
+            this.dtpFechaIniProhibirParentesco.Size = new System.Drawing.Size(101, 22);
             this.dtpFechaIniProhibirParentesco.TabIndex = 43;
             // 
             // label32
@@ -1514,17 +1436,17 @@
             this.groupBox5.Controls.Add(this.label25);
             this.groupBox5.Location = new System.Drawing.Point(13, 275);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(723, 95);
+            this.groupBox5.Size = new System.Drawing.Size(723, 83);
             this.groupBox5.TabIndex = 79;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Parentesco actual";
             // 
             // txtParentesco
             // 
-            this.txtParentesco.Enabled = false;
             this.txtParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtParentesco.Location = new System.Drawing.Point(485, 43);
             this.txtParentesco.Name = "txtParentesco";
+            this.txtParentesco.ReadOnly = true;
             this.txtParentesco.Size = new System.Drawing.Size(227, 22);
             this.txtParentesco.TabIndex = 80;
             // 
@@ -1540,10 +1462,10 @@
             // 
             // txtInternoVinculado
             // 
-            this.txtInternoVinculado.Enabled = false;
             this.txtInternoVinculado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInternoVinculado.Location = new System.Drawing.Point(103, 44);
             this.txtInternoVinculado.Name = "txtInternoVinculado";
+            this.txtInternoVinculado.ReadOnly = true;
             this.txtInternoVinculado.Size = new System.Drawing.Size(372, 22);
             this.txtInternoVinculado.TabIndex = 64;
             // 
@@ -1559,10 +1481,10 @@
             // 
             // txtIdVisitaInterno
             // 
-            this.txtIdVisitaInterno.Enabled = false;
             this.txtIdVisitaInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdVisitaInterno.Location = new System.Drawing.Point(9, 44);
             this.txtIdVisitaInterno.Name = "txtIdVisitaInterno";
+            this.txtIdVisitaInterno.ReadOnly = true;
             this.txtIdVisitaInterno.Size = new System.Drawing.Size(80, 22);
             this.txtIdVisitaInterno.TabIndex = 77;
             // 
@@ -1954,6 +1876,7 @@
             this.dtgvExcepcionesIngreso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvExcepcionesIngreso.Location = new System.Drawing.Point(6, 369);
             this.dtgvExcepcionesIngreso.Name = "dtgvExcepcionesIngreso";
+            this.dtgvExcepcionesIngreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvExcepcionesIngreso.Size = new System.Drawing.Size(1055, 261);
             this.dtgvExcepcionesIngreso.TabIndex = 96;
             this.dtgvExcepcionesIngreso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvExcepcionesIngreso_KeyDown);
@@ -1979,7 +1902,7 @@
             this.groupBox13.Controls.Add(this.btnCumplimentarExcepcion);
             this.groupBox13.Controls.Add(this.btnCancelarCumplAnularExcepcion);
             this.groupBox13.Controls.Add(this.btnGuardarCumplAnularExcepcion);
-            this.groupBox13.Controls.Add(this.label55);
+            this.groupBox13.Controls.Add(this.lblDetalleCumplAnularExcepcion);
             this.groupBox13.Controls.Add(this.txtDetalleCumplAnularExcepcion);
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.Location = new System.Drawing.Point(795, 5);
@@ -2050,15 +1973,15 @@
             this.btnGuardarCumplAnularExcepcion.UseVisualStyleBackColor = false;
             this.btnGuardarCumplAnularExcepcion.Click += new System.EventHandler(this.btnGuardarCumplAnularExcepcion_Click);
             // 
-            // label55
+            // lblDetalleCumplAnularExcepcion
             // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(5, 73);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(70, 16);
-            this.label55.TabIndex = 78;
-            this.label55.Text = "DETALLE:";
+            this.lblDetalleCumplAnularExcepcion.AutoSize = true;
+            this.lblDetalleCumplAnularExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalleCumplAnularExcepcion.Location = new System.Drawing.Point(5, 73);
+            this.lblDetalleCumplAnularExcepcion.Name = "lblDetalleCumplAnularExcepcion";
+            this.lblDetalleCumplAnularExcepcion.Size = new System.Drawing.Size(70, 16);
+            this.lblDetalleCumplAnularExcepcion.TabIndex = 78;
+            this.lblDetalleCumplAnularExcepcion.Text = "DETALLE:";
             // 
             // txtDetalleCumplAnularExcepcion
             // 
@@ -2317,6 +2240,100 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.btnDesvincular);
+            this.groupBox9.Controls.Add(this.btnRevincular);
+            this.groupBox9.Controls.Add(this.btnCancelarVinculacionParentesco);
+            this.groupBox9.Controls.Add(this.btnGuardarVinculacionParentesco);
+            this.groupBox9.Controls.Add(this.label55);
+            this.groupBox9.Controls.Add(this.txtDetalleVinculacionParentesco);
+            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox9.Location = new System.Drawing.Point(372, 370);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(353, 299);
+            this.groupBox9.TabIndex = 94;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Revincular / Desvincular";
+            // 
+            // btnDesvincular
+            // 
+            this.btnDesvincular.BackColor = System.Drawing.Color.Indigo;
+            this.btnDesvincular.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDesvincular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesvincular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesvincular.ForeColor = System.Drawing.Color.White;
+            this.btnDesvincular.Location = new System.Drawing.Point(137, 20);
+            this.btnDesvincular.Name = "btnDesvincular";
+            this.btnDesvincular.Size = new System.Drawing.Size(123, 37);
+            this.btnDesvincular.TabIndex = 81;
+            this.btnDesvincular.Text = "DESVINCULAR";
+            this.btnDesvincular.UseVisualStyleBackColor = false;
+            // 
+            // btnRevincular
+            // 
+            this.btnRevincular.BackColor = System.Drawing.Color.Indigo;
+            this.btnRevincular.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRevincular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRevincular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRevincular.ForeColor = System.Drawing.Color.White;
+            this.btnRevincular.Location = new System.Drawing.Point(8, 20);
+            this.btnRevincular.Name = "btnRevincular";
+            this.btnRevincular.Size = new System.Drawing.Size(115, 37);
+            this.btnRevincular.TabIndex = 81;
+            this.btnRevincular.Text = "REVINCULAR";
+            this.btnRevincular.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelarVinculacionParentesco
+            // 
+            this.btnCancelarVinculacionParentesco.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarVinculacionParentesco.Enabled = false;
+            this.btnCancelarVinculacionParentesco.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarVinculacionParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarVinculacionParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarVinculacionParentesco.Location = new System.Drawing.Point(109, 245);
+            this.btnCancelarVinculacionParentesco.Name = "btnCancelarVinculacionParentesco";
+            this.btnCancelarVinculacionParentesco.Size = new System.Drawing.Size(98, 40);
+            this.btnCancelarVinculacionParentesco.TabIndex = 80;
+            this.btnCancelarVinculacionParentesco.Text = "CANCELAR";
+            this.btnCancelarVinculacionParentesco.UseVisualStyleBackColor = false;
+            // 
+            // btnGuardarVinculacionParentesco
+            // 
+            this.btnGuardarVinculacionParentesco.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarVinculacionParentesco.Enabled = false;
+            this.btnGuardarVinculacionParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarVinculacionParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarVinculacionParentesco.Location = new System.Drawing.Point(8, 244);
+            this.btnGuardarVinculacionParentesco.Name = "btnGuardarVinculacionParentesco";
+            this.btnGuardarVinculacionParentesco.Size = new System.Drawing.Size(98, 40);
+            this.btnGuardarVinculacionParentesco.TabIndex = 79;
+            this.btnGuardarVinculacionParentesco.Text = "GUARDAR";
+            this.btnGuardarVinculacionParentesco.UseVisualStyleBackColor = false;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(5, 122);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(70, 16);
+            this.label55.TabIndex = 78;
+            this.label55.Text = "DETALLE:";
+            // 
+            // txtDetalleVinculacionParentesco
+            // 
+            this.txtDetalleVinculacionParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetalleVinculacionParentesco.Enabled = false;
+            this.txtDetalleVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleVinculacionParentesco.Location = new System.Drawing.Point(8, 141);
+            this.txtDetalleVinculacionParentesco.Multiline = true;
+            this.txtDetalleVinculacionParentesco.Name = "txtDetalleVinculacionParentesco";
+            this.txtDetalleVinculacionParentesco.Size = new System.Drawing.Size(335, 95);
+            this.txtDetalleVinculacionParentesco.TabIndex = 77;
+            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2344,8 +2361,6 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).EndInit();
             this.tabVinculos.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -2369,6 +2384,8 @@
             this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2492,13 +2509,7 @@
         private System.Windows.Forms.TextBox txtDetalleProhibirParentesco;
         private System.Windows.Forms.DateTimePicker dtpFechaIniProhibirParentesco;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Button btnAnularParent;
         private System.Windows.Forms.Button btnLevantarProhibirParent;
-        private System.Windows.Forms.Button btnCancelarAnularPar;
-        private System.Windows.Forms.Button btnGuardarAnularPar;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox txtDetalleAnularParentesco;
         private System.Windows.Forms.DateTimePicker dtpFechaFinProhibirParentesco;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.GroupBox groupBox10;
@@ -2543,12 +2554,19 @@
         private System.Windows.Forms.Button btnCumplimentarExcepcion;
         private System.Windows.Forms.Button btnCancelarCumplAnularExcepcion;
         private System.Windows.Forms.Button btnGuardarCumplAnularExcepcion;
-        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label lblDetalleCumplAnularExcepcion;
         private System.Windows.Forms.TextBox txtDetalleCumplAnularExcepcion;
         private System.Windows.Forms.DataGridView dtgvExcepcionesIngreso;
         private System.Windows.Forms.Button btnVerExcepciones;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.TextBox txtIdExcepcion;
         private System.Windows.Forms.TextBox txtFechaCargaExcepcion;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Button btnDesvincular;
+        private System.Windows.Forms.Button btnRevincular;
+        private System.Windows.Forms.Button btnCancelarVinculacionParentesco;
+        private System.Windows.Forms.Button btnGuardarVinculacionParentesco;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox txtDetalleVinculacionParentesco;
     }
 }

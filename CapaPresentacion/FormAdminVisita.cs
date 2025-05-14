@@ -479,7 +479,12 @@ namespace CapaPresentacion
                 MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            
+            else
+            {
+
+                dtgvProhibiciones.Columns[2].Width = 300;
+            }
+
             foreach (DataGridViewRow row in dtgvProhibiciones.Rows)
             {
                 if (row.Cells["Vigente"].Value != null && Convert.ToBoolean(row.Cells["Vigente"].Value) == true)
@@ -642,6 +647,17 @@ namespace CapaPresentacion
 
             dtgvParentescos.DataSource = datosfiltrados;
 
+            if (listaParentescos.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dtgvParentescos.Columns[1].Width = 200;
+            }           
+
         } //FIN METODO PARA OBTENER LA LISTA DE PARENTESCOS EN UN DATA GRID ...........
 
         //BOTON VER PARENTESCOS
@@ -676,14 +692,8 @@ namespace CapaPresentacion
             this.accionProhibirParentesco = "prohibir";
 
             //habilitar controles
-            dtpFechaIniProhibirParentesco.Enabled = true;
-            dtpFechaFinProhibirParentesco.Enabled = true;
-            txtDetalleProhibirParentesco.Enabled = true;
-            btnProhibirParent.Enabled = false;
-            btnLevantarProhibirParent.Enabled = false;
-            btnGuardarPohibPar.Enabled = true;
-            btnCancelarPohibPar.Enabled = true;
-
+            this.HabilitarControlesProhibicionParentescos(true);
+            
         }
         //FIN BOTON PROHIBIR PARENTESCO
 
@@ -699,12 +709,8 @@ namespace CapaPresentacion
             this.accionProhibirParentesco = "levantar";
 
             //habilitar controles
-            dtpFechaFinProhibirParentesco.Enabled = true;
-            txtDetalleProhibirParentesco.Enabled = true;
-            btnProhibirParent.Enabled = false;
-            btnLevantarProhibirParent.Enabled = false;
-            btnGuardarPohibPar.Enabled = true;
-            btnCancelarPohibPar.Enabled = true;
+            this.HabilitarControlesProhibicionParentescos(true);
+            
         }
         //FIN BOTON LEVANTAR PROHIBICION PARENTESCO..............................................
 
@@ -775,16 +781,7 @@ namespace CapaPresentacion
                 mensajeRespuesta = "";
 
                 //deshabilitar controles
-                dtpFechaIniProhibirParentesco.ResetText();
-                dtpFechaIniProhibirParentesco.Enabled = false;
-                dtpFechaFinProhibirParentesco.ResetText();
-                dtpFechaFinProhibirParentesco.Enabled = false;
-                txtDetalleProhibirParentesco.Enabled = false;
-                txtDetalleProhibirParentesco.Text = "";
-                btnProhibirParent.Enabled = true;
-                btnLevantarProhibirParent.Enabled = true;
-                btnGuardarPohibPar.Enabled = false;
-                btnCancelarPohibPar.Enabled = false;
+                this.HabilitarControlesProhibicionParentescos(false);
 
                 //cargar lista de prhibiciones en datagrid
                 this.CargarDataGridParentescos();
@@ -803,23 +800,15 @@ namespace CapaPresentacion
             this.accionProhibirParentesco = "";
 
             //deshabilitar controles
-            dtpFechaIniProhibirParentesco.ResetText();
-            dtpFechaIniProhibirParentesco.Enabled = false;
-            dtpFechaFinProhibirParentesco.ResetText();
-            dtpFechaFinProhibirParentesco.Enabled = false;
-            txtDetalleProhibirParentesco.Enabled = false;
-            txtDetalleProhibirParentesco.Text = "";
-            btnProhibirParent.Enabled = true;
-            btnLevantarProhibirParent.Enabled = true;
-            btnGuardarPohibPar.Enabled = false;
-            btnCancelarPohibPar.Enabled = false;
+            this.HabilitarControlesProhibicionParentescos(false);
+            
         }
         //FIN BOTON CANCELAR PROHIBICION PARENTESCO......................................
         
         //DATA GRID PARENTESCOS
         private void dtgvParentescos_KeyDown(object sender, KeyEventArgs e)
         {
-            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            //AL PRESIONAR ENTER MOSTRAR
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
@@ -828,6 +817,10 @@ namespace CapaPresentacion
                 {
                     int id_visita_interno;
                     id_visita_interno = Convert.ToInt32(dtgvParentescos.CurrentRow.Cells["ID"].Value.ToString());
+
+                    //deshabilitar controles parentescos
+                    this.HabilitarControlesProhibicionParentescos(false);
+                    this.HabilitarControlesCambioParentesco(false);
 
                     if (id_visita_interno > 0)
                     {
@@ -854,11 +847,7 @@ namespace CapaPresentacion
                 return;
             }
 
-            cmbParentescos.Enabled = true;
-            txtMotivoModificarParentesco.Enabled = true;
-            btnModificarParentesco.Enabled = false;
-            btnGuardarModificarParentesco.Enabled = true;
-            btnCancelarModificarParentesco.Enabled = true;
+            this.HabilitarControlesCambioParentesco(true);
         }
         //FIN BOTON MODIFICAR PARENTESCO..................................................
 
@@ -900,12 +889,7 @@ namespace CapaPresentacion
                         txtParentesco.Text = "";
 
                         //formulario modificacion
-                        cmbParentescos.Enabled = false;
-                        txtMotivoModificarParentesco.Text = "";
-                        txtMotivoModificarParentesco.Enabled = false;
-                        btnModificarParentesco.Enabled = true;
-                        btnGuardarModificarParentesco.Enabled = false;
-                        btnCancelarModificarParentesco.Enabled = false;
+                        this.HabilitarControlesCambioParentesco(false);
                     }
                     else
                     {
@@ -928,21 +912,45 @@ namespace CapaPresentacion
         //BOTON CANCELAR MODIFICAR PARENTESCO
         private void btnCancelarModificarParentesco_Click(object sender, EventArgs e)
         {
-            //formulario parentesco actual
-            txtIdVisitaInterno.Text = "";
-            txtInternoVinculado.Text = "";
-            txtParentesco.Text = "";
-
             //formulario modificacion
-            cmbParentescos.Enabled = false;
-            txtMotivoModificarParentesco.Text = "";
-            txtMotivoModificarParentesco.Enabled = false;
-            btnModificarParentesco.Enabled = true;
-            btnGuardarModificarParentesco.Enabled = false;
-            btnCancelarModificarParentesco.Enabled = false;
+            this.HabilitarControlesCambioParentesco(false);
         }
         //FIN BOTON MODIFICAR PARENTESCO...................................
 
+        //METODO HABILITAR CONTROLES PROHIBICION VINCULO
+        private void HabilitarControlesProhibicionParentescos(bool habilitar)
+        {            
+            dtpFechaIniProhibirParentesco.ResetText();
+            dtpFechaIniProhibirParentesco.Enabled = habilitar;
+            //determinar si se esta prohibiendo para habilitar la fecha de inicio, sino debe permaneces deshabilitado
+            if (this.accionProhibirParentesco == "levantar")
+            {
+                dtpFechaIniProhibirParentesco.ResetText();
+                dtpFechaIniProhibirParentesco.Enabled = false;
+            }
+            dtpFechaFinProhibirParentesco.ResetText();
+            dtpFechaFinProhibirParentesco.Enabled = habilitar;
+            txtDetalleProhibirParentesco.Enabled = habilitar;
+            txtDetalleProhibirParentesco.Text = "";
+
+            btnProhibirParent.Enabled = !habilitar;
+            btnLevantarProhibirParent.Enabled = !habilitar;
+            btnGuardarPohibPar.Enabled = habilitar;
+            btnCancelarPohibPar.Enabled = habilitar;
+        }
+        //METODO HABILITAR CONTROLES PROHIBICION VINCULO
+
+        //METODO HABILITAR CONTROLES CAMBIO PARENTESCO
+        private void HabilitarControlesCambioParentesco(bool habilitar)
+        {
+            cmbParentescos.Enabled = habilitar;
+            txtMotivoModificarParentesco.Text = "";
+            txtMotivoModificarParentesco.Enabled = habilitar;
+            btnModificarParentesco.Enabled = !habilitar;
+            btnGuardarModificarParentesco.Enabled = habilitar;
+            btnCancelarModificarParentesco.Enabled = habilitar;
+        }
+        //FIN METODO HABILITAR CONTROLES CAMBIO PARENTESCO
         #endregion
         //FIN REGION PARENTESCOS..........................................................
         //.................................................................................
@@ -1201,6 +1209,72 @@ namespace CapaPresentacion
         }
         //FIN DATAGRID EXCEPCIONES........................................................
 
+        //BOTON GUARDAR CUMPLIMENTAR ANULAR EEXCEPCION
+        private async void btnGuardarCumplAnularExcepcion_Click(object sender, EventArgs e)
+        {
+            NExcepcionIngresoVisita nExcepcionIngreso = new NExcepcionIngresoVisita();
+
+            var data = new
+            {
+                detalle_cambio = txtDetalleCumplAnularExcepcion.Text,
+            };
+
+            string dataEnviar = JsonConvert.SerializeObject(data);
+
+
+            bool respuestaOk = false;
+            string mensajeRespuesta = "";
+
+            //determinar cual es la accion a realizar con la prohibicion
+            //usar el respectivo metodo
+            if (this.accionAnularExcepcion)
+            {
+                (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.AnularExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
+
+                if (respuestaEditar)
+                {
+                    respuestaOk = true;
+                    mensajeRespuesta = "La excepción se anuló correctamente";
+                }
+                else
+                {
+                    mensajeRespuesta = errorResponse;
+                }
+            }
+
+
+            if (this.accionCumplimentarExcepcion)
+            {
+                (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.CumplimentarExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
+
+                if (respuestaEditar)
+                {
+                    respuestaOk = true;
+                    mensajeRespuesta = "La excepción se cumplimentó correctamente";
+                }
+                else
+                {
+                    mensajeRespuesta = errorResponse;
+                }
+            }
+
+            //verificar respuesta de la peticion
+            if (respuestaOk)
+            {
+
+                MessageBox.Show(mensajeRespuesta, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mensajeRespuesta = "";
+
+                this.HabilitarControlesExcepcion(false);
+                this.HabilitarControlesCumplimentarAnularExcepcion(false);
+                this.CargarDataGridExcepciones();
+            }
+            else
+            {
+                MessageBox.Show(mensajeRespuesta, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //FIN BOTON GUARDAR CUMPLIMENTAR ANULAR EEXCEPCION..........................................
 
         private void btnAnularExcepcion_Click(object sender, EventArgs e)
         {
@@ -1211,6 +1285,7 @@ namespace CapaPresentacion
             }
 
             this.accionAnularExcepcion = true;
+            lblDetalleCumplAnularExcepcion.Text = "DETALLE ANULAR:";
             this.HabilitarControlesCumplimentarAnularExcepcion(true);
         }
 
@@ -1223,6 +1298,7 @@ namespace CapaPresentacion
             }
 
             this.accionCumplimentarExcepcion = true;
+            lblDetalleCumplAnularExcepcion.Text = "DETALLE CUMPLIMENTAR:";
             this.HabilitarControlesCumplimentarAnularExcepcion(true);
         }
 
@@ -1230,6 +1306,7 @@ namespace CapaPresentacion
         {
             this.accionCumplimentarExcepcion = false;
             this.accionAnularExcepcion = false;
+            lblDetalleCumplAnularExcepcion.Text = "DETALLE:";
             this.HabilitarControlesCumplimentarAnularExcepcion(false);
         }
 
@@ -1329,76 +1406,12 @@ namespace CapaPresentacion
                 dtgvExcepcionesIngreso.Columns[2].Width = 200;
                 dtgvExcepcionesIngreso.Columns[3].Width = 400;
             }
-        }
-
-        private async void btnGuardarCumplAnularExcepcion_Click(object sender, EventArgs e)
-        {
-            NExcepcionIngresoVisita nExcepcionIngreso = new NExcepcionIngresoVisita();
-
-            var data = new
-            {
-                detalle_cambio = txtDetalleCumplAnularExcepcion.Text,
-            };
-
-            string dataEnviar = JsonConvert.SerializeObject(data);
-
-
-            bool respuestaOk = false;
-            string mensajeRespuesta = "";
-
-            //determinar cual es la accion a realizar con la prohibicion
-            //usar el respectivo metodo
-            if (this.accionAnularExcepcion)
-            {
-                (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.AnularExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
-
-                if (respuestaEditar)
-                {
-                    respuestaOk = true;
-                    mensajeRespuesta = "La excepción se anuló correctamente";
-                }
-                else
-                {
-                    mensajeRespuesta = errorResponse;
-                }
-            }
-
-
-            if (this.accionCumplimentarExcepcion)
-            {
-                (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.CumplimentarExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
-
-                if (respuestaEditar)
-                {
-                    respuestaOk = true;
-                    mensajeRespuesta = "La prohibición se cumplimentó correctamente";
-                }
-                else
-                {
-                    mensajeRespuesta = errorResponse;
-                }
-            }
-
-            //verificar respuesta de la peticion
-            if (respuestaOk)
-            {
-
-                MessageBox.Show(mensajeRespuesta, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mensajeRespuesta = "";
-
-                this.HabilitarControlesExcepcion(false);
-                this.HabilitarControlesCumplimentarAnularExcepcion(false);
-            }
-            else
-            {
-                MessageBox.Show(mensajeRespuesta, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ...........
-
+        }        
+        //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
 
         #endregion Excepxiones
-        //FIN REGION EXCEPCIONES
+        //FIN REGION EXCEPCIONES.........................................................
+        //...............................................................................
     }
 
 
