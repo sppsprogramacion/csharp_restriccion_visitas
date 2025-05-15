@@ -18,10 +18,14 @@ namespace DAO
 
         Task<(bool, string error)> LevantarProhibicionParentesco(int id, string dataLevantar);
 
+        Task<(bool, string error)> RevincularParentesco(int id, string dataActualizar);
+
+        Task<(bool, string error)> DesvincularParentesco(int id, string dataActualizar);
+
         Task<DVisitaInterno> BuscarParentescoXId(int idProhibicionvisita);
 
-        Task<List<DVisitaInterno>> RetornarParentescosXCiudadano(int idCiudadano);
+        Task<(List<DVisitaInterno>, string error)> RetornarParentescosXCiudadano(int idCiudadano);
 
-        Task<List<DVisitaInterno>> RetornarParentescosXInterno(int idInterno);
+        Task<(List<DVisitaInterno>, string error)> RetornarParentescosXInterno(int idInterno);
     }
 }

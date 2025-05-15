@@ -12,17 +12,15 @@ namespace CapaNegocio
 {
     public class NVisitaInterno
     {
-        
-
         //RETORNAR PARENTESCOS POR CIUDADANO
-        public async Task<List<DVisitaInterno>> RetornarListaParentescos(int idCiudadano)
+        public async Task<(List<DVisitaInterno>, string error)> RetornarListaParentescos(int idCiudadano)
         {
             IVisitaInternoDao visitaInternoDao = new VisitaInternoDaoImpl();
 
-            List<DVisitaInterno> listaParentescos = await visitaInternoDao.RetornarParentescosXCiudadano(idCiudadano);
+            (List<DVisitaInterno> listaParentescos, string errorResponse) = await visitaInternoDao.RetornarParentescosXCiudadano(idCiudadano);
 
 
-            return listaParentescos;
+            return (listaParentescos, errorResponse);
         }
         //FIN RETORNAR PARENTESCOS POR CIUDADANO..................................
 
@@ -58,5 +56,27 @@ namespace CapaNegocio
             return (visitaInternoResponse, error); ;
         }
         //FIN LEVANTAR PROHIBICION PARENTESCO..................................
+
+        //REVINCULAR PARENTESCO
+        public async Task<(bool, string error)> RevincularParentesco(int id, string dataActualizar)
+        {
+            IVisitaInternoDao visitaInternoDao = new VisitaInternoDaoImpl();
+
+            (bool visitaInternoResponse, string error) = await visitaInternoDao.RevincularParentesco(id, dataActualizar);
+
+            return (visitaInternoResponse, error); ;
+        }
+        //FIN REVINCULAR PARENTESCO..................................
+
+        //DESVINCULAR PARENTESCO
+        public async Task<(bool, string error)> DesvincularParentesco(int id, string dataActualizar)
+        {
+            IVisitaInternoDao visitaInternoDao = new VisitaInternoDaoImpl();
+
+            (bool visitaInternoResponse, string error) = await visitaInternoDao.DesvincularParentesco(id, dataActualizar);
+
+            return (visitaInternoResponse, error); ;
+        }
+        //FIN DESVINCULAR PARENTESCO..................................
     }
 }

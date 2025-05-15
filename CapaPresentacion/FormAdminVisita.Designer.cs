@@ -107,6 +107,13 @@
             this.dtgvHistorialProhibicion = new System.Windows.Forms.DataGridView();
             this.btnVerProhibiciones = new System.Windows.Forms.Button();
             this.tabVinculos = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btnDesvincular = new System.Windows.Forms.Button();
+            this.btnRevincular = new System.Windows.Forms.Button();
+            this.btnCancelarVinculacionParentesco = new System.Windows.Forms.Button();
+            this.btnGuardarVinculacionParentesco = new System.Windows.Forms.Button();
+            this.label55 = new System.Windows.Forms.Label();
+            this.txtDetalleVinculacionParentesco = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnModificarParentesco = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
@@ -197,13 +204,6 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label52 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.btnDesvincular = new System.Windows.Forms.Button();
-            this.btnRevincular = new System.Windows.Forms.Button();
-            this.btnCancelarVinculacionParentesco = new System.Windows.Forms.Button();
-            this.btnGuardarVinculacionParentesco = new System.Windows.Forms.Button();
-            this.label55 = new System.Windows.Forms.Label();
-            this.txtDetalleVinculacionParentesco = new System.Windows.Forms.TextBox();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -215,6 +215,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).BeginInit();
             this.tabVinculos.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -230,7 +231,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvExcepcionesIngreso)).BeginInit();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -1162,6 +1162,104 @@
             this.tabVinculos.Text = "Vinculos";
             this.tabVinculos.UseVisualStyleBackColor = true;
             // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.btnDesvincular);
+            this.groupBox9.Controls.Add(this.btnRevincular);
+            this.groupBox9.Controls.Add(this.btnCancelarVinculacionParentesco);
+            this.groupBox9.Controls.Add(this.btnGuardarVinculacionParentesco);
+            this.groupBox9.Controls.Add(this.label55);
+            this.groupBox9.Controls.Add(this.txtDetalleVinculacionParentesco);
+            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox9.Location = new System.Drawing.Point(372, 370);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(353, 299);
+            this.groupBox9.TabIndex = 94;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Revincular / Desvincular";
+            // 
+            // btnDesvincular
+            // 
+            this.btnDesvincular.BackColor = System.Drawing.Color.Indigo;
+            this.btnDesvincular.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDesvincular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesvincular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesvincular.ForeColor = System.Drawing.Color.White;
+            this.btnDesvincular.Location = new System.Drawing.Point(137, 20);
+            this.btnDesvincular.Name = "btnDesvincular";
+            this.btnDesvincular.Size = new System.Drawing.Size(123, 37);
+            this.btnDesvincular.TabIndex = 81;
+            this.btnDesvincular.Text = "DESVINCULAR";
+            this.btnDesvincular.UseVisualStyleBackColor = false;
+            this.btnDesvincular.Click += new System.EventHandler(this.btnDesvincular_Click);
+            // 
+            // btnRevincular
+            // 
+            this.btnRevincular.BackColor = System.Drawing.Color.Indigo;
+            this.btnRevincular.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRevincular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRevincular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRevincular.ForeColor = System.Drawing.Color.White;
+            this.btnRevincular.Location = new System.Drawing.Point(8, 20);
+            this.btnRevincular.Name = "btnRevincular";
+            this.btnRevincular.Size = new System.Drawing.Size(115, 37);
+            this.btnRevincular.TabIndex = 81;
+            this.btnRevincular.Text = "REVINCULAR";
+            this.btnRevincular.UseVisualStyleBackColor = false;
+            this.btnRevincular.Click += new System.EventHandler(this.btnRevincular_Click);
+            // 
+            // btnCancelarVinculacionParentesco
+            // 
+            this.btnCancelarVinculacionParentesco.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarVinculacionParentesco.Enabled = false;
+            this.btnCancelarVinculacionParentesco.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarVinculacionParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarVinculacionParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarVinculacionParentesco.Location = new System.Drawing.Point(109, 245);
+            this.btnCancelarVinculacionParentesco.Name = "btnCancelarVinculacionParentesco";
+            this.btnCancelarVinculacionParentesco.Size = new System.Drawing.Size(98, 40);
+            this.btnCancelarVinculacionParentesco.TabIndex = 80;
+            this.btnCancelarVinculacionParentesco.Text = "CANCELAR";
+            this.btnCancelarVinculacionParentesco.UseVisualStyleBackColor = false;
+            this.btnCancelarVinculacionParentesco.Click += new System.EventHandler(this.btnCancelarVinculacionParentesco_Click);
+            // 
+            // btnGuardarVinculacionParentesco
+            // 
+            this.btnGuardarVinculacionParentesco.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarVinculacionParentesco.Enabled = false;
+            this.btnGuardarVinculacionParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarVinculacionParentesco.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarVinculacionParentesco.Location = new System.Drawing.Point(8, 244);
+            this.btnGuardarVinculacionParentesco.Name = "btnGuardarVinculacionParentesco";
+            this.btnGuardarVinculacionParentesco.Size = new System.Drawing.Size(98, 40);
+            this.btnGuardarVinculacionParentesco.TabIndex = 79;
+            this.btnGuardarVinculacionParentesco.Text = "GUARDAR";
+            this.btnGuardarVinculacionParentesco.UseVisualStyleBackColor = false;
+            this.btnGuardarVinculacionParentesco.Click += new System.EventHandler(this.btnGuardarVinculacionParentesco_Click);
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(5, 122);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(70, 16);
+            this.label55.TabIndex = 78;
+            this.label55.Text = "DETALLE:";
+            // 
+            // txtDetalleVinculacionParentesco
+            // 
+            this.txtDetalleVinculacionParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetalleVinculacionParentesco.Enabled = false;
+            this.txtDetalleVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleVinculacionParentesco.Location = new System.Drawing.Point(8, 141);
+            this.txtDetalleVinculacionParentesco.Multiline = true;
+            this.txtDetalleVinculacionParentesco.Name = "txtDetalleVinculacionParentesco";
+            this.txtDetalleVinculacionParentesco.Size = new System.Drawing.Size(335, 95);
+            this.txtDetalleVinculacionParentesco.TabIndex = 77;
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.btnModificarParentesco);
@@ -1712,7 +1810,6 @@
             this.groupBox10.TabIndex = 80;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Novedad";
-            this.groupBox10.Enter += new System.EventHandler(this.groupBox10_Enter);
             // 
             // label47
             // 
@@ -2240,100 +2337,6 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.btnDesvincular);
-            this.groupBox9.Controls.Add(this.btnRevincular);
-            this.groupBox9.Controls.Add(this.btnCancelarVinculacionParentesco);
-            this.groupBox9.Controls.Add(this.btnGuardarVinculacionParentesco);
-            this.groupBox9.Controls.Add(this.label55);
-            this.groupBox9.Controls.Add(this.txtDetalleVinculacionParentesco);
-            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(372, 370);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(353, 299);
-            this.groupBox9.TabIndex = 94;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Revincular / Desvincular";
-            // 
-            // btnDesvincular
-            // 
-            this.btnDesvincular.BackColor = System.Drawing.Color.Indigo;
-            this.btnDesvincular.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDesvincular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesvincular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesvincular.ForeColor = System.Drawing.Color.White;
-            this.btnDesvincular.Location = new System.Drawing.Point(137, 20);
-            this.btnDesvincular.Name = "btnDesvincular";
-            this.btnDesvincular.Size = new System.Drawing.Size(123, 37);
-            this.btnDesvincular.TabIndex = 81;
-            this.btnDesvincular.Text = "DESVINCULAR";
-            this.btnDesvincular.UseVisualStyleBackColor = false;
-            // 
-            // btnRevincular
-            // 
-            this.btnRevincular.BackColor = System.Drawing.Color.Indigo;
-            this.btnRevincular.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRevincular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRevincular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRevincular.ForeColor = System.Drawing.Color.White;
-            this.btnRevincular.Location = new System.Drawing.Point(8, 20);
-            this.btnRevincular.Name = "btnRevincular";
-            this.btnRevincular.Size = new System.Drawing.Size(115, 37);
-            this.btnRevincular.TabIndex = 81;
-            this.btnRevincular.Text = "REVINCULAR";
-            this.btnRevincular.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelarVinculacionParentesco
-            // 
-            this.btnCancelarVinculacionParentesco.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCancelarVinculacionParentesco.Enabled = false;
-            this.btnCancelarVinculacionParentesco.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnCancelarVinculacionParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarVinculacionParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarVinculacionParentesco.Location = new System.Drawing.Point(109, 245);
-            this.btnCancelarVinculacionParentesco.Name = "btnCancelarVinculacionParentesco";
-            this.btnCancelarVinculacionParentesco.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelarVinculacionParentesco.TabIndex = 80;
-            this.btnCancelarVinculacionParentesco.Text = "CANCELAR";
-            this.btnCancelarVinculacionParentesco.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardarVinculacionParentesco
-            // 
-            this.btnGuardarVinculacionParentesco.BackColor = System.Drawing.Color.Green;
-            this.btnGuardarVinculacionParentesco.Enabled = false;
-            this.btnGuardarVinculacionParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarVinculacionParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarVinculacionParentesco.Location = new System.Drawing.Point(8, 244);
-            this.btnGuardarVinculacionParentesco.Name = "btnGuardarVinculacionParentesco";
-            this.btnGuardarVinculacionParentesco.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardarVinculacionParentesco.TabIndex = 79;
-            this.btnGuardarVinculacionParentesco.Text = "GUARDAR";
-            this.btnGuardarVinculacionParentesco.UseVisualStyleBackColor = false;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(5, 122);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(70, 16);
-            this.label55.TabIndex = 78;
-            this.label55.Text = "DETALLE:";
-            // 
-            // txtDetalleVinculacionParentesco
-            // 
-            this.txtDetalleVinculacionParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetalleVinculacionParentesco.Enabled = false;
-            this.txtDetalleVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetalleVinculacionParentesco.Location = new System.Drawing.Point(8, 141);
-            this.txtDetalleVinculacionParentesco.Multiline = true;
-            this.txtDetalleVinculacionParentesco.Name = "txtDetalleVinculacionParentesco";
-            this.txtDetalleVinculacionParentesco.Size = new System.Drawing.Size(335, 95);
-            this.txtDetalleVinculacionParentesco.TabIndex = 77;
-            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2361,6 +2364,8 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).EndInit();
             this.tabVinculos.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -2384,8 +2389,6 @@
             this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }

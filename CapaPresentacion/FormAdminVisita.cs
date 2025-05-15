@@ -27,6 +27,9 @@ namespace CapaPresentacion
         //cumplimentar/anular excepcion
         bool accionCumplimentarExcepcion = false;
         bool accionAnularExcepcion = false;
+        //vigencia vinculo
+        bool accionRevincularVinculo = false;
+        bool accionDesvincularVinculo = false;
 
         public FormAdminVisita()
         {
@@ -623,8 +626,14 @@ namespace CapaPresentacion
         async private void CargarDataGridParentescos()
         {
             NVisitaInterno nVisitaInterno = new NVisitaInterno();
-            List<DVisitaInterno> listaParentescos = new List<DVisitaInterno>();
-            listaParentescos = await nVisitaInterno.RetornarListaParentescos(this.dCiudadano.id_ciudadano);
+
+            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadano.id_ciudadano);
+
+            if (listaParentescos == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             var datosfiltrados = listaParentescos
                 .Select(c => new
@@ -649,7 +658,7 @@ namespace CapaPresentacion
 
             if (listaParentescos.Count == 0)
             {
-                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se encontraron registros par", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -660,7 +669,7 @@ namespace CapaPresentacion
 
         } //FIN METODO PARA OBTENER LA LISTA DE PARENTESCOS EN UN DATA GRID ...........
 
-        //BOTON VER PARENTESCOS
+        //BOTON VER PARENTESCOS..................................................................
         private void btnVerParentescos_Click(object sender, EventArgs e)
         {
             //formulario parentesco actual
@@ -804,7 +813,118 @@ namespace CapaPresentacion
             
         }
         //FIN BOTON CANCELAR PROHIBICION PARENTESCO......................................
-        
+
+
+        //SECCION REVINCULACION/DESVINCULACION PARENTESCO
+        #region VINCULACION PARENTESCO
+        //BOTON REVINCULAR
+        private void btnRevincular_Click(object sender, EventArgs e)
+        {
+            this.accionRevincularVinculo = true;
+
+            this.HabilitarControlesVinculacionParentescos(true);
+        }
+        //FIN BOTON REVINCULAR.......................................................
+
+        //BOTON DESVINCULAR
+        private void btnDesvincular_Click(object sender, EventArgs e)
+        {
+            this.accionDesvincularVinculo = true;
+
+            this.HabilitarControlesVinculacionParentescos(true);
+        }
+        //FIN BOTON DESVINCULAR...............................................................
+
+        //BOTON CANCELAR VINCULACION
+        private void btnCancelarVinculacionParentesco_Click(object sender, EventArgs e)
+        {
+            this.accionRevincularVinculo = true;
+
+            this.HabilitarControlesVinculacionParentescos(false);
+        }
+        //FIN BOTON CANCELAR VINCULACION...........................................................
+
+        //BOTON GUARDAR VINCULACION
+        private async void btnGuardarVinculacionParentesco_Click(object sender, EventArgs e)
+        {
+            NVisitaInterno nVisitaInterno = new NVisitaInterno();
+
+            bool respuestaOk = false;
+            string mensajeRespuesta = "";
+
+            //determinar cual es la accion a realizar con la prohibicion
+            //prohibir parentesco
+            if (this.accionRevincularVinculo)
+            {
+                var data = new
+                {
+                    detalles_vigencia = txtDetalleVinculacionParentesco.Text,
+                };
+
+                string dataActualizar = JsonConvert.SerializeObject(data);
+
+                (bool respuestaRevincular, string errorResponse) = await nVisitaInterno.RevincularParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataActualizar);
+
+                if (respuestaRevincular)
+                {
+                    respuestaOk = true;
+                    mensajeRespuesta = "El parentesco se revinculó correctamente";
+                }
+                else
+                {
+                    mensajeRespuesta = errorResponse;
+                }
+            }
+
+            //levantar prohibicion parentesco
+            if (this.accionDesvincularVinculo)
+            {
+                var data = new
+                {
+                    detalles_vigencia = txtDetalleVinculacionParentesco.Text,
+                };
+
+                string dataActualizar2 = JsonConvert.SerializeObject(data);
+
+                (bool respuestaDesvincular, string errorResponse) = await nVisitaInterno.DesvincularParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataActualizar2);
+
+                if (respuestaDesvincular)
+                {
+                    respuestaOk = true;
+                    mensajeRespuesta = "El parentesco se desvinculó correctamente";
+                }
+                else
+                {
+                    mensajeRespuesta = errorResponse;
+                }
+            }
+
+            //verificar respuesta de la peticion
+            if (respuestaOk)
+            {
+
+                MessageBox.Show(mensajeRespuesta, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mensajeRespuesta = "";
+
+                //deshabilitar controles
+                this.HabilitarControlesVinculacionParentescos(false);
+
+                //cargar lista de prhibiciones en datagrid
+                this.CargarDataGridParentescos();
+
+            }
+            else
+            {
+                MessageBox.Show(mensajeRespuesta, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            
+
+        }
+        //FIN BOTON GUARDAR VINCULACION.......................................................
+        #endregion VINCULACION PARENTESCO
+        //FIN SECCION REVINCULACION/DESVINCULACION PARENTESCO.......................................
+
         //DATA GRID PARENTESCOS
         private void dtgvParentescos_KeyDown(object sender, KeyEventArgs e)
         {
@@ -836,7 +956,7 @@ namespace CapaPresentacion
                 }
             }
         }
-        // FIN DATA GRID PARENTESCOS.......................................
+        //FIN DATA GRID PARENTESCOS.......................................
         
         //BOTON MODIFICAR PARENTESCO
         private void btnModificarParentesco_Click(object sender, EventArgs e)
@@ -940,6 +1060,19 @@ namespace CapaPresentacion
         }
         //METODO HABILITAR CONTROLES PROHIBICION VINCULO
 
+        //METODO HABILITAR CONTROLES VINCULACION VINCULO
+        private void HabilitarControlesVinculacionParentescos(bool habilitar)
+        {
+            txtDetalleVinculacionParentesco.Enabled = habilitar;
+            txtDetalleVinculacionParentesco.Text = "";
+
+            btnRevincular.Enabled = !habilitar;
+            btnDesvincular.Enabled = !habilitar;
+            btnGuardarVinculacionParentesco.Enabled = habilitar;
+            btnCancelarVinculacionParentesco.Enabled = habilitar;
+        }
+        //METODO HABILITAR CONTROLES VINCULACION VINCULO
+
         //METODO HABILITAR CONTROLES CAMBIO PARENTESCO
         private void HabilitarControlesCambioParentesco(bool habilitar)
         {
@@ -1008,11 +1141,7 @@ namespace CapaPresentacion
             }
         }
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ...........
-
-        private void groupBox10_Enter(object sender, EventArgs e)
-        {
-
-        }
+                
 
         private void dtgvNovedades_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1406,7 +1535,8 @@ namespace CapaPresentacion
                 dtgvExcepcionesIngreso.Columns[2].Width = 200;
                 dtgvExcepcionesIngreso.Columns[3].Width = 400;
             }
-        }        
+        }
+        
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
 
         #endregion Excepxiones
