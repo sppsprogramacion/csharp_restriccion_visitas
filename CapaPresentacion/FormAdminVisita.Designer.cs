@@ -1187,7 +1187,7 @@
             this.btnDesvincular.ForeColor = System.Drawing.Color.White;
             this.btnDesvincular.Location = new System.Drawing.Point(137, 20);
             this.btnDesvincular.Name = "btnDesvincular";
-            this.btnDesvincular.Size = new System.Drawing.Size(123, 37);
+            this.btnDesvincular.Size = new System.Drawing.Size(130, 37);
             this.btnDesvincular.TabIndex = 81;
             this.btnDesvincular.Text = "DESVINCULAR";
             this.btnDesvincular.UseVisualStyleBackColor = false;

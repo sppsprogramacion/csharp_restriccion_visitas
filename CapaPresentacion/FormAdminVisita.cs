@@ -820,7 +820,14 @@ namespace CapaPresentacion
         //BOTON REVINCULAR
         private void btnRevincular_Click(object sender, EventArgs e)
         {
+            if (txtIdVisitaInterno.Text == null || txtIdVisitaInterno.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un parentesco", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             this.accionRevincularVinculo = true;
+            this.accionDesvincularVinculo = false;
 
             this.HabilitarControlesVinculacionParentescos(true);
         }
@@ -829,7 +836,14 @@ namespace CapaPresentacion
         //BOTON DESVINCULAR
         private void btnDesvincular_Click(object sender, EventArgs e)
         {
+            if (txtIdVisitaInterno.Text == null || txtIdVisitaInterno.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un parentesco", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             this.accionDesvincularVinculo = true;
+            this.accionRevincularVinculo = false;
 
             this.HabilitarControlesVinculacionParentescos(true);
         }
@@ -838,7 +852,8 @@ namespace CapaPresentacion
         //BOTON CANCELAR VINCULACION
         private void btnCancelarVinculacionParentesco_Click(object sender, EventArgs e)
         {
-            this.accionRevincularVinculo = true;
+            this.accionRevincularVinculo = false;
+            this.accionDesvincularVinculo = false;
 
             this.HabilitarControlesVinculacionParentescos(false);
         }
@@ -869,14 +884,18 @@ namespace CapaPresentacion
                 {
                     respuestaOk = true;
                     mensajeRespuesta = "El parentesco se revinculó correctamente";
+                    MessageBox.Show("Revinculado", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                 {
                     mensajeRespuesta = errorResponse;
                 }
+
+                this.accionRevincularVinculo = false;
             }
 
-            //levantar prohibicion parentesco
+            //Desvincular parentesco
             if (this.accionDesvincularVinculo)
             {
                 var data = new
@@ -892,11 +911,15 @@ namespace CapaPresentacion
                 {
                     respuestaOk = true;
                     mensajeRespuesta = "El parentesco se desvinculó correctamente";
+                    MessageBox.Show("desvinculado", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                 {
                     mensajeRespuesta = errorResponse;
                 }
+
+                this.accionDesvincularVinculo = false;
             }
 
             //verificar respuesta de la peticion
@@ -917,9 +940,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(mensajeRespuesta, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            
-
         }
         //FIN BOTON GUARDAR VINCULACION.......................................................
         #endregion VINCULACION PARENTESCO
@@ -940,6 +960,7 @@ namespace CapaPresentacion
 
                     //deshabilitar controles parentescos
                     this.HabilitarControlesProhibicionParentescos(false);
+                    this.HabilitarControlesVinculacionParentescos(false);
                     this.HabilitarControlesCambioParentesco(false);
 
                     if (id_visita_interno > 0)
