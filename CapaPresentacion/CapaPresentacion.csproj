@@ -111,6 +111,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVisitasAnticipadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisitasAnticipadas.Designer.cs">
+      <DependentUpon>FormVisitasAnticipadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVisitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVisitasAnticipadas.resx">
+      <DependentUpon>FormVisitasAnticipadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVisitas.resx">
       <DependentUpon>FormVisitas.cs</DependentUpon>
