@@ -49,6 +49,7 @@
     <Compile Include="NNovedadCiudadano.cs" />
     <Compile Include="NParentesco.cs" />
     <Compile Include="NProhibicionVisita.cs" />
+    <Compile Include="NProhibicionVisitaAnticipada.cs" />
     <Compile Include="NProvincia.cs" />
     <Compile Include="NSexo.cs" />
     <Compile Include="NVisitaInterno.cs" />

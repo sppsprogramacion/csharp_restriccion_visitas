@@ -28,5 +28,12 @@ namespace CapaPresentacion
         {
             Application.Exit();
         }
+
+        private void btnProhibicionesAnticipadas_Click(object sender, EventArgs e)
+        {
+            FormProhibicionesAnticipadas formProhibicionesAnticipadas = new FormProhibicionesAnticipadas();
+
+            formProhibicionesAnticipadas.ShowDialog();
+        }
     }
 }

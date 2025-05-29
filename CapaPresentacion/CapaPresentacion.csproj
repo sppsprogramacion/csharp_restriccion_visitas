@@ -93,6 +93,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAdminProhibicionAnticipada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminProhibicionAnticipada.Designer.cs">
+      <DependentUpon>FormAdminProhibicionAnticipada.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAdminVisita.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,11 +117,11 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVisitasAnticipadas.cs">
+    <Compile Include="FormProhibicionesAnticipadas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVisitasAnticipadas.Designer.cs">
-      <DependentUpon>FormVisitasAnticipadas.cs</DependentUpon>
+    <Compile Include="FormProhibicionesAnticipadas.Designer.cs">
+      <DependentUpon>FormProhibicionesAnticipadas.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVisitas.cs">
       <SubType>Form</SubType>
@@ -127,14 +133,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\ProhibicionDatos.cs" />
     <Compile Include="Validaciones\ProhibicionValidator.cs" />
+    <EmbeddedResource Include="FormAdminProhibicionAnticipada.resx">
+      <DependentUpon>FormAdminProhibicionAnticipada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAdminVisita.resx">
       <DependentUpon>FormAdminVisita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVisitasAnticipadas.resx">
-      <DependentUpon>FormVisitasAnticipadas.cs</DependentUpon>
+    <EmbeddedResource Include="FormProhibicionesAnticipadas.resx">
+      <DependentUpon>FormProhibicionesAnticipadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVisitas.resx">
       <DependentUpon>FormVisitas.cs</DependentUpon>

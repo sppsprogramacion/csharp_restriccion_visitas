@@ -13,7 +13,7 @@ namespace DAO
         Task<(bool, string error)> LevantarProhibicionAnticipada(int id, string dataLevantar);
         Task<(bool, string error)> EditarProhibicionVisitaAnticipada(int id, string prohibicionVisita);
         Task<(DProhibicionAnticipada, string error)> BuscarProhibicionAnticipadaXId(int idProhibicionvisita);
-        Task<(List<DProhibicionAnticipada>, string error)> RetornarProhibicionesAnticipadasXApellido(string apellido);
-
+        Task<(List<DProhibicionAnticipada>, string error)> ListaProhibicionesAnticipadasXApellido(string apellido);
+        Task<(List<DProhibicionAnticipada>, string error)> ListaProhibicionesTodas();
     }
 }

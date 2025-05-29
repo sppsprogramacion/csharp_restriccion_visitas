@@ -14,13 +14,13 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FormVisitasAnticipadas : Form
+    public partial class FormProhibicionesAnticipadas : Form
     {
         //variable global id_ciudadano
         public int idCiudadanoGlobal { get; set; }
 
         
-        public FormVisitasAnticipadas()
+        public FormProhibicionesAnticipadas()
         {
             InitializeComponent();
         }
@@ -29,12 +29,12 @@ namespace CapaPresentacion
         {
 
             //cargar lista de ciudadanos en datagrid
-            this.CargarDataGridCiudadanos();
+            //this.CargarDataGridCiudadanos();
         }
 
 
         //METODO PARA OBTENER LA LISTA DE CIUDADANOS Y CARGARLO EN UN DATA GRID DE CIUDADANOS
-        async private void CargarDataGridCiudadanos()
+        async private void CargarDataGridPRohibiciones()
         {
             NCiudadano nCiudadano = new NCiudadano();
             //List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
@@ -58,7 +58,7 @@ namespace CapaPresentacion
                 })
                 .ToList();
 
-            dtgvVisitas.DataSource = datosFiltrados;
+            dtgvProhibicionesAnticipadas.DataSource = datosFiltrados;
         }
 
        
@@ -70,9 +70,9 @@ namespace CapaPresentacion
             {
                 e.SuppressKeyPress = true;
 
-                this.idCiudadanoGlobal = Convert.ToInt32(dtgvVisitas.CurrentRow.Cells["ID"].Value.ToString());
+                this.idCiudadanoGlobal = Convert.ToInt32(dtgvProhibicionesAnticipadas.CurrentRow.Cells["ID"].Value.ToString());
 
-                if (dtgvVisitas.SelectedRows.Count > 0)
+                if (dtgvProhibicionesAnticipadas.SelectedRows.Count > 0)
                 {
                     if (this.idCiudadanoGlobal > 0)
                     {
@@ -94,59 +94,43 @@ namespace CapaPresentacion
 
         private async void btnBuscarApellido_Click(object sender, EventArgs e)
         {
-            NCiudadano nCiudadano = new NCiudadano();
-            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadano.RetornarListaCiudadanosXApellido(txtApellido.Text);
+            NProhibicionVisitaAnticipada nProhibiciones = new NProhibicionVisitaAnticipada();
+            (List<DProhibicionAnticipada> listaProhibiciones, string errorResponse) = await nProhibiciones.ListaProhibicionesXApellido(txtApellido.Text);
 
-            if (listaCiudadanos == null)
+            if (listaProhibiciones == null)
             {
                 MessageBox.Show(errorResponse, "Restricion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var datosFiltrados = listaCiudadanos
+            var datosFiltrados = listaProhibiciones
                 .Select(c => new
                 {
-                    ID = c.id_ciudadano,
-                    Apellido = c.apellido,
-                    Nombre = c.nombre,
-                    DNI = c.dni,
+                    ID = c.id_prohibicion_anticipada,
+                    Apellido = c.apellido_visita,
+                    Nombre = c.nombre_visita,
+                    DNI = c.dni_visita,
                     Sexo = c.sexo.sexo
 
                 })
                 .ToList();
 
-            dtgvVisitas.DataSource = datosFiltrados;
-        }
+            dtgvProhibicionesAnticipadas.DataSource = datosFiltrados;
 
-        private async void btnBuscarDni_Click(object sender, EventArgs e)
-        {
-            NCiudadano nCiudadano = new NCiudadano();
-            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadano.RetornarListaCiudadanosXDni(Convert.ToInt32(txtDni.Text));
-
-            if (listaCiudadanos == null)
+            if (listaProhibiciones.Count == 0)
             {
-                MessageBox.Show(errorResponse, "Restricion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            var datosFiltrados = listaCiudadanos
-                .Select(c => new
-                {
-                    ID = c.id_ciudadano,
-                    Apellido = c.apellido,
-                    Nombre = c.nombre,
-                    DNI = c.dni,
-                    Sexo = c.sexo.sexo
-
-                })
-                .ToList();
-
-            dtgvVisitas.DataSource = datosFiltrados;
+            else
+            {
+                dtgvProhibicionesAnticipadas.Columns[0].Width = 90;
+                dtgvProhibicionesAnticipadas.Columns[1].Width = 200;
+                dtgvProhibicionesAnticipadas.Columns[2].Width = 200;
+                dtgvProhibicionesAnticipadas.Columns[3].Width = 90;
+                dtgvProhibicionesAnticipadas.Columns[4].Width = 90;
+            }
         }
-
-        private void dtgvVisitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+               
     }
 }

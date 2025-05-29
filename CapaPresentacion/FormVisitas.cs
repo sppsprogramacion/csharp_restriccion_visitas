@@ -59,6 +59,20 @@ namespace CapaPresentacion
                 .ToList();
 
             dtgvVisitas.DataSource = datosFiltrados;
+
+            if (listaCiudadanos.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                dtgvVisitas.Columns[0].Width = 90;
+                dtgvVisitas.Columns[1].Width = 200;
+                dtgvVisitas.Columns[2].Width = 200;
+                dtgvVisitas.Columns[3].Width = 90;
+                dtgvVisitas.Columns[4].Width = 90;
+            }
         }
 
        
@@ -116,6 +130,20 @@ namespace CapaPresentacion
                 .ToList();
 
             dtgvVisitas.DataSource = datosFiltrados;
+
+            if (listaCiudadanos.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                dtgvVisitas.Columns[0].Width = 90;
+                dtgvVisitas.Columns[1].Width = 200;
+                dtgvVisitas.Columns[2].Width = 200;
+                dtgvVisitas.Columns[3].Width = 90;
+                dtgvVisitas.Columns[4].Width = 90;
+            }
         }
 
         private async void btnBuscarDni_Click(object sender, EventArgs e)
@@ -142,6 +170,20 @@ namespace CapaPresentacion
                 .ToList();
 
             dtgvVisitas.DataSource = datosFiltrados;
+
+            if (listaCiudadanos.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                dtgvVisitas.Columns[0].Width = 90;
+                dtgvVisitas.Columns[1].Width = 200;
+                dtgvVisitas.Columns[2].Width = 200;
+                dtgvVisitas.Columns[3].Width = 90;
+                dtgvVisitas.Columns[4].Width = 90;
+            }
         }
 
         private void dtgvVisitas_CellContentClick(object sender, DataGridViewCellEventArgs e)

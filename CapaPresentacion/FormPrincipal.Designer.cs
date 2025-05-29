@@ -31,6 +31,7 @@
             this.btnVerVisitas = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.btnCerrarSistema = new System.Windows.Forms.Button();
+            this.btnProhibicionesAnticipadas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVerVisitas
@@ -75,12 +76,28 @@
             this.btnCerrarSistema.UseVisualStyleBackColor = false;
             this.btnCerrarSistema.Click += new System.EventHandler(this.btnCerrarSistema_Click);
             // 
+            // btnProhibicionesAnticipadas
+            // 
+            this.btnProhibicionesAnticipadas.BackColor = System.Drawing.Color.Indigo;
+            this.btnProhibicionesAnticipadas.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnProhibicionesAnticipadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProhibicionesAnticipadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProhibicionesAnticipadas.ForeColor = System.Drawing.Color.White;
+            this.btnProhibicionesAnticipadas.Location = new System.Drawing.Point(145, 49);
+            this.btnProhibicionesAnticipadas.Name = "btnProhibicionesAnticipadas";
+            this.btnProhibicionesAnticipadas.Size = new System.Drawing.Size(118, 45);
+            this.btnProhibicionesAnticipadas.TabIndex = 78;
+            this.btnProhibicionesAnticipadas.Text = "Prohibiciones Antiicpadas";
+            this.btnProhibicionesAnticipadas.UseVisualStyleBackColor = false;
+            this.btnProhibicionesAnticipadas.Click += new System.EventHandler(this.btnProhibicionesAnticipadas_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(813, 495);
+            this.Controls.Add(this.btnProhibicionesAnticipadas);
             this.Controls.Add(this.btnCerrarSistema);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.btnVerVisitas);
@@ -96,6 +113,7 @@
         private System.Windows.Forms.Button btnVerVisitas;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button btnCerrarSistema;
+        private System.Windows.Forms.Button btnProhibicionesAnticipadas;
     }
 }
 
