@@ -35,9 +35,33 @@
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbSexoVisita = new System.Windows.Forms.ComboBox();
+            this.txtDetalleVisitaAnticipada = new System.Windows.Forms.TextBox();
+            this.txtNombreVisita = new System.Windows.Forms.TextBox();
+            this.txtApellidoVisita = new System.Windows.Forms.TextBox();
+            this.txtDniVisita = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNombreInterno = new System.Windows.Forms.TextBox();
+            this.txtApellidoInterno = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.chckExInterno = new System.Windows.Forms.CheckBox();
+            this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
+            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibicionesAnticipadas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgvProhibicionesAnticipadas
@@ -46,7 +70,7 @@
             this.dtgvProhibicionesAnticipadas.Location = new System.Drawing.Point(9, 26);
             this.dtgvProhibicionesAnticipadas.Name = "dtgvProhibicionesAnticipadas";
             this.dtgvProhibicionesAnticipadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvProhibicionesAnticipadas.Size = new System.Drawing.Size(747, 349);
+            this.dtgvProhibicionesAnticipadas.Size = new System.Drawing.Size(751, 316);
             this.dtgvProhibicionesAnticipadas.TabIndex = 16;
             this.dtgvProhibicionesAnticipadas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvVisitas_KeyDown);
             // 
@@ -57,7 +81,7 @@
             this.btnBuscarApellido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarApellido.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarApellido.Location = new System.Drawing.Point(11, 70);
+            this.btnBuscarApellido.Location = new System.Drawing.Point(259, 21);
             this.btnBuscarApellido.Name = "btnBuscarApellido";
             this.btnBuscarApellido.Size = new System.Drawing.Size(93, 45);
             this.btnBuscarApellido.TabIndex = 2;
@@ -103,9 +127,9 @@
             this.groupBox1.Controls.Add(this.btnBuscarApellido);
             this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(8, 47);
+            this.groupBox1.Location = new System.Drawing.Point(8, 315);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(534, 137);
+            this.groupBox1.Size = new System.Drawing.Size(433, 78);
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda";
@@ -114,19 +138,287 @@
             // 
             this.groupBox2.Controls.Add(this.dtgvProhibicionesAnticipadas);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(9, 193);
+            this.groupBox2.Location = new System.Drawing.Point(9, 412);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(764, 388);
+            this.groupBox2.Size = new System.Drawing.Size(775, 356);
             this.groupBox2.TabIndex = 77;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Visitas";
+            this.groupBox2.Text = "Prohibiciones";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 72);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 16);
+            this.label7.TabIndex = 100;
+            this.label7.Text = "SEXO:";
+            // 
+            // cmbSexoVisita
+            // 
+            this.cmbSexoVisita.Enabled = false;
+            this.cmbSexoVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSexoVisita.FormattingEnabled = true;
+            this.cmbSexoVisita.Location = new System.Drawing.Point(11, 91);
+            this.cmbSexoVisita.Name = "cmbSexoVisita";
+            this.cmbSexoVisita.Size = new System.Drawing.Size(128, 24);
+            this.cmbSexoVisita.TabIndex = 99;
+            // 
+            // txtDetalleVisitaAnticipada
+            // 
+            this.txtDetalleVisitaAnticipada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleVisitaAnticipada.Location = new System.Drawing.Point(9, 146);
+            this.txtDetalleVisitaAnticipada.Multiline = true;
+            this.txtDetalleVisitaAnticipada.Name = "txtDetalleVisitaAnticipada";
+            this.txtDetalleVisitaAnticipada.ReadOnly = true;
+            this.txtDetalleVisitaAnticipada.Size = new System.Drawing.Size(621, 53);
+            this.txtDetalleVisitaAnticipada.TabIndex = 97;
+            // 
+            // txtNombreVisita
+            // 
+            this.txtNombreVisita.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombreVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreVisita.Location = new System.Drawing.Point(250, 41);
+            this.txtNombreVisita.Name = "txtNombreVisita";
+            this.txtNombreVisita.ReadOnly = true;
+            this.txtNombreVisita.Size = new System.Drawing.Size(228, 22);
+            this.txtNombreVisita.TabIndex = 92;
+            // 
+            // txtApellidoVisita
+            // 
+            this.txtApellidoVisita.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellidoVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoVisita.Location = new System.Drawing.Point(9, 41);
+            this.txtApellidoVisita.Name = "txtApellidoVisita";
+            this.txtApellidoVisita.ReadOnly = true;
+            this.txtApellidoVisita.Size = new System.Drawing.Size(228, 22);
+            this.txtApellidoVisita.TabIndex = 91;
+            // 
+            // txtDniVisita
+            // 
+            this.txtDniVisita.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDniVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDniVisita.Location = new System.Drawing.Point(495, 41);
+            this.txtDniVisita.Name = "txtDniVisita";
+            this.txtDniVisita.ReadOnly = true;
+            this.txtDniVisita.Size = new System.Drawing.Size(135, 22);
+            this.txtDniVisita.TabIndex = 93;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 16);
+            this.label6.TabIndex = 98;
+            this.label6.Text = "DETALLE:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(247, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 16);
+            this.label5.TabIndex = 96;
+            this.label5.Text = "NOMBRE VISITA";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 16);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "APELLIDO VISITA";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(492, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 16);
+            this.label1.TabIndex = 94;
+            this.label1.Text = "DNI VISITA:";
+            // 
+            // txtNombreInterno
+            // 
+            this.txtNombreInterno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombreInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreInterno.Location = new System.Drawing.Point(262, 231);
+            this.txtNombreInterno.Name = "txtNombreInterno";
+            this.txtNombreInterno.ReadOnly = true;
+            this.txtNombreInterno.Size = new System.Drawing.Size(249, 22);
+            this.txtNombreInterno.TabIndex = 104;
+            // 
+            // txtApellidoInterno
+            // 
+            this.txtApellidoInterno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellidoInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoInterno.Location = new System.Drawing.Point(10, 231);
+            this.txtApellidoInterno.Name = "txtApellidoInterno";
+            this.txtApellidoInterno.ReadOnly = true;
+            this.txtApellidoInterno.Size = new System.Drawing.Size(228, 22);
+            this.txtApellidoInterno.TabIndex = 102;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(259, 212);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(133, 16);
+            this.label13.TabIndex = 103;
+            this.label13.Text = "NOMBRE INTERNO:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(7, 212);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(138, 16);
+            this.label10.TabIndex = 101;
+            this.label10.Text = "APELLIDO INTERNO:";
+            // 
+            // chckExInterno
+            // 
+            this.chckExInterno.AutoSize = true;
+            this.chckExInterno.Enabled = false;
+            this.chckExInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chckExInterno.Location = new System.Drawing.Point(530, 231);
+            this.chckExInterno.Name = "chckExInterno";
+            this.chckExInterno.Size = new System.Drawing.Size(125, 20);
+            this.chckExInterno.TabIndex = 109;
+            this.chckExInterno.Text = "ES EXINTERNO";
+            this.chckExInterno.UseVisualStyleBackColor = true;
+            // 
+            // dtpFechaFin
+            // 
+            this.dtpFechaFin.Enabled = false;
+            this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFin.Location = new System.Drawing.Point(298, 90);
+            this.dtpFechaFin.Name = "dtpFechaFin";
+            this.dtpFechaFin.Size = new System.Drawing.Size(115, 22);
+            this.dtpFechaFin.TabIndex = 111;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(295, 73);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(79, 16);
+            this.label16.TabIndex = 112;
+            this.label16.Text = "FECHA FIN:";
+            // 
+            // dtpFechaInicio
+            // 
+            this.dtpFechaInicio.Enabled = false;
+            this.dtpFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicio.Location = new System.Drawing.Point(160, 91);
+            this.dtpFechaInicio.Name = "dtpFechaInicio";
+            this.dtpFechaInicio.Size = new System.Drawing.Size(115, 22);
+            this.dtpFechaInicio.TabIndex = 110;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(156, 72);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(96, 16);
+            this.label18.TabIndex = 113;
+            this.label18.Text = "FECHA INICIO:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnNuevo);
+            this.groupBox3.Controls.Add(this.btnGuardar);
+            this.groupBox3.Controls.Add(this.btnCancelar);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.dtpFechaFin);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.dtpFechaInicio);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.txtDniVisita);
+            this.groupBox3.Controls.Add(this.chckExInterno);
+            this.groupBox3.Controls.Add(this.txtApellidoVisita);
+            this.groupBox3.Controls.Add(this.txtNombreInterno);
+            this.groupBox3.Controls.Add(this.txtNombreVisita);
+            this.groupBox3.Controls.Add(this.txtApellidoInterno);
+            this.groupBox3.Controls.Add(this.txtDetalleVisitaAnticipada);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.cmbSexoVisita);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(8, 35);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(783, 272);
+            this.groupBox3.TabIndex = 114;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Nueva prohibicón";
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.Indigo;
+            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Location = new System.Drawing.Point(678, 31);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(98, 40);
+            this.btnNuevo.TabIndex = 116;
+            this.btnNuevo.Text = "NUEVO";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.Green;
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(679, 91);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(98, 40);
+            this.btnGuardar.TabIndex = 114;
+            this.btnGuardar.Text = "GUARDAR";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelar.Enabled = false;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(679, 138);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(98, 40);
+            this.btnCancelar.TabIndex = 115;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // FormProhibicionesAnticipadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(837, 590);
+            this.ClientSize = new System.Drawing.Size(815, 772);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label28);
@@ -138,6 +430,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -150,5 +444,28 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbSexoVisita;
+        private System.Windows.Forms.TextBox txtDetalleVisitaAnticipada;
+        private System.Windows.Forms.TextBox txtNombreVisita;
+        private System.Windows.Forms.TextBox txtApellidoVisita;
+        private System.Windows.Forms.TextBox txtDniVisita;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNombreInterno;
+        private System.Windows.Forms.TextBox txtApellidoInterno;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox chckExInterno;
+        private System.Windows.Forms.DateTimePicker dtpFechaFin;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

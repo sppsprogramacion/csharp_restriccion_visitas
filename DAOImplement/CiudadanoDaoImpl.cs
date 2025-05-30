@@ -10,6 +10,8 @@ using Conexion;
 using DAO;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using CommonCache;
+using System.Net.Http.Headers;
 
 namespace DAOImplement
 {
@@ -58,26 +60,28 @@ namespace DAOImplement
         async public Task<(DCiudadano, string error)> BuscarCiudadanoXId(int id)
         {
             DCiudadano dCiudadano = new DCiudadano();
+            string token = SessionManager.Token; // Aquí pones tu token real
 
             try
             {
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/" + id);
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var content = await httpResponse.Content.ReadAsStringAsync();
-                        dCiudadano = JsonConvert.DeserializeObject<DCiudadano>(content);
-                        return (dCiudadano, null);
-                    }
-                    else
-                    {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                        return (null, $"Error en la busqueda: {mensaje}");
-                    }
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/ciudadanos/" + id);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    dCiudadano = JsonConvert.DeserializeObject<DCiudadano>(content);
+                    return (dCiudadano, null);
                 }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
+                
 
             }
             catch (HttpRequestException httpRequestException)

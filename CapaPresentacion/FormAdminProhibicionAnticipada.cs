@@ -79,14 +79,14 @@ namespace CapaPresentacion
             txtApellidoVisita.Text = this.dProhibicion.apellido_visita;
             txtNombreVisita.Text = this.dProhibicion.nombre_visita;
             txtDniVisita.Text = this.dProhibicion.dni_visita.ToString();
-
+            txtDetalleProhibicionAnticipada.Text = this.dProhibicion.detalle;
             txtApellidoInterno.Text = this.dProhibicion.apellido_interno;
             txtNombreInterno.Text = this.dProhibicion.nombre_interno;
             txtFechaInicio.Text = this.dProhibicion.fecha_inicio.ToShortDateString();
             txtFechaFin.Text = this.dProhibicion.fecha_fin.ToShortDateString();
             txtTipoLevantamiento.Text = this.dProhibicion.tipo_levantamiento;
             chckExInterno.Checked = this.dProhibicion.is_exinterno;
-            chkAnulado.Checked = this.dProhibicion.vigente;
+            chkProhibicionVigente.Checked = this.dProhibicion.vigente;
             txtUsuarioAlta.Text = this.dProhibicion.usuario.apellido + " " + this.dProhibicion.usuario.nombre;
             txtOrganismoAlta.Text = this.dProhibicion.organismo.organismo;
 
@@ -976,7 +976,12 @@ namespace CapaPresentacion
             btnGuardarModificarParentesco.Enabled = habilitar;
             btnCancelarModificarParentesco.Enabled = habilitar;
         }
-                
+
+        private void pagProhibicion_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //FIN METODO HABILITAR CONTROLES CAMBIO PARENTESCO
         #endregion
         //FIN REGION PARENTESCOS..........................................................
