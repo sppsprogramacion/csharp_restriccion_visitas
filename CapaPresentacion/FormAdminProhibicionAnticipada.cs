@@ -19,7 +19,7 @@ namespace CapaPresentacion
     public partial class FormAdminProhibicionAnticipada : Form
     {
         //VARIABLES GLOBALES
-        DCiudadano dCiudadano = new DCiudadano();
+        DProhibicionAnticipada dProhibicion = new DProhibicionAnticipada();
         private ErrorProvider errorProvider = new ErrorProvider();
         //la accion puede ser prohibir, levantar o quitar
         string accionProhibir = "";
@@ -36,8 +36,7 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-       
-        private async void frmAdminVisita_Load(object sender, EventArgs e)
+        private async void FormAdminProhibicionAnticipada_Load_1(object sender, EventArgs e)
         {
             // Obtener el tamaño de la pantalla actual
             int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
@@ -53,63 +52,45 @@ namespace CapaPresentacion
             // Opcional: centrar el formulario si se ajustó
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            int idCiudadano;
+            int idProhibicionGlobal;
             //acceder a la instancia de FormTramites abierta.
-            FormVisitas formVisitas = Application.OpenForms["FormVisitas"] as FormVisitas;
-            NCiudadano nCiudadano = new NCiudadano();
+            FormProhibicionesAnticipadas formProhibicion = Application.OpenForms["FormProhibicionesAnticipadas"] as FormProhibicionesAnticipadas;
+            NProhibicionVisitaAnticipada nProhibicion = new NProhibicionVisitaAnticipada();
 
-            idCiudadano = Convert.ToInt32(formVisitas.idCiudadanoGlobal);
-            (DCiudadano dCiudadanoX, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
+            //CARGAR LISTA SEXO
+            //Carga de combo sexo
+            NSexo nSexo = new NSexo();
+            cmbSexoVisita.ValueMember = "id_sexo";
+            cmbSexoVisita.DisplayMember = "sexo";
+            cmbSexoVisita.DataSource = await nSexo.RetornarListaSexo();
+            idProhibicionGlobal = Convert.ToInt32(formProhibicion.idProhibicionAnticipadaGlobal);
+            (DProhibicionAnticipada dProhibicionX, string errorResponse) = await nProhibicion.BuscarProhibicionXId(idProhibicionGlobal);
 
-            this.dCiudadano = dCiudadanoX;
+            this.dProhibicion = dProhibicionX;
 
-            if (this.dCiudadano == null)
+            if (this.dProhibicion == null)
             {
                 MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            //pictureBox1.Load("https://drive.google.com/uc?id=1Wfa2hj0P5LFAGgYdZNx6TibZmQ7fxJrJ&export=download");
-            txtIdCiudadano.Text = this.dCiudadano.id_ciudadano.ToString();
-            if (this.dCiudadano.es_visita)
-            {
-                txtVisita.Text = "ES VISITA";
-            }
-            else
-            {
-                txtVisita.Text = "NO ES VISITA";
-            }
-            txtApellido.Text = this.dCiudadano.apellido;
-            txtNombre.Text = this.dCiudadano.nombre;
-            txtDni.Text = this.dCiudadano.dni.ToString();
-            txtSexo.Text = this.dCiudadano.sexo.sexo;
-            txtFechaNacimiento.Text = this.dCiudadano.fecha_nac.ToShortDateString();
-            txtTelefono.Text = this.dCiudadano.telefono;
-            txtEstadoCivil.Text = this.dCiudadano.estado_civil.estado_civil;
-            txtNacionalidad.Text = this.dCiudadano.nacionalidad.nacionalidad;
-            txtPais.Text = this.dCiudadano.pais.pais;
-            txtProvincia.Text = this.dCiudadano.provincia.provincia;
-            txtDepartamento.Text = this.dCiudadano.departamento.departamento;
-            txtMunicipio.Text = this.dCiudadano.municipio.municipio;
-            txtCiudad.Text = this.dCiudadano.ciudad;
-            if (this.dCiudadano.tiene_discapacidad)
-            {
-                txtDiscapacidad.Text = "TIENE DISCAPACIDAD";
-            }
-            else
-            {
-                txtDiscapacidad.Text = "NO TIENE DISCAPACIDAD";
-            }
-            txtFechaAlta.Text = this.dCiudadano.fecha_alta.ToShortDateString();
-            txtOrganismoAlta.Text = this.dCiudadano.organismo_alta.organismo;
+            txtIdProhibicionAnticipada.Text = this.dProhibicion.id_prohibicion_anticipada.ToString();
 
-            //Carga de combo parenrescos
-            NParentesco nParentesco = new NParentesco();
-            cmbParentescos.ValueMember = "id_parentesco";
-            cmbParentescos.DisplayMember = "parentesco";
-            cmbParentescos.DataSource = await nParentesco.RetornarListaParentescos();
+            txtApellidoVisita.Text = this.dProhibicion.apellido_visita;
+            txtNombreVisita.Text = this.dProhibicion.nombre_visita;
+            txtDniVisita.Text = this.dProhibicion.dni_visita.ToString();
+
+            txtApellidoInterno.Text = this.dProhibicion.apellido_interno;
+            txtNombreInterno.Text = this.dProhibicion.nombre_interno;
+            txtFechaInicio.Text = this.dProhibicion.fecha_inicio.ToShortDateString();
+            txtFechaFin.Text = this.dProhibicion.fecha_fin.ToShortDateString();
+            txtTipoLevantamiento.Text = this.dProhibicion.tipo_levantamiento;
+            chckExInterno.Checked = this.dProhibicion.is_exinterno;
+            chkAnulado.Checked = this.dProhibicion.vigente;
+            txtUsuarioAlta.Text = this.dProhibicion.usuario.apellido + " " + this.dProhibicion.usuario.nombre;
+            txtOrganismoAlta.Text = this.dProhibicion.organismo.organismo;
+
         }
-
 
         //REGION PROHIBICIONES
         #region Prohibiciones
@@ -117,7 +98,7 @@ namespace CapaPresentacion
         //VER PROHIBICIONES
         private void btnVerProhibiciones_Click(object sender, EventArgs e)
         {
-            this.CargarDataGridProhibiciones();
+            
 
         }
         //FIN VER PROHIBICIONES................................
@@ -137,7 +118,7 @@ namespace CapaPresentacion
                 //validacion de formulario
                 var datosFormulario = new ProhibicionDatos
                 {
-                    txtIdCiudadano = Convert.ToInt32(txtIdCiudadano.Text),
+                    txtIdCiudadano = Convert.ToInt32(txtIdProhibicionAnticipada.Text),
                     txtDisposicion = txtDisposicion.Text,
                     txtDetalle = txtDetalle.Text,
                     dtpFechaInicio = dtpFechaInicio.Value,
@@ -163,7 +144,7 @@ namespace CapaPresentacion
                 //enviar datos si son correctos
                 var data = new
                 {
-                    ciudadano_id = Convert.ToInt32(txtIdCiudadano.Text),
+                    ciudadano_id = Convert.ToInt32(txtIdProhibicionAnticipada.Text),
                     disposicion = txtDisposicion.Text,
                     detalle = txtDetalle.Text,
                     fecha_inicio = dtpFechaInicio.Value,
@@ -187,7 +168,7 @@ namespace CapaPresentacion
                     btnCancelar.Enabled = false;
                                         
                     //cargar lista de ciudadanos en datagrid
-                    this.CargarDataGridProhibiciones();
+                    
                 }
                 else
                 {
@@ -221,8 +202,7 @@ namespace CapaPresentacion
                     this.HabilitarControles(false);
 
                     //cargar lista de prhibiciones en datagrid
-                    this.CargarDataGridProhibiciones();
-                        
+                                            
                     btnNuevo.Enabled = true;
                     btnEditar.Enabled = true;
                     btnGuardar.Enabled = false;
@@ -430,7 +410,7 @@ namespace CapaPresentacion
                 this.HabilitarControles(false);
 
                 //cargar lista de prhibiciones en datagrid
-                this.CargarDataGridProhibiciones();
+                
 
                 btnNuevo.Enabled = true;
                 btnEditar.Enabled = true;
@@ -444,68 +424,7 @@ namespace CapaPresentacion
         }
         //FIN GUARDAR LEVANTAR, PROHIBIR Y ANULAR..................................................................
 
-
-        //METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES
-        async private void CargarDataGridProhibiciones()
-        {
-            NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
-            (List<DProhibicionVisita> listaProhibicionesVisita, string errorResponse) =  await nProhibicionVisita.RetornarListaProhibicionesVisita(this.dCiudadano.id_ciudadano);
-
-            if(listaProhibicionesVisita == null)
-            {
-                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            var datosfiltrados = listaProhibicionesVisita
-                .Select(c => new
-                {
-                    Id = c.id_prohibicion_visita,
-                    Disposicion = c.disposicion,
-                    Detalle = c.detalle,
-                    FechaInicio = c.fecha_inicio,
-                    FechaFin = c.fecha_fin,
-                    FechaProhibicion = c.fecha_prohibicion,
-                    Organismo = c.organismo.organismo,
-                    Vigente = c.vigente,
-                    TipoLevantamiento = c.tipo_levantamiento,
-                    Anulado = c.anulado
-
-                })
-                .ToList();
-
-            dtgvProhibiciones.DataSource = datosfiltrados;
-
-            if (listaProhibicionesVisita.Count == 0)
-            {
-                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            else
-            {
-
-                dtgvProhibiciones.Columns[2].Width = 300;
-            }
-
-            foreach (DataGridViewRow row in dtgvProhibiciones.Rows)
-            {
-                if (row.Cells["Vigente"].Value != null && Convert.ToBoolean(row.Cells["Vigente"].Value) == true)
-                {
-                    row.DefaultCellStyle.BackColor = Color.Orange; // Cambiar color de fondo
-                    row.DefaultCellStyle.ForeColor = Color.Black;    // Cambiar color del texto
-                }
-
-                if (row.Cells["Anulado"].Value != null && Convert.ToBoolean(row.Cells["Anulado"].Value) == true)
-                {
-                    row.DefaultCellStyle.BackColor = Color.Black; // Cambiar color de fondo
-                    row.DefaultCellStyle.ForeColor = Color.White;    // Cambiar color del texto
-                }
-            }
-
-
-        } 
-        //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES...........
-
+        
         //METODO PARA OBTENER HISTORIAL DE UNA PROHIBICION Y CARGARLO EN UN DATA GRID  
         private async void CargarDataGridHistorialProhibiciones(int idProhibicion)
         {
@@ -621,53 +540,7 @@ namespace CapaPresentacion
         //REGION PARENTESCOS
         #region Parentescos
 
-        //METODO PARA OBTENER LA LISTA DE PARENTESCOS Y CARGARLO EN UN DATA GRID 
-        async private void CargarDataGridParentescos()
-        {
-            NVisitaInterno nVisitaInterno = new NVisitaInterno();
-
-            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadano.id_ciudadano);
-
-            if (listaParentescos == null)
-            {
-                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            var datosfiltrados = listaParentescos
-                .Select(c => new
-                {
-                    Id = c.id_visita_interno,
-                    Interno = c.interno.apellido + " " + c.interno.nombre,
-                    Parentesco = c.parentesco.parentesco,
-                    Vigente = c.vigente,
-                    Anulado = c.anulado,
-                    Prohibido = c.prohibido,
-                    FechaProhib = c.fecha_prohibido,
-                    FechaInicio = c.fecha_inicio,
-                    FechaFin = c.fecha_fin,
-                    DetalleProhib = c.detalles_prohibicion,
-                    FechaAlta = c.fecha_alta,
-                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
-
-                })
-                .ToList();
-
-            dtgvParentescos.DataSource = datosfiltrados;
-
-            if (listaParentescos.Count == 0)
-            {
-                MessageBox.Show("No se encontraron registros par", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            else
-            {
-
-                dtgvParentescos.Columns[1].Width = 200;
-            }           
-
-        } //FIN METODO PARA OBTENER LA LISTA DE PARENTESCOS EN UN DATA GRID ...........
-
+        
         //BOTON VER PARENTESCOS..................................................................
         private void btnVerParentescos_Click(object sender, EventArgs e)
         {
@@ -684,7 +557,7 @@ namespace CapaPresentacion
             btnGuardarModificarParentesco.Enabled = false;
             btnCancelarModificarParentesco.Enabled = false;
 
-            this.CargarDataGridParentescos();
+            
         }
         //FIN VER´PARENTESCOS....................................................
 
@@ -792,7 +665,7 @@ namespace CapaPresentacion
                 this.HabilitarControlesProhibicionParentescos(false);
 
                 //cargar lista de prhibiciones en datagrid
-                this.CargarDataGridParentescos();
+                
 
             }
             else
@@ -932,7 +805,7 @@ namespace CapaPresentacion
                 this.HabilitarControlesVinculacionParentescos(false);
 
                 //cargar lista de prhibiciones en datagrid
-                this.CargarDataGridParentescos();
+                
 
             }
             else
@@ -1021,7 +894,7 @@ namespace CapaPresentacion
 
 
                         //cargar lista de prhibiciones en datagrid
-                        this.CargarDataGridParentescos();
+                        
 
                         //formulario parentesco actual
                         txtIdVisitaInterno.Text = "";
@@ -1103,465 +976,13 @@ namespace CapaPresentacion
             btnGuardarModificarParentesco.Enabled = habilitar;
             btnCancelarModificarParentesco.Enabled = habilitar;
         }
+                
         //FIN METODO HABILITAR CONTROLES CAMBIO PARENTESCO
         #endregion
         //FIN REGION PARENTESCOS..........................................................
         //.................................................................................
 
 
-        //REGION NOVEDADES
-        #region Novedades
-
-        //VER NOVEDADES
-        private void btnVerNovedades_Click(object sender, EventArgs e)
-        {
-            this.CargarDataGridNovedades();
-
-        }
-        //FIN VER NOVEDADES................................
-
-        //METODO PARA OBTENER LA LISTA DE NOVEDADES Y CARGARLO EN UN DATA GRID
-        async private void CargarDataGridNovedades()
-        {
-            NNovedadCiudadano nNovedadCiudadano = new NNovedadCiudadano();
-
-            (List<DNovedadCiudadano> listaNovedades, string errorResponse) = await nNovedadCiudadano.RetornarListaNovedadesCiudadano(this.dCiudadano.id_ciudadano);
-
-            if (listaNovedades == null)
-            {
-                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            var datosfiltrados = listaNovedades
-                .Select(c => new
-                {
-                    Id = c.id_novedad_ciudadano,
-                    Novedad = c.novedad,
-                    Detalle = c.novedad_detalle,
-                    FechaNovedad = c.fecha_novedad,
-                    Organismo = c.organismo.organismo,
-                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
-
-                })
-                .ToList();
-
-            dtgvNovedades.DataSource = datosfiltrados;
-
-            if (listaNovedades.Count == 0)
-            {
-                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            else
-            {
-                
-                dtgvNovedades.Columns[1].Width = 200;
-                dtgvNovedades.Columns[2].Width = 400;
-            }
-        }
-        //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ...........
-                
-
-        private void dtgvNovedades_KeyDown(object sender, KeyEventArgs e)
-        {
-            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-
-                if (dtgvNovedades.SelectedRows.Count > 0)
-                {
-                    int id_novedad;
-                    id_novedad = Convert.ToInt32(dtgvNovedades.CurrentRow.Cells["ID"].Value.ToString());
-
-                    if (id_novedad > 0)
-                    {
-                        txtIdNovedad.Text = id_novedad.ToString();
-                        txtFechaNovedad.Text = Convert.ToDateTime(dtgvNovedades.CurrentRow.Cells["FechaNovedad"].Value).ToString("dd/MM/yyyy");
-                        txtOrganismoNovedad.Text = dtgvNovedades.CurrentRow.Cells["Organismo"].Value.ToString();
-                        txtUsuarioNovedad.Text = dtgvNovedades.CurrentRow.Cells["Usuario"].Value.ToString();
-                        txtNovedad.Text = dtgvNovedades.CurrentRow.Cells["Novedad"].Value.ToString();
-                        txtDetalleNovedad.Text = dtgvNovedades.CurrentRow.Cells["Detalle"].Value.ToString();
-                        
-                    }
-                    else
-                    {
-                        MessageBox.Show("Debe seleccionar una novedad.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-        }
-
-        private void dtgvNovedades_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnNuevaNovedad_Click(object sender, EventArgs e)
-        {
-            txtNuevaNovedad.Enabled = true;
-            btnNuevaNovedad.Enabled = false;
-            btnGuardarNovedad.Enabled = true;
-            btnCancelarNovedad.Enabled = true;
-        }
-
-        private void btnCancelarNovedad_Click(object sender, EventArgs e)
-        {
-            txtNuevaNovedad.Enabled = false;
-            txtNuevaNovedad.Text = "";
-            btnNuevaNovedad.Enabled = true;
-            btnGuardarNovedad.Enabled = false;
-            btnCancelarNovedad.Enabled = false;
-        }
-
-        private async void btnGuardarNovedad_Click(object sender, EventArgs e)
-        {
-            NNovedadCiudadano nNovedadCiudadano = new NNovedadCiudadano();
-
-            bool respuestaOk = false;
-            string mensajeRespuesta = "";
-
-            
-            var data = new
-            {
-                ciudadano_id = Convert.ToInt32(txtIdCiudadano.Text),
-                novedad_detalle = txtNuevaNovedad.Text,
-            };
-
-            string dataNovedad = JsonConvert.SerializeObject(data);
-
-            (DNovedadCiudadano respuestaNovedad, string errorResponse) = await nNovedadCiudadano.CrearNovedad(dataNovedad);
-
-            if (respuestaNovedad != null)
-            {
-                MessageBox.Show("La novedad se guardo correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                txtNuevaNovedad.Enabled = false;
-                txtNuevaNovedad.Text = "";
-                btnNuevaNovedad.Enabled = true;
-                btnGuardarNovedad.Enabled = false;
-                btnCancelarNovedad.Enabled = false;
-
-                //cargar lista de ciudadanos en datagrid
-                this.CargarDataGridNovedades();
-            }
-            else
-            {
-                MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-        }
-
-        #endregion
-
-        //FIN REGION NOVEDADES............................................................
-        //.................................................................................
-
-        //REGION EXCEPCIONES
-        #region Excepciones
-        private void btnNuevaExcepcion_Click(object sender, EventArgs e)
-        {
-
-            //habilitar controles
-            this.HabilitarControlesExcepcion(true);
-        }
-
-        private void btnCancelarExcepcion_Click(object sender, EventArgs e)
-        {
-            //deshabilitar controles
-            this.HabilitarControlesExcepcion(false);
-        }
-
-        //BOTON GUARDAR EXCEPCION
-        private async void btnGuardarExcepcion_Click(object sender, EventArgs e)
-        {
-            NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
-
-            bool respuestaOk = false;
-            string mensajeRespuesta = "";
-
-
-            var data = new
-            {
-                ciudadano_id = Convert.ToInt32(txtIdCiudadano.Text),
-                motivo = txtMotivoExcepcion.Text,
-                detalle_excepcion = txtDetalleExcepcion.Text,
-                fecha_excepcion = dtpFechaExcepcion.Value
-            };
-
-            string dataExcepcion = JsonConvert.SerializeObject(data);
-
-            (DExcepcionIngresoVisita respuestaExcepcion, string errorResponse) = await nExcepcionIngresoVisita.CrearExcepcion(dataExcepcion);
-
-            if (respuestaExcepcion != null)
-            {
-                MessageBox.Show("La excepción se guardó correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //deshabilitar controles
-                this.HabilitarControlesExcepcion(false);
-
-                //cargar lista de excepciones en datagrid
-                this.CargarDataGridExcepciones();
-            }
-            else
-            {
-                MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-        //FIN BOTON GUARDAR EXCEPCION...........................................................
-
-
-        private void btnVerExcepciones_Click(object sender, EventArgs e)
-        {
-
-            this.CargarDataGridExcepciones();   
-        }
-
-        //DATA GRID eXCEPCIONES
-        private void dtgvExcepcionesIngreso_KeyDown(object sender, KeyEventArgs e)
-        {
-            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-
-                if (dtgvExcepcionesIngreso.SelectedRows.Count > 0)
-                {
-                    int id_excepcion_ingreso;
-                    id_excepcion_ingreso = Convert.ToInt32(dtgvExcepcionesIngreso.CurrentRow.Cells["ID"].Value.ToString());
-
-                    if (id_excepcion_ingreso > 0)
-                    {
-                        //deshabilitar controles
-                        this.HabilitarControlesExcepcion(false);
-                        this.HabilitarControlesCumplimentarAnularExcepcion(false);
-
-                        //cargar datos de datagrid a controles
-                        txtIdExcepcion.Text = id_excepcion_ingreso.ToString();
-                        txtMotivoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["MotivoExcepcion"].Value.ToString();
-                        txtDetalleExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Detalle"].Value.ToString();
-                        dtpFechaExcepcion.Value = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaExcepcion"].Value.ToString());
-                        txtFechaCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["FechaCarga"].Value.ToString();
-                        txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
-                        txtUsuarioCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Usuario"].Value.ToString();
-                        chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Cumplimentado"].Value.ToString());
-                        chkAnuladoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Anulado"].Value.ToString());
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Debe seleccionar una excepcion.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-        }
-        //FIN DATAGRID EXCEPCIONES........................................................
-
-        //BOTON GUARDAR CUMPLIMENTAR ANULAR EEXCEPCION
-        private async void btnGuardarCumplAnularExcepcion_Click(object sender, EventArgs e)
-        {
-            NExcepcionIngresoVisita nExcepcionIngreso = new NExcepcionIngresoVisita();
-
-            var data = new
-            {
-                detalle_cambio = txtDetalleCumplAnularExcepcion.Text,
-            };
-
-            string dataEnviar = JsonConvert.SerializeObject(data);
-
-
-            bool respuestaOk = false;
-            string mensajeRespuesta = "";
-
-            //determinar cual es la accion a realizar con la prohibicion
-            //usar el respectivo metodo
-            if (this.accionAnularExcepcion)
-            {
-                (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.AnularExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
-
-                if (respuestaEditar)
-                {
-                    respuestaOk = true;
-                    mensajeRespuesta = "La excepción se anuló correctamente";
-                }
-                else
-                {
-                    mensajeRespuesta = errorResponse;
-                }
-            }
-
-
-            if (this.accionCumplimentarExcepcion)
-            {
-                (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.CumplimentarExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
-
-                if (respuestaEditar)
-                {
-                    respuestaOk = true;
-                    mensajeRespuesta = "La excepción se cumplimentó correctamente";
-                }
-                else
-                {
-                    mensajeRespuesta = errorResponse;
-                }
-            }
-
-            //verificar respuesta de la peticion
-            if (respuestaOk)
-            {
-
-                MessageBox.Show(mensajeRespuesta, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mensajeRespuesta = "";
-
-                this.HabilitarControlesExcepcion(false);
-                this.HabilitarControlesCumplimentarAnularExcepcion(false);
-                this.CargarDataGridExcepciones();
-            }
-            else
-            {
-                MessageBox.Show(mensajeRespuesta, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        //FIN BOTON GUARDAR CUMPLIMENTAR ANULAR EEXCEPCION..........................................
-
-        private void btnAnularExcepcion_Click(object sender, EventArgs e)
-        {
-            if (txtIdExcepcion.Text == string.Empty)
-            {
-                MessageBox.Show("Debe selecionar una excepción para anular", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            this.accionAnularExcepcion = true;
-            lblDetalleCumplAnularExcepcion.Text = "DETALLE ANULAR:";
-            this.HabilitarControlesCumplimentarAnularExcepcion(true);
-        }
-
-        private void btnCumplimentarExcepcion_Click(object sender, EventArgs e)
-        {
-            if (txtIdExcepcion.Text == string.Empty)
-            {
-                MessageBox.Show("Debe selecionar una excepción para cumplimentar", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            this.accionCumplimentarExcepcion = true;
-            lblDetalleCumplAnularExcepcion.Text = "DETALLE CUMPLIMENTAR:";
-            this.HabilitarControlesCumplimentarAnularExcepcion(true);
-        }
-
-        private void btnCancelarCumplAnularExcepcion_Click(object sender, EventArgs e)
-        {
-            this.accionCumplimentarExcepcion = false;
-            this.accionAnularExcepcion = false;
-            lblDetalleCumplAnularExcepcion.Text = "DETALLE:";
-            this.HabilitarControlesCumplimentarAnularExcepcion(false);
-        }
-
-
-        //HABILITAR CONTROLES NUEVA EXCEPCION
-        private void HabilitarControlesExcepcion(bool habilitar)
-        {
-            //habilita controles
-            dtpFechaExcepcion.Enabled = habilitar;
-            dtpFechaExcepcion.ResetText();
-            txtMotivoExcepcion.Enabled = habilitar;
-            txtMotivoExcepcion.Text = string.Empty;
-            txtDetalleExcepcion.ReadOnly = !habilitar;
-            txtDetalleExcepcion.Text = string.Empty;
-
-            //limpia
-            txtIdExcepcion.Text = string.Empty;
-            txtFechaCargaExcepcion.Text = string.Empty;
-            txtOrganismoExepcion.Text = string.Empty;
-            txtUsuarioCargaExcepcion.Text = string.Empty;
-            chkCumplimentadoExcepcion.Checked = false;
-            chkAnuladoExcepcion.Checked = false;
-
-            //habilita botones
-            btnNuevaExcepcion.Enabled = !habilitar;
-            btnGuardarExcepcion.Enabled = habilitar;
-            btnCancelarExcepcion.Enabled = habilitar;
-
-            //habilitar botones cumplimentar/anular
-            btnCumplimentarExcepcion.Enabled = !habilitar;
-            btnAnularExcepcion.Enabled = !habilitar;
-        }
-
-        //FIN HABILITAR CONTROLES NUEVA EXCEPCION..............................
-
-        //HABILITAR CONTROLES CUMPLIMENTAR/ANULAR EXCEPCION
-        private void HabilitarControlesCumplimentarAnularExcepcion(bool habilitar)
-        {
-            //habilita controles
-            txtDetalleCumplAnularExcepcion.Enabled = habilitar;
-
-            //limpia
-            txtDetalleCumplAnularExcepcion.Text = string.Empty;
-
-
-            //habilita botones
-            btnAnularExcepcion.Enabled = !habilitar;
-            btnCumplimentarExcepcion.Enabled = !habilitar;
-            btnGuardarCumplAnularExcepcion.Enabled = habilitar;
-            btnCancelarCumplAnularExcepcion.Enabled = habilitar;
-
-            //habilitar botones nueva excepcion
-            btnNuevaExcepcion.Enabled = !habilitar;
-        }
-
-        //FIN HABILITAR CONTROLES CUMPLIMENTAR/ANULAR EXCEPCION..............................
-
-        //METODO PARA OBTENER LA LISTA DE EXCEPCIONES Y CARGARLO EN UN DATA GRID
-        async private void CargarDataGridExcepciones()
-        {
-            NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
-
-            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.RetornarListaExcepcionesIngreso(this.dCiudadano.id_ciudadano);
-
-            if (listaExcepcionesIngreso == null)
-            {
-                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            var datosfiltrados = listaExcepcionesIngreso
-                .Select(c => new
-                {
-                    Id = c.id_excepcion_ingreso_visita,
-                    FechaExcepcion = c.fecha_excepcion,
-                    MotivoExcepcion = c.motivo,
-                    Detalle = c.detalle_excepcion,
-                    FechaCarga = c.fecha_carga,
-                    Organismo = c.organismo.organismo,
-                    Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
-                    Cumplimentado = c.cumplimentado,
-                    Anulado = c.anulado
-
-                })
-                .ToList();
-
-            dtgvExcepcionesIngreso.DataSource = datosfiltrados;
-
-            if (listaExcepcionesIngreso.Count == 0)
-            {
-                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            else
-            {
-
-                dtgvExcepcionesIngreso.Columns[2].Width = 200;
-                dtgvExcepcionesIngreso.Columns[3].Width = 400;
-            }
-        }
-        
-        //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
-
-        #endregion Excepxiones
-        //FIN REGION EXCEPCIONES.........................................................
-        //...............................................................................
     }
 
 

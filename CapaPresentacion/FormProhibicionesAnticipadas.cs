@@ -17,7 +17,7 @@ namespace CapaPresentacion
     public partial class FormProhibicionesAnticipadas : Form
     {
         //variable global id_ciudadano
-        public int idCiudadanoGlobal { get; set; }
+        public int idProhibicionAnticipadaGlobal { get; set; }
 
         
         public FormProhibicionesAnticipadas()
@@ -70,18 +70,18 @@ namespace CapaPresentacion
             {
                 e.SuppressKeyPress = true;
 
-                this.idCiudadanoGlobal = Convert.ToInt32(dtgvProhibicionesAnticipadas.CurrentRow.Cells["ID"].Value.ToString());
+                this.idProhibicionAnticipadaGlobal = Convert.ToInt32(dtgvProhibicionesAnticipadas.CurrentRow.Cells["ID"].Value.ToString());
 
                 if (dtgvProhibicionesAnticipadas.SelectedRows.Count > 0)
                 {
-                    if (this.idCiudadanoGlobal > 0)
+                    if (this.idProhibicionAnticipadaGlobal > 0)
                     {
-                        FormAdminVisita formAdminVisita = new FormAdminVisita();
-                        formAdminVisita.ShowDialog();
+                        FormAdminProhibicionAnticipada formAdminProhibicionAnticipada = new FormAdminProhibicionAnticipada();
+                        formAdminProhibicionAnticipada.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("Debe seleccionar un ciudadano.");
+                        MessageBox.Show("Debe seleccionar una prohibición.");
                     }
                 }
             }
