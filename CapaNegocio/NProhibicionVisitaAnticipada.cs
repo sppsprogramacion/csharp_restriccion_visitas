@@ -11,6 +11,17 @@ namespace CapaNegocio
 {
     public class NProhibicionVisitaAnticipada
     {
+        //CREAR PROHIBICION
+        public async Task<(DProhibicionAnticipada, string error)> CrearProhibicion(string prohibicioAnticipada)
+        {
+            IProhibicionVisitaAnticipadaDao prohibicionDao = new ProhibisionVisitaAnticipadaDaoImpl();
+
+            (DProhibicionAnticipada prohibicionResponse, string errorResponse) = await prohibicionDao.CrearProhivisionAnticipada(prohibicioAnticipada);
+
+            return (prohibicionResponse, errorResponse);
+        }
+        //FIN CREAR PROHIBICION..................................
+
         //BUSCAR X ID
         public async Task<(DProhibicionAnticipada, string error)> BuscarProhibicionXId(int id)
         {

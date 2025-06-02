@@ -70,7 +70,7 @@
             this.dtgvProhibicionesAnticipadas.Location = new System.Drawing.Point(9, 26);
             this.dtgvProhibicionesAnticipadas.Name = "dtgvProhibicionesAnticipadas";
             this.dtgvProhibicionesAnticipadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvProhibicionesAnticipadas.Size = new System.Drawing.Size(751, 316);
+            this.dtgvProhibicionesAnticipadas.Size = new System.Drawing.Size(766, 316);
             this.dtgvProhibicionesAnticipadas.TabIndex = 16;
             this.dtgvProhibicionesAnticipadas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvVisitas_KeyDown);
             // 
@@ -98,7 +98,6 @@
             this.label26.Size = new System.Drawing.Size(71, 16);
             this.label26.TabIndex = 68;
             this.label26.Text = "APELLIDO";
-            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // txtApellido
             // 
@@ -129,7 +128,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 315);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(433, 78);
+            this.groupBox1.Size = new System.Drawing.Size(783, 78);
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda";
@@ -140,7 +139,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(9, 412);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(775, 356);
+            this.groupBox2.Size = new System.Drawing.Size(782, 356);
             this.groupBox2.TabIndex = 77;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prohibiciones";
@@ -167,41 +166,41 @@
             // 
             // txtDetalleVisitaAnticipada
             // 
+            this.txtDetalleVisitaAnticipada.Enabled = false;
             this.txtDetalleVisitaAnticipada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDetalleVisitaAnticipada.Location = new System.Drawing.Point(9, 146);
             this.txtDetalleVisitaAnticipada.Multiline = true;
             this.txtDetalleVisitaAnticipada.Name = "txtDetalleVisitaAnticipada";
-            this.txtDetalleVisitaAnticipada.ReadOnly = true;
             this.txtDetalleVisitaAnticipada.Size = new System.Drawing.Size(621, 53);
             this.txtDetalleVisitaAnticipada.TabIndex = 97;
             // 
             // txtNombreVisita
             // 
             this.txtNombreVisita.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombreVisita.Enabled = false;
             this.txtNombreVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreVisita.Location = new System.Drawing.Point(250, 41);
             this.txtNombreVisita.Name = "txtNombreVisita";
-            this.txtNombreVisita.ReadOnly = true;
             this.txtNombreVisita.Size = new System.Drawing.Size(228, 22);
             this.txtNombreVisita.TabIndex = 92;
             // 
             // txtApellidoVisita
             // 
             this.txtApellidoVisita.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellidoVisita.Enabled = false;
             this.txtApellidoVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidoVisita.Location = new System.Drawing.Point(9, 41);
             this.txtApellidoVisita.Name = "txtApellidoVisita";
-            this.txtApellidoVisita.ReadOnly = true;
             this.txtApellidoVisita.Size = new System.Drawing.Size(228, 22);
             this.txtApellidoVisita.TabIndex = 91;
             // 
             // txtDniVisita
             // 
             this.txtDniVisita.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDniVisita.Enabled = false;
             this.txtDniVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDniVisita.Location = new System.Drawing.Point(495, 41);
+            this.txtDniVisita.Location = new System.Drawing.Point(492, 41);
             this.txtDniVisita.Name = "txtDniVisita";
-            this.txtDniVisita.ReadOnly = true;
             this.txtDniVisita.Size = new System.Drawing.Size(135, 22);
             this.txtDniVisita.TabIndex = 93;
             // 
@@ -239,7 +238,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(492, 22);
+            this.label1.Location = new System.Drawing.Point(489, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 16);
             this.label1.TabIndex = 94;
@@ -248,20 +247,20 @@
             // txtNombreInterno
             // 
             this.txtNombreInterno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombreInterno.Enabled = false;
             this.txtNombreInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreInterno.Location = new System.Drawing.Point(262, 231);
             this.txtNombreInterno.Name = "txtNombreInterno";
-            this.txtNombreInterno.ReadOnly = true;
             this.txtNombreInterno.Size = new System.Drawing.Size(249, 22);
             this.txtNombreInterno.TabIndex = 104;
             // 
             // txtApellidoInterno
             // 
             this.txtApellidoInterno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellidoInterno.Enabled = false;
             this.txtApellidoInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidoInterno.Location = new System.Drawing.Point(10, 231);
             this.txtApellidoInterno.Name = "txtApellidoInterno";
-            this.txtApellidoInterno.ReadOnly = true;
             this.txtApellidoInterno.Size = new System.Drawing.Size(228, 22);
             this.txtApellidoInterno.TabIndex = 102;
             // 
@@ -376,12 +375,13 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(678, 31);
+            this.btnNuevo.Location = new System.Drawing.Point(676, 31);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(98, 40);
             this.btnNuevo.TabIndex = 116;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGuardar
             // 
@@ -390,12 +390,13 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(679, 91);
+            this.btnGuardar.Location = new System.Drawing.Point(677, 91);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 40);
             this.btnGuardar.TabIndex = 114;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -405,12 +406,13 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(679, 138);
+            this.btnCancelar.Location = new System.Drawing.Point(677, 138);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 40);
             this.btnCancelar.TabIndex = 115;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FormProhibicionesAnticipadas
             // 
@@ -425,7 +427,7 @@
             this.Name = "FormProhibicionesAnticipadas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prohibiciones Anticipadas";
-            this.Load += new System.EventHandler(this.Visitas_Load);
+            this.Load += new System.EventHandler(this.FormProhibicionesAnticipadas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibicionesAnticipadas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

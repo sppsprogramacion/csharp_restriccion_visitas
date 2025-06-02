@@ -52,17 +52,19 @@ namespace CapaPresentacion
             // Opcional: centrar el formulario si se ajustó
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            int idProhibicionGlobal;
-            //acceder a la instancia de FormTramites abierta.
-            FormProhibicionesAnticipadas formProhibicion = Application.OpenForms["FormProhibicionesAnticipadas"] as FormProhibicionesAnticipadas;
-            NProhibicionVisitaAnticipada nProhibicion = new NProhibicionVisitaAnticipada();
-
             //CARGAR LISTA SEXO
             //Carga de combo sexo
             NSexo nSexo = new NSexo();
             cmbSexoVisita.ValueMember = "id_sexo";
             cmbSexoVisita.DisplayMember = "sexo";
             cmbSexoVisita.DataSource = await nSexo.RetornarListaSexo();
+
+            //acceder a la instancia de FormTramites abierta.
+            FormProhibicionesAnticipadas formProhibicion = Application.OpenForms["FormProhibicionesAnticipadas"] as FormProhibicionesAnticipadas;
+            NProhibicionVisitaAnticipada nProhibicion = new NProhibicionVisitaAnticipada();
+
+            //ID PROHIBICION GLOBAL
+            int idProhibicionGlobal;
             idProhibicionGlobal = Convert.ToInt32(formProhibicion.idProhibicionAnticipadaGlobal);
             (DProhibicionAnticipada dProhibicionX, string errorResponse) = await nProhibicion.BuscarProhibicionXId(idProhibicionGlobal);
 
@@ -75,7 +77,6 @@ namespace CapaPresentacion
             }
 
             txtIdProhibicionAnticipada.Text = this.dProhibicion.id_prohibicion_anticipada.ToString();
-
             txtApellidoVisita.Text = this.dProhibicion.apellido_visita;
             txtNombreVisita.Text = this.dProhibicion.nombre_visita;
             txtDniVisita.Text = this.dProhibicion.dni_visita.ToString();
