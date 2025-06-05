@@ -73,38 +73,35 @@ namespace DAOImplement
         public async Task<(bool, string error)> EditarProhibicionVisita(int id,string prohibicionVisita)
         {
             try
-            {
-                              
-                using (HttpClient httpClient = new HttpClient())
+            {                
+                // Crear el contenido de la solicitud HTTP
+                StringContent content = new StringContent(prohibicionVisita, Encoding.UTF8, "application/json");
+
+                // Enviar la solicitud HTTP POST
+                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/prohibiciones-visita/" + id, content);
+
+                if (httpResponse.IsSuccessStatusCode)
                 {
-                    // Crear el contenido de la solicitud HTTP
-                    StringContent content = new StringContent(prohibicionVisita, Encoding.UTF8, "application/json");
-
-                    // Enviar la solicitud HTTP POST
-                    HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/prohibiciones-visita/" + id, content);
-
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();                        
+                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();                        
                         
-                        var dataRespuesta = JsonConvert.DeserializeObject<DResponseEditar>(contentRespuesta);
+                    var dataRespuesta = JsonConvert.DeserializeObject<DResponseEditar>(contentRespuesta);
 
-                        if(dataRespuesta.Affected > 0)
-                        {
-                            return (true, null);
-                        }
-                        else
-                        {
-                            return (false, "No se pudo editar el registro");
-                        }
+                    if(dataRespuesta.Affected > 0)
+                    {
+                        return (true, null);
                     }
                     else
                     {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                        return (false, $"Error en la edición: {mensaje}");
+                        return (false, "No se pudo editar el registro");
                     }
                 }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (false, $"Error en la edición: {mensaje}");
+                }
+                
             }
             catch (HttpRequestException httpRequestException)
             {

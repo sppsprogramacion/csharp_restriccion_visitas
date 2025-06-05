@@ -22,6 +22,28 @@ namespace CapaNegocio
         }
         //FIN CREAR PROHIBICION..................................
 
+        //EDITAR PROHIBICION
+        public async Task<(bool, string error)> EditarProhibicion(int id, string prohibicionAnticipada)
+        {
+            IProhibicionVisitaAnticipadaDao prohibicionVisitaDao = new ProhibisionVisitaAnticipadaDaoImpl();
+
+            (bool prohibicionResponse, string error) = await prohibicionVisitaDao.EditarProhibicionVisitaAnticipada(id, prohibicionAnticipada);
+
+            return (prohibicionResponse, error);
+        }
+        //FIN EDITAR PROHIBICION....................................................
+
+        //LEVANTAR MANUAL PROHIBICION
+        public async Task<(bool, string error)> LevantarManualProhibicion(int id, string dataLevantar)
+        {
+            IProhibicionVisitaAnticipadaDao prohibicionVisitaDao = new ProhibisionVisitaAnticipadaDaoImpl();
+
+            (bool prohibicionResponse, string error) = await prohibicionVisitaDao.LevantarProhibicionAnticipada(id, dataLevantar);
+
+            return (prohibicionResponse, error);
+        }
+        //FIN LEVANTAR MANUAL PROHIBICION..................................
+
         //BUSCAR X ID
         public async Task<(DProhibicionAnticipada, string error)> BuscarProhibicionXId(int id)
         {

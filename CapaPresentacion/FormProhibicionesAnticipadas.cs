@@ -175,9 +175,7 @@ namespace CapaPresentacion
             btnCancelar.Enabled = habilitar;
             btnBuscarApellido.Enabled = !habilitar;
         }
-
         //FIN HABILITAR CONTROLES...............................................
-
 
     }
 }
