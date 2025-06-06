@@ -468,7 +468,7 @@ namespace CapaPresentacion
                     FechaFin = c.fecha_fin,
                     FechaProhibicion = c.fecha_prohibicion,
                     Organismo = c.organismo.organismo,
-                    Vigente = c.vigente,
+                    Prohibida = c.vigente,
                     TipoLevantamiento = c.tipo_levantamiento,
                     Anulado = c.anulado
 

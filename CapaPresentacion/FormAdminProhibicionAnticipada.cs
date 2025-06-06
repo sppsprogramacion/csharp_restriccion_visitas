@@ -21,16 +21,9 @@ namespace CapaPresentacion
         //VARIABLES GLOBALES
         DProhibicionAnticipada dProhibicion = new DProhibicionAnticipada();
         private ErrorProvider errorProvider = new ErrorProvider();
-        //la accion puede ser prohibir, levantar o quitar
-        string accionProhibir = "";
-        string accionProhibirParentesco = "";
-        //cumplimentar/anular excepcion
-        bool accionCumplimentarExcepcion = false;
-        bool accionAnularExcepcion = false;
-        //vigencia vinculo
-        bool accionRevincularVinculo = false;
-        bool accionDesvincularVinculo = false;
-
+        //ID PROHIBICION GLOBAL
+        int idProhibicionGlobal=0;
+        
         public FormAdminProhibicionAnticipada()
         {
             InitializeComponent();
@@ -61,24 +54,16 @@ namespace CapaPresentacion
 
             //acceder a la instancia de FormTramites abierta.
             FormProhibicionesAnticipadas formProhibicion = Application.OpenForms["FormProhibicionesAnticipadas"] as FormProhibicionesAnticipadas;
-            NProhibicionVisitaAnticipada nProhibicion = new NProhibicionVisitaAnticipada();
 
-            //ID PROHIBICION GLOBAL
-            int idProhibicionGlobal;
+            //OBTENER ID PROHIBICION GLOBAL DE FORMULARIO D EVISITAS ANTICIPADAS          
             idProhibicionGlobal = Convert.ToInt32(formProhibicion.idProhibicionAnticipadaGlobal);
-            (DProhibicionAnticipada dProhibicionX, string errorResponse) = await nProhibicion.BuscarProhibicionXId(idProhibicionGlobal);
-
-            this.dProhibicion = dProhibicionX;
-
-            if (this.dProhibicion == null)
-            {
-                MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            //cargar datos del prohibicion en formulario
+            
+            //CARGAR DATOS DE LA PROHIBICION EN FORMULARIO
+            this.dProhibicion = await this.BuscarProhibicion(idProhibicionGlobal);
+            //cargar datos de la prohibicion en formulario
             this.CargarFormularioProhibicion();
         }
+        //FIN LOAD FORMULARIO
 
         //REGION PROHIBICIONES
         #region PROHIBICIONES
@@ -192,8 +177,12 @@ namespace CapaPresentacion
                 {
 
                     MessageBox.Show("La edición de la prohibición se realizó correctamente", "Restricción Visitass", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    
                     this.HabilitarControlesEdicion(false);
+
+                    //CARGAR DATOS DE LA PROHIBICION EN FORMULARIO
+                    this.dProhibicion = await this.BuscarProhibicion(this.idProhibicionGlobal);
+                    this.CargarFormularioProhibicion();
 
                 }
                 else
@@ -260,8 +249,9 @@ namespace CapaPresentacion
         //FIN REGION PROHIBICION.....................................................
         //...........................................................................
 
-        #region LEVANTAR PROHIBICION
-        
+
+        //REGION LEVANTAR PROHIBICION
+        #region LEVANTAR PROHIBICION        
 
         //BOTON LEVANTAR
         private void btnLevantar_Click(object sender, EventArgs e)
@@ -327,7 +317,10 @@ namespace CapaPresentacion
                 MessageBox.Show(mensajeRespuesta, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mensajeRespuesta = "";
 
-                //INICIALIZACION CONTROLES LEVANTAMIENTO                        
+                //CARGAR DATOS DE LA PROHIBICION EN FORMULARIO
+                this.dProhibicion = await this.BuscarProhibicion(this.idProhibicionGlobal);
+                this.CargarFormularioProhibicion();
+
                 this.HabilitarControlesLevantar(false);
                                 
             }
@@ -344,6 +337,7 @@ namespace CapaPresentacion
         {
             dtpFechaFinLevantar.Enabled = habilitar;
             txtMotivoLevantar.Enabled = habilitar;
+            txtMotivoLevantar.Text = "";
 
             btnLevantar.Enabled = !habilitar;
             btnGuardarLevantar.Enabled = habilitar;
@@ -357,6 +351,25 @@ namespace CapaPresentacion
         #endregion LEVANTAR PROHIBICION
         //FIN REGION LEVANTAR......................................................
         //..........................................................................
+    
+        //BUSCAR PROHIBICION
+        private async Task<DProhibicionAnticipada> BuscarProhibicion(int idProhibicionx)
+        {
+            NProhibicionVisitaAnticipada nProhibicion = new NProhibicionVisitaAnticipada();
+            (DProhibicionAnticipada dProhibicionX, string errorResponse) = await nProhibicion.BuscarProhibicionXId(idProhibicionx);
+
+            this.dProhibicion = dProhibicionX;
+
+            if (this.dProhibicion == null)
+            {
+                MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            return dProhibicionX;
+        }
+        //FIN BUSCAR PROHIBICION......................................
     }
+
 
 }

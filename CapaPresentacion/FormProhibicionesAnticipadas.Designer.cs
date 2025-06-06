@@ -70,7 +70,7 @@
             this.dtgvProhibicionesAnticipadas.Location = new System.Drawing.Point(9, 26);
             this.dtgvProhibicionesAnticipadas.Name = "dtgvProhibicionesAnticipadas";
             this.dtgvProhibicionesAnticipadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvProhibicionesAnticipadas.Size = new System.Drawing.Size(766, 316);
+            this.dtgvProhibicionesAnticipadas.Size = new System.Drawing.Size(800, 316);
             this.dtgvProhibicionesAnticipadas.TabIndex = 16;
             this.dtgvProhibicionesAnticipadas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvVisitas_KeyDown);
             // 
@@ -139,7 +139,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(9, 412);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(782, 356);
+            this.groupBox2.Size = new System.Drawing.Size(815, 356);
             this.groupBox2.TabIndex = 77;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prohibiciones";
@@ -289,7 +289,7 @@
             this.chckExInterno.AutoSize = true;
             this.chckExInterno.Enabled = false;
             this.chckExInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chckExInterno.Location = new System.Drawing.Point(530, 231);
+            this.chckExInterno.Location = new System.Drawing.Point(442, 90);
             this.chckExInterno.Name = "chckExInterno";
             this.chckExInterno.Size = new System.Drawing.Size(125, 20);
             this.chckExInterno.TabIndex = 109;
@@ -419,7 +419,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(815, 772);
+            this.ClientSize = new System.Drawing.Size(836, 772);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

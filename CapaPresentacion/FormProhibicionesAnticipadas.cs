@@ -82,7 +82,8 @@ namespace CapaPresentacion
                     Apellido = c.apellido_visita,
                     Nombre = c.nombre_visita,
                     DNI = c.dni_visita,
-                    Sexo = c.sexo.sexo
+                    Sexo = c.sexo.sexo,
+                    Vigente = c.vigente
 
                 })
                 .ToList();
@@ -101,6 +102,7 @@ namespace CapaPresentacion
                 dtgvProhibicionesAnticipadas.Columns[2].Width = 200;
                 dtgvProhibicionesAnticipadas.Columns[3].Width = 90;
                 dtgvProhibicionesAnticipadas.Columns[4].Width = 90;
+                dtgvProhibicionesAnticipadas.Columns[5].Width = 90;
             }
         }
 
