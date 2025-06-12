@@ -65,59 +65,6 @@ namespace CapaPresentacion
         }
         //FIN LOAD FORMULARIO
 
-        //REGION PROHIBICIONES
-        #region PROHIBICIONES
-
-        //VER PROHIBICIONES
-        private void btnVerProhibiciones_Click(object sender, EventArgs e)
-        {
-
-
-        }
-        //FIN VER PROHIBICIONES................................
-
-
-        //DATA GRID PROHIBICIONES
-        private void dtgvProhibiciones_KeyDown(object sender, KeyEventArgs e)
-        {
-            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-
-
-                if (dtgvProhibiciones.SelectedRows.Count > 0)
-                {
-                    int idProhibicion;
-                    idProhibicion = Convert.ToInt32(dtgvProhibiciones.CurrentRow.Cells["ID"].Value.ToString());
-
-                    if (idProhibicion > 0)
-                    {
-                        txtIdProhibicion.Text = idProhibicion.ToString();
-                        txtDisposicion.Text = dtgvProhibiciones.CurrentRow.Cells["Disposicion"].Value.ToString();
-                        txtDetalle.Text = dtgvProhibiciones.CurrentRow.Cells["Detalle"].Value.ToString();
-                        dtpFechaInicio.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaInicio"].Value.ToString());
-                        dtpFechaFin.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaFin"].Value.ToString());
-                        txtOrganismo.Text = dtgvProhibiciones.CurrentRow.Cells["Organismo"].Value.ToString();
-                        dtpFechaProhibicion.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaProhibicion"].Value.ToString());
-                        chkVigente.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Vigente"].Value.ToString());
-                        chkAnulado.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Anulado"].Value.ToString());
-
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Debe seleccionar una prohibición.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-        }
-        //FIN DATA GRID PROHIBICIONES...............................................
-
-        #endregion PROHIBICIONES
-        //FIN REGION PROHIBICIONES............................................................
-        //........................................................................................
-
 
         //REGION EDICION PROHIBICION
         #region EDICION PROHIBICION

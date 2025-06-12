@@ -69,7 +69,7 @@ namespace CapaNegocio
         //FIN RETORNAR TODOS..................................
 
         
-        //RETORNAR CIUDADANOS X APELLIDO
+        //RETORNAR X APELLIDO
         public async Task<(List<DProhibicionAnticipada>, string error)> ListaProhibicionesXApellido(string apellido)
         {
             IProhibicionVisitaAnticipadaDao prohibicionAnticipadaDao = new ProhibisionVisitaAnticipadaDaoImpl();
@@ -78,6 +78,6 @@ namespace CapaNegocio
 
             return (listaProhibiciones, error);
         }
-        //FIN RETORNAR CIUDADANOS X APELLIDO..................................
+        //FIN RETORNAR X APELLIDO..................................
     }
 }
