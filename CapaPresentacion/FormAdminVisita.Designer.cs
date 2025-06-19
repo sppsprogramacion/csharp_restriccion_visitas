@@ -723,7 +723,7 @@
             this.btnHistorial.Location = new System.Drawing.Point(641, 239);
             this.btnHistorial.Name = "btnHistorial";
             this.btnHistorial.Size = new System.Drawing.Size(98, 40);
-            this.btnHistorial.TabIndex = 88;
+            this.btnHistorial.TabIndex = 12;
             this.btnHistorial.Text = "HISTORIAL";
             this.btnHistorial.UseVisualStyleBackColor = false;
             this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
@@ -746,7 +746,7 @@
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.ReadOnly = true;
             this.txtDetalle.Size = new System.Drawing.Size(603, 77);
-            this.txtDetalle.TabIndex = 4;
+            this.txtDetalle.TabIndex = 8;
             // 
             // label19
             // 
@@ -768,7 +768,7 @@
             this.btnEditar.Location = new System.Drawing.Point(641, 65);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 40);
-            this.btnEditar.TabIndex = 8;
+            this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -780,7 +780,7 @@
             this.txtDisposicion.Location = new System.Drawing.Point(10, 89);
             this.txtDisposicion.Name = "txtDisposicion";
             this.txtDisposicion.Size = new System.Drawing.Size(228, 22);
-            this.txtDisposicion.TabIndex = 1;
+            this.txtDisposicion.TabIndex = 5;
             // 
             // btnNuevo
             // 
@@ -792,7 +792,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(641, 20);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(98, 40);
-            this.btnNuevo.TabIndex = 7;
+            this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -805,7 +805,7 @@
             this.dtpFechaFin.Location = new System.Drawing.Point(398, 88);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(115, 22);
-            this.dtpFechaFin.TabIndex = 3;
+            this.dtpFechaFin.TabIndex = 7;
             // 
             // label36
             // 
@@ -827,7 +827,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(641, 148);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -853,7 +853,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(641, 192);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -875,7 +875,7 @@
             this.dtpFechaInicio.Location = new System.Drawing.Point(260, 89);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(115, 22);
-            this.dtpFechaInicio.TabIndex = 2;
+            this.dtpFechaInicio.TabIndex = 6;
             // 
             // chkAnulado
             // 
@@ -919,7 +919,7 @@
             this.txtMotivo.Multiline = true;
             this.txtMotivo.Name = "txtMotivo";
             this.txtMotivo.Size = new System.Drawing.Size(617, 41);
-            this.txtMotivo.TabIndex = 5;
+            this.txtMotivo.TabIndex = 9;
             // 
             // label35
             // 
@@ -988,7 +988,7 @@
             this.dtgvProhibiciones.Name = "dtgvProhibiciones";
             this.dtgvProhibiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvProhibiciones.Size = new System.Drawing.Size(1036, 206);
-            this.dtgvProhibiciones.TabIndex = 34;
+            this.dtgvProhibiciones.TabIndex = 2;
             this.dtgvProhibiciones.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvProhibiciones_KeyDown);
             // 
             // groupBox2
@@ -1019,7 +1019,7 @@
             this.btnAnular.Location = new System.Drawing.Point(116, 20);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(93, 37);
-            this.btnAnular.TabIndex = 83;
+            this.btnAnular.TabIndex = 13;
             this.btnAnular.Text = "ANULAR";
             this.btnAnular.UseVisualStyleBackColor = false;
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
@@ -1034,7 +1034,7 @@
             this.btnQuitar.Location = new System.Drawing.Point(8, 21);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(101, 37);
-            this.btnQuitar.TabIndex = 81;
+            this.btnQuitar.TabIndex = 12;
             this.btnQuitar.Text = "LEVANTAR";
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
@@ -1050,7 +1050,7 @@
             this.btnCancelarQP.Location = new System.Drawing.Point(109, 239);
             this.btnCancelarQP.Name = "btnCancelarQP";
             this.btnCancelarQP.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelarQP.TabIndex = 80;
+            this.btnCancelarQP.TabIndex = 14;
             this.btnCancelarQP.Text = "CANCELAR";
             this.btnCancelarQP.UseVisualStyleBackColor = false;
             this.btnCancelarQP.Click += new System.EventHandler(this.btnCancelarQP_Click);
@@ -1065,7 +1065,7 @@
             this.btnGuardarQP.Location = new System.Drawing.Point(8, 239);
             this.btnGuardarQP.Name = "btnGuardarQP";
             this.btnGuardarQP.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardarQP.TabIndex = 79;
+            this.btnGuardarQP.TabIndex = 16;
             this.btnGuardarQP.Text = "GUARDAR";
             this.btnGuardarQP.UseVisualStyleBackColor = false;
             this.btnGuardarQP.Click += new System.EventHandler(this.btnGuardarQP_Click);
@@ -1089,7 +1089,7 @@
             this.txtMotivoQP.Multiline = true;
             this.txtMotivoQP.Name = "txtMotivoQP";
             this.txtMotivoQP.Size = new System.Drawing.Size(274, 67);
-            this.txtMotivoQP.TabIndex = 77;
+            this.txtMotivoQP.TabIndex = 15;
             // 
             // dtpFechaFinQP
             // 
@@ -1099,7 +1099,7 @@
             this.dtpFechaFinQP.Location = new System.Drawing.Point(8, 87);
             this.dtpFechaFinQP.Name = "dtpFechaFinQP";
             this.dtpFechaFinQP.Size = new System.Drawing.Size(115, 22);
-            this.dtpFechaFinQP.TabIndex = 43;
+            this.dtpFechaFinQP.TabIndex = 14;
             // 
             // label37
             // 
@@ -1129,7 +1129,7 @@
             this.dtgvHistorialProhibicion.Name = "dtgvHistorialProhibicion";
             this.dtgvHistorialProhibicion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvHistorialProhibicion.Size = new System.Drawing.Size(1036, 177);
-            this.dtgvHistorialProhibicion.TabIndex = 79;
+            this.dtgvHistorialProhibicion.TabIndex = 18;
             // 
             // btnVerProhibiciones
             // 
@@ -1141,7 +1141,7 @@
             this.btnVerProhibiciones.Location = new System.Drawing.Point(15, 16);
             this.btnVerProhibiciones.Name = "btnVerProhibiciones";
             this.btnVerProhibiciones.Size = new System.Drawing.Size(141, 45);
-            this.btnVerProhibiciones.TabIndex = 33;
+            this.btnVerProhibiciones.TabIndex = 1;
             this.btnVerProhibiciones.Text = "Ver prohibiciones";
             this.btnVerProhibiciones.UseVisualStyleBackColor = false;
             this.btnVerProhibiciones.Click += new System.EventHandler(this.btnVerProhibiciones_Click);
@@ -1606,7 +1606,7 @@
             this.btnVerParentescos.Location = new System.Drawing.Point(15, 16);
             this.btnVerParentescos.Name = "btnVerParentescos";
             this.btnVerParentescos.Size = new System.Drawing.Size(141, 45);
-            this.btnVerParentescos.TabIndex = 62;
+            this.btnVerParentescos.TabIndex = 1;
             this.btnVerParentescos.Text = "Ver parentescos";
             this.btnVerParentescos.UseVisualStyleBackColor = false;
             this.btnVerParentescos.Click += new System.EventHandler(this.btnVerParentescos_Click);

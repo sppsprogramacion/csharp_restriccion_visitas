@@ -32,6 +32,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.btnCerrarSistema = new System.Windows.Forms.Button();
             this.btnProhibicionesAnticipadas = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVerVisitas
@@ -71,7 +72,7 @@
             this.btnCerrarSistema.Location = new System.Drawing.Point(708, 438);
             this.btnCerrarSistema.Name = "btnCerrarSistema";
             this.btnCerrarSistema.Size = new System.Drawing.Size(93, 45);
-            this.btnCerrarSistema.TabIndex = 77;
+            this.btnCerrarSistema.TabIndex = 50;
             this.btnCerrarSistema.Text = "Cerrar sistema";
             this.btnCerrarSistema.UseVisualStyleBackColor = false;
             this.btnCerrarSistema.Click += new System.EventHandler(this.btnCerrarSistema_Click);
@@ -83,13 +84,27 @@
             this.btnProhibicionesAnticipadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProhibicionesAnticipadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProhibicionesAnticipadas.ForeColor = System.Drawing.Color.White;
-            this.btnProhibicionesAnticipadas.Location = new System.Drawing.Point(145, 49);
+            this.btnProhibicionesAnticipadas.Location = new System.Drawing.Point(125, 49);
             this.btnProhibicionesAnticipadas.Name = "btnProhibicionesAnticipadas";
             this.btnProhibicionesAnticipadas.Size = new System.Drawing.Size(118, 45);
-            this.btnProhibicionesAnticipadas.TabIndex = 78;
+            this.btnProhibicionesAnticipadas.TabIndex = 1;
             this.btnProhibicionesAnticipadas.Text = "Prohibiciones Antiicpadas";
             this.btnProhibicionesAnticipadas.UseVisualStyleBackColor = false;
             this.btnProhibicionesAnticipadas.Click += new System.EventHandler(this.btnProhibicionesAnticipadas_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Indigo;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(252, 49);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 45);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Internos";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // FormPrincipal
             // 
@@ -97,6 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(813, 495);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnProhibicionesAnticipadas);
             this.Controls.Add(this.btnCerrarSistema);
             this.Controls.Add(this.label28);
@@ -114,6 +130,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button btnCerrarSistema;
         private System.Windows.Forms.Button btnProhibicionesAnticipadas;
+        private System.Windows.Forms.Button button1;
     }
 }
 

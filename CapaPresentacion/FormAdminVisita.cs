@@ -267,7 +267,7 @@ namespace CapaPresentacion
                         dtpFechaFin.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaFin"].Value.ToString());
                         txtOrganismo.Text = dtgvProhibiciones.CurrentRow.Cells["Organismo"].Value.ToString();
                         dtpFechaProhibicion.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaProhibicion"].Value.ToString());
-                        chkVigente.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Vigente"].Value.ToString());
+                        chkVigente.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Prohibida"].Value.ToString());
                         chkAnulado.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Anulado"].Value.ToString());
 
                         dtgvHistorialProhibicion.DataSource = "";
@@ -490,7 +490,7 @@ namespace CapaPresentacion
 
             foreach (DataGridViewRow row in dtgvProhibiciones.Rows)
             {
-                if (row.Cells["Vigente"].Value != null && Convert.ToBoolean(row.Cells["Vigente"].Value) == true)
+                if (row.Cells["Prohibida"].Value != null && Convert.ToBoolean(row.Cells["Prohibida"].Value) == true)
                 {
                     row.DefaultCellStyle.BackColor = Color.Orange; // Cambiar color de fondo
                     row.DefaultCellStyle.ForeColor = Color.Black;    // Cambiar color del texto

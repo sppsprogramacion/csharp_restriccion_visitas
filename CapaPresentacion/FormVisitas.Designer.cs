@@ -50,7 +50,7 @@
             this.dtgvVisitas.Name = "dtgvVisitas";
             this.dtgvVisitas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvVisitas.Size = new System.Drawing.Size(747, 349);
-            this.dtgvVisitas.TabIndex = 16;
+            this.dtgvVisitas.TabIndex = 5;
             this.dtgvVisitas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvVisitas_CellContentClick);
             this.dtgvVisitas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvVisitas_KeyDown);
             // 

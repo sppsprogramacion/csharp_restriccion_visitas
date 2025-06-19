@@ -49,7 +49,7 @@
             this.btnLogin.Location = new System.Drawing.Point(249, 261);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(194, 40);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -96,7 +96,7 @@
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(195, 30);
-            this.txtContrasenia.TabIndex = 3;
+            this.txtContrasenia.TabIndex = 2;
             // 
             // btnCerrarSistema
             // 
@@ -108,7 +108,7 @@
             this.btnCerrarSistema.Location = new System.Drawing.Point(248, 313);
             this.btnCerrarSistema.Name = "btnCerrarSistema";
             this.btnCerrarSistema.Size = new System.Drawing.Size(194, 40);
-            this.btnCerrarSistema.TabIndex = 5;
+            this.btnCerrarSistema.TabIndex = 4;
             this.btnCerrarSistema.Text = "Cerrar sistema";
             this.btnCerrarSistema.UseVisualStyleBackColor = false;
             this.btnCerrarSistema.Click += new System.EventHandler(this.btnCerrarSistema_Click);
