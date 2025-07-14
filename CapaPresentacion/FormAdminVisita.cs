@@ -1,6 +1,7 @@
 ﻿using CapaDatos;
 using CapaNegocio;
 using CapaPresentacion.Validaciones;
+using CapaPresentacion.Validaciones.AdminVisita.EdicionProhibicion;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -127,7 +128,7 @@ namespace CapaPresentacion
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
-            Boolean enviar = true;
+            
 
             //NUEVO
             if ( txtIdProhibicion.Text == null || txtIdProhibicion.Text == "")
@@ -150,7 +151,6 @@ namespace CapaPresentacion
 
                 if (!result.IsValid)
                 {
-                    enviar = false;
                     MessageBox.Show("Complete correctamente los campos del formulario","Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     foreach (var failure in result.Errors)
                     {
@@ -201,6 +201,35 @@ namespace CapaPresentacion
             //EDITAR
             if (!string.IsNullOrEmpty(txtIdProhibicion.Text))
             {
+                //limpiar errores de provider
+                errorProvider.Clear();
+
+                //validacion de formulario
+                var datosFormulario = new ProhibicionDatos
+                {                    
+                    txtDisposicion = txtDisposicion.Text,
+                    txtDetalle = txtDetalle.Text,
+                    dtpFechaInicio = dtpFechaInicio.Value,
+                    dtpFechaFin = dtpFechaFin.Value,
+                    txtMotivo = txtMotivo.Text,
+                };
+
+                var validatorEdicion = new EdicionProhibicionValidator();
+                var result = validatorEdicion.Validate(datosFormulario);
+
+                if (!result.IsValid)
+                {
+                    MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var failure in result.Errors)
+                    {
+
+                        Control control = Controls.Find(failure.PropertyName, true)[0];
+                        errorProvider.SetError(control, failure.ErrorMessage);
+                    }
+                    return;
+                }
+
+                //enviar datos
                 var data = new
                 {
                     disposicion = txtDisposicion.Text,

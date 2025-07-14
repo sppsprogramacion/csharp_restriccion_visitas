@@ -131,8 +131,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validaciones\ProhibicionDatos.cs" />
-    <Compile Include="Validaciones\ProhibicionValidator.cs" />
+    <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\EdicionProhibicionValidator.cs" />
+    <Compile Include="Validaciones\AdminVisita\Datos\ProhibicionDatos.cs" />
+    <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ProhibicionValidator.cs" />
     <EmbeddedResource Include="FormAdminProhibicionAnticipada.resx">
       <DependentUpon>FormAdminProhibicionAnticipada.cs</DependentUpon>
     </EmbeddedResource>
