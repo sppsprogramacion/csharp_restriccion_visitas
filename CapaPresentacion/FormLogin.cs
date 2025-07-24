@@ -60,7 +60,6 @@ namespace CapaPresentacion
 
                 this.Hide();
                 formPrincipal.Show();
-                //formVisitas.Show();
             }
             else
             {
