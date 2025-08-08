@@ -27,55 +27,8 @@ namespace CapaPresentacion
 
         private void Visitas_Load(object sender, EventArgs e)
         {
-
-            //cargar lista de ciudadanos en datagrid
-            this.CargarDataGridCiudadanos();
+                        
         }
-
-
-        //METODO PARA OBTENER LA LISTA DE CIUDADANOS Y CARGARLO EN UN DATA GRID DE CIUDADANOS
-        async private void CargarDataGridCiudadanos()
-        {
-            NCiudadano nCiudadano = new NCiudadano();
-            //List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
-            (List<DCiudadano> listaCiudadanos, string error) = await nCiudadano.RetornarListaCiudadanos();
-
-            if(listaCiudadanos == null)
-            {
-                MessageBox.Show(error, "Restricion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var datosFiltrados = listaCiudadanos
-                .Select(c => new
-                {
-                    ID = c.id_ciudadano,
-                    Apellido = c.apellido,
-                    Nombre = c.nombre,
-                    DNI = c.dni,
-                    Sexo = c.sexo.sexo
-                    
-                })
-                .ToList();
-
-            dtgvVisitas.DataSource = datosFiltrados;
-
-            if (listaCiudadanos.Count == 0)
-            {
-                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            else
-            {
-                dtgvVisitas.Columns[0].Width = 90;
-                dtgvVisitas.Columns[1].Width = 200;
-                dtgvVisitas.Columns[2].Width = 200;
-                dtgvVisitas.Columns[3].Width = 90;
-                dtgvVisitas.Columns[4].Width = 90;
-            }
-        }
-
-       
 
         private void dtgvVisitas_KeyDown(object sender, KeyEventArgs e)
         {

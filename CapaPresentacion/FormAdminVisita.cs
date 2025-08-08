@@ -669,6 +669,7 @@ namespace CapaPresentacion
                 {
                     Id = c.id_visita_interno,
                     Interno = c.interno.apellido + " " + c.interno.nombre,
+                    Prontuario = c.interno.prontuario,
                     Parentesco = c.parentesco.parentesco,
                     Vigente = c.vigente,
                     Anulado = c.anulado,
