@@ -83,10 +83,15 @@ namespace DAOImplement
         //CAMBIAR PARENTESCO
         public async Task<(bool, string error)> CambiarParentesco(int id, string dataCambiar)
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
+
             try
             {
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(dataCambiar, Encoding.UTF8, "application/json");
+
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                 // Enviar la solicitud HTTP POST
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/visitas-internos/cambiar-parentesco?id_visita_interno=" + id, content);
