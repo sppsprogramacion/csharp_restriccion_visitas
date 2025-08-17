@@ -12,18 +12,7 @@ namespace CapaNegocio
 {
     public class NCiudadano
     {
-
-        //CREAR CIUDADANO
-        public async Task<HttpResponseMessage> CrearCiudadano(string ciudadano)
-        {
-            ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
-
-            HttpResponseMessage ciudadanoResponse = await ciudadanoDao.CrearCiudadano(ciudadano);
-
-            return ciudadanoResponse;
-        }
-        //FIN CREAR CIUDADANO..................................
-
+                
         //RETORNAR CIUDADANOS TODOS
         public async Task<(List<DCiudadano>, string)> RetornarListaCiudadanos()
         {

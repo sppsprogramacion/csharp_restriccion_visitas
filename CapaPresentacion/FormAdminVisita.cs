@@ -105,11 +105,7 @@ namespace CapaPresentacion
             txtOrganismoAlta.Text = this.dCiudadano.organismo_alta.organismo;
             pictureFoto.Load(this.dCiudadano.foto);
 
-            //Carga de combo parenrescos
-            NParentesco nParentesco = new NParentesco();
-            cmbParentescos.ValueMember = "id_parentesco";
-            cmbParentescos.DisplayMember = "parentesco";
-            cmbParentescos.DataSource = await nParentesco.RetornarListaParentescos();
+            
         }
 
 
@@ -700,7 +696,7 @@ namespace CapaPresentacion
         } //FIN METODO PARA OBTENER LA LISTA DE PARENTESCOS EN UN DATA GRID ...........
 
         //BOTON VER PARENTESCOS..................................................................
-        private void btnVerParentescos_Click(object sender, EventArgs e)
+        private async void btnVerParentescos_Click(object sender, EventArgs e)
         {
             //formulario parentesco actual
             txtIdVisitaInterno.Text = "";
@@ -716,8 +712,22 @@ namespace CapaPresentacion
             btnCancelarModificarParentesco.Enabled = false;
 
             this.CargarDataGridParentescos();
+
+            //Carga de combo parentescos
+            NParentesco nParentesco = new NParentesco();
+            (List<DParentesco> listaParentescos, string errorResponse) = await nParentesco.RetornarListaParentescos();
+
+            if (listaParentescos == null)
+            {
+                MessageBox.Show("Advertencia al cargar lista de parentescos: " + errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            cmbParentescos.ValueMember = "id_parentesco";
+            cmbParentescos.DisplayMember = "parentesco";
+            cmbParentescos.DataSource = listaParentescos;
         }
-        //FIN VER´PARENTESCOS....................................................
+        //FIN VER PARENTESCOS....................................................
 
         //BOTON PROHIBIR PARENTESCO
         private void btnProhibirParent_Click(object sender, EventArgs e)

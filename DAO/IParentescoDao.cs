@@ -12,6 +12,6 @@ namespace DAO
     {
         Task<DParentesco> BuscarParentescoXId(int idParentesco);
 
-        Task<List<DParentesco>> RetornarParentescos();
+        Task<(List<DParentesco>, string error)> RetornarParentescos();
     }
 }

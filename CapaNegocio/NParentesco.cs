@@ -12,14 +12,14 @@ namespace CapaNegocio
     public class NParentesco
     {
         //RETORNAR PARENTESCOS TODOS
-        public async Task<List<DParentesco>> RetornarListaParentescos()
+        public async Task<(List<DParentesco>, string)> RetornarListaParentescos()
         {
             IParentescoDao parentescoDao = new ParentescoDaoImpl();
 
-            List<DParentesco> listaParentescos = await parentescoDao.RetornarParentescos();
+            (List<DParentesco> listaResponse, string errorResponse) = await parentescoDao.RetornarParentescos();
 
 
-            return listaParentescos;
+            return (listaResponse, errorResponse);
         }
         //FIN RETORNAR PARENTESCOS TODOS..................................
     }

@@ -11,6 +11,6 @@ namespace DAO
     {
         DEstadoCivil buscarEstadoCivilXId(int id);
 
-        Task<List<DEstadoCivil>> retornarListaEstadoCivil();
+        Task<(List<DEstadoCivil>, string error)> retornarListaEstadoCivil();
     }
 }

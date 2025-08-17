@@ -16,8 +16,7 @@ namespace CapaNegocio
         {
             IProvinciaDao provinciaDao = new ProvinciaDaoImpl();
 
-            List<DProvincia> listaProvincias = await provinciaDao.retornarListaProvinciasXPais(id_pais);
-
+            (List<DProvincia> listaProvincias, string errorResponse) = await provinciaDao.retornarListaProvinciasXPais(id_pais);
 
             return listaProvincias;
         }

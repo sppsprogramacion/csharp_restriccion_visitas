@@ -20,42 +20,7 @@ namespace DAOImplement
         private string url_base = MiConexion.getConexion();
         HttpClient httpClient = new HttpClient();
 
-        //CREAR CIUDADANO
-        public async Task<HttpResponseMessage> CrearCiudadano(string ciudadano)
-        {
-            
-            try
-            {
-                // Crear el contenido de la solicitud HTTP
-                StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
-
-                // Enviar la solicitud HTTP POST
-                HttpResponseMessage httpResponse = await this.httpClient.PostAsync(url_base + "/ciudadanos", content);
-
                 
-                return httpResponse;
-                
-            }
-            catch (HttpRequestException httpRequestException)
-            {
-                // Capturar errores de la solicitud HTTP
-                throw new Exception($"Error al realizar la solicitud: {httpRequestException.Message}");
-            }
-            catch (JsonException jsonException)
-            {
-                // Capturar errores en la serialización/deserialización de JSON
-                throw new Exception($"Error al serializar/deserializar JSON: {jsonException.Message}");
-            }
-            catch (Exception ex)
-            {
-                // Capturar cualquier otro tipo de excepción
-                Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
-                throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
-            }
-
-        }
-        //FIN CREAR CIUDADANO................................................
-        
         //BURCAR CIUDADANO X ID
         async public Task<(DCiudadano, string error)> BuscarCiudadanoXId(int id)
         {
@@ -107,28 +72,28 @@ namespace DAOImplement
         //RETORNAR TODOS LOS CIUDADANOS
         async  public Task<(List<DCiudadano>, string)> RetornarListaCiudadano()
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
             List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
 
             try
             {
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/todos");
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                                
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/ciudadanos/todos");
 
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var content = await httpResponse.Content.ReadAsStringAsync();
-                        listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
-                        return (listaCiudadanos, null);
-                    }
-                    else
-                    {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                        return (null, $"Error en la busqueda: {mensaje}");
-                    }
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
+                    return (listaCiudadanos, null);
                 }
-                
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
             }
             catch (HttpRequestException httpRequestException)
             {
@@ -154,27 +119,30 @@ namespace DAOImplement
         //RETORNAR CIUDADANOS X APELLIDO
         async public Task<(List<DCiudadano>, string error)> RetornarListaCiudadanoXApellido(string apellido)
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
+
             List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
 
             try
             {
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/buscarlista-xapellido?apellido=" + apellido);
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var content = await httpResponse.Content.ReadAsStringAsync();
-                        listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
-                        return (listaCiudadanos, null);
-                    }
-                    else
-                    {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                        return (null, $"Error en la busqueda: {mensaje}");
-                    }
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/ciudadanos/buscarlista-xapellido?apellido=" + apellido);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
+                    return (listaCiudadanos, null);
                 }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
+                
 
             }
             catch (HttpRequestException httpRequestException)
@@ -200,27 +168,29 @@ namespace DAOImplement
         //RETORNAR CIUDADANOS X DNI
         public async Task<(List<DCiudadano>, string error)> RetornarListaCiudadanoXDni(int dni)
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
+
             List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
 
             try
             {
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/buscarlista-xdni?dni=" + dni);
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                                
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/ciudadanos/buscarlista-xdni?dni=" + dni);
 
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var content = await httpResponse.Content.ReadAsStringAsync();
-                        listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
-                        return (listaCiudadanos, null);
-                    }
-                    else
-                    {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                        return (null, $"Error en la busqueda: {mensaje}");
-                    }
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
+                    return (listaCiudadanos, null);
                 }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }                
             }
             catch (HttpRequestException httpRequestException)
             {

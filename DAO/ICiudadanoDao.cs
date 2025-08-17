@@ -12,8 +12,7 @@ namespace DAO
 {
     public interface ICiudadanoDao
     {
-        Task<HttpResponseMessage> CrearCiudadano(string ciudadano);
-
+        
         Task<(DCiudadano, string error)> BuscarCiudadanoXId(int id);
 
         Task<(List<DCiudadano>, string error)> RetornarListaCiudadano();
@@ -22,6 +21,6 @@ namespace DAO
 
         Task<(List<DCiudadano>, string error)> RetornarListaCiudadanoXApellido(string apellido);
 
-        //DataTable retornarCiudadanosTodos();
+        
     }
 }

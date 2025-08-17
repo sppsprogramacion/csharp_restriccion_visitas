@@ -20,7 +20,7 @@ namespace DAOImplement
         HttpClient httpClient = new HttpClient();
 
         //BUSCAR PARENTESCO  X ID
-        public Task<DVisitaInterno> BuscarParentescoXId(int idProhibicionvisita)
+        public Task<(DVisitaInterno, string)> BuscarParentescoXId(int idProhibicionvisita)
         {
             throw new NotImplementedException();
         }
@@ -29,8 +29,8 @@ namespace DAOImplement
         //RETORNAR PARENTESCO POR CIUDADANO
         public async Task<(List<DVisitaInterno>, string error)> RetornarParentescosXCiudadano(int idCiudadano)
         {
-            List<DVisitaInterno> listaVinculos = new List<DVisitaInterno>();
             string token = SessionManager.Token; // Aquí pones tu token real
+            List<DVisitaInterno> listaVinculos = new List<DVisitaInterno>();
 
             try
             {

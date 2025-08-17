@@ -9,8 +9,7 @@ namespace DAO
 {
     public interface IOrganismoDao
     {
-        Task<DOrganismo> buscarorganismoXId(int id);
-
-        Task<List<DOrganismo>> retornarListaOrganismos();
+       
+        Task<(List<DOrganismo>, string error)> retornarListaOrganismos();
     }
 }

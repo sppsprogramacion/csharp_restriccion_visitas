@@ -30,6 +30,21 @@
         {
             this.label28 = new System.Windows.Forms.Label();
             this.pagHistorial = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.txtNovedad = new System.Windows.Forms.TextBox();
+            this.txtUsuarioNovedad = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtDetalleNovedad = new System.Windows.Forms.TextBox();
+            this.txtOrganismoNovedad = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtFechaNovedad = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.txtIdNovedad = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.dtgvNovedades = new System.Windows.Forms.DataGridView();
+            this.btnVerNovedades = new System.Windows.Forms.Button();
             this.pagProhibicion = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnLevantar = new System.Windows.Forms.Button();
@@ -76,28 +91,13 @@
             this.txtNombreVisita = new System.Windows.Forms.TextBox();
             this.txtApellidoVisita = new System.Windows.Forms.TextBox();
             this.tabVisita = new System.Windows.Forms.TabControl();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.txtNovedad = new System.Windows.Forms.TextBox();
-            this.txtUsuarioNovedad = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtDetalleNovedad = new System.Windows.Forms.TextBox();
-            this.txtOrganismoNovedad = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.txtFechaNovedad = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.txtIdNovedad = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.dtgvNovedades = new System.Windows.Forms.DataGridView();
-            this.btnVerNovedades = new System.Windows.Forms.Button();
             this.pagHistorial.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).BeginInit();
             this.pagProhibicion.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.tabVisita.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).BeginInit();
             this.SuspendLayout();
             // 
             // label28
@@ -120,10 +120,171 @@
             this.pagHistorial.Location = new System.Drawing.Point(4, 25);
             this.pagHistorial.Name = "pagHistorial";
             this.pagHistorial.Padding = new System.Windows.Forms.Padding(3);
-            this.pagHistorial.Size = new System.Drawing.Size(1072, 661);
+            this.pagHistorial.Size = new System.Drawing.Size(1072, 685);
             this.pagHistorial.TabIndex = 1;
             this.pagHistorial.Text = "Historial";
             this.pagHistorial.UseVisualStyleBackColor = true;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.label47);
+            this.groupBox10.Controls.Add(this.txtNovedad);
+            this.groupBox10.Controls.Add(this.txtUsuarioNovedad);
+            this.groupBox10.Controls.Add(this.label23);
+            this.groupBox10.Controls.Add(this.label20);
+            this.groupBox10.Controls.Add(this.txtDetalleNovedad);
+            this.groupBox10.Controls.Add(this.txtOrganismoNovedad);
+            this.groupBox10.Controls.Add(this.label43);
+            this.groupBox10.Controls.Add(this.txtFechaNovedad);
+            this.groupBox10.Controls.Add(this.label45);
+            this.groupBox10.Controls.Add(this.txtIdNovedad);
+            this.groupBox10.Controls.Add(this.label46);
+            this.groupBox10.Location = new System.Drawing.Point(8, 385);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(1035, 186);
+            this.groupBox10.TabIndex = 83;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Novedad";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(6, 79);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(77, 16);
+            this.label47.TabIndex = 86;
+            this.label47.Text = "NOVEDAD:";
+            // 
+            // txtNovedad
+            // 
+            this.txtNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNovedad.Location = new System.Drawing.Point(9, 98);
+            this.txtNovedad.Multiline = true;
+            this.txtNovedad.Name = "txtNovedad";
+            this.txtNovedad.ReadOnly = true;
+            this.txtNovedad.Size = new System.Drawing.Size(317, 67);
+            this.txtNovedad.TabIndex = 85;
+            // 
+            // txtUsuarioNovedad
+            // 
+            this.txtUsuarioNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuarioNovedad.Location = new System.Drawing.Point(570, 43);
+            this.txtUsuarioNovedad.Name = "txtUsuarioNovedad";
+            this.txtUsuarioNovedad.ReadOnly = true;
+            this.txtUsuarioNovedad.Size = new System.Drawing.Size(227, 22);
+            this.txtUsuarioNovedad.TabIndex = 84;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(566, 24);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(71, 16);
+            this.label23.TabIndex = 83;
+            this.label23.Text = "USUARIO:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(335, 79);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(70, 16);
+            this.label20.TabIndex = 82;
+            this.label20.Text = "DETALLE:";
+            // 
+            // txtDetalleNovedad
+            // 
+            this.txtDetalleNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetalleNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleNovedad.Location = new System.Drawing.Point(338, 98);
+            this.txtDetalleNovedad.Multiline = true;
+            this.txtDetalleNovedad.Name = "txtDetalleNovedad";
+            this.txtDetalleNovedad.ReadOnly = true;
+            this.txtDetalleNovedad.Size = new System.Drawing.Size(682, 67);
+            this.txtDetalleNovedad.TabIndex = 81;
+            // 
+            // txtOrganismoNovedad
+            // 
+            this.txtOrganismoNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOrganismoNovedad.Location = new System.Drawing.Point(210, 43);
+            this.txtOrganismoNovedad.Name = "txtOrganismoNovedad";
+            this.txtOrganismoNovedad.ReadOnly = true;
+            this.txtOrganismoNovedad.Size = new System.Drawing.Size(349, 22);
+            this.txtOrganismoNovedad.TabIndex = 80;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(6, 24);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(23, 16);
+            this.label43.TabIndex = 78;
+            this.label43.Text = "ID:";
+            // 
+            // txtFechaNovedad
+            // 
+            this.txtFechaNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaNovedad.Location = new System.Drawing.Point(103, 44);
+            this.txtFechaNovedad.Name = "txtFechaNovedad";
+            this.txtFechaNovedad.ReadOnly = true;
+            this.txtFechaNovedad.Size = new System.Drawing.Size(95, 22);
+            this.txtFechaNovedad.TabIndex = 64;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(100, 24);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(55, 16);
+            this.label45.TabIndex = 66;
+            this.label45.Text = "FECHA:";
+            // 
+            // txtIdNovedad
+            // 
+            this.txtIdNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdNovedad.Location = new System.Drawing.Point(9, 44);
+            this.txtIdNovedad.Name = "txtIdNovedad";
+            this.txtIdNovedad.ReadOnly = true;
+            this.txtIdNovedad.Size = new System.Drawing.Size(80, 22);
+            this.txtIdNovedad.TabIndex = 77;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(206, 24);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(92, 16);
+            this.label46.TabIndex = 72;
+            this.label46.Text = "ORGANISMO:";
+            // 
+            // dtgvNovedades
+            // 
+            this.dtgvNovedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvNovedades.Location = new System.Drawing.Point(8, 61);
+            this.dtgvNovedades.Name = "dtgvNovedades";
+            this.dtgvNovedades.Size = new System.Drawing.Size(1035, 310);
+            this.dtgvNovedades.TabIndex = 82;
+            // 
+            // btnVerNovedades
+            // 
+            this.btnVerNovedades.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerNovedades.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerNovedades.ForeColor = System.Drawing.Color.White;
+            this.btnVerNovedades.Location = new System.Drawing.Point(8, 8);
+            this.btnVerNovedades.Name = "btnVerNovedades";
+            this.btnVerNovedades.Size = new System.Drawing.Size(141, 45);
+            this.btnVerNovedades.TabIndex = 81;
+            this.btnVerNovedades.Text = "Ver novedades";
+            this.btnVerNovedades.UseVisualStyleBackColor = false;
             // 
             // pagProhibicion
             // 
@@ -285,6 +446,7 @@
             this.groupBox14.TabIndex = 92;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Editar";
+            
             // 
             // txtMotivoDetalle
             // 
@@ -667,167 +829,6 @@
             this.tabVisita.Size = new System.Drawing.Size(1080, 714);
             this.tabVisita.TabIndex = 0;
             // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.label47);
-            this.groupBox10.Controls.Add(this.txtNovedad);
-            this.groupBox10.Controls.Add(this.txtUsuarioNovedad);
-            this.groupBox10.Controls.Add(this.label23);
-            this.groupBox10.Controls.Add(this.label20);
-            this.groupBox10.Controls.Add(this.txtDetalleNovedad);
-            this.groupBox10.Controls.Add(this.txtOrganismoNovedad);
-            this.groupBox10.Controls.Add(this.label43);
-            this.groupBox10.Controls.Add(this.txtFechaNovedad);
-            this.groupBox10.Controls.Add(this.label45);
-            this.groupBox10.Controls.Add(this.txtIdNovedad);
-            this.groupBox10.Controls.Add(this.label46);
-            this.groupBox10.Location = new System.Drawing.Point(8, 385);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(1035, 186);
-            this.groupBox10.TabIndex = 83;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Novedad";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(6, 79);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(77, 16);
-            this.label47.TabIndex = 86;
-            this.label47.Text = "NOVEDAD:";
-            // 
-            // txtNovedad
-            // 
-            this.txtNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNovedad.Location = new System.Drawing.Point(9, 98);
-            this.txtNovedad.Multiline = true;
-            this.txtNovedad.Name = "txtNovedad";
-            this.txtNovedad.ReadOnly = true;
-            this.txtNovedad.Size = new System.Drawing.Size(317, 67);
-            this.txtNovedad.TabIndex = 85;
-            // 
-            // txtUsuarioNovedad
-            // 
-            this.txtUsuarioNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarioNovedad.Location = new System.Drawing.Point(570, 43);
-            this.txtUsuarioNovedad.Name = "txtUsuarioNovedad";
-            this.txtUsuarioNovedad.ReadOnly = true;
-            this.txtUsuarioNovedad.Size = new System.Drawing.Size(227, 22);
-            this.txtUsuarioNovedad.TabIndex = 84;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(566, 24);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(71, 16);
-            this.label23.TabIndex = 83;
-            this.label23.Text = "USUARIO:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(335, 79);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 16);
-            this.label20.TabIndex = 82;
-            this.label20.Text = "DETALLE:";
-            // 
-            // txtDetalleNovedad
-            // 
-            this.txtDetalleNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetalleNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetalleNovedad.Location = new System.Drawing.Point(338, 98);
-            this.txtDetalleNovedad.Multiline = true;
-            this.txtDetalleNovedad.Name = "txtDetalleNovedad";
-            this.txtDetalleNovedad.ReadOnly = true;
-            this.txtDetalleNovedad.Size = new System.Drawing.Size(682, 67);
-            this.txtDetalleNovedad.TabIndex = 81;
-            // 
-            // txtOrganismoNovedad
-            // 
-            this.txtOrganismoNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOrganismoNovedad.Location = new System.Drawing.Point(210, 43);
-            this.txtOrganismoNovedad.Name = "txtOrganismoNovedad";
-            this.txtOrganismoNovedad.ReadOnly = true;
-            this.txtOrganismoNovedad.Size = new System.Drawing.Size(349, 22);
-            this.txtOrganismoNovedad.TabIndex = 80;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(6, 24);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(23, 16);
-            this.label43.TabIndex = 78;
-            this.label43.Text = "ID:";
-            // 
-            // txtFechaNovedad
-            // 
-            this.txtFechaNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaNovedad.Location = new System.Drawing.Point(103, 44);
-            this.txtFechaNovedad.Name = "txtFechaNovedad";
-            this.txtFechaNovedad.ReadOnly = true;
-            this.txtFechaNovedad.Size = new System.Drawing.Size(95, 22);
-            this.txtFechaNovedad.TabIndex = 64;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(100, 24);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(55, 16);
-            this.label45.TabIndex = 66;
-            this.label45.Text = "FECHA:";
-            // 
-            // txtIdNovedad
-            // 
-            this.txtIdNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdNovedad.Location = new System.Drawing.Point(9, 44);
-            this.txtIdNovedad.Name = "txtIdNovedad";
-            this.txtIdNovedad.ReadOnly = true;
-            this.txtIdNovedad.Size = new System.Drawing.Size(80, 22);
-            this.txtIdNovedad.TabIndex = 77;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(206, 24);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(92, 16);
-            this.label46.TabIndex = 72;
-            this.label46.Text = "ORGANISMO:";
-            // 
-            // dtgvNovedades
-            // 
-            this.dtgvNovedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvNovedades.Location = new System.Drawing.Point(8, 61);
-            this.dtgvNovedades.Name = "dtgvNovedades";
-            this.dtgvNovedades.Size = new System.Drawing.Size(1035, 310);
-            this.dtgvNovedades.TabIndex = 82;
-            // 
-            // btnVerNovedades
-            // 
-            this.btnVerNovedades.BackColor = System.Drawing.Color.Indigo;
-            this.btnVerNovedades.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnVerNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerNovedades.ForeColor = System.Drawing.Color.White;
-            this.btnVerNovedades.Location = new System.Drawing.Point(8, 8);
-            this.btnVerNovedades.Name = "btnVerNovedades";
-            this.btnVerNovedades.Size = new System.Drawing.Size(141, 45);
-            this.btnVerNovedades.TabIndex = 81;
-            this.btnVerNovedades.Text = "Ver novedades";
-            this.btnVerNovedades.UseVisualStyleBackColor = false;
-            // 
             // FormAdminProhibicionAnticipada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -842,15 +843,15 @@
             this.Text = "Administrar Prohibicion Anticipada";
             this.Load += new System.EventHandler(this.FormAdminProhibicionAnticipada_Load_1);
             this.pagHistorial.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).EndInit();
             this.pagProhibicion.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             this.tabVisita.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvNovedades)).EndInit();
             this.ResumeLayout(false);
 
         }

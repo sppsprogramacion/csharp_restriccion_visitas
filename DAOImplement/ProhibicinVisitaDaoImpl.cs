@@ -23,10 +23,15 @@ namespace DAOImplement
         //CREAR PROHIBICION
         public async Task<(DProhibicionVisita, string error)> CrearProhivisionVisita(string prohibicionVisita)
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
+
             DProhibicionVisita dataProhibicion = new DProhibicionVisita();
 
             try
-            {               
+            {
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(prohibicionVisita, Encoding.UTF8, "application/json");
 
@@ -37,9 +42,7 @@ namespace DAOImplement
                 {
                     var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
                     dataProhibicion = JsonConvert.DeserializeObject<DProhibicionVisita>(contentRespuesta);
-                        
-                    // Puedes procesar el token o el resultado adicional aquí.
-                    // Establecer el usuario actual
+                    
                     return (dataProhibicion, null);
                 }
                 else
@@ -72,8 +75,13 @@ namespace DAOImplement
         //EDITAR PROHIBICION
         public async Task<(bool, string error)> EditarProhibicionVisita(int id,string prohibicionVisita)
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
+
             try
-            {                
+            {
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(prohibicionVisita, Encoding.UTF8, "application/json");
 
@@ -132,8 +140,13 @@ namespace DAOImplement
         //LEVANTAR UNA PROHIBICION
         public async Task<(bool, string error)> LevantarProhibicionVisita(int id, string dataLevantar)
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
+
             try
             {
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(dataLevantar, Encoding.UTF8, "application/json");
 
@@ -161,8 +174,6 @@ namespace DAOImplement
                     var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
                     return (false, $"Error en el levantamiento: {mensaje}");
                 }
-
-
             }
             catch (HttpRequestException httpRequestException)
             {
@@ -186,14 +197,18 @@ namespace DAOImplement
         //PROHIBIR UNA PROHIBICION
         public async Task<(bool, string error)> ProhibirProhibicionVisita(int id, string dataProhibir)
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
+
             try
             {
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(dataProhibir, Encoding.UTF8, "application/json");
 
                 // Enviar la solicitud HTTP POST
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/prohibiciones-visita/prohibir-manual?id_prohibicion=" + id, content);
-
 
                 if (httpResponse.IsSuccessStatusCode)
                 {
@@ -216,7 +231,6 @@ namespace DAOImplement
                     var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
                     return (false, $"Error en la prohibición: {mensaje}");
                 }
-
             }
             catch (HttpRequestException httpRequestException)
             {
@@ -240,14 +254,18 @@ namespace DAOImplement
         //ANULAR UNA PROHIBICION
         public async Task<(bool, string error)> AnularProhibicionVisita(int id, string dataAnular)
         {
+            string token = SessionManager.Token; // Aquí pones tu token real
+
             try
             {
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(dataAnular, Encoding.UTF8, "application/json");
 
                 // Enviar la solicitud HTTP POST
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/prohibiciones-visita/anular?id_prohibicion=" + id, content);
-
 
                 if (httpResponse.IsSuccessStatusCode)
                 {
@@ -270,7 +288,6 @@ namespace DAOImplement
                     var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
                     return (false, $"Error al anular: {mensaje}");
                 }
-
             }
             catch (HttpRequestException httpRequestException)
             {
@@ -294,8 +311,9 @@ namespace DAOImplement
         //RETORNAR LISTA DE PROHIBICIONES X CIUDADANO
         async public Task<(List<DProhibicionVisita>, string error)> RetornarProhibicionesVisitaXCiudadano(int idCiudadano)
         {
-            List<DProhibicionVisita> listaProhibiciones = new List<DProhibicionVisita>();
             string token = SessionManager.Token; // Aquí pones tu token real
+
+            List<DProhibicionVisita> listaProhibiciones = new List<DProhibicionVisita>();
 
             try
             {

@@ -9,12 +9,9 @@ namespace DAO
 {
     public interface ISexoDao
     {
-        int crearSexo(DCiudadano usuario);
-
-        int editarSexo(DCiudadano usuario);
-
+        
         DSexo buscarSexoXId(int id);
 
-        Task<List<DSexo>> retornarListaSexo();
+        Task<(List<DSexo>, string error)> retornarListaSexo();
     }
 }

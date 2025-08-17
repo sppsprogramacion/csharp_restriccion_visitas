@@ -22,7 +22,7 @@ namespace DAO
 
         Task<(bool, string error)> DesvincularParentesco(int id, string dataActualizar);
 
-        Task<DVisitaInterno> BuscarParentescoXId(int idProhibicionvisita);
+        Task<(DVisitaInterno, string error)> BuscarParentescoXId(int idProhibicionvisita);
 
         Task<(List<DVisitaInterno>, string error)> RetornarParentescosXCiudadano(int idCiudadano);
 

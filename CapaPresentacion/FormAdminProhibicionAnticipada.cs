@@ -314,7 +314,7 @@ namespace CapaPresentacion
             }
 
             return dProhibicionX;
-        }
+        }        
         //FIN BUSCAR PROHIBICION......................................
     }
 
