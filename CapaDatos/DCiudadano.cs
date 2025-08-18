@@ -33,6 +33,7 @@ namespace CapaDatos
         public string direccion { get; set; }
         public int numero_dom { get; set; }
         public bool tiene_discapacidad { get; set; }
+        public string discapacidad_detalle { get; set; }
         public bool es_visita { get; set; }
         public string foto { get; set; }
         public DateTime fecha_alta { get; set; }
@@ -40,5 +41,8 @@ namespace CapaDatos
         public DUsuario usuario_alta { get; set; }
         public int organismo_alta_id { get; set; }
         public DOrganismo organismo_alta { get; set; }
+
+        public int edad { get; set; }
+
     }
 }

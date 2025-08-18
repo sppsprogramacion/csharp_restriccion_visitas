@@ -105,9 +105,65 @@ namespace CapaPresentacion
             txtOrganismoAlta.Text = this.dCiudadano.organismo_alta.organismo;
             pictureFoto.Load(this.dCiudadano.foto);
 
+            this.ControlEsVisita();
+            this.ControlTieneDiscapacidad();
+            this.ControlEdad();
             
         }
 
+        //REGION DATOS PERSONALES
+        #region DatosPersonales
+        //CONTROL ES VISITA
+        private void ControlEsVisita()
+        {
+            if (this.dCiudadano.es_visita)
+            {
+                lblEsVisitaPrincipal.Text = "Ciudadano registrado como visita";
+                lblEsVisitaPrincipal.ForeColor = Color.SteelBlue;                
+            }
+            else
+            {
+                lblEsVisitaPrincipal.Text = "Ciudadano no registrado como visita";
+                lblEsVisitaPrincipal.ForeColor = Color.Red;                
+            }
+        }
+        //FIN CONTROL ES VISITA
+
+        //CONTROL TIENE DISCAPACIDAD
+        private void ControlTieneDiscapacidad()
+        {
+            if (this.dCiudadano.tiene_discapacidad)
+            {
+                lblTieneDiscapacidad.Text = "Ciudadano registrado con discapacidad";
+                lblTieneDiscapacidad.ForeColor = Color.SteelBlue;
+                lblDetalleTieneDiscapacidad.Text = dCiudadano.discapacidad_detalle;
+                lblDetalleTieneDiscapacidad.ForeColor = Color.SteelBlue;
+            }
+            else
+            {
+                lblTieneDiscapacidad.Text = "Ciudadano no registrado con discapacidad";
+                lblTieneDiscapacidad.ForeColor = Color.Red;
+
+                lblDetalleTieneDiscapacidad.Text = "";
+            }
+        }
+        //FIN CONTROL TIENE DISCAPACIDAD
+
+        //CONTROL EDAD
+        private void ControlEdad()
+        {
+            if (this.dCiudadano.edad < 18)
+            {
+                lblMenorEdad.Text = "Edad: " + this.dCiudadano.edad + " años. Es MENOR.";
+            }
+            else
+            {
+                lblMenorEdad.Text = "Edad: " + this.dCiudadano.edad + " años. Es ADULTO.";
+            }
+        }
+        //FIN CONTROL EDAD
+        #endregion
+        //FIN REGION DATOS PERSONALES.....................................
 
         //REGION PROHIBICIONES
         #region Prohibiciones
@@ -666,6 +722,7 @@ namespace CapaPresentacion
                     Id = c.id_visita_interno,
                     Interno = c.interno.apellido + " " + c.interno.nombre,
                     Prontuario = c.interno.prontuario,
+                    Unidad = c.interno.organismo.organismo,
                     Parentesco = c.parentesco.parentesco,
                     Vigente = c.vigente,
                     Anulado = c.anulado,

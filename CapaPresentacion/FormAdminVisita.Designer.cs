@@ -204,6 +204,12 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label52 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.lblMenorEdad = new System.Windows.Forms.Label();
+            this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
+            this.lblDetalleTieneDiscapacidad = new System.Windows.Forms.Label();
+            this.lblTieneDiscapacidad = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -250,6 +256,10 @@
             // 
             // pagDatosPersonales
             // 
+            this.pagDatosPersonales.Controls.Add(this.lblDetalleTieneDiscapacidad);
+            this.pagDatosPersonales.Controls.Add(this.lblTieneDiscapacidad);
+            this.pagDatosPersonales.Controls.Add(this.lblMenorEdad);
+            this.pagDatosPersonales.Controls.Add(this.lblEsVisitaPrincipal);
             this.pagDatosPersonales.Controls.Add(this.txtDiscapacidad);
             this.pagDatosPersonales.Controls.Add(this.label30);
             this.pagDatosPersonales.Controls.Add(this.txtVisita);
@@ -1509,7 +1519,7 @@
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(9, 66);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(974, 203);
+            this.groupBox7.Size = new System.Drawing.Size(974, 190);
             this.groupBox7.TabIndex = 92;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Parentescos";
@@ -1520,21 +1530,23 @@
             this.dtgvParentescos.Location = new System.Drawing.Point(6, 20);
             this.dtgvParentescos.Name = "dtgvParentescos";
             this.dtgvParentescos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvParentescos.Size = new System.Drawing.Size(959, 171);
+            this.dtgvParentescos.Size = new System.Drawing.Size(959, 163);
             this.dtgvParentescos.TabIndex = 63;
             this.dtgvParentescos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvParentescos_KeyDown);
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label42);
             this.groupBox5.Controls.Add(this.txtParentesco);
+            this.groupBox5.Controls.Add(this.textBox1);
             this.groupBox5.Controls.Add(this.label39);
             this.groupBox5.Controls.Add(this.txtInternoVinculado);
             this.groupBox5.Controls.Add(this.label26);
             this.groupBox5.Controls.Add(this.txtIdVisitaInterno);
             this.groupBox5.Controls.Add(this.label25);
-            this.groupBox5.Location = new System.Drawing.Point(13, 275);
+            this.groupBox5.Location = new System.Drawing.Point(13, 264);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(723, 83);
+            this.groupBox5.Size = new System.Drawing.Size(1049, 95);
             this.groupBox5.TabIndex = 79;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Parentesco actual";
@@ -1542,7 +1554,7 @@
             // txtParentesco
             // 
             this.txtParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtParentesco.Location = new System.Drawing.Point(485, 43);
+            this.txtParentesco.Location = new System.Drawing.Point(485, 38);
             this.txtParentesco.Name = "txtParentesco";
             this.txtParentesco.ReadOnly = true;
             this.txtParentesco.Size = new System.Drawing.Size(227, 21);
@@ -1552,7 +1564,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(6, 24);
+            this.label39.Location = new System.Drawing.Point(6, 19);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(22, 15);
             this.label39.TabIndex = 78;
@@ -1561,7 +1573,7 @@
             // txtInternoVinculado
             // 
             this.txtInternoVinculado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInternoVinculado.Location = new System.Drawing.Point(103, 44);
+            this.txtInternoVinculado.Location = new System.Drawing.Point(103, 39);
             this.txtInternoVinculado.Name = "txtInternoVinculado";
             this.txtInternoVinculado.ReadOnly = true;
             this.txtInternoVinculado.Size = new System.Drawing.Size(372, 21);
@@ -1571,7 +1583,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(100, 24);
+            this.label26.Location = new System.Drawing.Point(100, 19);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(64, 15);
             this.label26.TabIndex = 66;
@@ -1580,7 +1592,7 @@
             // txtIdVisitaInterno
             // 
             this.txtIdVisitaInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdVisitaInterno.Location = new System.Drawing.Point(9, 44);
+            this.txtIdVisitaInterno.Location = new System.Drawing.Point(9, 39);
             this.txtIdVisitaInterno.Name = "txtIdVisitaInterno";
             this.txtIdVisitaInterno.ReadOnly = true;
             this.txtIdVisitaInterno.Size = new System.Drawing.Size(80, 21);
@@ -1590,7 +1602,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(481, 24);
+            this.label25.Location = new System.Drawing.Point(481, 19);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(91, 15);
             this.label25.TabIndex = 72;
@@ -2337,6 +2349,71 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblMenorEdad
+            // 
+            this.lblMenorEdad.AutoSize = true;
+            this.lblMenorEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenorEdad.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblMenorEdad.Location = new System.Drawing.Point(543, 254);
+            this.lblMenorEdad.Name = "lblMenorEdad";
+            this.lblMenorEdad.Size = new System.Drawing.Size(95, 20);
+            this.lblMenorEdad.TabIndex = 64;
+            this.lblMenorEdad.Text = "Es menor?";
+            // 
+            // lblEsVisitaPrincipal
+            // 
+            this.lblEsVisitaPrincipal.AutoSize = true;
+            this.lblEsVisitaPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEsVisitaPrincipal.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblEsVisitaPrincipal.Location = new System.Drawing.Point(543, 282);
+            this.lblEsVisitaPrincipal.Name = "lblEsVisitaPrincipal";
+            this.lblEsVisitaPrincipal.Size = new System.Drawing.Size(86, 20);
+            this.lblEsVisitaPrincipal.TabIndex = 63;
+            this.lblEsVisitaPrincipal.Text = "Es visita?";
+            // 
+            // lblDetalleTieneDiscapacidad
+            // 
+            this.lblDetalleTieneDiscapacidad.AutoSize = true;
+            this.lblDetalleTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalleTieneDiscapacidad.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblDetalleTieneDiscapacidad.Location = new System.Drawing.Point(544, 330);
+            this.lblDetalleTieneDiscapacidad.Name = "lblDetalleTieneDiscapacidad";
+            this.lblDetalleTieneDiscapacidad.Size = new System.Drawing.Size(19, 15);
+            this.lblDetalleTieneDiscapacidad.TabIndex = 66;
+            this.lblDetalleTieneDiscapacidad.Text = "...";
+            // 
+            // lblTieneDiscapacidad
+            // 
+            this.lblTieneDiscapacidad.AutoSize = true;
+            this.lblTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieneDiscapacidad.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblTieneDiscapacidad.Location = new System.Drawing.Point(543, 310);
+            this.lblTieneDiscapacidad.Name = "lblTieneDiscapacidad";
+            this.lblTieneDiscapacidad.Size = new System.Drawing.Size(163, 20);
+            this.lblTieneDiscapacidad.TabIndex = 65;
+            this.lblTieneDiscapacidad.Text = "Tiene discapacidad";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(728, 18);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(63, 15);
+            this.label42.TabIndex = 82;
+            this.label42.Text = "DETALLE:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(731, 37);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(312, 43);
+            this.textBox1.TabIndex = 81;
+            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2571,5 +2648,11 @@
         private System.Windows.Forms.Button btnGuardarVinculacionParentesco;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.TextBox txtDetalleVinculacionParentesco;
+        private System.Windows.Forms.Label lblDetalleTieneDiscapacidad;
+        private System.Windows.Forms.Label lblTieneDiscapacidad;
+        private System.Windows.Forms.Label lblMenorEdad;
+        private System.Windows.Forms.Label lblEsVisitaPrincipal;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
