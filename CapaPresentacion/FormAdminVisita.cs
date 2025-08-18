@@ -2,6 +2,7 @@
 using CapaNegocio;
 using CapaPresentacion.Validaciones;
 using CapaPresentacion.Validaciones.AdminVisita.EdicionProhibicion;
+using CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -449,6 +450,33 @@ namespace CapaPresentacion
         //GUARDAR LEVANTAR Y ANULAR
         private async void btnGuardarQP_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new ProhibicionDatos
+            {
+                txtMotivoQP = txtMotivoQP.Text,
+                dtpFechaFinQP = dtpFechaFinQP.Value,
+            };
+
+            var validator = new LevantarAnularProhibicionValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion de formulario
+
+
             NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
             
             var data = new
@@ -458,7 +486,6 @@ namespace CapaPresentacion
             };
 
             string dataEnviar = JsonConvert.SerializeObject(data);
-
             
             bool respuestaOk = false;
             string mensajeRespuesta = "";
@@ -676,6 +703,9 @@ namespace CapaPresentacion
         //LIMPIAR CONTROLES QUITAR/PROHIBIR
         private void LimpiarControlesQP()
         {
+            //limpiar errores
+            errorProvider.Clear();
+
             dtpFechaFinQP.Text = string.Empty;
             txtMotivoQP.Text = string.Empty;
             
@@ -833,6 +863,33 @@ namespace CapaPresentacion
             //prohibir parentesco
             if (this.accionProhibirParentesco == "prohibir")
             {
+                //limpiar errores de provider
+                errorProvider.Clear();
+
+                //validacion de formulario
+                var datosFormulario = new ProhibicionDatos
+                {
+                    dtpFechaIniProhibirParentesco = dtpFechaIniProhibirParentesco.Value,
+                    dtpFechaFinProhibirParentesco = dtpFechaFinProhibirParentesco.Value,
+                    txtDetalleProhibirParentesco = txtDetalleProhibirParentesco.Text,
+                };
+
+                var validator = new ProhibirParentescoValidator();
+                var result = validator.Validate(datosFormulario);
+
+                if (!result.IsValid)
+                {
+                    MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var failure in result.Errors)
+                    {
+
+                        Control control = Controls.Find(failure.PropertyName, true)[0];
+                        errorProvider.SetError(control, failure.ErrorMessage);
+                    }
+                    return;
+                }
+                //fin validacion de formulario
+
                 var data = new
                 {
                     fecha_inicio = dtpFechaIniProhibirParentesco.Value,
@@ -858,6 +915,32 @@ namespace CapaPresentacion
             //levantar prohibicion parentesco
             if (this.accionProhibirParentesco == "levantar")
             {
+                //limpiar errores de provider
+                errorProvider.Clear();
+
+                //validacion de formulario
+                var datosFormulario = new ProhibicionDatos
+                {
+                    dtpFechaFinProhibirParentesco = dtpFechaFinProhibirParentesco.Value,
+                    txtDetalleProhibirParentesco = txtDetalleProhibirParentesco.Text,
+                };
+
+                var validator = new LevantarProhibicionParentescoValidator();
+                var result = validator.Validate(datosFormulario);
+
+                if (!result.IsValid)
+                {
+                    MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var failure in result.Errors)
+                    {
+
+                        Control control = Controls.Find(failure.PropertyName, true)[0];
+                        errorProvider.SetError(control, failure.ErrorMessage);
+                    }
+                    return;
+                }
+                //fin validacion de formulario
+
                 var data = new
                 {
                     fecha_fin = dtpFechaFinProhibirParentesco.Value,
@@ -1060,12 +1143,12 @@ namespace CapaPresentacion
                     this.HabilitarControlesVinculacionParentescos(false);
                     this.HabilitarControlesCambioParentesco(false);
 
-                    if (id_visita_interno > 0)
+                    if (id_visita_interno > 0) 
                     {
                         txtIdVisitaInterno.Text = id_visita_interno.ToString();
                         txtInternoVinculado.Text = dtgvParentescos.CurrentRow.Cells["Interno"].Value.ToString();
                         txtParentesco.Text = dtgvParentescos.CurrentRow.Cells["Parentesco"].Value.ToString();
-                                                
+                        txtDetalleProhibicionParentesco.Text = dtgvParentescos.CurrentRow.Cells["DetalleProhib"].Value?.ToString();
                     }
                     else
                     {

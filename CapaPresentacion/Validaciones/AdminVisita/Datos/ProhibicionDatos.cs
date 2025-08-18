@@ -22,7 +22,16 @@ namespace CapaPresentacion.Validaciones
 
         //para edicion
         public string txtMotivo { get; set; }
-        
+
+        //para levantar prohibicion y prohibir
+        public string txtMotivoQP { get; set; }
+        public DateTime dtpFechaFinQP { get; set; }
+
+        //para prohibir/levantar parentesco
+        public DateTime dtpFechaIniProhibirParentesco { get; set; }
+        public DateTime dtpFechaFinProhibirParentesco { get; set; }
+        public string txtDetalleProhibirParentesco { get; set; }
+
 
 
     }

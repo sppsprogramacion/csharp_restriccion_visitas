@@ -133,7 +133,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\EdicionProhibicionValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\Datos\ProhibicionDatos.cs" />
+    <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\LevantarProhibicionParentescoValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ProhibicionValidator.cs" />
+    <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\LevantarAnularProhibicionValidator.cs" />
+    <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ProhibirParentescoValidator.cs" />
     <EmbeddedResource Include="FormAdminProhibicionAnticipada.resx">
       <DependentUpon>FormAdminProhibicionAnticipada.cs</DependentUpon>
     </EmbeddedResource>

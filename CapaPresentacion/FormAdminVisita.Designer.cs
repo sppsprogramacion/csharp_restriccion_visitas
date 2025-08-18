@@ -30,6 +30,10 @@
         {
             this.tabVisita = new System.Windows.Forms.TabControl();
             this.pagDatosPersonales = new System.Windows.Forms.TabPage();
+            this.lblDetalleTieneDiscapacidad = new System.Windows.Forms.Label();
+            this.lblTieneDiscapacidad = new System.Windows.Forms.Label();
+            this.lblMenorEdad = new System.Windows.Forms.Label();
+            this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
             this.txtDiscapacidad = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.txtVisita = new System.Windows.Forms.TextBox();
@@ -136,7 +140,9 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dtgvParentescos = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.txtParentesco = new System.Windows.Forms.TextBox();
+            this.txtDetalleProhibicionParentesco = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.txtInternoVinculado = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -204,12 +210,6 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label52 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.lblMenorEdad = new System.Windows.Forms.Label();
-            this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
-            this.lblDetalleTieneDiscapacidad = new System.Windows.Forms.Label();
-            this.lblTieneDiscapacidad = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -248,7 +248,7 @@
             this.tabVisita.Controls.Add(this.tabNovedades);
             this.tabVisita.Controls.Add(this.tabExepcionIngreso);
             this.tabVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabVisita.Location = new System.Drawing.Point(2, 58);
+            this.tabVisita.Location = new System.Drawing.Point(6, 41);
             this.tabVisita.Name = "tabVisita";
             this.tabVisita.SelectedIndex = 0;
             this.tabVisita.Size = new System.Drawing.Size(1080, 844);
@@ -304,6 +304,50 @@
             this.pagDatosPersonales.TabIndex = 0;
             this.pagDatosPersonales.Text = "Datos Personales";
             this.pagDatosPersonales.UseVisualStyleBackColor = true;
+            // 
+            // lblDetalleTieneDiscapacidad
+            // 
+            this.lblDetalleTieneDiscapacidad.AutoSize = true;
+            this.lblDetalleTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalleTieneDiscapacidad.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblDetalleTieneDiscapacidad.Location = new System.Drawing.Point(544, 351);
+            this.lblDetalleTieneDiscapacidad.Name = "lblDetalleTieneDiscapacidad";
+            this.lblDetalleTieneDiscapacidad.Size = new System.Drawing.Size(19, 15);
+            this.lblDetalleTieneDiscapacidad.TabIndex = 66;
+            this.lblDetalleTieneDiscapacidad.Text = "...";
+            // 
+            // lblTieneDiscapacidad
+            // 
+            this.lblTieneDiscapacidad.AutoSize = true;
+            this.lblTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieneDiscapacidad.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblTieneDiscapacidad.Location = new System.Drawing.Point(543, 331);
+            this.lblTieneDiscapacidad.Name = "lblTieneDiscapacidad";
+            this.lblTieneDiscapacidad.Size = new System.Drawing.Size(173, 20);
+            this.lblTieneDiscapacidad.TabIndex = 65;
+            this.lblTieneDiscapacidad.Text = "Tiene discapacidad?";
+            // 
+            // lblMenorEdad
+            // 
+            this.lblMenorEdad.AutoSize = true;
+            this.lblMenorEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenorEdad.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblMenorEdad.Location = new System.Drawing.Point(543, 275);
+            this.lblMenorEdad.Name = "lblMenorEdad";
+            this.lblMenorEdad.Size = new System.Drawing.Size(95, 20);
+            this.lblMenorEdad.TabIndex = 64;
+            this.lblMenorEdad.Text = "Es menor?";
+            // 
+            // lblEsVisitaPrincipal
+            // 
+            this.lblEsVisitaPrincipal.AutoSize = true;
+            this.lblEsVisitaPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEsVisitaPrincipal.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblEsVisitaPrincipal.Location = new System.Drawing.Point(543, 303);
+            this.lblEsVisitaPrincipal.Name = "lblEsVisitaPrincipal";
+            this.lblEsVisitaPrincipal.Size = new System.Drawing.Size(86, 20);
+            this.lblEsVisitaPrincipal.TabIndex = 63;
+            this.lblEsVisitaPrincipal.Text = "Es visita?";
             // 
             // txtDiscapacidad
             // 
@@ -1181,9 +1225,9 @@
             this.groupBox9.Controls.Add(this.label55);
             this.groupBox9.Controls.Add(this.txtDetalleVinculacionParentesco);
             this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(372, 370);
+            this.groupBox9.Location = new System.Drawing.Point(372, 383);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(353, 299);
+            this.groupBox9.Size = new System.Drawing.Size(353, 285);
             this.groupBox9.TabIndex = 94;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Revincular / Desvincular";
@@ -1226,7 +1270,7 @@
             this.btnCancelarVinculacionParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarVinculacionParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarVinculacionParentesco.Location = new System.Drawing.Point(109, 245);
+            this.btnCancelarVinculacionParentesco.Location = new System.Drawing.Point(109, 233);
             this.btnCancelarVinculacionParentesco.Name = "btnCancelarVinculacionParentesco";
             this.btnCancelarVinculacionParentesco.Size = new System.Drawing.Size(98, 40);
             this.btnCancelarVinculacionParentesco.TabIndex = 80;
@@ -1241,7 +1285,7 @@
             this.btnGuardarVinculacionParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarVinculacionParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarVinculacionParentesco.Location = new System.Drawing.Point(8, 244);
+            this.btnGuardarVinculacionParentesco.Location = new System.Drawing.Point(8, 232);
             this.btnGuardarVinculacionParentesco.Name = "btnGuardarVinculacionParentesco";
             this.btnGuardarVinculacionParentesco.Size = new System.Drawing.Size(98, 40);
             this.btnGuardarVinculacionParentesco.TabIndex = 79;
@@ -1253,7 +1297,7 @@
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(5, 122);
+            this.label55.Location = new System.Drawing.Point(5, 110);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(63, 15);
             this.label55.TabIndex = 78;
@@ -1264,10 +1308,10 @@
             this.txtDetalleVinculacionParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDetalleVinculacionParentesco.Enabled = false;
             this.txtDetalleVinculacionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetalleVinculacionParentesco.Location = new System.Drawing.Point(8, 141);
+            this.txtDetalleVinculacionParentesco.Location = new System.Drawing.Point(8, 129);
             this.txtDetalleVinculacionParentesco.Multiline = true;
             this.txtDetalleVinculacionParentesco.Name = "txtDetalleVinculacionParentesco";
-            this.txtDetalleVinculacionParentesco.Size = new System.Drawing.Size(335, 95);
+            this.txtDetalleVinculacionParentesco.Size = new System.Drawing.Size(325, 95);
             this.txtDetalleVinculacionParentesco.TabIndex = 77;
             // 
             // groupBox6
@@ -1279,9 +1323,9 @@
             this.groupBox6.Controls.Add(this.cmbParentescos);
             this.groupBox6.Controls.Add(this.btnGuardarModificarParentesco);
             this.groupBox6.Controls.Add(this.btnCancelarModificarParentesco);
-            this.groupBox6.Location = new System.Drawing.Point(733, 370);
+            this.groupBox6.Location = new System.Drawing.Point(733, 383);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(329, 299);
+            this.groupBox6.Size = new System.Drawing.Size(329, 285);
             this.groupBox6.TabIndex = 80;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Modificar parentesco";
@@ -1304,7 +1348,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(8, 116);
+            this.label41.Location = new System.Drawing.Point(8, 110);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(56, 15);
             this.label41.TabIndex = 75;
@@ -1314,17 +1358,17 @@
             // 
             this.txtMotivoModificarParentesco.Enabled = false;
             this.txtMotivoModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotivoModificarParentesco.Location = new System.Drawing.Point(11, 141);
+            this.txtMotivoModificarParentesco.Location = new System.Drawing.Point(11, 129);
             this.txtMotivoModificarParentesco.Multiline = true;
             this.txtMotivoModificarParentesco.Name = "txtMotivoModificarParentesco";
-            this.txtMotivoModificarParentesco.Size = new System.Drawing.Size(310, 95);
+            this.txtMotivoModificarParentesco.Size = new System.Drawing.Size(300, 95);
             this.txtMotivoModificarParentesco.TabIndex = 74;
             // 
             // label40
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(8, 67);
+            this.label40.Location = new System.Drawing.Point(8, 63);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(99, 15);
             this.label40.TabIndex = 73;
@@ -1335,7 +1379,7 @@
             this.cmbParentescos.Enabled = false;
             this.cmbParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbParentescos.FormattingEnabled = true;
-            this.cmbParentescos.Location = new System.Drawing.Point(11, 86);
+            this.cmbParentescos.Location = new System.Drawing.Point(11, 82);
             this.cmbParentescos.Name = "cmbParentescos";
             this.cmbParentescos.Size = new System.Drawing.Size(250, 23);
             this.cmbParentescos.TabIndex = 71;
@@ -1347,7 +1391,7 @@
             this.btnGuardarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarModificarParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarModificarParentesco.Location = new System.Drawing.Point(11, 243);
+            this.btnGuardarModificarParentesco.Location = new System.Drawing.Point(11, 231);
             this.btnGuardarModificarParentesco.Name = "btnGuardarModificarParentesco";
             this.btnGuardarModificarParentesco.Size = new System.Drawing.Size(100, 40);
             this.btnGuardarModificarParentesco.TabIndex = 70;
@@ -1363,7 +1407,7 @@
             this.btnCancelarModificarParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarModificarParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarModificarParentesco.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarModificarParentesco.Location = new System.Drawing.Point(117, 243);
+            this.btnCancelarModificarParentesco.Location = new System.Drawing.Point(117, 231);
             this.btnCancelarModificarParentesco.Name = "btnCancelarModificarParentesco";
             this.btnCancelarModificarParentesco.Size = new System.Drawing.Size(100, 40);
             this.btnCancelarModificarParentesco.TabIndex = 69;
@@ -1384,9 +1428,9 @@
             this.groupBox8.Controls.Add(this.dtpFechaIniProhibirParentesco);
             this.groupBox8.Controls.Add(this.label32);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(13, 370);
+            this.groupBox8.Location = new System.Drawing.Point(13, 383);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(350, 299);
+            this.groupBox8.Size = new System.Drawing.Size(350, 285);
             this.groupBox8.TabIndex = 93;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Prohibir parentesco / Levantar";
@@ -1396,7 +1440,7 @@
             this.dtpFechaFinProhibirParentesco.Enabled = false;
             this.dtpFechaFinProhibirParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFinProhibirParentesco.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFinProhibirParentesco.Location = new System.Drawing.Point(127, 87);
+            this.dtpFechaFinProhibirParentesco.Location = new System.Drawing.Point(127, 83);
             this.dtpFechaFinProhibirParentesco.Name = "dtpFechaFinProhibirParentesco";
             this.dtpFechaFinProhibirParentesco.Size = new System.Drawing.Size(101, 21);
             this.dtpFechaFinProhibirParentesco.TabIndex = 82;
@@ -1420,7 +1464,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(124, 68);
+            this.label44.Location = new System.Drawing.Point(124, 64);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(71, 15);
             this.label44.TabIndex = 83;
@@ -1449,7 +1493,7 @@
             this.btnCancelarPohibPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarPohibPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarPohibPar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarPohibPar.Location = new System.Drawing.Point(109, 245);
+            this.btnCancelarPohibPar.Location = new System.Drawing.Point(109, 233);
             this.btnCancelarPohibPar.Name = "btnCancelarPohibPar";
             this.btnCancelarPohibPar.Size = new System.Drawing.Size(98, 40);
             this.btnCancelarPohibPar.TabIndex = 80;
@@ -1464,7 +1508,7 @@
             this.btnGuardarPohibPar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarPohibPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarPohibPar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarPohibPar.Location = new System.Drawing.Point(8, 244);
+            this.btnGuardarPohibPar.Location = new System.Drawing.Point(8, 232);
             this.btnGuardarPohibPar.Name = "btnGuardarPohibPar";
             this.btnGuardarPohibPar.Size = new System.Drawing.Size(98, 40);
             this.btnGuardarPohibPar.TabIndex = 79;
@@ -1476,7 +1520,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(5, 122);
+            this.label31.Location = new System.Drawing.Point(5, 110);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(63, 15);
             this.label31.TabIndex = 78;
@@ -1487,10 +1531,10 @@
             this.txtDetalleProhibirParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDetalleProhibirParentesco.Enabled = false;
             this.txtDetalleProhibirParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetalleProhibirParentesco.Location = new System.Drawing.Point(8, 141);
+            this.txtDetalleProhibirParentesco.Location = new System.Drawing.Point(8, 129);
             this.txtDetalleProhibirParentesco.Multiline = true;
             this.txtDetalleProhibirParentesco.Name = "txtDetalleProhibirParentesco";
-            this.txtDetalleProhibirParentesco.Size = new System.Drawing.Size(335, 95);
+            this.txtDetalleProhibirParentesco.Size = new System.Drawing.Size(325, 95);
             this.txtDetalleProhibirParentesco.TabIndex = 77;
             // 
             // dtpFechaIniProhibirParentesco
@@ -1498,7 +1542,7 @@
             this.dtpFechaIniProhibirParentesco.Enabled = false;
             this.dtpFechaIniProhibirParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaIniProhibirParentesco.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIniProhibirParentesco.Location = new System.Drawing.Point(8, 87);
+            this.dtpFechaIniProhibirParentesco.Location = new System.Drawing.Point(8, 83);
             this.dtpFechaIniProhibirParentesco.Name = "dtpFechaIniProhibirParentesco";
             this.dtpFechaIniProhibirParentesco.Size = new System.Drawing.Size(101, 21);
             this.dtpFechaIniProhibirParentesco.TabIndex = 43;
@@ -1507,7 +1551,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(5, 68);
+            this.label32.Location = new System.Drawing.Point(5, 64);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(87, 15);
             this.label32.TabIndex = 44;
@@ -1527,7 +1571,7 @@
             // dtgvParentescos
             // 
             this.dtgvParentescos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvParentescos.Location = new System.Drawing.Point(6, 20);
+            this.dtgvParentescos.Location = new System.Drawing.Point(-6, 20);
             this.dtgvParentescos.Name = "dtgvParentescos";
             this.dtgvParentescos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvParentescos.Size = new System.Drawing.Size(959, 163);
@@ -1538,18 +1582,28 @@
             // 
             this.groupBox5.Controls.Add(this.label42);
             this.groupBox5.Controls.Add(this.txtParentesco);
-            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.txtDetalleProhibicionParentesco);
             this.groupBox5.Controls.Add(this.label39);
             this.groupBox5.Controls.Add(this.txtInternoVinculado);
             this.groupBox5.Controls.Add(this.label26);
             this.groupBox5.Controls.Add(this.txtIdVisitaInterno);
             this.groupBox5.Controls.Add(this.label25);
-            this.groupBox5.Location = new System.Drawing.Point(13, 264);
+            this.groupBox5.Location = new System.Drawing.Point(13, 263);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1049, 95);
+            this.groupBox5.Size = new System.Drawing.Size(1049, 113);
             this.groupBox5.TabIndex = 79;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Parentesco actual";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(728, 18);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(144, 15);
+            this.label42.TabIndex = 82;
+            this.label42.Text = "DETALLE PROHIBICION:";
             // 
             // txtParentesco
             // 
@@ -1559,6 +1613,18 @@
             this.txtParentesco.ReadOnly = true;
             this.txtParentesco.Size = new System.Drawing.Size(227, 21);
             this.txtParentesco.TabIndex = 80;
+            // 
+            // txtDetalleProhibicionParentesco
+            // 
+            this.txtDetalleProhibicionParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDetalleProhibicionParentesco.Enabled = false;
+            this.txtDetalleProhibicionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleProhibicionParentesco.Location = new System.Drawing.Point(731, 37);
+            this.txtDetalleProhibicionParentesco.Multiline = true;
+            this.txtDetalleProhibicionParentesco.Name = "txtDetalleProhibicionParentesco";
+            this.txtDetalleProhibicionParentesco.ReadOnly = true;
+            this.txtDetalleProhibicionParentesco.Size = new System.Drawing.Size(312, 65);
+            this.txtDetalleProhibicionParentesco.TabIndex = 81;
             // 
             // label39
             // 
@@ -1613,7 +1679,7 @@
             this.btnVerParentescos.BackColor = System.Drawing.Color.Indigo;
             this.btnVerParentescos.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVerParentescos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerParentescos.ForeColor = System.Drawing.Color.White;
             this.btnVerParentescos.Location = new System.Drawing.Point(15, 16);
             this.btnVerParentescos.Name = "btnVerParentescos";
@@ -2349,71 +2415,6 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblMenorEdad
-            // 
-            this.lblMenorEdad.AutoSize = true;
-            this.lblMenorEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenorEdad.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblMenorEdad.Location = new System.Drawing.Point(543, 254);
-            this.lblMenorEdad.Name = "lblMenorEdad";
-            this.lblMenorEdad.Size = new System.Drawing.Size(95, 20);
-            this.lblMenorEdad.TabIndex = 64;
-            this.lblMenorEdad.Text = "Es menor?";
-            // 
-            // lblEsVisitaPrincipal
-            // 
-            this.lblEsVisitaPrincipal.AutoSize = true;
-            this.lblEsVisitaPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEsVisitaPrincipal.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblEsVisitaPrincipal.Location = new System.Drawing.Point(543, 282);
-            this.lblEsVisitaPrincipal.Name = "lblEsVisitaPrincipal";
-            this.lblEsVisitaPrincipal.Size = new System.Drawing.Size(86, 20);
-            this.lblEsVisitaPrincipal.TabIndex = 63;
-            this.lblEsVisitaPrincipal.Text = "Es visita?";
-            // 
-            // lblDetalleTieneDiscapacidad
-            // 
-            this.lblDetalleTieneDiscapacidad.AutoSize = true;
-            this.lblDetalleTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetalleTieneDiscapacidad.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblDetalleTieneDiscapacidad.Location = new System.Drawing.Point(544, 330);
-            this.lblDetalleTieneDiscapacidad.Name = "lblDetalleTieneDiscapacidad";
-            this.lblDetalleTieneDiscapacidad.Size = new System.Drawing.Size(19, 15);
-            this.lblDetalleTieneDiscapacidad.TabIndex = 66;
-            this.lblDetalleTieneDiscapacidad.Text = "...";
-            // 
-            // lblTieneDiscapacidad
-            // 
-            this.lblTieneDiscapacidad.AutoSize = true;
-            this.lblTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTieneDiscapacidad.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblTieneDiscapacidad.Location = new System.Drawing.Point(543, 310);
-            this.lblTieneDiscapacidad.Name = "lblTieneDiscapacidad";
-            this.lblTieneDiscapacidad.Size = new System.Drawing.Size(163, 20);
-            this.lblTieneDiscapacidad.TabIndex = 65;
-            this.lblTieneDiscapacidad.Text = "Tiene discapacidad";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(728, 18);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(63, 15);
-            this.label42.TabIndex = 82;
-            this.label42.Text = "DETALLE:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(731, 37);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(312, 43);
-            this.textBox1.TabIndex = 81;
-            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2653,6 +2654,6 @@
         private System.Windows.Forms.Label lblMenorEdad;
         private System.Windows.Forms.Label lblEsVisitaPrincipal;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDetalleProhibicionParentesco;
     }
 }
