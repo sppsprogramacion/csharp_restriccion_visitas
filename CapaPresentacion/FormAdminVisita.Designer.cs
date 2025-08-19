@@ -310,7 +310,7 @@
             this.lblDetalleTieneDiscapacidad.AutoSize = true;
             this.lblDetalleTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDetalleTieneDiscapacidad.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblDetalleTieneDiscapacidad.Location = new System.Drawing.Point(544, 351);
+            this.lblDetalleTieneDiscapacidad.Location = new System.Drawing.Point(550, 329);
             this.lblDetalleTieneDiscapacidad.Name = "lblDetalleTieneDiscapacidad";
             this.lblDetalleTieneDiscapacidad.Size = new System.Drawing.Size(19, 15);
             this.lblDetalleTieneDiscapacidad.TabIndex = 66;
@@ -319,33 +319,33 @@
             // lblTieneDiscapacidad
             // 
             this.lblTieneDiscapacidad.AutoSize = true;
-            this.lblTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieneDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTieneDiscapacidad.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblTieneDiscapacidad.Location = new System.Drawing.Point(543, 331);
+            this.lblTieneDiscapacidad.Location = new System.Drawing.Point(547, 314);
             this.lblTieneDiscapacidad.Name = "lblTieneDiscapacidad";
-            this.lblTieneDiscapacidad.Size = new System.Drawing.Size(173, 20);
+            this.lblTieneDiscapacidad.Size = new System.Drawing.Size(154, 16);
             this.lblTieneDiscapacidad.TabIndex = 65;
             this.lblTieneDiscapacidad.Text = "Tiene discapacidad?";
             // 
             // lblMenorEdad
             // 
             this.lblMenorEdad.AutoSize = true;
-            this.lblMenorEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenorEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenorEdad.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblMenorEdad.Location = new System.Drawing.Point(543, 275);
+            this.lblMenorEdad.Location = new System.Drawing.Point(547, 267);
             this.lblMenorEdad.Name = "lblMenorEdad";
-            this.lblMenorEdad.Size = new System.Drawing.Size(95, 20);
+            this.lblMenorEdad.Size = new System.Drawing.Size(80, 16);
             this.lblMenorEdad.TabIndex = 64;
             this.lblMenorEdad.Text = "Es menor?";
             // 
             // lblEsVisitaPrincipal
             // 
             this.lblEsVisitaPrincipal.AutoSize = true;
-            this.lblEsVisitaPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEsVisitaPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEsVisitaPrincipal.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblEsVisitaPrincipal.Location = new System.Drawing.Point(543, 303);
+            this.lblEsVisitaPrincipal.Location = new System.Drawing.Point(547, 290);
             this.lblEsVisitaPrincipal.Name = "lblEsVisitaPrincipal";
-            this.lblEsVisitaPrincipal.Size = new System.Drawing.Size(86, 20);
+            this.lblEsVisitaPrincipal.Size = new System.Drawing.Size(74, 16);
             this.lblEsVisitaPrincipal.TabIndex = 63;
             this.lblEsVisitaPrincipal.Text = "Es visita?";
             // 

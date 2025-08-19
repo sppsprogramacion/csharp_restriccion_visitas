@@ -27,12 +27,19 @@ namespace CapaPresentacion.Validaciones
         public string txtMotivoQP { get; set; }
         public DateTime dtpFechaFinQP { get; set; }
 
+        //VINCULOS
         //para prohibir/levantar parentesco
         public DateTime dtpFechaIniProhibirParentesco { get; set; }
         public DateTime dtpFechaFinProhibirParentesco { get; set; }
         public string txtDetalleProhibirParentesco { get; set; }
 
+        //para revincular/desvincular
+        public string txtDetalleVinculacionParentesco { get; set; }
 
+        //para cambiar parentesco
+        public string cmbParentescos { get; set; }
+        public string txtMotivoModificarParentesco { get; set; }
+        
 
     }
 }

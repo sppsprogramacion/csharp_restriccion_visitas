@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion
 {
-    public class LevantarProhibicionParentescoValidator : AbstractValidator<ProhibicionDatos>
+    public class VinculoProhibirValidator : AbstractValidator<ProhibicionDatos>
     {
-        public LevantarProhibicionParentescoValidator()
+        public VinculoProhibirValidator()
         {
-            
+
+            RuleFor(x => x.dtpFechaIniProhibirParentesco.ToString())
+                    .Cascade(CascadeMode.Stop)
+                    .NotEmpty().WithMessage("La fecha de inicio es obligatoria");
             RuleFor(x => x.dtpFechaFinProhibirParentesco.ToString())
                     .Cascade(CascadeMode.Stop)
                     .NotEmpty().WithMessage("La fecha de fin es obligatoria");
@@ -38,3 +41,4 @@ namespace CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion
         }
     }
 }
+

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion
 {
-    public class LevantarAnularProhibicionValidator : AbstractValidator<ProhibicionDatos>
+    public class ProhibicionLevantarAnularValidator : AbstractValidator<ProhibicionDatos>
     {
-        public LevantarAnularProhibicionValidator()
+        public ProhibicionLevantarAnularValidator()
         {
             
             

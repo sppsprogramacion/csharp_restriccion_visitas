@@ -199,7 +199,7 @@ namespace CapaPresentacion
                     dtpFechaFin = dtpFechaFin.Value,
                 };
 
-                var validator = new ProhibicionValidator();
+                var validator = new ProhibicionNuevaValidator();
                 var result = validator.Validate(datosFormulario);
 
                 if (!result.IsValid)
@@ -267,7 +267,7 @@ namespace CapaPresentacion
                     txtMotivo = txtMotivo.Text,
                 };
 
-                var validatorEdicion = new EdicionProhibicionValidator();
+                var validatorEdicion = new ProhibicionEdicionValidator();
                 var result = validatorEdicion.Validate(datosFormulario);
 
                 if (!result.IsValid)
@@ -460,7 +460,7 @@ namespace CapaPresentacion
                 dtpFechaFinQP = dtpFechaFinQP.Value,
             };
 
-            var validator = new LevantarAnularProhibicionValidator();
+            var validator = new ProhibicionLevantarAnularValidator();
             var result = validator.Validate(datosFormulario);
 
             if (!result.IsValid)
@@ -874,7 +874,7 @@ namespace CapaPresentacion
                     txtDetalleProhibirParentesco = txtDetalleProhibirParentesco.Text,
                 };
 
-                var validator = new ProhibirParentescoValidator();
+                var validator = new VinculoProhibirValidator();
                 var result = validator.Validate(datosFormulario);
 
                 if (!result.IsValid)
@@ -925,7 +925,7 @@ namespace CapaPresentacion
                     txtDetalleProhibirParentesco = txtDetalleProhibirParentesco.Text,
                 };
 
-                var validator = new LevantarProhibicionParentescoValidator();
+                var validator = new VinculoLevantarProhibicionValidator();
                 var result = validator.Validate(datosFormulario);
 
                 if (!result.IsValid)
@@ -1042,13 +1042,39 @@ namespace CapaPresentacion
         //BOTON GUARDAR VINCULACION
         private async void btnGuardarVinculacionParentesco_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new ProhibicionDatos
+            {
+                
+                txtDetalleVinculacionParentesco = txtDetalleVinculacionParentesco.Text,
+            };
+
+            var validator = new VinculoDesvincularRevincularValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion de formulario
+
             NVisitaInterno nVisitaInterno = new NVisitaInterno();
 
             bool respuestaOk = false;
             string mensajeRespuesta = "";
 
             //determinar cual es la accion a realizar con la prohibicion
-            //prohibir parentesco
+            //REvincular parentesco
             if (this.accionRevincularVinculo)
             {
                 var data = new
@@ -1175,6 +1201,32 @@ namespace CapaPresentacion
         //BOTON GUARDAR MODIFICAR PARENTESCO
         private async void btnGuardarModificarParentesco_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new ProhibicionDatos
+            {
+                cmbParentescos = cmbParentescos.SelectedValue.ToString(),
+                txtMotivoModificarParentesco = txtMotivoModificarParentesco.Text,
+            };
+
+            var validator = new VinculoCambiarParentescoValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion de formulario
+
             NVisitaInterno nVisitaInterno = new NVisitaInterno();
 
             //EDITAR
@@ -1240,7 +1292,10 @@ namespace CapaPresentacion
 
         //METODO HABILITAR CONTROLES PROHIBICION VINCULO
         private void HabilitarControlesProhibicionParentescos(bool habilitar)
-        {            
+        {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
             dtpFechaIniProhibirParentesco.ResetText();
             dtpFechaIniProhibirParentesco.Enabled = habilitar;
             //determinar si se esta prohibiendo para habilitar la fecha de inicio, sino debe permaneces deshabilitado
@@ -1264,6 +1319,9 @@ namespace CapaPresentacion
         //METODO HABILITAR CONTROLES VINCULACION VINCULO
         private void HabilitarControlesVinculacionParentescos(bool habilitar)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
             txtDetalleVinculacionParentesco.Enabled = habilitar;
             txtDetalleVinculacionParentesco.Text = "";
 
@@ -1271,12 +1329,16 @@ namespace CapaPresentacion
             btnDesvincular.Enabled = !habilitar;
             btnGuardarVinculacionParentesco.Enabled = habilitar;
             btnCancelarVinculacionParentesco.Enabled = habilitar;
+
         }
         //METODO HABILITAR CONTROLES VINCULACION VINCULO
 
         //METODO HABILITAR CONTROLES CAMBIO PARENTESCO
         private void HabilitarControlesCambioParentesco(bool habilitar)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
             cmbParentescos.Enabled = habilitar;
             txtMotivoModificarParentesco.Text = "";
             txtMotivoModificarParentesco.Enabled = habilitar;

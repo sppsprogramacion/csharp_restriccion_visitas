@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CapaPresentacion.Validaciones.AdminVisita.EdicionProhibicion
 {
-    public class EdicionProhibicionValidator : AbstractValidator<ProhibicionDatos>
+    public class ProhibicionEdicionValidator : AbstractValidator<ProhibicionDatos>
     {
-        public EdicionProhibicionValidator()
+        public ProhibicionEdicionValidator()
         {
             
             RuleFor(x => x.txtDisposicion)

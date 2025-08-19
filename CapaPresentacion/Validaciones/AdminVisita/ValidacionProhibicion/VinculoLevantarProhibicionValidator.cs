@@ -7,21 +7,18 @@ using System.Threading.Tasks;
 
 namespace CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion
 {
-    public class ProhibirParentescoValidator : AbstractValidator<ProhibicionDatos>
+    public class VinculoLevantarProhibicionValidator : AbstractValidator<ProhibicionDatos>
     {
-        public ProhibirParentescoValidator()
+        public VinculoLevantarProhibicionValidator()
         {
-
-            RuleFor(x => x.dtpFechaIniProhibirParentesco.ToString())
-                    .Cascade(CascadeMode.Stop)
-                    .NotEmpty().WithMessage("La fecha de inicio es obligatoria");
+            
             RuleFor(x => x.dtpFechaFinProhibirParentesco.ToString())
-                    .Cascade(CascadeMode.Stop)
-                    .NotEmpty().WithMessage("La fecha de fin es obligatoria");
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty().WithMessage("La fecha de fin es obligatoria");
             RuleFor(x => x.txtDetalleProhibirParentesco)
-                    .Cascade(CascadeMode.Stop)
-                    .NotEmpty().WithMessage("El detalle es obligatorio.")
-                    .Length(1, 1500).WithMessage("El detalle debe tener maximo 2000 caracteres.");
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty().WithMessage("El detalle es obligatorio.")
+                .Length(1, 1500).WithMessage("El detalle debe tener maximo 2000 caracteres.");
 
         }
 
@@ -41,4 +38,3 @@ namespace CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion
         }
     }
 }
-

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace CapaPresentacion.Validaciones
 {
-    public class ProhibicionValidator : AbstractValidator<ProhibicionDatos>
+    public class ProhibicionNuevaValidator : AbstractValidator<ProhibicionDatos>
     {
-        public ProhibicionValidator()
+        public ProhibicionNuevaValidator()
         {
             RuleFor(x => x.txtIdCiudadano.ToString())
                 .Cascade(CascadeMode.Stop)
