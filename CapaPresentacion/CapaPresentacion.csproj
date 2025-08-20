@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\NovedadNuevaValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ProhibicionEdicionValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\Datos\ProhibicionDatos.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\VinculoCambiarParentescoValidator.cs" />

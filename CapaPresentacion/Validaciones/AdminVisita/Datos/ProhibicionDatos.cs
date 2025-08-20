@@ -10,7 +10,7 @@ namespace CapaPresentacion.Validaciones
     public class ProhibicionDatos
     {
         //public int id_prohibicion_visita { get; set; }
-        public int txtIdCiudadano { get; set; }
+        public string txtIdCiudadano { get; set; }
         //public int organismo_id { get; set; }
         //public DateTime fecha_prohibicion { get; set; }
         public string txtDisposicion { get; set; }
@@ -39,7 +39,11 @@ namespace CapaPresentacion.Validaciones
         //para cambiar parentesco
         public string cmbParentescos { get; set; }
         public string txtMotivoModificarParentesco { get; set; }
+
+        //para novedades
+        public string txtNuevaNovedad { get; set; }
         
+
 
     }
 }

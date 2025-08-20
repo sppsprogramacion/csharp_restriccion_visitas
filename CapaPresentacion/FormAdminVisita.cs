@@ -192,7 +192,7 @@ namespace CapaPresentacion
                 //validacion de formulario
                 var datosFormulario = new ProhibicionDatos
                 {
-                    txtIdCiudadano = Convert.ToInt32(txtIdCiudadano.Text),
+                    txtIdCiudadano = txtIdCiudadano.Text,
                     txtDisposicion = txtDisposicion.Text,
                     txtDetalle = txtDetalle.Text,
                     dtpFechaInicio = dtpFechaInicio.Value,
@@ -1460,6 +1460,32 @@ namespace CapaPresentacion
 
         private async void btnGuardarNovedad_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new ProhibicionDatos
+            {
+                txtIdCiudadano = txtIdCiudadano.Text,
+                txtNuevaNovedad = txtNuevaNovedad.Text,
+            };
+
+            var validator = new NovedadNuevaValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion de formulario
+
             NNovedadCiudadano nNovedadCiudadano = new NNovedadCiudadano();
 
             bool respuestaOk = false;
