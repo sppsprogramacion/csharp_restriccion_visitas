@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitacoraProhibicionAnticipadaDaoImplement.cs" />
     <Compile Include="BitacoraProhibicionVisitaDaoImplement.cs" />
     <Compile Include="CiudadanoDaoImpl.cs" />
     <Compile Include="EstadoCivilDaoImpl.cs" />

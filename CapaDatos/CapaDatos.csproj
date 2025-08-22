@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBitacoraProhibicionAnticipada.cs" />
     <Compile Include="DBitacoraProhibicionVisita.cs" />
     <Compile Include="DCiudadano.cs" />
     <Compile Include="DDepartamento.cs" />

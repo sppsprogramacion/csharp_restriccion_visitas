@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NAuth.cs" />
+    <Compile Include="NBitacoraProhibicionAnticipadas.cs" />
     <Compile Include="NBitacoraProhibicionVisita.cs" />
     <Compile Include="NCiudadano.cs" />
     <Compile Include="NEstadoCivil.cs" />

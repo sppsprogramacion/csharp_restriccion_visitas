@@ -31,10 +31,16 @@ namespace CapaPresentacion
             //CARGAR LISTA SEXO
             //Carga de combo sexo
             NSexo nSexo = new NSexo();
+            (List<DSexo> listaSexo, string errorResponse) = await nSexo.RetornarListaSexo();
 
+            if (listaSexo == null)
+            {
+                MessageBox.Show("Advertencia al cargar lista de sexos: " + errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             cmbSexoVisita.ValueMember = "id_sexo";
             cmbSexoVisita.DisplayMember = "sexo";
-            cmbSexoVisita.DataSource = await nSexo.RetornarListaSexo();
+            cmbSexoVisita.DataSource = listaSexo;
         }
 
 

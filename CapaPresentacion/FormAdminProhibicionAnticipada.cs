@@ -48,9 +48,17 @@ namespace CapaPresentacion
             //CARGAR LISTA SEXO
             //Carga de combo sexo
             NSexo nSexo = new NSexo();
+            (List<DSexo> listaSexo, string errorResponse) = await nSexo.RetornarListaSexo();
+
+            if (listaSexo == null)
+            {
+                MessageBox.Show("Advertencia al cargar lista de sexos: " + errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             cmbSexoVisita.ValueMember = "id_sexo";
             cmbSexoVisita.DisplayMember = "sexo";
-            cmbSexoVisita.DataSource = await nSexo.RetornarListaSexo();
+            cmbSexoVisita.DataSource = listaSexo;
+                        
 
             //acceder a la instancia de FormTramites abierta.
             FormProhibicionesAnticipadas formProhibicion = Application.OpenForms["FormProhibicionesAnticipadas"] as FormProhibicionesAnticipadas;
@@ -314,8 +322,86 @@ namespace CapaPresentacion
             }
 
             return dProhibicionX;
-        }        
+        }
+
         //FIN BUSCAR PROHIBICION......................................
+
+        private void btnVerNovedades_Click(object sender, EventArgs e)
+        {
+            if (txtIdProhibicionAnticipada.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar una prohibición", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                this.CargarDataGridHistorialProhibiciones(Convert.ToInt32(txtIdProhibicionAnticipada.Text));
+            }
+        }
+
+        //METODO PARA OBTENER HISTORIAL DE UNA PROHIBICION Y CARGARLO EN UN DATA GRID  
+        private async void CargarDataGridHistorialProhibiciones(int idProhibicion)
+        {
+            NBitacoraProhibicionAnticipadas nBitacoraProhibicion = new NBitacoraProhibicionAnticipadas();
+            //List<DBitacoraProhibicionAnticipada> listaBitacoraProhibiciones = new List<DBitacoraProhibicionAnticipada>();
+            (List<DBitacoraProhibicionAnticipada> listaBitacoraProhibiciones, string errorResponse) = await nBitacoraProhibicion.RetornarListaBitacoraProhibicionesAnticipadas(idProhibicion);
+
+            if (listaBitacoraProhibiciones == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var datosfiltrados = listaBitacoraProhibiciones
+                .Select(c => new
+                {
+                    Id = c.id_bitacora_prohibicion_anticipada,
+                    Motivo = c.motivo,
+                    DetalleMotivo = c.detalle_motivo,
+                    DatosModificados = c.datos_modificados,
+                    FechaCambio = c.fecha_cambio,
+                    Organismo = c.organismo.organismo,
+                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
+
+                })
+                .ToList();
+
+            dtgvNovedades.DataSource = datosfiltrados;
+
+        }
+
+        //FIN METODO PARA OBTENER HISTORIAL DE UNA PROHIBICION Y CARGARLO EN UN DATA GRID...........
+        
+        private void dtgvNovedades_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                              
+
+                if (dtgvNovedades.SelectedRows.Count > 0)
+                {
+                    int idProhibicion;
+                    idProhibicion = Convert.ToInt32(dtgvNovedades.CurrentRow.Cells["ID"].Value.ToString());
+
+                    if (idProhibicion > 0)
+                    {
+                        txtIdProhibicionAnticipada.Text = idProhibicion.ToString();
+                        txtFechaHistorial.Text = Convert.ToDateTime(dtgvNovedades.CurrentRow.Cells["FechaCambio"].Value).ToString("dd/MM/yyyy");
+                        txtOrganismoHistorial.Text = dtgvNovedades.CurrentRow.Cells["Organismo"].Value.ToString();
+                        txtUsuarioHistorial.Text = dtgvNovedades.CurrentRow.Cells["Usuario"].Value.ToString();
+                        txtMotivo.Text = dtgvNovedades.CurrentRow.Cells["Motivo"].Value.ToString();
+                        txtDetalleMotivo.Text = dtgvNovedades.CurrentRow.Cells["DetalleMotivo"].Value.ToString();
+                        txtDatosModificados.Text = dtgvNovedades.CurrentRow.Cells["DatosModificados n"].Value.ToString();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una prohibición.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
     }
 
 

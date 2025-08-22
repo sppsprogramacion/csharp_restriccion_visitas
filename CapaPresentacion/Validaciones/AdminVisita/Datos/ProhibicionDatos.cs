@@ -42,8 +42,11 @@ namespace CapaPresentacion.Validaciones
 
         //para novedades
         public string txtNuevaNovedad { get; set; }
-        
 
+        //para excepcion de ingreso
+        public DateTime dtpFechaExcepcion { get; set; }
+        public string txtMotivoExcepcion { get; set; }
+        public string txtDetalleExcepcion { get; set; }
 
     }
 }

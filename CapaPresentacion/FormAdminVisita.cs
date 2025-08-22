@@ -60,6 +60,7 @@ namespace CapaPresentacion
             FormVisitas formVisitas = Application.OpenForms["FormVisitas"] as FormVisitas;
             NCiudadano nCiudadano = new NCiudadano();
 
+            //BUSCAR CIUDADANO CON EL ID DEL FORMULARIO DE BUSQUEDA (formVisitas)
             idCiudadano = Convert.ToInt32(formVisitas.idCiudadanoGlobal);
             (DCiudadano dCiudadanoX, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
 
@@ -67,11 +68,13 @@ namespace CapaPresentacion
 
             if (this.dCiudadano == null)
             {
+                tabVisita.Enabled = false;
+
                 MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            //pictureBox1.Load("https://drive.google.com/uc?id=1Wfa2hj0P5LFAGgYdZNx6TibZmQ7fxJrJ&export=download");
+            //CARGAR DATOS DEL CIUDADANO
             txtIdCiudadano.Text = this.dCiudadano.id_ciudadano.ToString();
             if (this.dCiudadano.es_visita)
             {
@@ -1451,6 +1454,9 @@ namespace CapaPresentacion
 
         private void btnCancelarNovedad_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
             txtNuevaNovedad.Enabled = false;
             txtNuevaNovedad.Text = "";
             btnNuevaNovedad.Enabled = true;
