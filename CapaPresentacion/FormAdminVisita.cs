@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.FuncionesGenerales;
 using CapaPresentacion.Reportes;
 using CapaPresentacion.Validaciones;
 using CapaPresentacion.Validaciones.AdminVisita.EdicionProhibicion;
@@ -44,19 +45,20 @@ namespace CapaPresentacion
        
         private async void frmAdminVisita_Load(object sender, EventArgs e)
         {
-            // Obtener el tamaño de la pantalla actual
-            int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
-            int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
+            //// Obtener el tamaño de la pantalla actual
+            //int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
+            //int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
 
-            // Ajustar el tamaño del formulario
-            if (this.Height > screenHeight)
-                this.Height = screenHeight;
+            //// Ajustar el tamaño del formulario
+            //if (this.Height > screenHeight)
+            //    this.Height = screenHeight;
 
-            if (this.Width > screenWidth)
-                this.Width = screenWidth;
+            //if (this.Width > screenWidth)
+            //    this.Width = screenWidth;
 
-            // Opcional: centrar el formulario si se ajustó
-            this.StartPosition = FormStartPosition.CenterScreen;
+            //// Opcional: centrar el formulario si se ajustó
+            //this.StartPosition = FormStartPosition.CenterScreen;
+            FormularioAyudas.AjustarFormulario(this);
 
             int idCiudadano;
             //acceder a la instancia de FormTramites abierta.

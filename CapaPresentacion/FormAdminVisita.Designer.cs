@@ -111,6 +111,7 @@
             this.dtgvHistorialProhibicion = new System.Windows.Forms.DataGridView();
             this.btnVerProhibiciones = new System.Windows.Forms.Button();
             this.tabVinculos = new System.Windows.Forms.TabPage();
+            this.btnImprimirVinculos = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.btnDesvincular = new System.Windows.Forms.Button();
             this.btnRevincular = new System.Windows.Forms.Button();
@@ -210,7 +211,6 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label52 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.btnImprimirVinculos = new System.Windows.Forms.Button();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -1217,6 +1217,21 @@
             this.tabVinculos.TabIndex = 2;
             this.tabVinculos.Text = "Vinculos";
             this.tabVinculos.UseVisualStyleBackColor = true;
+            // 
+            // btnImprimirVinculos
+            // 
+            this.btnImprimirVinculos.BackColor = System.Drawing.Color.White;
+            this.btnImprimirVinculos.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnImprimirVinculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirVinculos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirVinculos.ForeColor = System.Drawing.Color.Indigo;
+            this.btnImprimirVinculos.Location = new System.Drawing.Point(789, 21);
+            this.btnImprimirVinculos.Name = "btnImprimirVinculos";
+            this.btnImprimirVinculos.Size = new System.Drawing.Size(194, 40);
+            this.btnImprimirVinculos.TabIndex = 95;
+            this.btnImprimirVinculos.Text = "Imprimir";
+            this.btnImprimirVinculos.UseVisualStyleBackColor = false;
+            this.btnImprimirVinculos.Click += new System.EventHandler(this.btnImprimirVinculos_Click);
             // 
             // groupBox9
             // 
@@ -2417,21 +2432,6 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnImprimirVinculos
-            // 
-            this.btnImprimirVinculos.BackColor = System.Drawing.Color.White;
-            this.btnImprimirVinculos.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
-            this.btnImprimirVinculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirVinculos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimirVinculos.ForeColor = System.Drawing.Color.Indigo;
-            this.btnImprimirVinculos.Location = new System.Drawing.Point(789, 21);
-            this.btnImprimirVinculos.Name = "btnImprimirVinculos";
-            this.btnImprimirVinculos.Size = new System.Drawing.Size(194, 40);
-            this.btnImprimirVinculos.TabIndex = 95;
-            this.btnImprimirVinculos.Text = "Imprimir";
-            this.btnImprimirVinculos.UseVisualStyleBackColor = false;
-            this.btnImprimirVinculos.Click += new System.EventHandler(this.btnImprimirVinculos_Click);
-            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2443,7 +2443,7 @@
             this.Controls.Add(this.tabVisita);
             this.Name = "FormAdminVisita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Administrar Visita";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frmAdminVisita_Load);
             this.tabVisita.ResumeLayout(false);
             this.pagDatosPersonales.ResumeLayout(false);

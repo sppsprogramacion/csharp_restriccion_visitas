@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.FuncionesGenerales;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace CapaPresentacion
 
         private void Visitas_Load(object sender, EventArgs e)
         {
-                        
+            FormularioAyudas.AjustarFormulario(this);             
         }
 
         private void dtgvVisitas_KeyDown(object sender, KeyEventArgs e)

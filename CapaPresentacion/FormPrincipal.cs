@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.FuncionesGenerales;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,7 @@ namespace CapaPresentacion
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            FormularioAyudas.AjustarFormulario(this);
             this.ControlBox = false;
         }
     }
