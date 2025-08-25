@@ -210,6 +210,7 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label52 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.btnImprimirVinculos = new System.Windows.Forms.Button();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -1202,6 +1203,7 @@
             // 
             // tabVinculos
             // 
+            this.tabVinculos.Controls.Add(this.btnImprimirVinculos);
             this.tabVinculos.Controls.Add(this.groupBox9);
             this.tabVinculos.Controls.Add(this.groupBox6);
             this.tabVinculos.Controls.Add(this.groupBox8);
@@ -2415,6 +2417,21 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnImprimirVinculos
+            // 
+            this.btnImprimirVinculos.BackColor = System.Drawing.Color.White;
+            this.btnImprimirVinculos.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnImprimirVinculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirVinculos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirVinculos.ForeColor = System.Drawing.Color.Indigo;
+            this.btnImprimirVinculos.Location = new System.Drawing.Point(789, 21);
+            this.btnImprimirVinculos.Name = "btnImprimirVinculos";
+            this.btnImprimirVinculos.Size = new System.Drawing.Size(194, 40);
+            this.btnImprimirVinculos.TabIndex = 95;
+            this.btnImprimirVinculos.Text = "Imprimir";
+            this.btnImprimirVinculos.UseVisualStyleBackColor = false;
+            this.btnImprimirVinculos.Click += new System.EventHandler(this.btnImprimirVinculos_Click);
+            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2655,5 +2672,6 @@
         private System.Windows.Forms.Label lblEsVisitaPrincipal;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox txtDetalleProhibicionParentesco;
+        private System.Windows.Forms.Button btnImprimirVinculos;
     }
 }

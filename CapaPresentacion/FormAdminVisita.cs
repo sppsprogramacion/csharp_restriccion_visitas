@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Reportes;
 using CapaPresentacion.Validaciones;
 using CapaPresentacion.Validaciones.AdminVisita.EdicionProhibicion;
 using CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion;
@@ -21,7 +22,9 @@ namespace CapaPresentacion
     public partial class FormAdminVisita : Form
     {
         //VARIABLES GLOBALES
-        DCiudadano dCiudadano = new DCiudadano();
+        DCiudadano dCiudadanoGlo = new DCiudadano();
+        List<DVisitaInterno> listaVisitaInternosGlo = new List<DVisitaInterno>();
+
         private ErrorProvider errorProvider = new ErrorProvider();
         //la accion puede ser prohibir, levantar o quitar
         string accionProhibir = "";
@@ -64,9 +67,9 @@ namespace CapaPresentacion
             idCiudadano = Convert.ToInt32(formVisitas.idCiudadanoGlobal);
             (DCiudadano dCiudadanoX, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
 
-            this.dCiudadano = dCiudadanoX;
+            this.dCiudadanoGlo = dCiudadanoX;
 
-            if (this.dCiudadano == null)
+            if (this.dCiudadanoGlo == null)
             {
                 tabVisita.Enabled = false;
 
@@ -75,8 +78,8 @@ namespace CapaPresentacion
             }
 
             //CARGAR DATOS DEL CIUDADANO
-            txtIdCiudadano.Text = this.dCiudadano.id_ciudadano.ToString();
-            if (this.dCiudadano.es_visita)
+            txtIdCiudadano.Text = this.dCiudadanoGlo.id_ciudadano.ToString();
+            if (this.dCiudadanoGlo.es_visita)
             {
                 txtVisita.Text = "ES VISITA";
             }
@@ -84,20 +87,20 @@ namespace CapaPresentacion
             {
                 txtVisita.Text = "NO ES VISITA";
             }
-            txtApellido.Text = this.dCiudadano.apellido;
-            txtNombre.Text = this.dCiudadano.nombre;
-            txtDni.Text = this.dCiudadano.dni.ToString();
-            txtSexo.Text = this.dCiudadano.sexo.sexo;
-            txtFechaNacimiento.Text = this.dCiudadano.fecha_nac.ToShortDateString();
-            txtTelefono.Text = this.dCiudadano.telefono;
-            txtEstadoCivil.Text = this.dCiudadano.estado_civil.estado_civil;
-            txtNacionalidad.Text = this.dCiudadano.nacionalidad.nacionalidad;
-            txtPais.Text = this.dCiudadano.pais.pais;
-            txtProvincia.Text = this.dCiudadano.provincia.provincia;
-            txtDepartamento.Text = this.dCiudadano.departamento.departamento;
-            txtMunicipio.Text = this.dCiudadano.municipio.municipio;
-            txtCiudad.Text = this.dCiudadano.ciudad;
-            if (this.dCiudadano.tiene_discapacidad)
+            txtApellido.Text = this.dCiudadanoGlo.apellido;
+            txtNombre.Text = this.dCiudadanoGlo.nombre;
+            txtDni.Text = this.dCiudadanoGlo.dni.ToString();
+            txtSexo.Text = this.dCiudadanoGlo.sexo.sexo;
+            txtFechaNacimiento.Text = this.dCiudadanoGlo.fecha_nac.ToShortDateString();
+            txtTelefono.Text = this.dCiudadanoGlo.telefono;
+            txtEstadoCivil.Text = this.dCiudadanoGlo.estado_civil.estado_civil;
+            txtNacionalidad.Text = this.dCiudadanoGlo.nacionalidad.nacionalidad;
+            txtPais.Text = this.dCiudadanoGlo.pais.pais;
+            txtProvincia.Text = this.dCiudadanoGlo.provincia.provincia;
+            txtDepartamento.Text = this.dCiudadanoGlo.departamento.departamento;
+            txtMunicipio.Text = this.dCiudadanoGlo.municipio.municipio;
+            txtCiudad.Text = this.dCiudadanoGlo.ciudad;
+            if (this.dCiudadanoGlo.tiene_discapacidad)
             {
                 txtDiscapacidad.Text = "TIENE DISCAPACIDAD";
             }
@@ -105,9 +108,9 @@ namespace CapaPresentacion
             {
                 txtDiscapacidad.Text = "NO TIENE DISCAPACIDAD";
             }
-            txtFechaAlta.Text = this.dCiudadano.fecha_alta.ToShortDateString();
-            txtOrganismoAlta.Text = this.dCiudadano.organismo_alta.organismo;
-            pictureFoto.Load(this.dCiudadano.foto);
+            txtFechaAlta.Text = this.dCiudadanoGlo.fecha_alta.ToShortDateString();
+            txtOrganismoAlta.Text = this.dCiudadanoGlo.organismo_alta.organismo;
+            pictureFoto.Load(this.dCiudadanoGlo.foto);
 
             this.ControlEsVisita();
             this.ControlTieneDiscapacidad();
@@ -120,7 +123,7 @@ namespace CapaPresentacion
         //CONTROL ES VISITA
         private void ControlEsVisita()
         {
-            if (this.dCiudadano.es_visita)
+            if (this.dCiudadanoGlo.es_visita)
             {
                 lblEsVisitaPrincipal.Text = "Ciudadano registrado como visita";
                 lblEsVisitaPrincipal.ForeColor = Color.SteelBlue;                
@@ -136,11 +139,11 @@ namespace CapaPresentacion
         //CONTROL TIENE DISCAPACIDAD
         private void ControlTieneDiscapacidad()
         {
-            if (this.dCiudadano.tiene_discapacidad)
+            if (this.dCiudadanoGlo.tiene_discapacidad)
             {
                 lblTieneDiscapacidad.Text = "Ciudadano registrado con discapacidad";
                 lblTieneDiscapacidad.ForeColor = Color.SteelBlue;
-                lblDetalleTieneDiscapacidad.Text = dCiudadano.discapacidad_detalle;
+                lblDetalleTieneDiscapacidad.Text = dCiudadanoGlo.discapacidad_detalle;
                 lblDetalleTieneDiscapacidad.ForeColor = Color.SteelBlue;
             }
             else
@@ -156,13 +159,13 @@ namespace CapaPresentacion
         //CONTROL EDAD
         private void ControlEdad()
         {
-            if (this.dCiudadano.edad < 18)
+            if (this.dCiudadanoGlo.edad < 18)
             {
-                lblMenorEdad.Text = "Edad: " + this.dCiudadano.edad + " años. Es MENOR.";
+                lblMenorEdad.Text = "Edad: " + this.dCiudadanoGlo.edad + " años. Es MENOR.";
             }
             else
             {
-                lblMenorEdad.Text = "Edad: " + this.dCiudadano.edad + " años. Es ADULTO.";
+                lblMenorEdad.Text = "Edad: " + this.dCiudadanoGlo.edad + " años. Es ADULTO.";
             }
         }
         //FIN CONTROL EDAD
@@ -561,7 +564,7 @@ namespace CapaPresentacion
         async private void CargarDataGridProhibiciones()
         {
             NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
-            (List<DProhibicionVisita> listaProhibicionesVisita, string errorResponse) =  await nProhibicionVisita.RetornarListaProhibicionesVisita(this.dCiudadano.id_ciudadano);
+            (List<DProhibicionVisita> listaProhibicionesVisita, string errorResponse) =  await nProhibicionVisita.RetornarListaProhibicionesVisita(this.dCiudadanoGlo.id_ciudadano);
 
             if(listaProhibicionesVisita == null)
             {
@@ -741,7 +744,7 @@ namespace CapaPresentacion
         {
             NVisitaInterno nVisitaInterno = new NVisitaInterno();
 
-            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadano.id_ciudadano);
+            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadanoGlo.id_ciudadano);
 
             if (listaParentescos == null)
             {
@@ -818,6 +821,15 @@ namespace CapaPresentacion
             cmbParentescos.DataSource = listaParentescos;
         }
         //FIN VER PARENTESCOS....................................................
+
+        //BOTON IMPRIMIR VINCULOS
+        private void btnImprimirVinculos_Click(object sender, EventArgs e)
+        {
+            var frmReporte = new ReporteInternosVinculados(dCiudadanoGlo, listaVisitaInternosGlo);
+            frmReporte.ShowDialog();
+        }
+        //FIN BOTON IMPRIMIR VINCULOS........................
+
 
         //BOTON PROHIBIR PARENTESCO
         private void btnProhibirParent_Click(object sender, EventArgs e)
@@ -1371,7 +1383,7 @@ namespace CapaPresentacion
         {
             NNovedadCiudadano nNovedadCiudadano = new NNovedadCiudadano();
 
-            (List<DNovedadCiudadano> listaNovedades, string errorResponse) = await nNovedadCiudadano.RetornarListaNovedadesCiudadano(this.dCiudadano.id_ciudadano);
+            (List<DNovedadCiudadano> listaNovedades, string errorResponse) = await nNovedadCiudadano.RetornarListaNovedadesCiudadano(this.dCiudadanoGlo.id_ciudadano);
 
             if (listaNovedades == null)
             {
@@ -1793,7 +1805,7 @@ namespace CapaPresentacion
         {
             NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
 
-            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.RetornarListaExcepcionesIngreso(this.dCiudadano.id_ciudadano);
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.RetornarListaExcepcionesIngreso(this.dCiudadanoGlo.id_ciudadano);
 
             if (listaExcepcionesIngreso == null)
             {
@@ -1831,7 +1843,7 @@ namespace CapaPresentacion
                 dtgvExcepcionesIngreso.Columns[3].Width = 400;
             }
         }
-        
+
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
 
         #endregion Excepxiones
