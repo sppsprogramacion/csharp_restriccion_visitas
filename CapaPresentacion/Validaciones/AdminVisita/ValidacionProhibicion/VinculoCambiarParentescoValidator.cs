@@ -12,10 +12,11 @@ namespace CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion
         public VinculoCambiarParentescoValidator()
         {
 
-            RuleFor(x => x.cmbParentescos.ToString())
+            RuleFor(x => x.cmbParentescos)
                 .Cascade(CascadeMode.Stop)
+                .NotNull().WithMessage("Debe ingresar un valor para parentesco.")
                 .NotEmpty().WithMessage("Debe ingresar un valor para parentesco.")
-                .Must(BeAnInteger).WithMessage("El parentesco debe ser un numero entero.");
+                .Length(1, 20).WithMessage("El identificador de parentesco debe tener entre 1 y 20 caracteres.");
             RuleFor(x => x.txtMotivoModificarParentesco)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("El motivo es obligatorio.")

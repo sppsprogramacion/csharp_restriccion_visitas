@@ -381,18 +381,18 @@ namespace CapaPresentacion
 
                 if (dtgvNovedades.SelectedRows.Count > 0)
                 {
-                    int idProhibicion;
-                    idProhibicion = Convert.ToInt32(dtgvNovedades.CurrentRow.Cells["ID"].Value.ToString());
+                    int idHistorial;
+                    idHistorial = Convert.ToInt32(dtgvNovedades.CurrentRow.Cells["ID"].Value.ToString());
 
-                    if (idProhibicion > 0)
+                    if (idHistorial > 0)
                     {
-                        txtIdProhibicionAnticipada.Text = idProhibicion.ToString();
+                        txtIdHistorial.Text = idHistorial.ToString();
                         txtFechaHistorial.Text = Convert.ToDateTime(dtgvNovedades.CurrentRow.Cells["FechaCambio"].Value).ToString("dd/MM/yyyy");
                         txtOrganismoHistorial.Text = dtgvNovedades.CurrentRow.Cells["Organismo"].Value.ToString();
                         txtUsuarioHistorial.Text = dtgvNovedades.CurrentRow.Cells["Usuario"].Value.ToString();
                         txtMotivo.Text = dtgvNovedades.CurrentRow.Cells["Motivo"].Value.ToString();
                         txtDetalleMotivo.Text = dtgvNovedades.CurrentRow.Cells["DetalleMotivo"].Value.ToString();
-                        txtDatosModificados.Text = dtgvNovedades.CurrentRow.Cells["DatosModificados n"].Value.ToString();
+                        txtDatosModificados.Text = dtgvNovedades.CurrentRow.Cells["DatosModificados"].Value.ToString();
 
                     }
                     else

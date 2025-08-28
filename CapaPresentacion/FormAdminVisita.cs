@@ -45,19 +45,7 @@ namespace CapaPresentacion
        
         private async void frmAdminVisita_Load(object sender, EventArgs e)
         {
-            //// Obtener el tamaño de la pantalla actual
-            //int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
-            //int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
-
-            //// Ajustar el tamaño del formulario
-            //if (this.Height > screenHeight)
-            //    this.Height = screenHeight;
-
-            //if (this.Width > screenWidth)
-            //    this.Width = screenWidth;
-
-            //// Opcional: centrar el formulario si se ajustó
-            //this.StartPosition = FormStartPosition.CenterScreen;
+            //// Ajustar el tamaño del formulario            
             FormularioAyudas.AjustarFormulario(this);
 
             int idCiudadano;
@@ -1224,7 +1212,7 @@ namespace CapaPresentacion
             //validacion de formulario
             var datosFormulario = new ProhibicionDatos
             {
-                cmbParentescos = cmbParentescos.SelectedValue.ToString(),
+                cmbParentescos = cmbParentescos.SelectedValue?.ToString() ?? string.Empty,
                 txtMotivoModificarParentesco = txtMotivoModificarParentesco.Text,
             };
 
