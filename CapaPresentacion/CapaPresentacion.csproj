@@ -159,6 +159,7 @@
     <Compile Include="Reportes\ReporteInternosVinculados.Designer.cs">
       <DependentUpon>ReporteInternosVinculados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ExcepcionIngresoCumplimentarAnularValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ExcepcionIngresoNuevaValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\NovedadNuevaValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ProhibicionEdicionValidator.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ProhibicionLevantarAnularValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\VinculoProhibirValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\VinculoDesvincularRevincularValidator.cs" />
+    <Compile Include="Validaciones\ProhibicionesAnticipadas\Datos\ProhibicionAnticipadaDatos.cs" />
     <EmbeddedResource Include="FormAdminProhibicionAnticipada.resx">
       <DependentUpon>FormAdminProhibicionAnticipada.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,7 +250,11 @@
     <None Include="Resources\logo_spps2.png" />
     <Content Include="restriccion-logo.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Validaciones\AdminProhibicionAnticipada\Datos\" />
+    <Folder Include="Validaciones\AdminProhibicionAnticipada\Validacion\" />
+    <Folder Include="Validaciones\ProhibicionesAnticipadas\Validaciones\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -249,7 +249,7 @@
             this.tabVisita.Controls.Add(this.tabNovedades);
             this.tabVisita.Controls.Add(this.tabExepcionIngreso);
             this.tabVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabVisita.Location = new System.Drawing.Point(6, 41);
+            this.tabVisita.Location = new System.Drawing.Point(6, 33);
             this.tabVisita.Name = "tabVisita";
             this.tabVisita.SelectedIndex = 0;
             this.tabVisita.Size = new System.Drawing.Size(1080, 844);
@@ -2029,6 +2029,7 @@
             this.dtgvNovedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvNovedades.Location = new System.Drawing.Point(17, 222);
             this.dtgvNovedades.Name = "dtgvNovedades";
+            this.dtgvNovedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvNovedades.Size = new System.Drawing.Size(1035, 310);
             this.dtgvNovedades.TabIndex = 49;
             this.dtgvNovedades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvNovedades_CellContentClick);
@@ -2097,9 +2098,9 @@
             this.groupBox13.Controls.Add(this.lblDetalleCumplAnularExcepcion);
             this.groupBox13.Controls.Add(this.txtDetalleCumplAnularExcepcion);
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox13.Location = new System.Drawing.Point(795, 5);
+            this.groupBox13.Location = new System.Drawing.Point(790, 5);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(266, 297);
+            this.groupBox13.Size = new System.Drawing.Size(273, 296);
             this.groupBox13.TabIndex = 94;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Cumplimentar / Anular";
@@ -2210,7 +2211,7 @@
             this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox12.Location = new System.Drawing.Point(6, 6);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(779, 296);
+            this.groupBox12.Size = new System.Drawing.Size(773, 296);
             this.groupBox12.TabIndex = 93;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Excepcion para ingreso";
@@ -2332,7 +2333,7 @@
             this.txtDetalleExcepcion.Multiline = true;
             this.txtDetalleExcepcion.Name = "txtDetalleExcepcion";
             this.txtDetalleExcepcion.ReadOnly = true;
-            this.txtDetalleExcepcion.Size = new System.Drawing.Size(650, 77);
+            this.txtDetalleExcepcion.Size = new System.Drawing.Size(639, 77);
             this.txtDetalleExcepcion.TabIndex = 4;
             // 
             // label49
@@ -2351,7 +2352,7 @@
             this.txtMotivoExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotivoExcepcion.Location = new System.Drawing.Point(149, 45);
             this.txtMotivoExcepcion.Name = "txtMotivoExcepcion";
-            this.txtMotivoExcepcion.Size = new System.Drawing.Size(512, 21);
+            this.txtMotivoExcepcion.Size = new System.Drawing.Size(501, 21);
             this.txtMotivoExcepcion.TabIndex = 1;
             // 
             // btnNuevaExcepcion
@@ -2361,7 +2362,7 @@
             this.btnNuevaExcepcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevaExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevaExcepcion.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaExcepcion.Location = new System.Drawing.Point(671, 43);
+            this.btnNuevaExcepcion.Location = new System.Drawing.Point(664, 43);
             this.btnNuevaExcepcion.Name = "btnNuevaExcepcion";
             this.btnNuevaExcepcion.Size = new System.Drawing.Size(98, 40);
             this.btnNuevaExcepcion.TabIndex = 7;
@@ -2376,7 +2377,7 @@
             this.btnGuardarExcepcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarExcepcion.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarExcepcion.Location = new System.Drawing.Point(671, 92);
+            this.btnGuardarExcepcion.Location = new System.Drawing.Point(664, 92);
             this.btnGuardarExcepcion.Name = "btnGuardarExcepcion";
             this.btnGuardarExcepcion.Size = new System.Drawing.Size(98, 40);
             this.btnGuardarExcepcion.TabIndex = 9;
@@ -2392,7 +2393,7 @@
             this.btnCancelarExcepcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarExcepcion.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarExcepcion.Location = new System.Drawing.Point(671, 136);
+            this.btnCancelarExcepcion.Location = new System.Drawing.Point(664, 136);
             this.btnCancelarExcepcion.Name = "btnCancelarExcepcion";
             this.btnCancelarExcepcion.Size = new System.Drawing.Size(98, 40);
             this.btnCancelarExcepcion.TabIndex = 10;

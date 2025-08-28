@@ -65,9 +65,11 @@ namespace CapaPresentacion
 
             //OBTENER ID PROHIBICION GLOBAL DE FORMULARIO D EVISITAS ANTICIPADAS          
             idProhibicionGlobal = Convert.ToInt32(formProhibicion.idProhibicionAnticipadaGlobal);
-            
+
             //CARGAR DATOS DE LA PROHIBICION EN FORMULARIO
+            tabVisita.Enabled = false;
             this.dProhibicion = await this.BuscarProhibicion(idProhibicionGlobal);
+            tabVisita.Enabled = true;
             //cargar datos de la prohibicion en formulario
             this.CargarFormularioProhibicion();
         }
@@ -126,7 +128,9 @@ namespace CapaPresentacion
 
                 string dataProhibicion = JsonConvert.SerializeObject(data);
 
+                tabVisita.Enabled = false;
                 (bool respuestaEditar, string errorResponse) = await nProhibicionAnticipada.EditarProhibicion(Convert.ToInt32(txtIdProhibicionAnticipada.Text), dataProhibicion);
+                tabVisita.Enabled = true;
 
                 if (respuestaEditar)
                 {
@@ -252,8 +256,9 @@ namespace CapaPresentacion
             bool respuestaOk = false;
             string mensajeRespuesta = "";
 
-            
+            tabVisita.Enabled = false;
             (bool respuestaEditar, string errorResponse) = await nProhibicionAnticipada.LevantarManualProhibicion(Convert.ToInt32(txtIdProhibicionAnticipada.Text), dataEnviar);
+            tabVisita.Enabled = true; 
 
             if (respuestaEditar)
             {

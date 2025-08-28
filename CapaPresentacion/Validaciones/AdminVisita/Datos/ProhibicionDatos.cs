@@ -16,9 +16,7 @@ namespace CapaPresentacion.Validaciones
         public string txtDisposicion { get; set; }
         public string txtDetalle { get; set; }
         public DateTime dtpFechaInicio { get; set; }
-        public DateTime dtpFechaFin { get; set; }
-        //public bool vigente { get; set; }
-        //public bool anulado { get; set; }
+        public DateTime dtpFechaFin { get; set; }        
 
         //para edicion
         public string txtMotivo { get; set; }
@@ -43,10 +41,13 @@ namespace CapaPresentacion.Validaciones
         //para novedades
         public string txtNuevaNovedad { get; set; }
 
-        //para excepcion de ingreso
+        //EXCEPCION DE INGRESO
+        //para NUEVA excepcion de ingreso
         public DateTime dtpFechaExcepcion { get; set; }
         public string txtMotivoExcepcion { get; set; }
         public string txtDetalleExcepcion { get; set; }
+        //cumplimentar y anular
+        public string txtDetalleCumplAnularExcepcion { get; set; }
 
     }
 }

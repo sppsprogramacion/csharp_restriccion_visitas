@@ -54,8 +54,10 @@ namespace CapaPresentacion
             NCiudadano nCiudadano = new NCiudadano();
 
             //BUSCAR CIUDADANO CON EL ID DEL FORMULARIO DE BUSQUEDA (formVisitas)
+            tabVisita.Enabled = false;
             idCiudadano = Convert.ToInt32(formVisitas.idCiudadanoGlobal);
             (DCiudadano dCiudadanoX, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
+            tabVisita.Enabled = true;
 
             this.dCiudadanoGlo = dCiudadanoX;
 
@@ -221,9 +223,11 @@ namespace CapaPresentacion
                 };
 
                 string dataProhibicion = JsonConvert.SerializeObject(data);
-                
+
+                tabVisita.Enabled = false;
                 (DProhibicionVisita dataRespuesta, string errorResponse) = await nProhibicionVisita.CrearProhibicion(dataProhibicion);
-                    
+                tabVisita.Enabled = true;
+
                 if (dataRespuesta != null)
                 {                        
                     MessageBox.Show("La prohibición se guardo correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -289,8 +293,11 @@ namespace CapaPresentacion
                 };
 
                 string dataProhibicion = JsonConvert.SerializeObject(data);
-               
+
+                tabVisita.Enabled = false;
                 (bool respuestaEditar, string errorResponse) = await nProhibicionVisita.EditarProhibicion(Convert.ToInt32(txtIdProhibicion.Text), dataProhibicion);
+                tabVisita.Enabled = true;
+
                 if (respuestaEditar)
                 {
                         
@@ -490,7 +497,9 @@ namespace CapaPresentacion
             //usar el respectivo metodo
             if (this.accionProhibir == "levantar")
             {
+                tabVisita.Enabled = false;
                 (bool respuestaEditar, string errorResponse) = await nProhibicionVisita.LevantarManualProhibicion(Convert.ToInt32(txtIdProhibicion.Text), dataEnviar);
+                tabVisita.Enabled = true;
 
                 if (respuestaEditar)
                 {
@@ -506,7 +515,9 @@ namespace CapaPresentacion
 
             if (this.accionProhibir == "anular")
             {
+                tabVisita.Enabled = false;
                 (bool respuestaEditar, string errorResponse) = await nProhibicionVisita.AnularProhibicion(Convert.ToInt32(txtIdProhibicion.Text), dataEnviar);
+                tabVisita.Enabled = true;
 
                 if (respuestaEditar)
                 {
@@ -904,7 +915,9 @@ namespace CapaPresentacion
 
                 string dataProhibir = JsonConvert.SerializeObject(data);
 
+                tabVisita.Enabled = false;
                 (bool respuestaProhibir, string errorResponse) = await nVisitaInterno.ProhibirParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataProhibir);
+                tabVisita.Enabled = true;
 
                 if (respuestaProhibir)
                 {
@@ -954,7 +967,9 @@ namespace CapaPresentacion
 
                 string dataLevantar = JsonConvert.SerializeObject(data);
 
+                tabVisita.Enabled = false;
                 (bool respuestaLevantar, string errorResponse) = await nVisitaInterno.LevantarProhibicionParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataLevantar);
+                tabVisita.Enabled = true;
 
                 if (respuestaLevantar)
                 {
@@ -1089,7 +1104,9 @@ namespace CapaPresentacion
 
                 string dataActualizar = JsonConvert.SerializeObject(data);
 
+                tabVisita.Enabled = false;
                 (bool respuestaRevincular, string errorResponse) = await nVisitaInterno.RevincularParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataActualizar);
+                tabVisita.Enabled = true;
 
                 if (respuestaRevincular)
                 {
@@ -1247,16 +1264,14 @@ namespace CapaPresentacion
 
                 try
                 {
+                    tabVisita.Enabled = false;
                     (bool respuestaEditar, string errorResponse) = await nVisitaInterno.CambiarParentesco(Convert.ToInt32(txtIdVisitaInterno.Text), dataVisitaInterno);
+                    tabVisita.Enabled = true;
 
                     if (respuestaEditar)
                     {
 
                         MessageBox.Show("El cambio de parentesco se realizó correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        //this.LimpiarControles();
-                        //this.HabilitarControles(false);
-
 
                         //cargar lista de prhibiciones en datagrid
                         this.CargarDataGridParentescos();
@@ -1508,7 +1523,9 @@ namespace CapaPresentacion
 
             string dataNovedad = JsonConvert.SerializeObject(data);
 
+            tabVisita.Enabled = false;
             (DNovedadCiudadano respuestaNovedad, string errorResponse) = await nNovedadCiudadano.CrearNovedad(dataNovedad);
+            tabVisita.Enabled = true;
 
             if (respuestaNovedad != null)
             {
@@ -1553,11 +1570,34 @@ namespace CapaPresentacion
         //BOTON GUARDAR EXCEPCION
         private async void btnGuardarExcepcion_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new ProhibicionDatos
+            {
+                dtpFechaExcepcion = dtpFechaExcepcion.Value,
+                txtMotivoExcepcion = txtMotivoExcepcion.Text,
+                txtDetalleExcepcion = txtDetalleExcepcion.Text,
+            };
+
+            var validator = new ExcepcionIngresoNuevaValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion de formulario
+
             NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
-
-            bool respuestaOk = false;
-            string mensajeRespuesta = "";
-
 
             var data = new
             {
@@ -1569,7 +1609,9 @@ namespace CapaPresentacion
 
             string dataExcepcion = JsonConvert.SerializeObject(data);
 
+            tabVisita.Enabled = false;
             (DExcepcionIngresoVisita respuestaExcepcion, string errorResponse) = await nExcepcionIngresoVisita.CrearExcepcion(dataExcepcion);
+            tabVisita.Enabled = true;
 
             if (respuestaExcepcion != null)
             {
@@ -1638,6 +1680,31 @@ namespace CapaPresentacion
         //BOTON GUARDAR CUMPLIMENTAR ANULAR EEXCEPCION
         private async void btnGuardarCumplAnularExcepcion_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new ProhibicionDatos
+            {
+                txtDetalleCumplAnularExcepcion = txtDetalleCumplAnularExcepcion.Text,
+            };
+
+            var validator = new ExcepcionIngresoCumplimentarAnularValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion de formulario
+
             NExcepcionIngresoVisita nExcepcionIngreso = new NExcepcionIngresoVisita();
 
             var data = new
@@ -1655,7 +1722,9 @@ namespace CapaPresentacion
             //usar el respectivo metodo
             if (this.accionAnularExcepcion)
             {
+                tabVisita.Enabled = false;
                 (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.AnularExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
+                tabVisita.Enabled = true;
 
                 if (respuestaEditar)
                 {
@@ -1671,7 +1740,9 @@ namespace CapaPresentacion
 
             if (this.accionCumplimentarExcepcion)
             {
+                tabVisita.Enabled = false;
                 (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.CumplimentarExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
+                tabVisita.Enabled = true;
 
                 if (respuestaEditar)
                 {
