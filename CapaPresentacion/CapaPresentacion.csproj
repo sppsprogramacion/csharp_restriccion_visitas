@@ -159,6 +159,9 @@
     <Compile Include="Reportes\ReporteInternosVinculados.Designer.cs">
       <DependentUpon>ReporteInternosVinculados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validaciones\AdminProhibicionAnticipada\Datos\AdminProhibicionAnticipadaDatos.cs" />
+    <Compile Include="Validaciones\AdminProhibicionAnticipada\Validacion\ProhibicionAnticipadaEdicionValidator.cs" />
+    <Compile Include="Validaciones\AdminProhibicionAnticipada\Validacion\ProhibicionAnticipadaLevantarValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ExcepcionIngresoCumplimentarAnularValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ExcepcionIngresoNuevaValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\NovedadNuevaValidator.cs" />
@@ -170,6 +173,8 @@
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\ProhibicionLevantarAnularValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\VinculoProhibirValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\VinculoDesvincularRevincularValidator.cs" />
+    <Compile Include="Validaciones\Login\Datos\LoginDatos.cs" />
+    <Compile Include="Validaciones\Login\Validacion\LoginValidator.cs" />
     <Compile Include="Validaciones\ProhibicionesAnticipadas\Datos\ProhibicionAnticipadaDatos.cs" />
     <Compile Include="Validaciones\ProhibicionesAnticipadas\ValidacionesProhibicionesAnticipadas\ProhibicionAnticipadaNuevaValidator.cs" />
     <EmbeddedResource Include="FormAdminProhibicionAnticipada.resx">
@@ -249,12 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_spps2.png" />
+    <None Include="Resources\usuario.png" />
+    <None Include="Resources\usuario2.png" />
+    <None Include="Resources\usuario3.png" />
     <Content Include="restriccion-logo.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validaciones\AdminProhibicionAnticipada\Datos\" />
-    <Folder Include="Validaciones\AdminProhibicionAnticipada\Validacion\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

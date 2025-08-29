@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.btnVerVisitas = new System.Windows.Forms.Button();
-            this.label28 = new System.Windows.Forms.Label();
+            this.lblEncabezado = new System.Windows.Forms.Label();
             this.btnCerrarSistema = new System.Windows.Forms.Button();
             this.btnProhibicionesAnticipadas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVerVisitas
@@ -42,7 +45,7 @@
             this.btnVerVisitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerVisitas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerVisitas.ForeColor = System.Drawing.Color.White;
-            this.btnVerVisitas.Location = new System.Drawing.Point(23, 49);
+            this.btnVerVisitas.Location = new System.Drawing.Point(23, 47);
             this.btnVerVisitas.Name = "btnVerVisitas";
             this.btnVerVisitas.Size = new System.Drawing.Size(93, 45);
             this.btnVerVisitas.TabIndex = 0;
@@ -50,17 +53,17 @@
             this.btnVerVisitas.UseVisualStyleBackColor = false;
             this.btnVerVisitas.Click += new System.EventHandler(this.btnVerVisitas_Click);
             // 
-            // label28
+            // lblEncabezado
             // 
-            this.label28.BackColor = System.Drawing.Color.Indigo;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(1, 1);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(903, 29);
-            this.label28.TabIndex = 76;
-            this.label28.Text = "RESTRICCION DE VISITAS";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEncabezado.BackColor = System.Drawing.Color.Indigo;
+            this.lblEncabezado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEncabezado.ForeColor = System.Drawing.Color.White;
+            this.lblEncabezado.Location = new System.Drawing.Point(1, 1);
+            this.lblEncabezado.Name = "lblEncabezado";
+            this.lblEncabezado.Size = new System.Drawing.Size(903, 29);
+            this.lblEncabezado.TabIndex = 76;
+            this.lblEncabezado.Text = "RESTRICCION DE VISITAS";
+            this.lblEncabezado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCerrarSistema
             // 
@@ -84,7 +87,7 @@
             this.btnProhibicionesAnticipadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProhibicionesAnticipadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProhibicionesAnticipadas.ForeColor = System.Drawing.Color.White;
-            this.btnProhibicionesAnticipadas.Location = new System.Drawing.Point(125, 49);
+            this.btnProhibicionesAnticipadas.Location = new System.Drawing.Point(125, 47);
             this.btnProhibicionesAnticipadas.Name = "btnProhibicionesAnticipadas";
             this.btnProhibicionesAnticipadas.Size = new System.Drawing.Size(118, 45);
             this.btnProhibicionesAnticipadas.TabIndex = 1;
@@ -99,12 +102,33 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(252, 49);
+            this.button1.Location = new System.Drawing.Point(252, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 45);
             this.button1.TabIndex = 3;
             this.button1.Text = "Internos";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.Indigo;
+            this.lblUsuario.Location = new System.Drawing.Point(40, 574);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(50, 16);
+            this.lblUsuario.TabIndex = 78;
+            this.lblUsuario.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.usuario3;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 569);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 77;
+            this.pictureBox1.TabStop = false;
             // 
             // FormPrincipal
             // 
@@ -112,26 +136,33 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(916, 606);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnProhibicionesAnticipadas);
             this.Controls.Add(this.btnCerrarSistema);
-            this.Controls.Add(this.label28);
+            this.Controls.Add(this.lblEncabezado);
             this.Controls.Add(this.btnVerVisitas);
+            this.MaximizeBox = false;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnVerVisitas;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lblEncabezado;
         private System.Windows.Forms.Button btnCerrarSistema;
         private System.Windows.Forms.Button btnProhibicionesAnticipadas;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblUsuario;
     }
 }
 

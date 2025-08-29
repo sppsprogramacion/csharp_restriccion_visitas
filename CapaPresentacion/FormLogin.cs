@@ -1,24 +1,18 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Validaciones.Login.Datos;
+using CapaPresentacion.Validaciones.Login.ValidacionLogin;
 using CommonCache;
-using MaterialSkin.Controls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
     public partial class FormLogin : Form
     {
+        private ErrorProvider errorProvider = new ErrorProvider();
         public FormLogin()
         {
             InitializeComponent();
@@ -30,20 +24,46 @@ namespace CapaPresentacion
             txtUsuario.ScrollBars = ScrollBars.None;
             txtUsuario.TextAlign = HorizontalAlignment.Left;
             txtUsuario.Padding = new Padding(20, 20, 20, 0); // Ajusta para que se vea bien
-            txtContrasenia.PasswordChar = '●';
-            txtContrasenia.TextAlign = HorizontalAlignment.Left;
-            txtContrasenia.Padding = new Padding(15, 15, 15, 15); // Ajusta para que se vea bien
+            txtPassword.PasswordChar = '●';
+            txtPassword.TextAlign = HorizontalAlignment.Left;
+            txtPassword.Padding = new Padding(15, 15, 15, 15); // Ajusta para que se vea bien
 
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new LoginDatos
+            {
+                txtUsuario = txtUsuario.Text,
+                txtPassword = txtPassword.Text
+            };
+
+            var validator = new LoginValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validadr formulario
             NAuth nAuth = new NAuth();
 
             var data = new
             {
                 dni = txtUsuario.Text,
-                clave = txtContrasenia.Text
+                clave = txtPassword.Text
             };
 
             string dataLogin = JsonConvert.SerializeObject(data);

@@ -1,4 +1,5 @@
 ﻿using CapaPresentacion.FuncionesGenerales;
+using CommonCache;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,9 @@ namespace CapaPresentacion
         {
             FormularioAyudas.AjustarFormulario(this);
             this.ControlBox = false;
+
+            lblEncabezado.Text = lblEncabezado.Text + " - " + CurrentUser.Instance.organismo;
+            lblUsuario.Text = CurrentUser.Instance.nombre.ToUpper() + " " + CurrentUser.Instance.apellido.ToUpper();
         }
     }
 }

@@ -172,6 +172,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label28);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormVisitas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visitas";

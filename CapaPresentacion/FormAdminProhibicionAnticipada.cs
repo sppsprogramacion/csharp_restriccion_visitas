@@ -1,6 +1,11 @@
 ﻿using CapaDatos;
 using CapaNegocio;
 using CapaPresentacion.Validaciones;
+using CapaPresentacion.Validaciones.AdminProhibicionAnticipada.Datos;
+using CapaPresentacion.Validaciones.AdminProhibicionAnticipada.Validacion;
+using CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion;
+using CapaPresentacion.Validaciones.ProhibicionesAnticipadas.Datos;
+using CapaPresentacion.Validaciones.ProhibicionesAnticipadas.ValidacionesProhibicionesAnticipadas;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -95,6 +100,9 @@ namespace CapaPresentacion
         //BOTON CANCELAR PRHIBICION
         private void btnCancelarProhibicion_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
             //cargar datos del prohibicion en formulario
             this.CargarFormularioProhibicion();
 
@@ -105,9 +113,42 @@ namespace CapaPresentacion
         //BOTON GUARDAR PROHIBICON
         private async void btnGuardarProhibicion_Click(object sender, EventArgs e)
         {
-            NProhibicionVisitaAnticipada nProhibicionAnticipada = new NProhibicionVisitaAnticipada();
-            Boolean enviar = true;
+            //limpiar errores de provider
+            errorProvider.Clear();
 
+            //validacion de formulario
+            var datosFormulario = new AdminProhibicionAnticipadaDatos
+            {
+                txtApellidoVisita = txtApellidoVisita.Text,
+                txtNombreVisita = txtNombreVisita.Text,
+                txtDniVisita = txtDniVisita.Text,
+                cmbSexoVisita = cmbSexoVisita.SelectedValue?.ToString() ?? string.Empty,
+                txtDetalleProhibicionAnticipada = txtDetalleProhibicionAnticipada.Text,
+                txtApellidoInterno = txtApellidoInterno.Text,
+                txtNombreInterno = txtNombreInterno.Text,
+                dtpFechaInicio = dtpFechaInicio.Value,
+                dtpFechaFin = dtpFechaFin.Value,
+                txtMotivoDetalle = txtMotivoDetalle.Text,
+            };
+
+            var validator = new ProhibicionAnticipadaEdicionValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validar formulario
+
+            NProhibicionVisitaAnticipada nProhibicionAnticipada = new NProhibicionVisitaAnticipada();
+            
             //EDITAR
             if (!string.IsNullOrEmpty(txtIdProhibicionAnticipada.Text))
             {
@@ -121,8 +162,8 @@ namespace CapaPresentacion
                     apellido_interno = txtApellidoInterno.Text,
                     nombre_interno = txtNombreInterno.Text,
                     is_exinterno = chkExInterno.Checked,
-                    fecha_inicio = dtpkFechaInicioProhibicion.Value,
-                    fecha_fin = dtpkFechaFinProhibicion.Value,
+                    fecha_inicio = dtpFechaInicio.Value,
+                    fecha_fin = dtpFechaFin.Value,
                     detalle_motivo = txtMotivoDetalle.Text
                 };
 
@@ -161,8 +202,8 @@ namespace CapaPresentacion
             txtNombreVisita.ReadOnly = !habilitar;
             txtDniVisita.ReadOnly = !habilitar;
             cmbSexoVisita.Enabled = habilitar;
-            dtpkFechaInicioProhibicion.Enabled = habilitar;
-            dtpkFechaFinProhibicion.Enabled = habilitar;
+            dtpFechaInicio.Enabled = habilitar;
+            dtpFechaFin.Enabled = habilitar;
             txtDetalleProhibicionAnticipada.ReadOnly = !habilitar;
             txtApellidoInterno.ReadOnly = !habilitar;
             txtNombreInterno.ReadOnly = !habilitar;
@@ -191,8 +232,8 @@ namespace CapaPresentacion
             txtDetalleProhibicionAnticipada.Text = this.dProhibicion.detalle;
             txtApellidoInterno.Text = this.dProhibicion.apellido_interno;
             txtNombreInterno.Text = this.dProhibicion.nombre_interno;
-            dtpkFechaInicioProhibicion.Value = this.dProhibicion.fecha_inicio;
-            dtpkFechaFinProhibicion.Value = this.dProhibicion.fecha_fin;
+            dtpFechaInicio.Value = this.dProhibicion.fecha_inicio;
+            dtpFechaFin.Value = this.dProhibicion.fecha_fin;
             txtTipoLevantamiento.Text = this.dProhibicion.tipo_levantamiento;
             txtFechaProhibicion.Text = this.dProhibicion.fecha_prohibicion.ToShortDateString(); 
             chkExInterno.Checked = this.dProhibicion.is_exinterno;
@@ -234,6 +275,8 @@ namespace CapaPresentacion
         //BOTON CANCELAR LEVANTAR
         private void btnCancelarLevantar_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
 
             this.HabilitarControlesLevantar(false);
         }
@@ -242,6 +285,32 @@ namespace CapaPresentacion
         //BOTON GUARDAR LEVANTAR
         private async void btnGuardarLevantar_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new AdminProhibicionAnticipadaDatos
+            {
+                txtMotivoLevantar = txtMotivoLevantar.Text,
+                dtpFechaFinLevantar = dtpFechaFinLevantar.Value,
+            };
+
+            var validator = new ProhibicionAnticipadaLevantarValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion de formulario
+
             NProhibicionVisitaAnticipada nProhibicionAnticipada = new NProhibicionVisitaAnticipada();
 
             var data = new

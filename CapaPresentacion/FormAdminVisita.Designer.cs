@@ -2071,7 +2071,7 @@
             this.dtgvExcepcionesIngreso.Name = "dtgvExcepcionesIngreso";
             this.dtgvExcepcionesIngreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvExcepcionesIngreso.Size = new System.Drawing.Size(1055, 261);
-            this.dtgvExcepcionesIngreso.TabIndex = 96;
+            this.dtgvExcepcionesIngreso.TabIndex = 11;
             this.dtgvExcepcionesIngreso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvExcepcionesIngreso_KeyDown);
             // 
             // btnVerExcepciones
@@ -2084,7 +2084,7 @@
             this.btnVerExcepciones.Location = new System.Drawing.Point(6, 316);
             this.btnVerExcepciones.Name = "btnVerExcepciones";
             this.btnVerExcepciones.Size = new System.Drawing.Size(141, 45);
-            this.btnVerExcepciones.TabIndex = 95;
+            this.btnVerExcepciones.TabIndex = 10;
             this.btnVerExcepciones.Text = "Ver excepciones";
             this.btnVerExcepciones.UseVisualStyleBackColor = false;
             this.btnVerExcepciones.Click += new System.EventHandler(this.btnVerExcepciones_Click);
@@ -2115,7 +2115,7 @@
             this.btnAnularExcepcion.Location = new System.Drawing.Point(160, 20);
             this.btnAnularExcepcion.Name = "btnAnularExcepcion";
             this.btnAnularExcepcion.Size = new System.Drawing.Size(93, 37);
-            this.btnAnularExcepcion.TabIndex = 83;
+            this.btnAnularExcepcion.TabIndex = 13;
             this.btnAnularExcepcion.Text = "ANULAR";
             this.btnAnularExcepcion.UseVisualStyleBackColor = false;
             this.btnAnularExcepcion.Click += new System.EventHandler(this.btnAnularExcepcion_Click);
@@ -2130,7 +2130,7 @@
             this.btnCumplimentarExcepcion.Location = new System.Drawing.Point(8, 21);
             this.btnCumplimentarExcepcion.Name = "btnCumplimentarExcepcion";
             this.btnCumplimentarExcepcion.Size = new System.Drawing.Size(146, 37);
-            this.btnCumplimentarExcepcion.TabIndex = 81;
+            this.btnCumplimentarExcepcion.TabIndex = 12;
             this.btnCumplimentarExcepcion.Text = "CUMPLIMENTAR";
             this.btnCumplimentarExcepcion.UseVisualStyleBackColor = false;
             this.btnCumplimentarExcepcion.Click += new System.EventHandler(this.btnCumplimentarExcepcion_Click);
@@ -2146,7 +2146,7 @@
             this.btnCancelarCumplAnularExcepcion.Location = new System.Drawing.Point(109, 245);
             this.btnCancelarCumplAnularExcepcion.Name = "btnCancelarCumplAnularExcepcion";
             this.btnCancelarCumplAnularExcepcion.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelarCumplAnularExcepcion.TabIndex = 80;
+            this.btnCancelarCumplAnularExcepcion.TabIndex = 16;
             this.btnCancelarCumplAnularExcepcion.Text = "CANCELAR";
             this.btnCancelarCumplAnularExcepcion.UseVisualStyleBackColor = false;
             this.btnCancelarCumplAnularExcepcion.Click += new System.EventHandler(this.btnCancelarCumplAnularExcepcion_Click);
@@ -2161,7 +2161,7 @@
             this.btnGuardarCumplAnularExcepcion.Location = new System.Drawing.Point(8, 245);
             this.btnGuardarCumplAnularExcepcion.Name = "btnGuardarCumplAnularExcepcion";
             this.btnGuardarCumplAnularExcepcion.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardarCumplAnularExcepcion.TabIndex = 79;
+            this.btnGuardarCumplAnularExcepcion.TabIndex = 15;
             this.btnGuardarCumplAnularExcepcion.Text = "GUARDAR";
             this.btnGuardarCumplAnularExcepcion.UseVisualStyleBackColor = false;
             this.btnGuardarCumplAnularExcepcion.Click += new System.EventHandler(this.btnGuardarCumplAnularExcepcion_Click);
@@ -2185,7 +2185,7 @@
             this.txtDetalleCumplAnularExcepcion.Multiline = true;
             this.txtDetalleCumplAnularExcepcion.Name = "txtDetalleCumplAnularExcepcion";
             this.txtDetalleCumplAnularExcepcion.Size = new System.Drawing.Size(249, 140);
-            this.txtDetalleCumplAnularExcepcion.TabIndex = 77;
+            this.txtDetalleCumplAnularExcepcion.TabIndex = 14;
             // 
             // groupBox12
             // 
@@ -2223,7 +2223,7 @@
             this.txtFechaCargaExcepcion.Name = "txtFechaCargaExcepcion";
             this.txtFechaCargaExcepcion.ReadOnly = true;
             this.txtFechaCargaExcepcion.Size = new System.Drawing.Size(105, 21);
-            this.txtFechaCargaExcepcion.TabIndex = 89;
+            this.txtFechaCargaExcepcion.TabIndex = 7;
             // 
             // label54
             // 
@@ -2242,7 +2242,7 @@
             this.txtIdExcepcion.Name = "txtIdExcepcion";
             this.txtIdExcepcion.ReadOnly = true;
             this.txtIdExcepcion.Size = new System.Drawing.Size(105, 21);
-            this.txtIdExcepcion.TabIndex = 87;
+            this.txtIdExcepcion.TabIndex = 6;
             // 
             // chkAnuladoExcepcion
             // 
@@ -2285,7 +2285,7 @@
             this.txtUsuarioCargaExcepcion.Name = "txtUsuarioCargaExcepcion";
             this.txtUsuarioCargaExcepcion.ReadOnly = true;
             this.txtUsuarioCargaExcepcion.Size = new System.Drawing.Size(183, 21);
-            this.txtUsuarioCargaExcepcion.TabIndex = 49;
+            this.txtUsuarioCargaExcepcion.TabIndex = 9;
             // 
             // label50
             // 
@@ -2304,7 +2304,7 @@
             this.txtOrganismoExepcion.Name = "txtOrganismoExepcion";
             this.txtOrganismoExepcion.ReadOnly = true;
             this.txtOrganismoExepcion.Size = new System.Drawing.Size(287, 21);
-            this.txtOrganismoExepcion.TabIndex = 45;
+            this.txtOrganismoExepcion.TabIndex = 8;
             // 
             // label51
             // 
@@ -2334,7 +2334,7 @@
             this.txtDetalleExcepcion.Name = "txtDetalleExcepcion";
             this.txtDetalleExcepcion.ReadOnly = true;
             this.txtDetalleExcepcion.Size = new System.Drawing.Size(639, 77);
-            this.txtDetalleExcepcion.TabIndex = 4;
+            this.txtDetalleExcepcion.TabIndex = 3;
             // 
             // label49
             // 
@@ -2353,7 +2353,7 @@
             this.txtMotivoExcepcion.Location = new System.Drawing.Point(149, 45);
             this.txtMotivoExcepcion.Name = "txtMotivoExcepcion";
             this.txtMotivoExcepcion.Size = new System.Drawing.Size(501, 21);
-            this.txtMotivoExcepcion.TabIndex = 1;
+            this.txtMotivoExcepcion.TabIndex = 2;
             // 
             // btnNuevaExcepcion
             // 
@@ -2365,7 +2365,7 @@
             this.btnNuevaExcepcion.Location = new System.Drawing.Point(664, 43);
             this.btnNuevaExcepcion.Name = "btnNuevaExcepcion";
             this.btnNuevaExcepcion.Size = new System.Drawing.Size(98, 40);
-            this.btnNuevaExcepcion.TabIndex = 7;
+            this.btnNuevaExcepcion.TabIndex = 0;
             this.btnNuevaExcepcion.Text = "NUEVO";
             this.btnNuevaExcepcion.UseVisualStyleBackColor = false;
             this.btnNuevaExcepcion.Click += new System.EventHandler(this.btnNuevaExcepcion_Click);
@@ -2380,7 +2380,7 @@
             this.btnGuardarExcepcion.Location = new System.Drawing.Point(664, 92);
             this.btnGuardarExcepcion.Name = "btnGuardarExcepcion";
             this.btnGuardarExcepcion.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardarExcepcion.TabIndex = 9;
+            this.btnGuardarExcepcion.TabIndex = 4;
             this.btnGuardarExcepcion.Text = "GUARDAR";
             this.btnGuardarExcepcion.UseVisualStyleBackColor = false;
             this.btnGuardarExcepcion.Click += new System.EventHandler(this.btnGuardarExcepcion_Click);
@@ -2396,7 +2396,7 @@
             this.btnCancelarExcepcion.Location = new System.Drawing.Point(664, 136);
             this.btnCancelarExcepcion.Name = "btnCancelarExcepcion";
             this.btnCancelarExcepcion.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelarExcepcion.TabIndex = 10;
+            this.btnCancelarExcepcion.TabIndex = 5;
             this.btnCancelarExcepcion.Text = "CANCELAR";
             this.btnCancelarExcepcion.UseVisualStyleBackColor = false;
             this.btnCancelarExcepcion.Click += new System.EventHandler(this.btnCancelarExcepcion_Click);
@@ -2409,7 +2409,7 @@
             this.dtpFechaExcepcion.Location = new System.Drawing.Point(11, 45);
             this.dtpFechaExcepcion.Name = "dtpFechaExcepcion";
             this.dtpFechaExcepcion.Size = new System.Drawing.Size(124, 21);
-            this.dtpFechaExcepcion.TabIndex = 2;
+            this.dtpFechaExcepcion.TabIndex = 1;
             // 
             // label52
             // 
@@ -2442,6 +2442,8 @@
             this.ClientSize = new System.Drawing.Size(1145, 749);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.tabVisita);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAdminVisita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";

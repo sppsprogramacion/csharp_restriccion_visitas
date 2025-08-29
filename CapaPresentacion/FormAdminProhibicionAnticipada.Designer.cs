@@ -59,9 +59,9 @@
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.txtMotivoDetalle = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dtpkFechaFinProhibicion = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpkFechaInicioProhibicion = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.btnEditarProhibicion = new System.Windows.Forms.Button();
             this.btnGuardarProhibicion = new System.Windows.Forms.Button();
@@ -407,7 +407,7 @@
             this.txtMotivoLevantar.Location = new System.Drawing.Point(10, 141);
             this.txtMotivoLevantar.Multiline = true;
             this.txtMotivoLevantar.Name = "txtMotivoLevantar";
-            this.txtMotivoLevantar.Size = new System.Drawing.Size(484, 85);
+            this.txtMotivoLevantar.Size = new System.Drawing.Size(480, 85);
             this.txtMotivoLevantar.TabIndex = 77;
             // 
             // dtpFechaFinLevantar
@@ -434,9 +434,9 @@
             // 
             this.groupBox14.Controls.Add(this.txtMotivoDetalle);
             this.groupBox14.Controls.Add(this.label9);
-            this.groupBox14.Controls.Add(this.dtpkFechaFinProhibicion);
+            this.groupBox14.Controls.Add(this.dtpFechaFin);
             this.groupBox14.Controls.Add(this.label3);
-            this.groupBox14.Controls.Add(this.dtpkFechaInicioProhibicion);
+            this.groupBox14.Controls.Add(this.dtpFechaInicio);
             this.groupBox14.Controls.Add(this.label8);
             this.groupBox14.Controls.Add(this.btnEditarProhibicion);
             this.groupBox14.Controls.Add(this.btnGuardarProhibicion);
@@ -482,7 +482,7 @@
             this.txtMotivoDetalle.Multiline = true;
             this.txtMotivoDetalle.Name = "txtMotivoDetalle";
             this.txtMotivoDetalle.ReadOnly = true;
-            this.txtMotivoDetalle.Size = new System.Drawing.Size(512, 60);
+            this.txtMotivoDetalle.Size = new System.Drawing.Size(508, 60);
             this.txtMotivoDetalle.TabIndex = 118;
             // 
             // label9
@@ -495,15 +495,15 @@
             this.label9.TabIndex = 119;
             this.label9.Text = "MOTIVO EDICION:";
             // 
-            // dtpkFechaFinProhibicion
+            // dtpFechaFin
             // 
-            this.dtpkFechaFinProhibicion.Enabled = false;
-            this.dtpkFechaFinProhibicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpkFechaFinProhibicion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpkFechaFinProhibicion.Location = new System.Drawing.Point(263, 324);
-            this.dtpkFechaFinProhibicion.Name = "dtpkFechaFinProhibicion";
-            this.dtpkFechaFinProhibicion.Size = new System.Drawing.Size(115, 21);
-            this.dtpkFechaFinProhibicion.TabIndex = 115;
+            this.dtpFechaFin.Enabled = false;
+            this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFin.Location = new System.Drawing.Point(263, 324);
+            this.dtpFechaFin.Name = "dtpFechaFin";
+            this.dtpFechaFin.Size = new System.Drawing.Size(115, 21);
+            this.dtpFechaFin.TabIndex = 115;
             // 
             // label3
             // 
@@ -515,15 +515,15 @@
             this.label3.TabIndex = 116;
             this.label3.Text = "FECHA FIN:";
             // 
-            // dtpkFechaInicioProhibicion
+            // dtpFechaInicio
             // 
-            this.dtpkFechaInicioProhibicion.Enabled = false;
-            this.dtpkFechaInicioProhibicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpkFechaInicioProhibicion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpkFechaInicioProhibicion.Location = new System.Drawing.Point(11, 326);
-            this.dtpkFechaInicioProhibicion.Name = "dtpkFechaInicioProhibicion";
-            this.dtpkFechaInicioProhibicion.Size = new System.Drawing.Size(115, 21);
-            this.dtpkFechaInicioProhibicion.TabIndex = 114;
+            this.dtpFechaInicio.Enabled = false;
+            this.dtpFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicio.Location = new System.Drawing.Point(11, 326);
+            this.dtpFechaInicio.Name = "dtpFechaInicio";
+            this.dtpFechaInicio.Size = new System.Drawing.Size(115, 21);
+            this.dtpFechaInicio.TabIndex = 114;
             // 
             // label8
             // 
@@ -682,7 +682,7 @@
             this.txtDetalleProhibicionAnticipada.Multiline = true;
             this.txtDetalleProhibicionAnticipada.Name = "txtDetalleProhibicionAnticipada";
             this.txtDetalleProhibicionAnticipada.ReadOnly = true;
-            this.txtDetalleProhibicionAnticipada.Size = new System.Drawing.Size(512, 60);
+            this.txtDetalleProhibicionAnticipada.Size = new System.Drawing.Size(508, 60);
             this.txtDetalleProhibicionAnticipada.TabIndex = 63;
             // 
             // label13
@@ -865,6 +865,8 @@
             this.ClientSize = new System.Drawing.Size(1094, 749);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.tabVisita);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAdminProhibicionAnticipada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrar Prohibicion Anticipada";
@@ -888,9 +890,9 @@
         private System.Windows.Forms.TabPage pagHistorial;
         private System.Windows.Forms.TabPage pagProhibicion;
         private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.DateTimePicker dtpkFechaFinProhibicion;
+        private System.Windows.Forms.DateTimePicker dtpFechaFin;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpkFechaInicioProhibicion;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnEditarProhibicion;
         private System.Windows.Forms.Button btnGuardarProhibicion;

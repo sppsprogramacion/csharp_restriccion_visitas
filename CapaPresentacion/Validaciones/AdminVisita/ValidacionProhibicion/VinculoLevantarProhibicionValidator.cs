@@ -18,7 +18,7 @@ namespace CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion
             RuleFor(x => x.txtDetalleProhibirParentesco)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("El detalle es obligatorio.")
-                .Length(1, 1500).WithMessage("El detalle debe tener maximo 2000 caracteres.");
+                .Length(1, 1500).WithMessage("El detalle debe tener maximo 1500 caracteres.");
 
         }
 

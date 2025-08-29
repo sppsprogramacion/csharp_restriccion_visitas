@@ -78,7 +78,12 @@ namespace CapaPresentacion
 
         private async void btnBuscarApellido_Click(object sender, EventArgs e)
         {
-            
+            if (txtApellido.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el apellido a buscar (minimo 2 caracteres)","Restricion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             NProhibicionVisitaAnticipada nProhibiciones = new NProhibicionVisitaAnticipada();
             (List<DProhibicionAnticipada> listaProhibiciones, string errorResponse) = await nProhibiciones.ListaProhibicionesXApellido(txtApellido.Text);
 
@@ -195,6 +200,9 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
             this.HabilitarControlesNuevo(false);
         }
 
