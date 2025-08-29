@@ -1,6 +1,9 @@
 ﻿using CapaDatos;
 using CapaNegocio;
 using CapaPresentacion.FuncionesGenerales;
+using CapaPresentacion.Validaciones;
+using CapaPresentacion.Validaciones.ProhibicionesAnticipadas.Datos;
+using CapaPresentacion.Validaciones.ProhibicionesAnticipadas.ValidacionesProhibicionesAnticipadas;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,9 +20,10 @@ namespace CapaPresentacion
 {
     public partial class FormProhibicionesAnticipadas : Form
     {
-        //variable global id_ciudadano
+        //variable global
         public int idProhibicionAnticipadaGlobal { get; set; }
 
+        private ErrorProvider errorProvider = new ErrorProvider();
 
         public FormProhibicionesAnticipadas()
         {
@@ -117,6 +121,39 @@ namespace CapaPresentacion
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new ProhibicionAnticipadaDatos
+            {
+                txtApellidoVisita = txtApellidoVisita.Text,
+                txtNombreVisita = txtNombreVisita.Text,
+                txtDniVisita = txtDniVisita.Text,
+                cmbSexoVisita = cmbSexoVisita.SelectedValue?.ToString() ?? string.Empty,
+                txtDetalleVisitaAnticipada = txtDetalleVisitaAnticipada.Text,
+                txtApellidoInterno = txtApellidoInterno.Text,
+                txtNombreInterno = txtNombreInterno.Text,
+                dtpFechaInicio = dtpFechaInicio.Value,
+                dtpFechaFin = dtpFechaFin.Value,
+            };
+
+            var validator = new ProhibicionAnticipadaNuevaValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validar formulario
+
             NProhibicionVisitaAnticipada nProhibicion = new NProhibicionVisitaAnticipada();
             
             var data = new

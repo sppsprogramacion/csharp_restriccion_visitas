@@ -42,7 +42,7 @@ namespace CapaPresentacion
 
             var data = new
             {
-                dni = Convert.ToInt32(txtUsuario.Text),
+                dni = txtUsuario.Text,
                 clave = txtContrasenia.Text
             };
 

@@ -171,6 +171,7 @@
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\VinculoProhibirValidator.cs" />
     <Compile Include="Validaciones\AdminVisita\ValidacionProhibicion\VinculoDesvincularRevincularValidator.cs" />
     <Compile Include="Validaciones\ProhibicionesAnticipadas\Datos\ProhibicionAnticipadaDatos.cs" />
+    <Compile Include="Validaciones\ProhibicionesAnticipadas\ValidacionesProhibicionesAnticipadas\ProhibicionAnticipadaNuevaValidator.cs" />
     <EmbeddedResource Include="FormAdminProhibicionAnticipada.resx">
       <DependentUpon>FormAdminProhibicionAnticipada.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,7 +254,6 @@
   <ItemGroup>
     <Folder Include="Validaciones\AdminProhibicionAnticipada\Datos\" />
     <Folder Include="Validaciones\AdminProhibicionAnticipada\Validacion\" />
-    <Folder Include="Validaciones\ProhibicionesAnticipadas\Validaciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
