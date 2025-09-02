@@ -71,7 +71,7 @@
             this.dtgvProhibicionesAnticipadas.Name = "dtgvProhibicionesAnticipadas";
             this.dtgvProhibicionesAnticipadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvProhibicionesAnticipadas.Size = new System.Drawing.Size(800, 316);
-            this.dtgvProhibicionesAnticipadas.TabIndex = 16;
+            this.dtgvProhibicionesAnticipadas.TabIndex = 15;
             this.dtgvProhibicionesAnticipadas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvVisitas_KeyDown);
             // 
             // btnBuscarApellido
@@ -84,7 +84,7 @@
             this.btnBuscarApellido.Location = new System.Drawing.Point(259, 21);
             this.btnBuscarApellido.Name = "btnBuscarApellido";
             this.btnBuscarApellido.Size = new System.Drawing.Size(93, 45);
-            this.btnBuscarApellido.TabIndex = 2;
+            this.btnBuscarApellido.TabIndex = 14;
             this.btnBuscarApellido.Text = "Buscar apellido";
             this.btnBuscarApellido.UseVisualStyleBackColor = false;
             this.btnBuscarApellido.Click += new System.EventHandler(this.btnBuscarApellido_Click);
@@ -106,7 +106,7 @@
             this.txtApellido.Location = new System.Drawing.Point(11, 39);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(214, 21);
-            this.txtApellido.TabIndex = 1;
+            this.txtApellido.TabIndex = 13;
             // 
             // label28
             // 
@@ -162,7 +162,7 @@
             this.cmbSexoVisita.Location = new System.Drawing.Point(11, 83);
             this.cmbSexoVisita.Name = "cmbSexoVisita";
             this.cmbSexoVisita.Size = new System.Drawing.Size(128, 23);
-            this.cmbSexoVisita.TabIndex = 99;
+            this.cmbSexoVisita.TabIndex = 4;
             // 
             // txtDetalleVisitaAnticipada
             // 
@@ -172,7 +172,7 @@
             this.txtDetalleVisitaAnticipada.Multiline = true;
             this.txtDetalleVisitaAnticipada.Name = "txtDetalleVisitaAnticipada";
             this.txtDetalleVisitaAnticipada.Size = new System.Drawing.Size(621, 53);
-            this.txtDetalleVisitaAnticipada.TabIndex = 97;
+            this.txtDetalleVisitaAnticipada.TabIndex = 8;
             // 
             // txtNombreVisita
             // 
@@ -182,7 +182,7 @@
             this.txtNombreVisita.Location = new System.Drawing.Point(250, 39);
             this.txtNombreVisita.Name = "txtNombreVisita";
             this.txtNombreVisita.Size = new System.Drawing.Size(228, 21);
-            this.txtNombreVisita.TabIndex = 92;
+            this.txtNombreVisita.TabIndex = 2;
             // 
             // txtApellidoVisita
             // 
@@ -192,7 +192,7 @@
             this.txtApellidoVisita.Location = new System.Drawing.Point(9, 39);
             this.txtApellidoVisita.Name = "txtApellidoVisita";
             this.txtApellidoVisita.Size = new System.Drawing.Size(228, 21);
-            this.txtApellidoVisita.TabIndex = 91;
+            this.txtApellidoVisita.TabIndex = 1;
             // 
             // txtDniVisita
             // 
@@ -202,7 +202,7 @@
             this.txtDniVisita.Location = new System.Drawing.Point(492, 39);
             this.txtDniVisita.Name = "txtDniVisita";
             this.txtDniVisita.Size = new System.Drawing.Size(135, 21);
-            this.txtDniVisita.TabIndex = 93;
+            this.txtDniVisita.TabIndex = 3;
             // 
             // label6
             // 
@@ -252,7 +252,7 @@
             this.txtNombreInterno.Location = new System.Drawing.Point(262, 210);
             this.txtNombreInterno.Name = "txtNombreInterno";
             this.txtNombreInterno.Size = new System.Drawing.Size(249, 21);
-            this.txtNombreInterno.TabIndex = 104;
+            this.txtNombreInterno.TabIndex = 10;
             // 
             // txtApellidoInterno
             // 
@@ -262,7 +262,7 @@
             this.txtApellidoInterno.Location = new System.Drawing.Point(10, 210);
             this.txtApellidoInterno.Name = "txtApellidoInterno";
             this.txtApellidoInterno.Size = new System.Drawing.Size(228, 21);
-            this.txtApellidoInterno.TabIndex = 102;
+            this.txtApellidoInterno.TabIndex = 9;
             // 
             // label13
             // 
@@ -292,7 +292,7 @@
             this.chckExInterno.Location = new System.Drawing.Point(442, 82);
             this.chckExInterno.Name = "chckExInterno";
             this.chckExInterno.Size = new System.Drawing.Size(115, 19);
-            this.chckExInterno.TabIndex = 109;
+            this.chckExInterno.TabIndex = 7;
             this.chckExInterno.Text = "ES EXINTERNO";
             this.chckExInterno.UseVisualStyleBackColor = true;
             // 
@@ -304,7 +304,7 @@
             this.dtpFechaFin.Location = new System.Drawing.Point(298, 82);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(115, 21);
-            this.dtpFechaFin.TabIndex = 111;
+            this.dtpFechaFin.TabIndex = 6;
             // 
             // label16
             // 
@@ -324,7 +324,7 @@
             this.dtpFechaInicio.Location = new System.Drawing.Point(160, 83);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(115, 21);
-            this.dtpFechaInicio.TabIndex = 110;
+            this.dtpFechaInicio.TabIndex = 5;
             // 
             // label18
             // 
@@ -378,7 +378,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(676, 31);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(98, 40);
-            this.btnNuevo.TabIndex = 116;
+            this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -393,7 +393,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(677, 91);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardar.TabIndex = 114;
+            this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -409,7 +409,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(677, 138);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelar.TabIndex = 115;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);

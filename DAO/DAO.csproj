@@ -53,6 +53,7 @@
     <Compile Include="IProhibicionVisitaAnticipadaDao.cs" />
     <Compile Include="IProhibicionVisitaDao.cs" />
     <Compile Include="IProvinciaDao.cs" />
+    <Compile Include="IRegistroDiarioDao.cs" />
     <Compile Include="ISexoDao.cs" />
     <Compile Include="IVisitaInternoDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

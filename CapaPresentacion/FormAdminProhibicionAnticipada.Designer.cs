@@ -296,7 +296,7 @@
             this.dtgvNovedades.Name = "dtgvNovedades";
             this.dtgvNovedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvNovedades.Size = new System.Drawing.Size(1035, 279);
-            this.dtgvNovedades.TabIndex = 82;
+            this.dtgvNovedades.TabIndex = 2;
             this.dtgvNovedades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvNovedades_KeyDown);
             // 
             // btnVerNovedades
@@ -309,7 +309,7 @@
             this.btnVerNovedades.Location = new System.Drawing.Point(8, 8);
             this.btnVerNovedades.Name = "btnVerNovedades";
             this.btnVerNovedades.Size = new System.Drawing.Size(141, 45);
-            this.btnVerNovedades.TabIndex = 81;
+            this.btnVerNovedades.TabIndex = 1;
             this.btnVerNovedades.Text = "Ver Historial";
             this.btnVerNovedades.UseVisualStyleBackColor = false;
             this.btnVerNovedades.Click += new System.EventHandler(this.btnVerNovedades_Click);
@@ -353,7 +353,7 @@
             this.btnLevantar.Location = new System.Drawing.Point(10, 21);
             this.btnLevantar.Name = "btnLevantar";
             this.btnLevantar.Size = new System.Drawing.Size(101, 37);
-            this.btnLevantar.TabIndex = 81;
+            this.btnLevantar.TabIndex = 14;
             this.btnLevantar.Text = "LEVANTAR";
             this.btnLevantar.UseVisualStyleBackColor = false;
             this.btnLevantar.Click += new System.EventHandler(this.btnLevantar_Click);
@@ -369,7 +369,7 @@
             this.btnCancelarLevantar.Location = new System.Drawing.Point(111, 239);
             this.btnCancelarLevantar.Name = "btnCancelarLevantar";
             this.btnCancelarLevantar.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelarLevantar.TabIndex = 80;
+            this.btnCancelarLevantar.TabIndex = 18;
             this.btnCancelarLevantar.Text = "CANCELAR";
             this.btnCancelarLevantar.UseVisualStyleBackColor = false;
             this.btnCancelarLevantar.Click += new System.EventHandler(this.btnCancelarLevantar_Click);
@@ -384,7 +384,7 @@
             this.btnGuardarLevantar.Location = new System.Drawing.Point(10, 239);
             this.btnGuardarLevantar.Name = "btnGuardarLevantar";
             this.btnGuardarLevantar.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardarLevantar.TabIndex = 79;
+            this.btnGuardarLevantar.TabIndex = 17;
             this.btnGuardarLevantar.Text = "GUARDAR";
             this.btnGuardarLevantar.UseVisualStyleBackColor = false;
             this.btnGuardarLevantar.Click += new System.EventHandler(this.btnGuardarLevantar_Click);
@@ -408,7 +408,7 @@
             this.txtMotivoLevantar.Multiline = true;
             this.txtMotivoLevantar.Name = "txtMotivoLevantar";
             this.txtMotivoLevantar.Size = new System.Drawing.Size(480, 85);
-            this.txtMotivoLevantar.TabIndex = 77;
+            this.txtMotivoLevantar.TabIndex = 16;
             // 
             // dtpFechaFinLevantar
             // 
@@ -418,7 +418,7 @@
             this.dtpFechaFinLevantar.Location = new System.Drawing.Point(10, 87);
             this.dtpFechaFinLevantar.Name = "dtpFechaFinLevantar";
             this.dtpFechaFinLevantar.Size = new System.Drawing.Size(115, 21);
-            this.dtpFechaFinLevantar.TabIndex = 43;
+            this.dtpFechaFinLevantar.TabIndex = 15;
             // 
             // label37
             // 
@@ -483,7 +483,7 @@
             this.txtMotivoDetalle.Name = "txtMotivoDetalle";
             this.txtMotivoDetalle.ReadOnly = true;
             this.txtMotivoDetalle.Size = new System.Drawing.Size(508, 60);
-            this.txtMotivoDetalle.TabIndex = 118;
+            this.txtMotivoDetalle.TabIndex = 10;
             // 
             // label9
             // 
@@ -503,7 +503,7 @@
             this.dtpFechaFin.Location = new System.Drawing.Point(263, 296);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(115, 21);
-            this.dtpFechaFin.TabIndex = 115;
+            this.dtpFechaFin.TabIndex = 9;
             // 
             // label3
             // 
@@ -523,7 +523,7 @@
             this.dtpFechaInicio.Location = new System.Drawing.Point(11, 298);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(115, 21);
-            this.dtpFechaInicio.TabIndex = 114;
+            this.dtpFechaInicio.TabIndex = 8;
             // 
             // label8
             // 
@@ -545,7 +545,7 @@
             this.btnEditarProhibicion.Location = new System.Drawing.Point(11, 549);
             this.btnEditarProhibicion.Name = "btnEditarProhibicion";
             this.btnEditarProhibicion.Size = new System.Drawing.Size(98, 40);
-            this.btnEditarProhibicion.TabIndex = 91;
+            this.btnEditarProhibicion.TabIndex = 11;
             this.btnEditarProhibicion.Text = "EDITAR";
             this.btnEditarProhibicion.UseVisualStyleBackColor = false;
             this.btnEditarProhibicion.Click += new System.EventHandler(this.btnEditarProhibicion_Click);
@@ -560,7 +560,7 @@
             this.btnGuardarProhibicion.Location = new System.Drawing.Point(141, 549);
             this.btnGuardarProhibicion.Name = "btnGuardarProhibicion";
             this.btnGuardarProhibicion.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardarProhibicion.TabIndex = 92;
+            this.btnGuardarProhibicion.TabIndex = 12;
             this.btnGuardarProhibicion.Text = "GUARDAR";
             this.btnGuardarProhibicion.UseVisualStyleBackColor = false;
             this.btnGuardarProhibicion.Click += new System.EventHandler(this.btnGuardarProhibicion_Click);
@@ -576,7 +576,7 @@
             this.btnCancelarProhibicion.Location = new System.Drawing.Point(245, 549);
             this.btnCancelarProhibicion.Name = "btnCancelarProhibicion";
             this.btnCancelarProhibicion.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelarProhibicion.TabIndex = 93;
+            this.btnCancelarProhibicion.TabIndex = 13;
             this.btnCancelarProhibicion.Text = "CANCELAR";
             this.btnCancelarProhibicion.UseVisualStyleBackColor = false;
             this.btnCancelarProhibicion.Click += new System.EventHandler(this.btnCancelarProhibicion_Click);
@@ -619,7 +619,7 @@
             this.cmbSexoVisita.Location = new System.Drawing.Point(263, 124);
             this.cmbSexoVisita.Name = "cmbSexoVisita";
             this.cmbSexoVisita.Size = new System.Drawing.Size(228, 23);
-            this.cmbSexoVisita.TabIndex = 89;
+            this.cmbSexoVisita.TabIndex = 4;
             // 
             // label4
             // 
@@ -661,7 +661,7 @@
             this.chkExInterno.Location = new System.Drawing.Point(261, 38);
             this.chkExInterno.Name = "chkExInterno";
             this.chkExInterno.Size = new System.Drawing.Size(115, 19);
-            this.chkExInterno.TabIndex = 87;
+            this.chkExInterno.TabIndex = 0;
             this.chkExInterno.Text = "ES EXINTERNO";
             this.chkExInterno.UseVisualStyleBackColor = true;
             // 
@@ -683,7 +683,7 @@
             this.txtDetalleProhibicionAnticipada.Name = "txtDetalleProhibicionAnticipada";
             this.txtDetalleProhibicionAnticipada.ReadOnly = true;
             this.txtDetalleProhibicionAnticipada.Size = new System.Drawing.Size(508, 60);
-            this.txtDetalleProhibicionAnticipada.TabIndex = 63;
+            this.txtDetalleProhibicionAnticipada.TabIndex = 5;
             // 
             // label13
             // 
@@ -793,7 +793,7 @@
             this.txtNombreInterno.Name = "txtNombreInterno";
             this.txtNombreInterno.ReadOnly = true;
             this.txtNombreInterno.Size = new System.Drawing.Size(228, 21);
-            this.txtNombreInterno.TabIndex = 45;
+            this.txtNombreInterno.TabIndex = 7;
             // 
             // label6
             // 
@@ -813,7 +813,7 @@
             this.txtApellidoInterno.Name = "txtApellidoInterno";
             this.txtApellidoInterno.ReadOnly = true;
             this.txtApellidoInterno.Size = new System.Drawing.Size(228, 21);
-            this.txtApellidoInterno.TabIndex = 41;
+            this.txtApellidoInterno.TabIndex = 6;
             // 
             // txtDniVisita
             // 
@@ -823,7 +823,7 @@
             this.txtDniVisita.Name = "txtDniVisita";
             this.txtDniVisita.ReadOnly = true;
             this.txtDniVisita.Size = new System.Drawing.Size(228, 21);
-            this.txtDniVisita.TabIndex = 21;
+            this.txtDniVisita.TabIndex = 3;
             // 
             // txtNombreVisita
             // 
@@ -833,7 +833,7 @@
             this.txtNombreVisita.Name = "txtNombreVisita";
             this.txtNombreVisita.ReadOnly = true;
             this.txtNombreVisita.Size = new System.Drawing.Size(228, 21);
-            this.txtNombreVisita.TabIndex = 20;
+            this.txtNombreVisita.TabIndex = 2;
             // 
             // txtApellidoVisita
             // 
@@ -843,7 +843,7 @@
             this.txtApellidoVisita.Name = "txtApellidoVisita";
             this.txtApellidoVisita.ReadOnly = true;
             this.txtApellidoVisita.Size = new System.Drawing.Size(228, 21);
-            this.txtApellidoVisita.TabIndex = 19;
+            this.txtApellidoVisita.TabIndex = 1;
             // 
             // tabVisita
             // 

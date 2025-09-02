@@ -355,7 +355,7 @@ namespace CapaPresentacion
                         chkVigente.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Prohibida"].Value.ToString());
                         chkAnulado.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Anulado"].Value.ToString());
 
-                        dtgvHistorialProhibicion.DataSource = "";
+                        
                     }
                     else
                     {
@@ -407,7 +407,6 @@ namespace CapaPresentacion
             btnEditar.Enabled = false;
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
-            dtgvHistorialProhibicion.DataSource = "";
         }
         //FIN HABILITAR PARA NUEVA PROHIBICION.........................
 
@@ -622,36 +621,7 @@ namespace CapaPresentacion
         } 
         //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES...........
 
-        //METODO PARA OBTENER HISTORIAL DE UNA PROHIBICION Y CARGARLO EN UN DATA GRID  
-        private async void CargarDataGridHistorialProhibiciones(int idProhibicion)
-        {
-            NBitacoraProhibicionVisita nBitacoraProhibicionVisita = new NBitacoraProhibicionVisita();
-            List<DBitacoraProhibicionVisita> listaBitacoraProhibicionesVisita = new List<DBitacoraProhibicionVisita>();
-            listaBitacoraProhibicionesVisita = await nBitacoraProhibicionVisita.RetornarListaBitacoraProhibicionesVisita(idProhibicion);
-
-            var datosfiltrados = listaBitacoraProhibicionesVisita
-                .Select(c => new
-                {
-                    Id = c.id_bitacora_prohibicion_visita,
-                    Disposicion = c.disposicion,
-                    Detalle = c.detalle,
-                    FechaInicio = c.fecha_inicio,
-                    FechaFin = c.fecha_fin,
-                    Vigente = c.vigente,
-                    Anulado = c.anulado,
-                    Motivo = c.motivo,
-                    DetalleMotivo = c.detalle_motivo,
-                    FechaCambio = c.fecha_cambio,
-                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
-
-                })
-                .ToList();
-
-            dtgvHistorialProhibicion.DataSource = datosfiltrados;            
-
-        }
-        //FIN METODO PARA OBTENER HISTORIAL DE UNA PROHIBICION Y CARGARLO EN UN DATA GRID...........
-
+        
         //HABILITAR CONTROLES
         private void HabilitarControles(bool valor)
         {            
@@ -660,7 +630,6 @@ namespace CapaPresentacion
             dtpFechaInicio.Enabled = valor;
             dtpFechaFin.Enabled = valor;
             txtMotivo.Enabled = false;
-            dtgvHistorialProhibicion.DataSource = "";
 
             //botnes de quitar prohibicion
             btnQuitar.Enabled = !valor;
@@ -728,7 +697,8 @@ namespace CapaPresentacion
             }
             else
             {
-                this.CargarDataGridHistorialProhibiciones(Convert.ToInt32(txtIdProhibicion.Text));
+                var frmHistorial = new FormHistorialProhibicion(Convert.ToInt32(txtIdProhibicion.Text));
+                frmHistorial.ShowDialog();
             }
         }
         //FIN HISTORIAL DE UNA PROHIBICION.....................
@@ -1902,6 +1872,52 @@ namespace CapaPresentacion
 
                 dtgvExcepcionesIngreso.Columns[2].Width = 200;
                 dtgvExcepcionesIngreso.Columns[3].Width = 400;
+            }
+        }
+
+        private async void btnVerRegistroDiario_Click(object sender, EventArgs e)
+        {
+            if (this.txtIdCiudadano.Text == string.Empty)
+            {
+                MessageBox.Show("debe esperar que cargue los datos del ciudadano");
+            }
+            else
+            {
+                NRegistroDiario nRegistroDiario = new NRegistroDiario();
+                (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.RetornarListaXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
+
+                if (listaRegistroDiario == null)
+                {
+                    MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                                
+                var datosFiltrados = listaRegistroDiario
+                .Select(c => new
+                {
+                    Ingreso = c.fecha_ingreso,
+                    HoraIngreso = c.hora_ingreso,
+                    HoraEgreso = c.hora_egreso,
+                    TipoAtencion = c.tipo_atencion.tipo_atencion,
+                    TipoAcceso = c.tipo_acceso.tipo_acceso,
+                    SectorDestino = c.sector_destino.sector_destino,
+                    MotivoAtencion = c.motivo_atencion.motivo_atencion,
+                    Interno = c.interno,
+                    Observacion = c.observaciones,
+                    Organismo = c.organismo.organismo,
+                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
+
+                })
+                .ToList();
+
+                dgvRegistroDiario.DataSource = datosFiltrados;
+
+                if (listaRegistroDiario.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
             }
         }
 

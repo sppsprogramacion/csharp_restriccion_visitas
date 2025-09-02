@@ -19,6 +19,8 @@ namespace CapaDatos
         public bool anulado { get; set; }
         public string motivo { get; set; }
         public string detalle_motivo { get; set; }
+        public int organismo_id { get; set; }
+        public DOrganismo organismo { get; set; }
         public int usuario_id { get; set; }
         public DUsuario usuario { get; set; }
         public DateTime fecha_cambio { get; set; }
