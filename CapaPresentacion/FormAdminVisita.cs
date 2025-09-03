@@ -1425,11 +1425,7 @@ namespace CapaPresentacion
                 }
             }
         }
-
-        private void dtgvNovedades_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+                
 
         private void btnNuevaNovedad_Click(object sender, EventArgs e)
         {
@@ -1631,7 +1627,7 @@ namespace CapaPresentacion
                         txtMotivoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["MotivoExcepcion"].Value.ToString();
                         txtDetalleExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Detalle"].Value.ToString();
                         dtpFechaExcepcion.Value = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaExcepcion"].Value.ToString());
-                        txtFechaCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["FechaCarga"].Value.ToString();
+                        txtFechaCargaExcepcion.Text = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaCarga"].Value).ToString("dd/MM/yyyy");
                         txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
                         txtUsuarioCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Usuario"].Value.ToString();
                         chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Cumplimentado"].Value.ToString());

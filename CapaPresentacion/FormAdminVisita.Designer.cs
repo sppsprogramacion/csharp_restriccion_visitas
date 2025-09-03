@@ -2012,8 +2012,7 @@
             this.dtgvNovedades.Name = "dtgvNovedades";
             this.dtgvNovedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvNovedades.Size = new System.Drawing.Size(1035, 262);
-            this.dtgvNovedades.TabIndex = 49;
-            this.dtgvNovedades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvNovedades_CellContentClick);
+            this.dtgvNovedades.TabIndex = 49;            
             this.dtgvNovedades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvNovedades_KeyDown);
             // 
             // btnVerNovedades

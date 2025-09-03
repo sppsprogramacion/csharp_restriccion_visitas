@@ -72,16 +72,15 @@ namespace CapaPresentacion
 
                     if (idRegHistorial > 0)
                     {
-                        
                         //cargar datos de datagrid a controles
                         txtId.Text = idRegHistorial.ToString();
                         txtDisposicion.Text = dtgvHistorialProhibicion.CurrentRow.Cells["Disposicion"].Value.ToString();
                         txtDEtalle.Text = dtgvHistorialProhibicion.CurrentRow.Cells["Detalle"].Value.ToString();
-                        txtFechaInicio.Text = dtgvHistorialProhibicion.CurrentRow.Cells["FechaInicio"].Value.ToString();
-                        txtFechaFin.Text = dtgvHistorialProhibicion.CurrentRow.Cells["FechaFin"].Value.ToString();
+                        txtFechaInicio.Text = Convert.ToDateTime(dtgvHistorialProhibicion.CurrentRow.Cells["FechaInicio"].Value).ToString("dd/MM/yyyy");
+                        txtFechaFin.Text = Convert.ToDateTime(dtgvHistorialProhibicion.CurrentRow.Cells["FechaFin"].Value).ToString("dd/MM/yyyy");
                         chkVigente.Checked = Convert.ToBoolean(dtgvHistorialProhibicion.CurrentRow.Cells["Vigente"].Value.ToString());
                         chkAnulado.Checked = Convert.ToBoolean(dtgvHistorialProhibicion.CurrentRow.Cells["Anulado"].Value.ToString());
-                        txtFechaCambio.Text = dtgvHistorialProhibicion.CurrentRow.Cells["FechaCambio"].Value.ToString();
+                        txtFechaCambio.Text = Convert.ToDateTime(dtgvHistorialProhibicion.CurrentRow.Cells["FechaCambio"].Value).ToString("dd/MM/yyyy");
                         txtMotivo.Text = dtgvHistorialProhibicion.CurrentRow.Cells["Motivo"].Value.ToString();
                         txtDetalleMotivo.Text = dtgvHistorialProhibicion.CurrentRow.Cells["DetalleMotivo"].Value.ToString();
                         txtOrganismo.Text = dtgvHistorialProhibicion.CurrentRow.Cells["Organismo"].Value.ToString();
