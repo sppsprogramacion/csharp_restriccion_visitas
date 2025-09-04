@@ -2,15 +2,18 @@
 using CapaNegocio;
 using CapaPresentacion.FuncionesGenerales;
 using CapaPresentacion.Reportes;
+using CapaPresentacion.Reportes.AdministrarVisita;
 using CapaPresentacion.Validaciones;
 using CapaPresentacion.Validaciones.AdminVisita.EdicionProhibicion;
 using CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion;
 using Newtonsoft.Json;
+using PdfiumViewer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -1914,6 +1917,65 @@ namespace CapaPresentacion
                     return;
                 }
 
+            }
+        }
+
+        private async void btnImprimir_Click(object sender, EventArgs e)
+        {
+            NVisitaInterno nVisitaInterno = new NVisitaInterno();
+
+            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadanoGlo.id_ciudadano);
+
+            if (listaParentescos == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Generar PDF en memoria
+            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(listaParentescos);
+
+            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
+            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
+
+            PdfDocument pdfDocument = null;
+
+            try
+            {
+                pdfDocument = PdfDocument.Load(ms);
+
+                Form formVisor = new Form
+                {
+                    Text = "Vista previa PDF",
+                    Width = 800,
+                    Height = 600
+                };
+
+                PdfViewer pdfViewer = new PdfViewer
+                {
+                    Dock = DockStyle.Fill,
+                    Document = pdfDocument
+                };
+
+                formVisor.Controls.Add(pdfViewer);
+
+                formVisor.FormClosed += (s, args) =>
+                {
+                    // Liberar recursos al cerrar el visor
+                    pdfViewer.Document.Dispose();
+                    pdfViewer.Dispose();
+                    formVisor.Dispose();
+                    ms.Dispose();
+                    pdfDocument = null;
+                };
+
+                formVisor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
+                ms.Dispose();
+                pdfDocument?.Dispose();
             }
         }
 

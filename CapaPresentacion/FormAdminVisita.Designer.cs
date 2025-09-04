@@ -208,10 +208,11 @@
             this.btnCancelarExcepcion = new System.Windows.Forms.Button();
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label52 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
             this.tabRegistroDiario = new System.Windows.Forms.TabPage();
-            this.btnVerRegistroDiario = new System.Windows.Forms.Button();
             this.dgvRegistroDiario = new System.Windows.Forms.DataGridView();
+            this.btnVerRegistroDiario = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -1184,6 +1185,7 @@
             // 
             // tabVinculos
             // 
+            this.tabVinculos.Controls.Add(this.btnImprimir);
             this.tabVinculos.Controls.Add(this.btnImprimirVinculos);
             this.tabVinculos.Controls.Add(this.groupBox9);
             this.tabVinculos.Controls.Add(this.groupBox6);
@@ -2012,7 +2014,7 @@
             this.dtgvNovedades.Name = "dtgvNovedades";
             this.dtgvNovedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvNovedades.Size = new System.Drawing.Size(1035, 262);
-            this.dtgvNovedades.TabIndex = 49;            
+            this.dtgvNovedades.TabIndex = 49;
             this.dtgvNovedades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvNovedades_KeyDown);
             // 
             // btnVerNovedades
@@ -2401,18 +2403,6 @@
             this.label52.TabIndex = 44;
             this.label52.Text = "FECHA EXEPCION:";
             // 
-            // label28
-            // 
-            this.label28.BackColor = System.Drawing.Color.Indigo;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(2, 1);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(1090, 29);
-            this.label28.TabIndex = 74;
-            this.label28.Text = "ADMINISTRAR VISITA";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tabRegistroDiario
             // 
             this.tabRegistroDiario.Controls.Add(this.dgvRegistroDiario);
@@ -2424,6 +2414,15 @@
             this.tabRegistroDiario.TabIndex = 6;
             this.tabRegistroDiario.Text = "Registro Diario";
             this.tabRegistroDiario.UseVisualStyleBackColor = true;
+            // 
+            // dgvRegistroDiario
+            // 
+            this.dgvRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistroDiario.Location = new System.Drawing.Point(15, 77);
+            this.dgvRegistroDiario.Name = "dgvRegistroDiario";
+            this.dgvRegistroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRegistroDiario.Size = new System.Drawing.Size(1041, 414);
+            this.dgvRegistroDiario.TabIndex = 3;
             // 
             // btnVerRegistroDiario
             // 
@@ -2440,14 +2439,32 @@
             this.btnVerRegistroDiario.UseVisualStyleBackColor = false;
             this.btnVerRegistroDiario.Click += new System.EventHandler(this.btnVerRegistroDiario_Click);
             // 
-            // dgvRegistroDiario
+            // label28
             // 
-            this.dgvRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegistroDiario.Location = new System.Drawing.Point(15, 77);
-            this.dgvRegistroDiario.Name = "dgvRegistroDiario";
-            this.dgvRegistroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegistroDiario.Size = new System.Drawing.Size(1041, 414);
-            this.dgvRegistroDiario.TabIndex = 3;
+            this.label28.BackColor = System.Drawing.Color.Indigo;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(2, 1);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(1090, 29);
+            this.label28.TabIndex = 74;
+            this.label28.Text = "ADMINISTRAR VISITA";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.White;
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.Indigo;
+            this.btnImprimir.Location = new System.Drawing.Point(589, 20);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(194, 40);
+            this.btnImprimir.TabIndex = 96;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FormAdminVisita
             // 
@@ -2693,5 +2710,6 @@
         private System.Windows.Forms.TabPage tabRegistroDiario;
         private System.Windows.Forms.Button btnVerRegistroDiario;
         private System.Windows.Forms.DataGridView dgvRegistroDiario;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
