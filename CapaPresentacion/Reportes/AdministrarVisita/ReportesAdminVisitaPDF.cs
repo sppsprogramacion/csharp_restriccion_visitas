@@ -27,8 +27,8 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             doc.Open();
 
-            var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16, BaseColor.BLACK);
-            var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 12, BaseColor.BLACK);
+            var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 11, BaseColor.BLACK);
+            var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 9, BaseColor.BLACK);
 
             Paragraph titulo = new Paragraph("Reporte seguro en memoria", fuenteTitulo);
             titulo.Alignment = Element.ALIGN_CENTER;
@@ -39,7 +39,7 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
             doc.Add(new Paragraph("PDF en memoria y liberable.", fuenteNormal));
             doc.Add(new Paragraph(" "));
 
-            PdfPTable tabla = new PdfPTable(3);
+            PdfPTable tabla = new PdfPTable(4);
             tabla.WidthPercentage = 100;
             tabla.AddCell("Interno");
             tabla.AddCell("Parentesco");
