@@ -797,11 +797,65 @@ namespace CapaPresentacion
         //FIN VER PARENTESCOS....................................................
 
         //BOTON IMPRIMIR VINCULOS
-        private void btnImprimirVinculos_Click(object sender, EventArgs e)
+        private async void btnImprimirVinculos_Click(object sender, EventArgs e)
         {
-            var frmReporte = new ReporteInternosVinculados(dCiudadanoGlo, listaVisitaInternosGlo);
-            frmReporte.ShowDialog();
+            NVisitaInterno nVisitaInterno = new NVisitaInterno();
+
+            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadanoGlo.id_ciudadano);
+
+            if (listaParentescos == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Generar PDF en memoria
+            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(listaParentescos);
+
+            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
+            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
+
+            PdfDocument pdfDocument = null;
+
+            try
+            {
+                pdfDocument = PdfDocument.Load(ms);
+
+                Form formVisor = new Form
+                {
+                    Text = "Vista previa PDF",
+                    Width = 800,
+                    Height = 600
+                };
+
+                PdfViewer pdfViewer = new PdfViewer
+                {
+                    Dock = DockStyle.Fill,
+                    Document = pdfDocument
+                };
+
+                formVisor.Controls.Add(pdfViewer);
+
+                formVisor.FormClosed += (s, args) =>
+                {
+                    // Liberar recursos al cerrar el visor
+                    pdfViewer.Document.Dispose();
+                    pdfViewer.Dispose();
+                    formVisor.Dispose();
+                    ms.Dispose();
+                    pdfDocument = null;
+                };
+
+                formVisor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
+                ms.Dispose();
+                pdfDocument?.Dispose();
+            }
         }
+
         //FIN BOTON IMPRIMIR VINCULOS........................
 
 
@@ -1919,66 +1973,7 @@ namespace CapaPresentacion
 
             }
         }
-
-        private async void btnImprimir_Click(object sender, EventArgs e)
-        {
-            NVisitaInterno nVisitaInterno = new NVisitaInterno();
-
-            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadanoGlo.id_ciudadano);
-
-            if (listaParentescos == null)
-            {
-                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            // Generar PDF en memoria
-            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(listaParentescos);
-
-            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
-            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
-
-            PdfDocument pdfDocument = null;
-
-            try
-            {
-                pdfDocument = PdfDocument.Load(ms);
-
-                Form formVisor = new Form
-                {
-                    Text = "Vista previa PDF",
-                    Width = 800,
-                    Height = 600
-                };
-
-                PdfViewer pdfViewer = new PdfViewer
-                {
-                    Dock = DockStyle.Fill,
-                    Document = pdfDocument
-                };
-
-                formVisor.Controls.Add(pdfViewer);
-
-                formVisor.FormClosed += (s, args) =>
-                {
-                    // Liberar recursos al cerrar el visor
-                    pdfViewer.Document.Dispose();
-                    pdfViewer.Dispose();
-                    formVisor.Dispose();
-                    ms.Dispose();
-                    pdfDocument = null;
-                };
-
-                formVisor.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
-                ms.Dispose();
-                pdfDocument?.Dispose();
-            }
-        }
-
+       
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
 
         #endregion Excepxiones
