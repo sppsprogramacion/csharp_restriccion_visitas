@@ -26,7 +26,7 @@ namespace CapaNegocio
         //FIN RETORNAR CIUDADANOS TODOS..................................
 
         //RETORNAR CIUDADANOS XDNI
-        public async Task<(List<DCiudadano>, string errror)> RetornarListaCiudadanosXDni(int dni)
+        public async Task<(List<DCiudadano>, string errror)> RetornarListaCiudadanosXDni(string dni)
         {
             ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
 

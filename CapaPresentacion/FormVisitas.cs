@@ -103,7 +103,7 @@ namespace CapaPresentacion
         private async void btnBuscarDni_Click(object sender, EventArgs e)
         {
             NCiudadano nCiudadano = new NCiudadano();
-            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadano.RetornarListaCiudadanosXDni(Convert.ToInt32(txtDni.Text));
+            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadano.RetornarListaCiudadanosXDni(txtDni.Text);
 
             if (listaCiudadanos == null)
             {

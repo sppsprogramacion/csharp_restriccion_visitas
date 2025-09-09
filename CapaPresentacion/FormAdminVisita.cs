@@ -810,7 +810,7 @@ namespace CapaPresentacion
             }
 
             // Generar PDF en memoria
-            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(listaParentescos);
+            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(this.dCiudadanoGlo ,listaParentescos);
 
             // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
             MemoryStream ms = new MemoryStream(msOriginal.ToArray());
@@ -1625,6 +1625,7 @@ namespace CapaPresentacion
             var data = new
             {
                 ciudadano_id = Convert.ToInt32(txtIdCiudadano.Text),
+                interno_id = Convert.ToInt32(txtIdInternoExcepcion.Text),
                 motivo = txtMotivoExcepcion.Text,
                 detalle_excepcion = txtDetalleExcepcion.Text,
                 fecha_excepcion = dtpFechaExcepcion.Value
@@ -1683,6 +1684,7 @@ namespace CapaPresentacion
                         txtIdExcepcion.Text = id_excepcion_ingreso.ToString();
                         txtMotivoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["MotivoExcepcion"].Value.ToString();
                         txtDetalleExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Detalle"].Value.ToString();
+                        txtInternoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Interno"].Value.ToString();
                         dtpFechaExcepcion.Value = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaExcepcion"].Value.ToString());
                         txtFechaCargaExcepcion.Text = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaCarga"].Value).ToString("dd/MM/yyyy");
                         txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
@@ -1804,6 +1806,7 @@ namespace CapaPresentacion
                 return;
             }
 
+            this.accionCumplimentarExcepcion = false;
             this.accionAnularExcepcion = true;
             lblDetalleCumplAnularExcepcion.Text = "DETALLE ANULAR:";
             this.HabilitarControlesCumplimentarAnularExcepcion(true);
@@ -1817,6 +1820,7 @@ namespace CapaPresentacion
                 return;
             }
 
+            this.accionAnularExcepcion = false;
             this.accionCumplimentarExcepcion = true;
             lblDetalleCumplAnularExcepcion.Text = "DETALLE CUMPLIMENTAR:";
             this.HabilitarControlesCumplimentarAnularExcepcion(true);
@@ -1837,6 +1841,10 @@ namespace CapaPresentacion
             //habilita controles
             dtpFechaExcepcion.Enabled = habilitar;
             dtpFechaExcepcion.ResetText();
+            txtIdInternoExcepcion.Enabled = habilitar;
+            txtIdInternoExcepcion.Text = string.Empty;
+            txtInternoExcepcion.Enabled = habilitar;
+            txtInternoExcepcion.Text = string.Empty;
             txtMotivoExcepcion.Enabled = habilitar;
             txtMotivoExcepcion.Text = string.Empty;
             txtDetalleExcepcion.ReadOnly = !habilitar;
@@ -1851,6 +1859,7 @@ namespace CapaPresentacion
             chkAnuladoExcepcion.Checked = false;
 
             //habilita botones
+            btnInterno.Enabled = habilitar;
             btnNuevaExcepcion.Enabled = !habilitar;
             btnGuardarExcepcion.Enabled = habilitar;
             btnCancelarExcepcion.Enabled = habilitar;
@@ -1904,6 +1913,7 @@ namespace CapaPresentacion
                     FechaExcepcion = c.fecha_excepcion,
                     MotivoExcepcion = c.motivo,
                     Detalle = c.detalle_excepcion,
+                    Interno = c.interno.apellido + " " + c.interno.nombre,
                     FechaCarga = c.fecha_carga,
                     Organismo = c.organismo.organismo,
                     Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
@@ -1973,7 +1983,21 @@ namespace CapaPresentacion
 
             }
         }
-       
+
+        private void btnInterno_Click(object sender, EventArgs e)
+        {
+            using (FormInternos formInternos = new FormInternos())
+            {
+                // Aquí se abre el FormularioB
+                if (formInternos.ShowDialog() == DialogResult.OK)
+                {
+                    // Recién después de cerrar FormularioB, puedo leer el dato
+                    txtIdInternoExcepcion.Text = formInternos.IdInternoSeleccionado;
+                    txtInternoExcepcion.Text = formInternos.InternoSeleccionado;
+                }
+            }
+        }
+
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
 
         #endregion Excepxiones

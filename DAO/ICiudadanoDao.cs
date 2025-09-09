@@ -17,7 +17,7 @@ namespace DAO
 
         Task<(List<DCiudadano>, string error)> RetornarListaCiudadano();
 
-        Task<(List<DCiudadano>, string error)> RetornarListaCiudadanoXDni(int dni);
+        Task<(List<DCiudadano>, string error)> RetornarListaCiudadanoXDni(string dni);
 
         Task<(List<DCiudadano>, string error)> RetornarListaCiudadanoXApellido(string apellido);
 

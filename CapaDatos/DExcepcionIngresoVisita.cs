@@ -10,7 +10,9 @@ namespace CapaDatos
     {
         public int id_excepcion_ingreso_visita { get; set; }
         public int ciudadano_id { get; set; }
-        public DCiudadano ciudadano { get; set; }        
+        public DCiudadano ciudadano { get; set; }
+        public int interno_id { get; set; }
+        public DInterno interno { get; set; }
         public string motivo { get; set; }
         public string detalle_excepcion { get; set; }
         public DateTime fecha_excepcion { get; set; }

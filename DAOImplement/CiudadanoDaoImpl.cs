@@ -166,7 +166,7 @@ namespace DAOImplement
         //FIN RETORNAR CIUDADANOS X APELLIDO..................................................
 
         //RETORNAR CIUDADANOS X DNI
-        public async Task<(List<DCiudadano>, string error)> RetornarListaCiudadanoXDni(int dni)
+        public async Task<(List<DCiudadano>, string error)> RetornarListaCiudadanoXDni(string dni)
         {
             string token = SessionManager.Token; // Aquí pones tu token real
 
