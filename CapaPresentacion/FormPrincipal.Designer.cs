@@ -34,6 +34,7 @@
             this.btnProhibicionesAnticipadas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.btnExcepcionesIngreso = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +88,7 @@
             this.btnProhibicionesAnticipadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProhibicionesAnticipadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProhibicionesAnticipadas.ForeColor = System.Drawing.Color.White;
-            this.btnProhibicionesAnticipadas.Location = new System.Drawing.Point(125, 47);
+            this.btnProhibicionesAnticipadas.Location = new System.Drawing.Point(132, 47);
             this.btnProhibicionesAnticipadas.Name = "btnProhibicionesAnticipadas";
             this.btnProhibicionesAnticipadas.Size = new System.Drawing.Size(118, 45);
             this.btnProhibicionesAnticipadas.TabIndex = 1;
@@ -102,7 +103,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(252, 47);
+            this.button1.Location = new System.Drawing.Point(393, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 45);
             this.button1.TabIndex = 3;
@@ -120,6 +121,21 @@
             this.lblUsuario.TabIndex = 78;
             this.lblUsuario.Text = "label1";
             // 
+            // btnExcepcionesIngreso
+            // 
+            this.btnExcepcionesIngreso.BackColor = System.Drawing.Color.Indigo;
+            this.btnExcepcionesIngreso.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExcepcionesIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcepcionesIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcepcionesIngreso.ForeColor = System.Drawing.Color.White;
+            this.btnExcepcionesIngreso.Location = new System.Drawing.Point(262, 47);
+            this.btnExcepcionesIngreso.Name = "btnExcepcionesIngreso";
+            this.btnExcepcionesIngreso.Size = new System.Drawing.Size(118, 45);
+            this.btnExcepcionesIngreso.TabIndex = 79;
+            this.btnExcepcionesIngreso.Text = "Excepciones ingreso";
+            this.btnExcepcionesIngreso.UseVisualStyleBackColor = false;
+            this.btnExcepcionesIngreso.Click += new System.EventHandler(this.btnExcepcionesIngreso_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.usuario3;
@@ -136,6 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(916, 606);
+            this.Controls.Add(this.btnExcepcionesIngreso);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
@@ -163,6 +180,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Button btnExcepcionesIngreso;
     }
 }
 

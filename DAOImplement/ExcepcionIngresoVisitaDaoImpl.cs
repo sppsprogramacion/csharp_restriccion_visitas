@@ -127,7 +127,53 @@ namespace DAOImplement
         }
 
         //FIN LISTA DE EXCEPCIONES POR CIUDADANO...................................................
-        
+
+        //LISTA EXCEPCIONES POR FECHA
+        public async Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngresoXFecha(string fechaExcepcion)
+        {
+            List<DExcepcionIngresoVisita> listaExcepcionesIngreso = new List<DExcepcionIngresoVisita>();
+            string token = SessionManager.Token; // Aquí pones tu token real
+
+            try
+            {
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/excepciones-ingreso-visita/lista-fecha?fecha_excpcion=" + fechaExcepcion);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaExcepcionesIngreso = JsonConvert.DeserializeObject<List<DExcepcionIngresoVisita>>(content);
+                    return (listaExcepcionesIngreso, null);
+                }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
+
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                return (null, $"Error de conexión: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON                
+                return (null, $"Error inesperado");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores (log, mensaje al usuario, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+                return (null, $"Error inesperado: {ex.Message}");
+            }
+        }
+        //FIN LISTA EXCEPCIONES POR FECHA
+
         //ANULAR EXCEPCION
         public async Task<(bool, string error)> AnularExcepcion(int id, string dataAnular)
         {
@@ -246,6 +292,7 @@ namespace DAOImplement
                 return (false, $"Error inesperado: {ex.Message}");
             }
         }
+        
         //FIN CUMPLIMENTAR EXCEPCION................................................................
     }
 }

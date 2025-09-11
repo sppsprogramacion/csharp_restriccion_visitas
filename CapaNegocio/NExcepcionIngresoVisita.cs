@@ -47,7 +47,7 @@ namespace CapaNegocio
 
 
         //LISTA EXCEPCIONES INGRESO POR CIUDADANO
-        public async Task<(List<DExcepcionIngresoVisita>, string error)> RetornarListaExcepcionesIngreso(int idCiudadano)
+        public async Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngreso(int idCiudadano)
         {
             IExcepcionIngresoVisitaDao excepcionIngresoVisitaDao = new ExcepcionIngresoVisitaDaoImpl();
 
@@ -57,5 +57,17 @@ namespace CapaNegocio
             return (listaExcepcionesIngreso, errorResponse);
         }
         //FIN LISTA EXCEPCIONES INGRESO POR CIUDADANO..................................
+
+        //LISTA EXCEPCIONES INGRESO POR fecha
+        public async Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngresoXFecha(string fechaExcepcion)
+        {
+            IExcepcionIngresoVisitaDao excepcionIngresoVisitaDao = new ExcepcionIngresoVisitaDaoImpl();
+
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await excepcionIngresoVisitaDao.ListaExcepcionesIngresoXFecha(fechaExcepcion);
+
+
+            return (listaExcepcionesIngreso, errorResponse);
+        }
+        //FIN LISTA EXCEPCIONES INGRESO POR FECHA..................................
     }
 }

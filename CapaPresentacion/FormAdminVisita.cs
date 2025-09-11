@@ -1898,7 +1898,7 @@ namespace CapaPresentacion
         {
             NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
 
-            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.RetornarListaExcepcionesIngreso(this.dCiudadanoGlo.id_ciudadano);
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.ListaExcepcionesIngreso(this.dCiudadanoGlo.id_ciudadano);
 
             if (listaExcepcionesIngreso == null)
             {

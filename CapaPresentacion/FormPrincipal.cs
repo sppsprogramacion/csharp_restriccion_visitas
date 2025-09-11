@@ -46,5 +46,12 @@ namespace CapaPresentacion
             lblEncabezado.Text = lblEncabezado.Text + " - " + CurrentUser.Instance.organismo;
             lblUsuario.Text = CurrentUser.Instance.nombre.ToUpper() + " " + CurrentUser.Instance.apellido.ToUpper();
         }
+
+        private void btnExcepcionesIngreso_Click(object sender, EventArgs e)
+        {
+            FormExcepcionesIngreso formExepcionesIngreso = new FormExcepcionesIngreso();
+
+            formExepcionesIngreso.ShowDialog();
+        }
     }
 }

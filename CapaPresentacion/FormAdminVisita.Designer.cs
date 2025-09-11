@@ -72,6 +72,7 @@
             this.lblDetalleTieneDiscapacidad = new System.Windows.Forms.Label();
             this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
             this.lblTieneDiscapacidad = new System.Windows.Forms.Label();
+            this.pictureFoto = new System.Windows.Forms.PictureBox();
             this.pagProhibiciones = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnHistorial = new System.Windows.Forms.Button();
@@ -150,13 +151,11 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnVerParentescos = new System.Windows.Forms.Button();
             this.tabSabana = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnVerSabana = new System.Windows.Forms.Button();
             this.tabNovedades = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.btnNuevaNovedad = new System.Windows.Forms.Button();
@@ -190,6 +189,11 @@
             this.lblDetalleCumplAnularExcepcion = new System.Windows.Forms.Label();
             this.txtDetalleCumplAnularExcepcion = new System.Windows.Forms.TextBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.btnInterno = new System.Windows.Forms.Button();
+            this.txtInternoExcepcion = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.txtIdInternoExcepcion = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.txtFechaCargaExcepcion = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
             this.txtIdExcepcion = new System.Windows.Forms.TextBox();
@@ -213,16 +217,13 @@
             this.dgvRegistroDiario = new System.Windows.Forms.DataGridView();
             this.btnVerRegistroDiario = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
-            this.txtInternoExcepcion = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.txtIdInternoExcepcion = new System.Windows.Forms.TextBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.btnInterno = new System.Windows.Forms.Button();
-            this.pictureFoto = new System.Windows.Forms.PictureBox();
+            this.btnVerSabana = new System.Windows.Forms.Button();
+            this.btnImprimirSabana = new System.Windows.Forms.Button();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
             this.pagProhibiciones.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -247,7 +248,6 @@
             this.groupBox12.SuspendLayout();
             this.tabRegistroDiario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -739,6 +739,17 @@
             this.lblTieneDiscapacidad.Size = new System.Drawing.Size(154, 16);
             this.lblTieneDiscapacidad.TabIndex = 65;
             this.lblTieneDiscapacidad.Text = "Tiene discapacidad?";
+            // 
+            // pictureFoto
+            // 
+            this.pictureFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureFoto.Image = global::CapaPresentacion.Properties.Resources.persona_icono;
+            this.pictureFoto.Location = new System.Drawing.Point(547, 32);
+            this.pictureFoto.Name = "pictureFoto";
+            this.pictureFoto.Size = new System.Drawing.Size(228, 209);
+            this.pictureFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureFoto.TabIndex = 56;
+            this.pictureFoto.TabStop = false;
             // 
             // pagProhibiciones
             // 
@@ -1707,13 +1718,13 @@
             // 
             // tabSabana
             // 
-            this.tabSabana.Controls.Add(this.button4);
+            this.tabSabana.Controls.Add(this.btnImprimirSabana);
+            this.tabSabana.Controls.Add(this.btnVerSabana);
             this.tabSabana.Controls.Add(this.label21);
             this.tabSabana.Controls.Add(this.dateTimePicker2);
             this.tabSabana.Controls.Add(this.label24);
             this.tabSabana.Controls.Add(this.dateTimePicker3);
             this.tabSabana.Controls.Add(this.dataGridView1);
-            this.tabSabana.Controls.Add(this.btnVerSabana);
             this.tabSabana.Location = new System.Drawing.Point(4, 25);
             this.tabSabana.Name = "tabSabana";
             this.tabSabana.Padding = new System.Windows.Forms.Padding(3);
@@ -1721,16 +1732,6 @@
             this.tabSabana.TabIndex = 3;
             this.tabSabana.Text = "Sabana";
             this.tabSabana.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(159, 139);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(134, 39);
-            this.button4.TabIndex = 51;
-            this.button4.Text = "Imrpimir";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
@@ -1777,16 +1778,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(756, 334);
             this.dataGridView1.TabIndex = 46;
-            // 
-            // btnVerSabana
-            // 
-            this.btnVerSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerSabana.Location = new System.Drawing.Point(15, 139);
-            this.btnVerSabana.Name = "btnVerSabana";
-            this.btnVerSabana.Size = new System.Drawing.Size(134, 39);
-            this.btnVerSabana.TabIndex = 45;
-            this.btnVerSabana.Text = "Ver sabana";
-            this.btnVerSabana.UseVisualStyleBackColor = true;
             // 
             // tabNovedades
             // 
@@ -2219,6 +2210,60 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Excepcion para ingreso";
             // 
+            // btnInterno
+            // 
+            this.btnInterno.BackColor = System.Drawing.Color.Indigo;
+            this.btnInterno.Enabled = false;
+            this.btnInterno.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInterno.ForeColor = System.Drawing.Color.White;
+            this.btnInterno.Location = new System.Drawing.Point(560, 80);
+            this.btnInterno.Name = "btnInterno";
+            this.btnInterno.Size = new System.Drawing.Size(80, 30);
+            this.btnInterno.TabIndex = 93;
+            this.btnInterno.Text = "BUSCAR";
+            this.btnInterno.UseVisualStyleBackColor = false;
+            this.btnInterno.Click += new System.EventHandler(this.btnInterno_Click);
+            // 
+            // txtInternoExcepcion
+            // 
+            this.txtInternoExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInternoExcepcion.Location = new System.Drawing.Point(95, 87);
+            this.txtInternoExcepcion.Name = "txtInternoExcepcion";
+            this.txtInternoExcepcion.ReadOnly = true;
+            this.txtInternoExcepcion.Size = new System.Drawing.Size(457, 21);
+            this.txtInternoExcepcion.TabIndex = 90;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(9, 68);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(79, 15);
+            this.label56.TabIndex = 92;
+            this.label56.Text = "ID INTERNO:";
+            // 
+            // txtIdInternoExcepcion
+            // 
+            this.txtIdInternoExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdInternoExcepcion.Location = new System.Drawing.Point(13, 87);
+            this.txtIdInternoExcepcion.Name = "txtIdInternoExcepcion";
+            this.txtIdInternoExcepcion.ReadOnly = true;
+            this.txtIdInternoExcepcion.Size = new System.Drawing.Size(75, 21);
+            this.txtIdInternoExcepcion.TabIndex = 89;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(92, 68);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(64, 15);
+            this.label57.TabIndex = 91;
+            this.label57.Text = "INTERNO:";
+            // 
             // txtFechaCargaExcepcion
             // 
             this.txtFechaCargaExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2472,70 +2517,33 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtInternoExcepcion
+            // btnVerSabana
             // 
-            this.txtInternoExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInternoExcepcion.Location = new System.Drawing.Point(95, 87);
-            this.txtInternoExcepcion.Name = "txtInternoExcepcion";
-            this.txtInternoExcepcion.ReadOnly = true;
-            this.txtInternoExcepcion.Size = new System.Drawing.Size(457, 21);
-            this.txtInternoExcepcion.TabIndex = 90;
+            this.btnVerSabana.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerSabana.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerSabana.ForeColor = System.Drawing.Color.White;
+            this.btnVerSabana.Location = new System.Drawing.Point(15, 139);
+            this.btnVerSabana.Name = "btnVerSabana";
+            this.btnVerSabana.Size = new System.Drawing.Size(141, 45);
+            this.btnVerSabana.TabIndex = 51;
+            this.btnVerSabana.Text = "Ver sabana";
+            this.btnVerSabana.UseVisualStyleBackColor = false;
             // 
-            // label56
+            // btnImprimirSabana
             // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(9, 68);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(79, 15);
-            this.label56.TabIndex = 92;
-            this.label56.Text = "ID INTERNO:";
-            // 
-            // txtIdInternoExcepcion
-            // 
-            this.txtIdInternoExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdInternoExcepcion.Location = new System.Drawing.Point(13, 87);
-            this.txtIdInternoExcepcion.Name = "txtIdInternoExcepcion";
-            this.txtIdInternoExcepcion.ReadOnly = true;
-            this.txtIdInternoExcepcion.Size = new System.Drawing.Size(75, 21);
-            this.txtIdInternoExcepcion.TabIndex = 89;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(92, 68);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(64, 15);
-            this.label57.TabIndex = 91;
-            this.label57.Text = "INTERNO:";
-            // 
-            // btnInterno
-            // 
-            this.btnInterno.BackColor = System.Drawing.Color.Indigo;
-            this.btnInterno.Enabled = false;
-            this.btnInterno.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInterno.ForeColor = System.Drawing.Color.White;
-            this.btnInterno.Location = new System.Drawing.Point(560, 80);
-            this.btnInterno.Name = "btnInterno";
-            this.btnInterno.Size = new System.Drawing.Size(80, 30);
-            this.btnInterno.TabIndex = 93;
-            this.btnInterno.Text = "BUSCAR";
-            this.btnInterno.UseVisualStyleBackColor = false;
-            this.btnInterno.Click += new System.EventHandler(this.btnInterno_Click);
-            // 
-            // pictureFoto
-            // 
-            this.pictureFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureFoto.Image = global::CapaPresentacion.Properties.Resources.persona_icono;
-            this.pictureFoto.Location = new System.Drawing.Point(547, 32);
-            this.pictureFoto.Name = "pictureFoto";
-            this.pictureFoto.Size = new System.Drawing.Size(228, 209);
-            this.pictureFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureFoto.TabIndex = 56;
-            this.pictureFoto.TabStop = false;
+            this.btnImprimirSabana.BackColor = System.Drawing.Color.White;
+            this.btnImprimirSabana.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnImprimirSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirSabana.ForeColor = System.Drawing.Color.Indigo;
+            this.btnImprimirSabana.Location = new System.Drawing.Point(577, 144);
+            this.btnImprimirSabana.Name = "btnImprimirSabana";
+            this.btnImprimirSabana.Size = new System.Drawing.Size(194, 40);
+            this.btnImprimirSabana.TabIndex = 96;
+            this.btnImprimirSabana.Text = "Imprimir";
+            this.btnImprimirSabana.UseVisualStyleBackColor = false;
             // 
             // FormAdminVisita
             // 
@@ -2558,6 +2566,7 @@
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).EndInit();
             this.pagProhibiciones.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -2593,7 +2602,6 @@
             this.groupBox12.PerformLayout();
             this.tabRegistroDiario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2656,8 +2664,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnVerSabana;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnGuardarModificarParentesco;
         private System.Windows.Forms.Button btnCancelarModificarParentesco;
         private System.Windows.Forms.Label label26;
@@ -2791,5 +2797,7 @@
         private System.Windows.Forms.TextBox txtIdInternoExcepcion;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Button btnInterno;
+        private System.Windows.Forms.Button btnImprimirSabana;
+        private System.Windows.Forms.Button btnVerSabana;
     }
 }
