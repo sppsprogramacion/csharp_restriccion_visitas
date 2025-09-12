@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExcepcionesIngreso));
             this.groupCumplimentarAnular = new System.Windows.Forms.GroupBox();
             this.btnAnularExcepcion = new System.Windows.Forms.Button();
             this.btnCumplimentarExcepcion = new System.Windows.Forms.Button();
@@ -87,7 +88,7 @@
             this.btnAnularExcepcion.Location = new System.Drawing.Point(160, 20);
             this.btnAnularExcepcion.Name = "btnAnularExcepcion";
             this.btnAnularExcepcion.Size = new System.Drawing.Size(93, 37);
-            this.btnAnularExcepcion.TabIndex = 13;
+            this.btnAnularExcepcion.TabIndex = 4;
             this.btnAnularExcepcion.Text = "ANULAR";
             this.btnAnularExcepcion.UseVisualStyleBackColor = false;
             this.btnAnularExcepcion.Click += new System.EventHandler(this.btnAnularExcepcion_Click);
@@ -102,7 +103,7 @@
             this.btnCumplimentarExcepcion.Location = new System.Drawing.Point(8, 21);
             this.btnCumplimentarExcepcion.Name = "btnCumplimentarExcepcion";
             this.btnCumplimentarExcepcion.Size = new System.Drawing.Size(146, 37);
-            this.btnCumplimentarExcepcion.TabIndex = 12;
+            this.btnCumplimentarExcepcion.TabIndex = 3;
             this.btnCumplimentarExcepcion.Text = "CUMPLIMENTAR";
             this.btnCumplimentarExcepcion.UseVisualStyleBackColor = false;
             this.btnCumplimentarExcepcion.Click += new System.EventHandler(this.btnCumplimentarExcepcion_Click);
@@ -118,7 +119,7 @@
             this.btnCancelarCumplAnularExcepcion.Location = new System.Drawing.Point(109, 207);
             this.btnCancelarCumplAnularExcepcion.Name = "btnCancelarCumplAnularExcepcion";
             this.btnCancelarCumplAnularExcepcion.Size = new System.Drawing.Size(98, 40);
-            this.btnCancelarCumplAnularExcepcion.TabIndex = 16;
+            this.btnCancelarCumplAnularExcepcion.TabIndex = 7;
             this.btnCancelarCumplAnularExcepcion.Text = "CANCELAR";
             this.btnCancelarCumplAnularExcepcion.UseVisualStyleBackColor = false;
             this.btnCancelarCumplAnularExcepcion.Click += new System.EventHandler(this.btnCancelarCumplAnularExcepcion_Click);
@@ -133,7 +134,7 @@
             this.btnGuardarCumplAnularExcepcion.Location = new System.Drawing.Point(8, 207);
             this.btnGuardarCumplAnularExcepcion.Name = "btnGuardarCumplAnularExcepcion";
             this.btnGuardarCumplAnularExcepcion.Size = new System.Drawing.Size(98, 40);
-            this.btnGuardarCumplAnularExcepcion.TabIndex = 15;
+            this.btnGuardarCumplAnularExcepcion.TabIndex = 6;
             this.btnGuardarCumplAnularExcepcion.Text = "GUARDAR";
             this.btnGuardarCumplAnularExcepcion.UseVisualStyleBackColor = false;
             this.btnGuardarCumplAnularExcepcion.Click += new System.EventHandler(this.btnGuardarCumplAnularExcepcion_Click);
@@ -157,7 +158,7 @@
             this.txtDetalleCumplAnularExcepcion.Multiline = true;
             this.txtDetalleCumplAnularExcepcion.Name = "txtDetalleCumplAnularExcepcion";
             this.txtDetalleCumplAnularExcepcion.Size = new System.Drawing.Size(249, 106);
-            this.txtDetalleCumplAnularExcepcion.TabIndex = 14;
+            this.txtDetalleCumplAnularExcepcion.TabIndex = 5;
             // 
             // groupBox12
             // 
@@ -351,21 +352,21 @@
             this.dtgvExcepcionesIngreso.Name = "dtgvExcepcionesIngreso";
             this.dtgvExcepcionesIngreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvExcepcionesIngreso.Size = new System.Drawing.Size(938, 329);
-            this.dtgvExcepcionesIngreso.TabIndex = 101;
+            this.dtgvExcepcionesIngreso.TabIndex = 2;
             this.dtgvExcepcionesIngreso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvExcepcionesIngreso_KeyDown);
             // 
             // btnVerExcepciones
             // 
-            this.btnVerExcepciones.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerExcepciones.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnVerExcepciones.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVerExcepciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerExcepciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerExcepciones.ForeColor = System.Drawing.Color.White;
             this.btnVerExcepciones.Location = new System.Drawing.Point(175, 38);
             this.btnVerExcepciones.Name = "btnVerExcepciones";
-            this.btnVerExcepciones.Size = new System.Drawing.Size(141, 45);
-            this.btnVerExcepciones.TabIndex = 100;
-            this.btnVerExcepciones.Text = "Ver excepciones";
+            this.btnVerExcepciones.Size = new System.Drawing.Size(150, 45);
+            this.btnVerExcepciones.TabIndex = 1;
+            this.btnVerExcepciones.Text = "VER EXCEPCIONES";
             this.btnVerExcepciones.UseVisualStyleBackColor = false;
             this.btnVerExcepciones.Click += new System.EventHandler(this.btnVerExcepciones_Click);
             // 
@@ -386,7 +387,7 @@
             this.dtpFechaExcepcionBuscar.Location = new System.Drawing.Point(14, 58);
             this.dtpFechaExcepcionBuscar.Name = "dtpFechaExcepcionBuscar";
             this.dtpFechaExcepcionBuscar.Size = new System.Drawing.Size(115, 21);
-            this.dtpFechaExcepcionBuscar.TabIndex = 104;
+            this.dtpFechaExcepcionBuscar.TabIndex = 0;
             // 
             // FormExcepcionesIngreso
             // 
@@ -401,7 +402,7 @@
             this.Controls.Add(this.groupCumplimentarAnular);
             this.Controls.Add(this.groupBox12);
             this.Name = "FormExcepcionesIngreso";
-            this.Text = "FormExcepcionesIngreso";
+            this.Text = resources.GetString("$this.Text");
             this.groupCumplimentarAnular.ResumeLayout(false);
             this.groupCumplimentarAnular.PerformLayout();
             this.groupBox12.ResumeLayout(false);

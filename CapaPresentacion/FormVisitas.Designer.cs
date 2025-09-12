@@ -56,16 +56,16 @@
             // 
             // btnBuscarApellido
             // 
-            this.btnBuscarApellido.BackColor = System.Drawing.Color.Indigo;
+            this.btnBuscarApellido.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnBuscarApellido.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBuscarApellido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarApellido.ForeColor = System.Drawing.Color.White;
             this.btnBuscarApellido.Location = new System.Drawing.Point(11, 70);
             this.btnBuscarApellido.Name = "btnBuscarApellido";
-            this.btnBuscarApellido.Size = new System.Drawing.Size(93, 45);
+            this.btnBuscarApellido.Size = new System.Drawing.Size(80, 45);
             this.btnBuscarApellido.TabIndex = 2;
-            this.btnBuscarApellido.Text = "Buscar apellido";
+            this.btnBuscarApellido.Text = "BUSCAR";
             this.btnBuscarApellido.UseVisualStyleBackColor = false;
             this.btnBuscarApellido.Click += new System.EventHandler(this.btnBuscarApellido_Click);
             // 
@@ -91,17 +91,17 @@
             // 
             // btnBuscarDni
             // 
-            this.btnBuscarDni.BackColor = System.Drawing.Color.Indigo;
+            this.btnBuscarDni.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnBuscarDni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnBuscarDni.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBuscarDni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarDni.ForeColor = System.Drawing.Color.White;
             this.btnBuscarDni.Location = new System.Drawing.Point(267, 70);
             this.btnBuscarDni.Name = "btnBuscarDni";
-            this.btnBuscarDni.Size = new System.Drawing.Size(93, 45);
+            this.btnBuscarDni.Size = new System.Drawing.Size(80, 45);
             this.btnBuscarDni.TabIndex = 4;
-            this.btnBuscarDni.Text = "Buscar dni";
+            this.btnBuscarDni.Text = "BUSCAR";
             this.btnBuscarDni.UseVisualStyleBackColor = false;
             this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click);
             // 

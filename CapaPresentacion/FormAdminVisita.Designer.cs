@@ -151,6 +151,8 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnVerParentescos = new System.Windows.Forms.Button();
             this.tabSabana = new System.Windows.Forms.TabPage();
+            this.btnImprimirSabana = new System.Windows.Forms.Button();
+            this.btnVerSabana = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
@@ -217,8 +219,6 @@
             this.dgvRegistroDiario = new System.Windows.Forms.DataGridView();
             this.btnVerRegistroDiario = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
-            this.btnVerSabana = new System.Windows.Forms.Button();
-            this.btnImprimirSabana = new System.Windows.Forms.Button();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -800,7 +800,7 @@
             // 
             // btnHistorial
             // 
-            this.btnHistorial.BackColor = System.Drawing.Color.Indigo;
+            this.btnHistorial.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnHistorial.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1198,16 +1198,16 @@
             // 
             // btnVerProhibiciones
             // 
-            this.btnVerProhibiciones.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerProhibiciones.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnVerProhibiciones.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVerProhibiciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerProhibiciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerProhibiciones.ForeColor = System.Drawing.Color.White;
             this.btnVerProhibiciones.Location = new System.Drawing.Point(15, 16);
             this.btnVerProhibiciones.Name = "btnVerProhibiciones";
-            this.btnVerProhibiciones.Size = new System.Drawing.Size(141, 45);
+            this.btnVerProhibiciones.Size = new System.Drawing.Size(160, 45);
             this.btnVerProhibiciones.TabIndex = 1;
-            this.btnVerProhibiciones.Text = "Ver prohibiciones";
+            this.btnVerProhibiciones.Text = "VER PROHIBICIONES";
             this.btnVerProhibiciones.UseVisualStyleBackColor = false;
             this.btnVerProhibiciones.Click += new System.EventHandler(this.btnVerProhibiciones_Click);
             // 
@@ -1703,16 +1703,16 @@
             // 
             // btnVerParentescos
             // 
-            this.btnVerParentescos.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerParentescos.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnVerParentescos.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVerParentescos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerParentescos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerParentescos.ForeColor = System.Drawing.Color.White;
             this.btnVerParentescos.Location = new System.Drawing.Point(15, 16);
             this.btnVerParentescos.Name = "btnVerParentescos";
-            this.btnVerParentescos.Size = new System.Drawing.Size(141, 45);
+            this.btnVerParentescos.Size = new System.Drawing.Size(160, 45);
             this.btnVerParentescos.TabIndex = 1;
-            this.btnVerParentescos.Text = "Ver parentescos";
+            this.btnVerParentescos.Text = "VER PARENTESCOS";
             this.btnVerParentescos.UseVisualStyleBackColor = false;
             this.btnVerParentescos.Click += new System.EventHandler(this.btnVerParentescos_Click);
             // 
@@ -1732,6 +1732,34 @@
             this.tabSabana.TabIndex = 3;
             this.tabSabana.Text = "Sabana";
             this.tabSabana.UseVisualStyleBackColor = true;
+            // 
+            // btnImprimirSabana
+            // 
+            this.btnImprimirSabana.BackColor = System.Drawing.Color.White;
+            this.btnImprimirSabana.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnImprimirSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirSabana.ForeColor = System.Drawing.Color.Indigo;
+            this.btnImprimirSabana.Location = new System.Drawing.Point(577, 99);
+            this.btnImprimirSabana.Name = "btnImprimirSabana";
+            this.btnImprimirSabana.Size = new System.Drawing.Size(194, 40);
+            this.btnImprimirSabana.TabIndex = 96;
+            this.btnImprimirSabana.Text = "Imprimir";
+            this.btnImprimirSabana.UseVisualStyleBackColor = false;
+            // 
+            // btnVerSabana
+            // 
+            this.btnVerSabana.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerSabana.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerSabana.ForeColor = System.Drawing.Color.White;
+            this.btnVerSabana.Location = new System.Drawing.Point(15, 94);
+            this.btnVerSabana.Name = "btnVerSabana";
+            this.btnVerSabana.Size = new System.Drawing.Size(160, 45);
+            this.btnVerSabana.TabIndex = 51;
+            this.btnVerSabana.Text = "VER SABANAS";
+            this.btnVerSabana.UseVisualStyleBackColor = false;
             // 
             // label21
             // 
@@ -1756,7 +1784,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(12, 88);
+            this.label24.Location = new System.Drawing.Point(147, 34);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(71, 15);
             this.label24.TabIndex = 48;
@@ -1766,7 +1794,7 @@
             // 
             this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(15, 108);
+            this.dateTimePicker3.Location = new System.Drawing.Point(150, 54);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(115, 21);
             this.dateTimePicker3.TabIndex = 47;
@@ -1774,9 +1802,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 190);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 145);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(756, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(756, 449);
             this.dataGridView1.TabIndex = 46;
             // 
             // tabNovedades
@@ -2026,16 +2054,16 @@
             // 
             // btnVerNovedades
             // 
-            this.btnVerNovedades.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerNovedades.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnVerNovedades.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVerNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerNovedades.ForeColor = System.Drawing.Color.White;
             this.btnVerNovedades.Location = new System.Drawing.Point(17, 169);
             this.btnVerNovedades.Name = "btnVerNovedades";
-            this.btnVerNovedades.Size = new System.Drawing.Size(141, 45);
+            this.btnVerNovedades.Size = new System.Drawing.Size(160, 45);
             this.btnVerNovedades.TabIndex = 48;
-            this.btnVerNovedades.Text = "Ver novedades";
+            this.btnVerNovedades.Text = "VER NOVEDADES";
             this.btnVerNovedades.UseVisualStyleBackColor = false;
             this.btnVerNovedades.Click += new System.EventHandler(this.btnVerNovedades_Click);
             // 
@@ -2065,16 +2093,16 @@
             // 
             // btnVerExcepciones
             // 
-            this.btnVerExcepciones.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerExcepciones.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnVerExcepciones.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVerExcepciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerExcepciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerExcepciones.ForeColor = System.Drawing.Color.White;
             this.btnVerExcepciones.Location = new System.Drawing.Point(6, 321);
             this.btnVerExcepciones.Name = "btnVerExcepciones";
-            this.btnVerExcepciones.Size = new System.Drawing.Size(141, 45);
+            this.btnVerExcepciones.Size = new System.Drawing.Size(160, 45);
             this.btnVerExcepciones.TabIndex = 10;
-            this.btnVerExcepciones.Text = "Ver excepciones";
+            this.btnVerExcepciones.Text = "VER EXCEPCIONES";
             this.btnVerExcepciones.UseVisualStyleBackColor = false;
             this.btnVerExcepciones.Click += new System.EventHandler(this.btnVerExcepciones_Click);
             // 
@@ -2212,7 +2240,7 @@
             // 
             // btnInterno
             // 
-            this.btnInterno.BackColor = System.Drawing.Color.Indigo;
+            this.btnInterno.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnInterno.Enabled = false;
             this.btnInterno.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2492,16 +2520,16 @@
             // 
             // btnVerRegistroDiario
             // 
-            this.btnVerRegistroDiario.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerRegistroDiario.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnVerRegistroDiario.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVerRegistroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerRegistroDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerRegistroDiario.ForeColor = System.Drawing.Color.White;
             this.btnVerRegistroDiario.Location = new System.Drawing.Point(15, 16);
             this.btnVerRegistroDiario.Name = "btnVerRegistroDiario";
-            this.btnVerRegistroDiario.Size = new System.Drawing.Size(141, 45);
+            this.btnVerRegistroDiario.Size = new System.Drawing.Size(175, 45);
             this.btnVerRegistroDiario.TabIndex = 2;
-            this.btnVerRegistroDiario.Text = "Ver registro diario";
+            this.btnVerRegistroDiario.Text = "VER REGISTRO DIARIO";
             this.btnVerRegistroDiario.UseVisualStyleBackColor = false;
             this.btnVerRegistroDiario.Click += new System.EventHandler(this.btnVerRegistroDiario_Click);
             // 
@@ -2516,34 +2544,6 @@
             this.label28.TabIndex = 74;
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnVerSabana
-            // 
-            this.btnVerSabana.BackColor = System.Drawing.Color.Indigo;
-            this.btnVerSabana.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnVerSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerSabana.ForeColor = System.Drawing.Color.White;
-            this.btnVerSabana.Location = new System.Drawing.Point(15, 139);
-            this.btnVerSabana.Name = "btnVerSabana";
-            this.btnVerSabana.Size = new System.Drawing.Size(141, 45);
-            this.btnVerSabana.TabIndex = 51;
-            this.btnVerSabana.Text = "Ver sabana";
-            this.btnVerSabana.UseVisualStyleBackColor = false;
-            // 
-            // btnImprimirSabana
-            // 
-            this.btnImprimirSabana.BackColor = System.Drawing.Color.White;
-            this.btnImprimirSabana.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
-            this.btnImprimirSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimirSabana.ForeColor = System.Drawing.Color.Indigo;
-            this.btnImprimirSabana.Location = new System.Drawing.Point(577, 144);
-            this.btnImprimirSabana.Name = "btnImprimirSabana";
-            this.btnImprimirSabana.Size = new System.Drawing.Size(194, 40);
-            this.btnImprimirSabana.TabIndex = 96;
-            this.btnImprimirSabana.Text = "Imprimir";
-            this.btnImprimirSabana.UseVisualStyleBackColor = false;
             // 
             // FormAdminVisita
             // 

@@ -77,16 +77,16 @@
             // 
             // btnBuscarApellido
             // 
-            this.btnBuscarApellido.BackColor = System.Drawing.Color.Indigo;
+            this.btnBuscarApellido.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnBuscarApellido.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBuscarApellido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarApellido.ForeColor = System.Drawing.Color.White;
             this.btnBuscarApellido.Location = new System.Drawing.Point(315, 37);
             this.btnBuscarApellido.Name = "btnBuscarApellido";
-            this.btnBuscarApellido.Size = new System.Drawing.Size(93, 45);
+            this.btnBuscarApellido.Size = new System.Drawing.Size(80, 45);
             this.btnBuscarApellido.TabIndex = 1;
-            this.btnBuscarApellido.Text = "Buscar apellido";
+            this.btnBuscarApellido.Text = "BUSCAR";
             this.btnBuscarApellido.UseVisualStyleBackColor = false;
             this.btnBuscarApellido.Click += new System.EventHandler(this.btnBuscarApellido_Click);
             // 

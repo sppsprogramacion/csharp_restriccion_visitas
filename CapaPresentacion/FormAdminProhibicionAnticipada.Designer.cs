@@ -301,7 +301,7 @@
             // 
             // btnVerNovedades
             // 
-            this.btnVerNovedades.BackColor = System.Drawing.Color.Indigo;
+            this.btnVerNovedades.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnVerNovedades.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVerNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -310,7 +310,7 @@
             this.btnVerNovedades.Name = "btnVerNovedades";
             this.btnVerNovedades.Size = new System.Drawing.Size(141, 45);
             this.btnVerNovedades.TabIndex = 1;
-            this.btnVerNovedades.Text = "Ver Historial";
+            this.btnVerNovedades.Text = "VER HISTORIAL";
             this.btnVerNovedades.UseVisualStyleBackColor = false;
             this.btnVerNovedades.Click += new System.EventHandler(this.btnVerNovedades_Click);
             // 

@@ -258,6 +258,9 @@ namespace CapaPresentacion
             }
         }
 
+
+
+
         private void btnCancelarCumplAnularExcepcion_Click(object sender, EventArgs e)
         {
             this.accionCumplimentarExcepcion = false;
