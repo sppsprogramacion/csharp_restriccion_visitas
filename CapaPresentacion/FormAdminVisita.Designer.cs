@@ -1835,6 +1835,7 @@
             this.groupBox11.TabIndex = 94;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Cargar novedad";
+            this.groupBox11.Enter += new System.EventHandler(this.groupBox11_Enter);
             // 
             // btnNuevaNovedad
             // 
@@ -1923,6 +1924,7 @@
             this.groupBox10.TabIndex = 80;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Novedad";
+            this.groupBox10.Enter += new System.EventHandler(this.groupBox10_Enter);
             // 
             // label47
             // 
@@ -2050,6 +2052,7 @@
             this.dtgvNovedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvNovedades.Size = new System.Drawing.Size(1035, 262);
             this.dtgvNovedades.TabIndex = 49;
+            this.dtgvNovedades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvNovedades_CellContentClick);
             this.dtgvNovedades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvNovedades_KeyDown);
             // 
             // btnVerNovedades

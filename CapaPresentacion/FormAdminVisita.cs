@@ -1998,6 +1998,21 @@ namespace CapaPresentacion
             }
         }
 
+        private void groupBox10_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvNovedades_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox11_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
 
         #endregion Excepxiones
