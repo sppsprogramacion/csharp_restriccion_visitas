@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminProhibicionAnticipada));
             this.label28 = new System.Windows.Forms.Label();
             this.pagHistorial = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -865,6 +866,7 @@
             this.ClientSize = new System.Drawing.Size(1094, 691);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.tabVisita);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdminProhibicionAnticipada";

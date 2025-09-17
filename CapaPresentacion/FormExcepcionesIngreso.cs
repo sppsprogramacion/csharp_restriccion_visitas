@@ -47,20 +47,16 @@ namespace CapaPresentacion
 
                     if (id_excepcion_ingreso > 0)
                     {
-                        //deshabilitar controles
-                        //this.HabilitarControlesExcepcion(false);
-                        //this.HabilitarControlesCumplimentarAnularExcepcion(false);
-
-                        //cargar datos de datagrid a controles
                         txtIdExcepcion.Text = id_excepcion_ingreso.ToString();
-                        txtMotivoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["MotivoExcepcion"].Value.ToString();
-                        txtDetalleExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Detalle"].Value.ToString();
-                        txtInternoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Interno"].Value.ToString();
                         dtpFechaExcepcion.Value = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaExcepcion"].Value.ToString());
+                        chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Cumplimentado"].Value.ToString());
                         txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
                         txtUsuarioCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Usuario"].Value.ToString();
-                        chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Cumplimentado"].Value.ToString());
-                        
+                        txtVisita.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Visita"].Value.ToString();
+                        txtDniVisita.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["DniVisita"].Value.ToString();
+                        txtInternoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Interno"].Value.ToString();
+                        txtMotivoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["MotivoExcepcion"].Value.ToString();
+                        txtDetalleExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Detalle"].Value.ToString();
                     }
                     else
                     {
@@ -98,24 +94,6 @@ namespace CapaPresentacion
             this.HabilitarControlesCumplimentarAnularExcepcion(true);
         }
 
-        //HABILITAR CONTROLES CUMPLIMENTAR/ANULAR EXCEPCION
-        private void HabilitarControlesCumplimentarAnularExcepcion(bool habilitar)
-        {
-            //habilita controles
-            txtDetalleCumplAnularExcepcion.Enabled = habilitar;
-
-            //limpia
-            txtDetalleCumplAnularExcepcion.Text = string.Empty;
-
-
-            //habilita botones
-            btnAnularExcepcion.Enabled = !habilitar;
-            btnCumplimentarExcepcion.Enabled = !habilitar;
-            btnGuardarCumplAnularExcepcion.Enabled = habilitar;
-            btnCancelarCumplAnularExcepcion.Enabled = habilitar;
-
-           
-        }
 
         private async void btnGuardarCumplAnularExcepcion_Click(object sender, EventArgs e)
         {
@@ -210,6 +188,26 @@ namespace CapaPresentacion
             }
         }
 
+        //HABILITAR CONTROLES CUMPLIMENTAR/ANULAR EXCEPCION
+        private void HabilitarControlesCumplimentarAnularExcepcion(bool habilitar)
+        {
+            //habilita controles
+            txtDetalleCumplAnularExcepcion.Enabled = habilitar;
+
+            //limpia
+            txtDetalleCumplAnularExcepcion.Text = string.Empty;
+
+
+            //habilita botones
+            btnAnularExcepcion.Enabled = !habilitar;
+            btnCumplimentarExcepcion.Enabled = !habilitar;
+            btnGuardarCumplAnularExcepcion.Enabled = habilitar;
+            btnCancelarCumplAnularExcepcion.Enabled = habilitar;
+
+           
+        }
+
+
         //FIN HABILITAR CONTROLES CUMPLIMENTAR/ANULAR EXCEPCION..............................
 
 
@@ -229,9 +227,11 @@ namespace CapaPresentacion
                 .Select(c => new
                 {
                     Id = c.id_excepcion_ingreso_visita,
-                    FechaExcepcion = c.fecha_excepcion,
-                    MotivoExcepcion = c.motivo,
+                    Visita = c.ciudadano.apellido + " " + c.ciudadano.nombre,
+                    DniVisita = c.ciudadano.dni,
                     Interno = c.interno.apellido + " " + c.interno.nombre,
+                    MotivoExcepcion = c.motivo,
+                    FechaExcepcion = c.fecha_excepcion,
                     Cumplimentado = c.cumplimentado,
                     Detalle = c.detalle_excepcion,
                     FechaCarga = c.fecha_carga,
@@ -251,10 +251,11 @@ namespace CapaPresentacion
             }
             else
             {
-
-                dtgvExcepcionesIngreso.Columns[2].Width = 200;
+                dtgvExcepcionesIngreso.Columns[0].Width = 80;
+                dtgvExcepcionesIngreso.Columns[1].Width = 200;
+                dtgvExcepcionesIngreso.Columns[2].Width = 100;
                 dtgvExcepcionesIngreso.Columns[3].Width = 200;
-                dtgvExcepcionesIngreso.Columns[4].Width = 200;
+                dtgvExcepcionesIngreso.Columns[4].Width = 150;
             }
         }
 
@@ -268,5 +269,6 @@ namespace CapaPresentacion
             lblDetalleCumplAnularExcepcion.Text = "DETALLE:";
             this.HabilitarControlesCumplimentarAnularExcepcion(false);
         }
+
     }
 }

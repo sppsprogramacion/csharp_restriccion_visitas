@@ -28,9 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHistorialProhibicion));
             this.label28 = new System.Windows.Forms.Label();
             this.dtgvHistorialProhibicion = new System.Windows.Forms.DataGridView();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDEtalle = new System.Windows.Forms.TextBox();
+            this.chkAnulado = new System.Windows.Forms.CheckBox();
+            this.chkVigente = new System.Windows.Forms.CheckBox();
+            this.txtFechaFin = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFechaInicio = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDisposicion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.txtMotivo = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -43,16 +54,6 @@
             this.label45 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.txtDisposicion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFechaInicio = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFechaFin = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.chkAnulado = new System.Windows.Forms.CheckBox();
-            this.chkVigente = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDEtalle = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).BeginInit();
             this.groupBox10.SuspendLayout();
             this.SuspendLayout();
@@ -109,6 +110,108 @@
             this.groupBox10.TabIndex = 81;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Datos";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 65);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 15);
+            this.label4.TabIndex = 96;
+            this.label4.Text = "DETALLE:";
+            // 
+            // txtDEtalle
+            // 
+            this.txtDEtalle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDEtalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDEtalle.Location = new System.Drawing.Point(9, 84);
+            this.txtDEtalle.Multiline = true;
+            this.txtDEtalle.Name = "txtDEtalle";
+            this.txtDEtalle.ReadOnly = true;
+            this.txtDEtalle.Size = new System.Drawing.Size(735, 60);
+            this.txtDEtalle.TabIndex = 95;
+            // 
+            // chkAnulado
+            // 
+            this.chkAnulado.AutoSize = true;
+            this.chkAnulado.Enabled = false;
+            this.chkAnulado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAnulado.Location = new System.Drawing.Point(661, 39);
+            this.chkAnulado.Name = "chkAnulado";
+            this.chkAnulado.Size = new System.Drawing.Size(83, 19);
+            this.chkAnulado.TabIndex = 94;
+            this.chkAnulado.Text = "ANULADO";
+            this.chkAnulado.UseVisualStyleBackColor = true;
+            // 
+            // chkVigente
+            // 
+            this.chkVigente.AutoSize = true;
+            this.chkVigente.Enabled = false;
+            this.chkVigente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkVigente.Location = new System.Drawing.Point(563, 39);
+            this.chkVigente.Name = "chkVigente";
+            this.chkVigente.Size = new System.Drawing.Size(77, 19);
+            this.chkVigente.TabIndex = 93;
+            this.chkVigente.Text = "VIGENTE";
+            this.chkVigente.UseVisualStyleBackColor = true;
+            // 
+            // txtFechaFin
+            // 
+            this.txtFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaFin.Location = new System.Drawing.Point(450, 37);
+            this.txtFechaFin.Name = "txtFechaFin";
+            this.txtFechaFin.ReadOnly = true;
+            this.txtFechaFin.Size = new System.Drawing.Size(95, 21);
+            this.txtFechaFin.TabIndex = 91;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(447, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 15);
+            this.label3.TabIndex = 92;
+            this.label3.Text = "FECHA FIN:";
+            // 
+            // txtFechaInicio
+            // 
+            this.txtFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaInicio.Location = new System.Drawing.Point(342, 37);
+            this.txtFechaInicio.Name = "txtFechaInicio";
+            this.txtFechaInicio.ReadOnly = true;
+            this.txtFechaInicio.Size = new System.Drawing.Size(95, 21);
+            this.txtFechaInicio.TabIndex = 89;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(339, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 15);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "FECHA INICIO:";
+            // 
+            // txtDisposicion
+            // 
+            this.txtDisposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDisposicion.Location = new System.Drawing.Point(104, 36);
+            this.txtDisposicion.Name = "txtDisposicion";
+            this.txtDisposicion.ReadOnly = true;
+            this.txtDisposicion.Size = new System.Drawing.Size(227, 21);
+            this.txtDisposicion.TabIndex = 88;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(100, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 15);
+            this.label1.TabIndex = 87;
+            this.label1.Text = "DISPOSICION:";
             // 
             // label47
             // 
@@ -228,108 +331,6 @@
             this.label46.TabIndex = 72;
             this.label46.Text = "ORGANISMO:";
             // 
-            // txtDisposicion
-            // 
-            this.txtDisposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDisposicion.Location = new System.Drawing.Point(104, 36);
-            this.txtDisposicion.Name = "txtDisposicion";
-            this.txtDisposicion.ReadOnly = true;
-            this.txtDisposicion.Size = new System.Drawing.Size(227, 21);
-            this.txtDisposicion.TabIndex = 88;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(100, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 15);
-            this.label1.TabIndex = 87;
-            this.label1.Text = "DISPOSICION:";
-            // 
-            // txtFechaInicio
-            // 
-            this.txtFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaInicio.Location = new System.Drawing.Point(342, 37);
-            this.txtFechaInicio.Name = "txtFechaInicio";
-            this.txtFechaInicio.ReadOnly = true;
-            this.txtFechaInicio.Size = new System.Drawing.Size(95, 21);
-            this.txtFechaInicio.TabIndex = 89;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(339, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 15);
-            this.label2.TabIndex = 90;
-            this.label2.Text = "FECHA INICIO:";
-            // 
-            // txtFechaFin
-            // 
-            this.txtFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaFin.Location = new System.Drawing.Point(450, 37);
-            this.txtFechaFin.Name = "txtFechaFin";
-            this.txtFechaFin.ReadOnly = true;
-            this.txtFechaFin.Size = new System.Drawing.Size(95, 21);
-            this.txtFechaFin.TabIndex = 91;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(447, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 15);
-            this.label3.TabIndex = 92;
-            this.label3.Text = "FECHA FIN:";
-            // 
-            // chkAnulado
-            // 
-            this.chkAnulado.AutoSize = true;
-            this.chkAnulado.Enabled = false;
-            this.chkAnulado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAnulado.Location = new System.Drawing.Point(661, 39);
-            this.chkAnulado.Name = "chkAnulado";
-            this.chkAnulado.Size = new System.Drawing.Size(83, 19);
-            this.chkAnulado.TabIndex = 94;
-            this.chkAnulado.Text = "ANULADO";
-            this.chkAnulado.UseVisualStyleBackColor = true;
-            // 
-            // chkVigente
-            // 
-            this.chkVigente.AutoSize = true;
-            this.chkVigente.Enabled = false;
-            this.chkVigente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkVigente.Location = new System.Drawing.Point(563, 39);
-            this.chkVigente.Name = "chkVigente";
-            this.chkVigente.Size = new System.Drawing.Size(77, 19);
-            this.chkVigente.TabIndex = 93;
-            this.chkVigente.Text = "VIGENTE";
-            this.chkVigente.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 65);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 15);
-            this.label4.TabIndex = 96;
-            this.label4.Text = "DETALLE:";
-            // 
-            // txtDEtalle
-            // 
-            this.txtDEtalle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDEtalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDEtalle.Location = new System.Drawing.Point(9, 84);
-            this.txtDEtalle.Multiline = true;
-            this.txtDEtalle.Name = "txtDEtalle";
-            this.txtDEtalle.ReadOnly = true;
-            this.txtDEtalle.Size = new System.Drawing.Size(735, 60);
-            this.txtDEtalle.TabIndex = 95;
-            // 
             // FormHistorialProhibicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,6 +339,7 @@
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.dtgvHistorialProhibicion);
             this.Controls.Add(this.label28);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHistorialProhibicion";
             this.Text = "Historial Prohibicion";
             this.Load += new System.EventHandler(this.FormHistorialProhibicion_Load);

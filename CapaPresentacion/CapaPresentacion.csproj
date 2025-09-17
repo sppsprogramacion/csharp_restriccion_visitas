@@ -64,7 +64,8 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>restriccion icono %282%29.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -287,11 +288,7 @@
     </None>
     <None Include="Resources\buscar.png" />
     <None Include="Resources\buscar2.png" />
-    <Content Include="restriccion icono %282%29.ico" />
-    <Content Include="restriccion icono.ico" />
     <Content Include="restriccion-icono.ico" />
-    <Content Include="restriccion.ico" />
-    <Content Include="restriccion2.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll" />
     <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
@@ -301,7 +298,6 @@
     <None Include="Resources\usuario.png" />
     <None Include="Resources\usuario2.png" />
     <None Include="Resources\usuario3.png" />
-    <Content Include="restriccion-logo.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

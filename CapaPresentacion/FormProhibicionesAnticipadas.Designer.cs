@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProhibicionesAnticipadas));
             this.dtgvProhibicionesAnticipadas = new System.Windows.Forms.DataGridView();
             this.label26 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarApellido = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbSexoVisita = new System.Windows.Forms.ComboBox();
@@ -57,7 +59,6 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnBuscarApellido = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibicionesAnticipadas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -117,6 +118,21 @@
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda";
+            // 
+            // btnBuscarApellido
+            // 
+            this.btnBuscarApellido.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBuscarApellido.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBuscarApellido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarApellido.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarApellido.Location = new System.Drawing.Point(259, 21);
+            this.btnBuscarApellido.Name = "btnBuscarApellido";
+            this.btnBuscarApellido.Size = new System.Drawing.Size(80, 45);
+            this.btnBuscarApellido.TabIndex = 14;
+            this.btnBuscarApellido.Text = "BUSCAR";
+            this.btnBuscarApellido.UseVisualStyleBackColor = false;
+            this.btnBuscarApellido.Click += new System.EventHandler(this.btnBuscarApellido_Click);
             // 
             // groupBox2
             // 
@@ -399,21 +415,6 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnBuscarApellido
-            // 
-            this.btnBuscarApellido.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnBuscarApellido.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnBuscarApellido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarApellido.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarApellido.Location = new System.Drawing.Point(259, 21);
-            this.btnBuscarApellido.Name = "btnBuscarApellido";
-            this.btnBuscarApellido.Size = new System.Drawing.Size(80, 45);
-            this.btnBuscarApellido.TabIndex = 14;
-            this.btnBuscarApellido.Text = "BUSCAR";
-            this.btnBuscarApellido.UseVisualStyleBackColor = false;
-            this.btnBuscarApellido.Click += new System.EventHandler(this.btnBuscarApellido_Click);
-            // 
             // FormProhibicionesAnticipadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,6 +426,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label28);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormProhibicionesAnticipadas";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.btnVerVisitas = new System.Windows.Forms.Button();
             this.lblEncabezado = new System.Windows.Forms.Label();
             this.btnCerrarSistema = new System.Windows.Forms.Button();
@@ -160,6 +161,7 @@
             this.Controls.Add(this.btnCerrarSistema);
             this.Controls.Add(this.lblEncabezado);
             this.Controls.Add(this.btnVerVisitas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

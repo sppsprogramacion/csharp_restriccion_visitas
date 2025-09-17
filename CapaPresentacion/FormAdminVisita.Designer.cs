@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminVisita));
             this.tabVisita = new System.Windows.Forms.TabControl();
             this.pagDatosPersonales = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -2557,6 +2558,7 @@
             this.ClientSize = new System.Drawing.Size(1145, 731);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.tabVisita);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdminVisita";
