@@ -1,24 +1,25 @@
-﻿using iTextSharp.text.pdf;
+﻿using CapaDatos;
+using CommonCache;
+using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using CapaDatos;
-using System.Windows.Forms;
-using CommonCache;
 using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CapaPresentacion.Reportes.AdministrarVisita
+namespace CapaPresentacion.Reportes.ExcepcionIngreso
 {
-    public class ReportesAdminVisitaPDF
+    public class ReportesExcepcionesIngresoPDF
     {
-                
         //VINCULOS DE LA VISITA         
-        public static MemoryStream RepPdfInternosVinculados(DCiudadano ciudadanox,List<DVisitaInterno>listaVinculos)
+        public static MemoryStream RepPdfExcepcionesIngreso(List<DExcepcionIngresoVisita> listaExcepciones)
         {
             MemoryStream ms = new MemoryStream();
 
-            Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+            Document doc = new Document(PageSize.A4.Rotate(), 30, 30, 30, 30);
 
             PdfWriter writer = PdfWriter.GetInstance(doc, ms);
             writer.CloseStream = false; // evita cerrar el MemoryStream al cerrar el documento
@@ -29,24 +30,23 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
             var fuenteOrganismo = FontFactory.GetFont(FontFactory.TIMES, 10, BaseColor.BLACK);
             var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
             var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 11, BaseColor.BLACK);
+            var fuenteTabla = FontFactory.GetFont(FontFactory.HELVETICA, 9, BaseColor.BLACK);
 
             //logo encabezado
-            //string rutaImagen = Path.Combine(Application.StartupPath, "Resources/Img-reportes/", "logo_spps2.png");
-            //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaImagen);
-
             // Cargar directamente desde Resources
             System.Drawing.Image logoImg = Properties.Resources.logo_spps2;
             // Convertir a iTextSharp Image
             iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(logoImg, System.Drawing.Imaging.ImageFormat.Png);
             string organismo = CurrentUser.Instance.organismo.ToUpper();
-            logo.ScaleAbsolute(40, 40);
-            logo.SetAbsolutePosition(150, 770);
+            logo.ScaleAbsolute(30, 40);
+            logo.SetAbsolutePosition(150, 540);
             doc.Add(logo);
+
             doc.Add(new Paragraph(" "));
 
             // Crear tabla con 2 columnas
             PdfPTable tablaEncabezado = new PdfPTable(1);
-            tablaEncabezado.WidthPercentage = 50; // ocupa la mitad de la página
+            tablaEncabezado.WidthPercentage = 35; // ocupa la mitad de la página
             tablaEncabezado.HorizontalAlignment = Element.ALIGN_LEFT; // tabla a la izquierda
 
             // Centrar contenido de todas las celdas
@@ -78,21 +78,8 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             doc.Add(new Paragraph(" "));
 
-            //datos ciudadano
-            doc.Add(new Paragraph(" Apellido y nombre: " + ciudadanox.apellido + " " + ciudadanox.nombre , fuenteNormal));
-            doc.Add(new Paragraph(" DNI: " + ciudadanox.dni, fuenteNormal));
-            PdfPTable tablaDatos = new PdfPTable(2);
-            tablaDatos.WidthPercentage = 60;
-            tablaDatos.HorizontalAlignment = Element.ALIGN_LEFT; // tabla a la izquierda
-            tablaDatos.DefaultCell.Border = Rectangle.NO_BORDER;
-            tablaDatos.AddCell(new Paragraph("Sexo: " + ciudadanox.sexo.sexo, fuenteNormal));
-            tablaDatos.AddCell(new Paragraph("Edad: " + ciudadanox.edad, fuenteNormal));
-            doc.Add(tablaDatos);
-            //fin datos ciudadano
 
-            doc.Add(new Paragraph(" "));
-
-            Paragraph titulo = new Paragraph("Vinculos de la visita", fuenteTitulo);
+            Paragraph titulo = new Paragraph("Excepciones de ingreso", fuenteTitulo);
             titulo.Alignment = Element.ALIGN_CENTER;
             doc.Add(titulo);
 
@@ -101,19 +88,19 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             PdfPTable tablaVinculos = new PdfPTable(4);
             tablaVinculos.WidthPercentage = 100;
-            tablaVinculos.SetWidths(new float[] { 2.1f, 1f, 1.3f, 0.6f });
+            tablaVinculos.SetWidths(new float[] { 1.4f, 1.4f,0.5f, 3.7f });
             tablaVinculos.AddCell("Interno");
-            tablaVinculos.AddCell("Parentesco");
-            tablaVinculos.AddCell("Unidad");
-            tablaVinculos.AddCell("Vigente");
+            tablaVinculos.AddCell("Visita");
+            tablaVinculos.AddCell("fecha");
+            tablaVinculos.AddCell("Detalle");
 
             // Filas dinámicas
-            foreach (var vinculo in listaVinculos)
+            foreach (var excepcion in listaExcepciones)
             {
-                tablaVinculos.AddCell(new Paragraph(vinculo.interno.apellido.ToString() + " " + vinculo.interno.nombre.ToString(), fuenteNormal));
-                tablaVinculos.AddCell(new Paragraph(vinculo.parentesco.parentesco,fuenteNormal));
-                tablaVinculos.AddCell(new Paragraph(vinculo.interno.organismo.organismo.ToString(), fuenteNormal));
-                tablaVinculos.AddCell(new Paragraph(vinculo.vigente ? "SI" : "NO", fuenteNormal));
+                tablaVinculos.AddCell(new Paragraph(excepcion.interno.apellido.ToString() + " " + excepcion.interno.nombre.ToString(), fuenteTabla));
+                tablaVinculos.AddCell(new Paragraph(excepcion.ciudadano.apellido + " " + excepcion.ciudadano.nombre, fuenteTabla));
+                tablaVinculos.AddCell(new Paragraph(excepcion.fecha_excepcion.ToString(), fuenteTabla));
+                tablaVinculos.AddCell(new Paragraph(excepcion.motivo.ToString() + " - " + excepcion.detalle_excepcion.ToString(), fuenteTabla));
             }
 
             doc.Add(tablaVinculos);
@@ -123,7 +110,6 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             return ms;
         }
-    
-    } 
-    
+
+    }
 }

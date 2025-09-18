@@ -12,6 +12,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaPresentacion.Reportes.AdministrarVisita;
+using PdfiumViewer;
+using System.IO;
+using CapaPresentacion.Reportes.ExcepcionIngreso;
 
 namespace CapaPresentacion
 {
@@ -92,6 +96,7 @@ namespace CapaPresentacion
             this.accionAnularExcepcion = true;
             lblDetalleCumplAnularExcepcion.Text = "DETALLE ANULAR:";
             this.HabilitarControlesCumplimentarAnularExcepcion(true);
+            chkCumplimentarExcepcion.Enabled = false;
         }
 
 
@@ -124,21 +129,23 @@ namespace CapaPresentacion
 
             NExcepcionIngresoVisita nExcepcionIngreso = new NExcepcionIngresoVisita();
 
-            var data = new
-            {
-                detalle_cambio = txtDetalleCumplAnularExcepcion.Text,
-            };
-
-            string dataEnviar = JsonConvert.SerializeObject(data);
-
-
+            
             bool respuestaOk = false;
             string mensajeRespuesta = "";
+            string dataEnviar;
 
             //determinar cual es la accion a realizar con la prohibicion
             //usar el respectivo metodo
             if (this.accionAnularExcepcion)
             {
+
+                var dataAnular = new
+                {
+                    detalle_cambio = txtDetalleCumplAnularExcepcion.Text,
+                };
+
+                dataEnviar = JsonConvert.SerializeObject(dataAnular);
+
                 groupCumplimentarAnular.Enabled = false;
                 (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.AnularExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
                 groupCumplimentarAnular.Enabled = true;
@@ -157,6 +164,14 @@ namespace CapaPresentacion
 
             if (this.accionCumplimentarExcepcion)
             {
+                var dataCumplimentar = new
+                {
+                    cumplimentado = chkCumplimentarExcepcion.Checked,
+                    detalle_cambio = txtDetalleCumplAnularExcepcion.Text,
+                };
+
+                dataEnviar = JsonConvert.SerializeObject(dataCumplimentar);
+
                 groupCumplimentarAnular.Enabled = false;
                 (bool respuestaEditar, string errorResponse) = await nExcepcionIngreso.CumplimentarExcepcion(Convert.ToInt32(txtIdExcepcion.Text), dataEnviar);
                 groupCumplimentarAnular.Enabled = true;
@@ -192,11 +207,12 @@ namespace CapaPresentacion
         private void HabilitarControlesCumplimentarAnularExcepcion(bool habilitar)
         {
             //habilita controles
+            chkCumplimentarExcepcion.Enabled = habilitar;
             txtDetalleCumplAnularExcepcion.Enabled = habilitar;
 
             //limpia
             txtDetalleCumplAnularExcepcion.Text = string.Empty;
-
+            chkCumplimentarExcepcion.Checked = false;
 
             //habilita botones
             btnAnularExcepcion.Enabled = !habilitar;
@@ -215,7 +231,7 @@ namespace CapaPresentacion
         async private void CargarDataGridExcepciones()
         {
             NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
-            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.ListaExcepcionesIngresoXFecha(dtpFechaExcepcionBuscar.Value.ToString("yyyy-MM-dd"));
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.ListaExcepcionesIngresoXFecha(dtpFechaInicioExcepcion.Value.ToString("yyyy-MM-dd"), dtpFechaFinExcepcion.Value.ToString("yyyy-MM-dd"));
 
             if (listaExcepcionesIngreso == null)
             {
@@ -270,5 +286,62 @@ namespace CapaPresentacion
             this.HabilitarControlesCumplimentarAnularExcepcion(false);
         }
 
+        private async void btnImprimirExcepciones_Click(object sender, EventArgs e)
+        {
+            NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.ListaExcepcionesIngresoXFecha(dtpFechaInicioExcepcion.Value.ToString("yyyy-MM-dd"), dtpFechaFinExcepcion.Value.ToString("yyyy-MM-dd"));
+
+            if (listaExcepcionesIngreso == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Generar PDF en memoria
+            MemoryStream msOriginal = ReportesExcepcionesIngresoPDF.RepPdfExcepcionesIngreso( listaExcepcionesIngreso);
+
+            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
+            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
+
+            PdfDocument pdfDocument = null;
+
+            try
+            {
+                pdfDocument = PdfDocument.Load(ms);
+
+                Form formVisor = new Form
+                {
+                    Text = "Vista previa PDF",
+                    Width = 800,
+                    Height = 600
+                };
+
+                PdfViewer pdfViewer = new PdfViewer
+                {
+                    Dock = DockStyle.Fill,
+                    Document = pdfDocument
+                };
+
+                formVisor.Controls.Add(pdfViewer);
+
+                formVisor.FormClosed += (s, args) =>
+                {
+                    // Liberar recursos al cerrar el visor
+                    pdfViewer.Document.Dispose();
+                    pdfViewer.Dispose();
+                    formVisor.Dispose();
+                    ms.Dispose();
+                    pdfDocument = null;
+                };
+
+                formVisor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
+                ms.Dispose();
+                pdfDocument?.Dispose();
+            }
+        }
     }
 }

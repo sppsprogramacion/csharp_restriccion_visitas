@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExcepcionesIngreso));
             this.groupCumplimentarAnular = new System.Windows.Forms.GroupBox();
+            this.chkCumplimentarExcepcion = new System.Windows.Forms.CheckBox();
             this.btnAnularExcepcion = new System.Windows.Forms.Button();
             this.btnCumplimentarExcepcion = new System.Windows.Forms.Button();
             this.btnCancelarCumplAnularExcepcion = new System.Windows.Forms.Button();
@@ -60,7 +61,10 @@
             this.dtgvExcepcionesIngreso = new System.Windows.Forms.DataGridView();
             this.btnVerExcepciones = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.dtpFechaExcepcionBuscar = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaFinExcepcion = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpFechaInicioExcepcion = new System.Windows.Forms.DateTimePicker();
+            this.btnImprimirExcepciones = new System.Windows.Forms.Button();
             this.groupCumplimentarAnular.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvExcepcionesIngreso)).BeginInit();
@@ -68,6 +72,7 @@
             // 
             // groupCumplimentarAnular
             // 
+            this.groupCumplimentarAnular.Controls.Add(this.chkCumplimentarExcepcion);
             this.groupCumplimentarAnular.Controls.Add(this.btnAnularExcepcion);
             this.groupCumplimentarAnular.Controls.Add(this.btnCumplimentarExcepcion);
             this.groupCumplimentarAnular.Controls.Add(this.btnCancelarCumplAnularExcepcion);
@@ -81,6 +86,18 @@
             this.groupCumplimentarAnular.TabIndex = 98;
             this.groupCumplimentarAnular.TabStop = false;
             this.groupCumplimentarAnular.Text = "Cumplimentar / Anular";
+            // 
+            // chkCumplimentarExcepcion
+            // 
+            this.chkCumplimentarExcepcion.AutoSize = true;
+            this.chkCumplimentarExcepcion.Enabled = false;
+            this.chkCumplimentarExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCumplimentarExcepcion.Location = new System.Drawing.Point(8, 71);
+            this.chkCumplimentarExcepcion.Name = "chkCumplimentarExcepcion";
+            this.chkCumplimentarExcepcion.Size = new System.Drawing.Size(139, 19);
+            this.chkCumplimentarExcepcion.TabIndex = 86;
+            this.chkCumplimentarExcepcion.Text = "CUMPLIMENTADO?";
+            this.chkCumplimentarExcepcion.UseVisualStyleBackColor = true;
             // 
             // btnAnularExcepcion
             // 
@@ -147,7 +164,7 @@
             // 
             this.lblDetalleCumplAnularExcepcion.AutoSize = true;
             this.lblDetalleCumplAnularExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetalleCumplAnularExcepcion.Location = new System.Drawing.Point(5, 73);
+            this.lblDetalleCumplAnularExcepcion.Location = new System.Drawing.Point(5, 97);
             this.lblDetalleCumplAnularExcepcion.Name = "lblDetalleCumplAnularExcepcion";
             this.lblDetalleCumplAnularExcepcion.Size = new System.Drawing.Size(63, 15);
             this.lblDetalleCumplAnularExcepcion.TabIndex = 78;
@@ -158,10 +175,10 @@
             this.txtDetalleCumplAnularExcepcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDetalleCumplAnularExcepcion.Enabled = false;
             this.txtDetalleCumplAnularExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetalleCumplAnularExcepcion.Location = new System.Drawing.Point(8, 92);
+            this.txtDetalleCumplAnularExcepcion.Location = new System.Drawing.Point(8, 117);
             this.txtDetalleCumplAnularExcepcion.Multiline = true;
             this.txtDetalleCumplAnularExcepcion.Name = "txtDetalleCumplAnularExcepcion";
-            this.txtDetalleCumplAnularExcepcion.Size = new System.Drawing.Size(249, 106);
+            this.txtDetalleCumplAnularExcepcion.Size = new System.Drawing.Size(249, 81);
             this.txtDetalleCumplAnularExcepcion.TabIndex = 5;
             // 
             // groupBox12
@@ -408,7 +425,7 @@
             this.btnVerExcepciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerExcepciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerExcepciones.ForeColor = System.Drawing.Color.White;
-            this.btnVerExcepciones.Location = new System.Drawing.Point(175, 38);
+            this.btnVerExcepciones.Location = new System.Drawing.Point(275, 38);
             this.btnVerExcepciones.Name = "btnVerExcepciones";
             this.btnVerExcepciones.Size = new System.Drawing.Size(150, 45);
             this.btnVerExcepciones.TabIndex = 1;
@@ -420,28 +437,65 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(11, 38);
+            this.label21.Location = new System.Drawing.Point(146, 38);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(121, 15);
             this.label21.TabIndex = 105;
             this.label21.Text = "FECHA EXCEPCION:";
             // 
-            // dtpFechaExcepcionBuscar
+            // dtpFechaFinExcepcion
             // 
-            this.dtpFechaExcepcionBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaExcepcionBuscar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaExcepcionBuscar.Location = new System.Drawing.Point(14, 58);
-            this.dtpFechaExcepcionBuscar.Name = "dtpFechaExcepcionBuscar";
-            this.dtpFechaExcepcionBuscar.Size = new System.Drawing.Size(115, 21);
-            this.dtpFechaExcepcionBuscar.TabIndex = 0;
+            this.dtpFechaFinExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFinExcepcion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFinExcepcion.Location = new System.Drawing.Point(149, 58);
+            this.dtpFechaFinExcepcion.Name = "dtpFechaFinExcepcion";
+            this.dtpFechaFinExcepcion.Size = new System.Drawing.Size(115, 21);
+            this.dtpFechaFinExcepcion.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 15);
+            this.label3.TabIndex = 107;
+            this.label3.Text = "FECHA EXCEPCION:";
+            // 
+            // dtpFechaInicioExcepcion
+            // 
+            this.dtpFechaInicioExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInicioExcepcion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicioExcepcion.Location = new System.Drawing.Point(12, 58);
+            this.dtpFechaInicioExcepcion.Name = "dtpFechaInicioExcepcion";
+            this.dtpFechaInicioExcepcion.Size = new System.Drawing.Size(115, 21);
+            this.dtpFechaInicioExcepcion.TabIndex = 106;
+            // 
+            // btnImprimirExcepciones
+            // 
+            this.btnImprimirExcepciones.BackColor = System.Drawing.Color.White;
+            this.btnImprimirExcepciones.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnImprimirExcepciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirExcepciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirExcepciones.ForeColor = System.Drawing.Color.Indigo;
+            this.btnImprimirExcepciones.Location = new System.Drawing.Point(443, 39);
+            this.btnImprimirExcepciones.Name = "btnImprimirExcepciones";
+            this.btnImprimirExcepciones.Size = new System.Drawing.Size(194, 40);
+            this.btnImprimirExcepciones.TabIndex = 108;
+            this.btnImprimirExcepciones.Text = "Imprimir";
+            this.btnImprimirExcepciones.UseVisualStyleBackColor = false;
+            this.btnImprimirExcepciones.Click += new System.EventHandler(this.btnImprimirExcepciones_Click);
             // 
             // FormExcepcionesIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 701);
+            this.Controls.Add(this.btnImprimirExcepciones);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dtpFechaInicioExcepcion);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.dtpFechaExcepcionBuscar);
+            this.Controls.Add(this.dtpFechaFinExcepcion);
             this.Controls.Add(this.dtgvExcepcionesIngreso);
             this.Controls.Add(this.btnVerExcepciones);
             this.Controls.Add(this.label28);
@@ -449,6 +503,7 @@
             this.Controls.Add(this.groupBox12);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormExcepcionesIngreso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = resources.GetString("$this.Text");
             this.groupCumplimentarAnular.ResumeLayout(false);
             this.groupCumplimentarAnular.PerformLayout();
@@ -488,10 +543,14 @@
         private System.Windows.Forms.DataGridView dtgvExcepcionesIngreso;
         private System.Windows.Forms.Button btnVerExcepciones;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DateTimePicker dtpFechaExcepcionBuscar;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinExcepcion;
         private System.Windows.Forms.TextBox txtDniVisita;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtVisita;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkCumplimentarExcepcion;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicioExcepcion;
+        private System.Windows.Forms.Button btnImprimirExcepciones;
     }
 }

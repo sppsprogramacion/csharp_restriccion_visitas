@@ -129,7 +129,7 @@ namespace DAOImplement
         //FIN LISTA DE EXCEPCIONES POR CIUDADANO...................................................
 
         //LISTA EXCEPCIONES POR FECHA
-        public async Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngresoXFecha(string fechaExcepcion)
+        public async Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngresoXFecha(string fechaExcepcionInicio, string fechaExcepcionFin)
         {
             List<DExcepcionIngresoVisita> listaExcepcionesIngreso = new List<DExcepcionIngresoVisita>();
             string token = SessionManager.Token; // Aquí pones tu token real
@@ -139,7 +139,7 @@ namespace DAOImplement
                 // Agregar el token en los headers
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/excepciones-ingreso-visita/lista-fecha?fecha_excpcion=" + fechaExcepcion);
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/excepciones-ingreso-visita/lista-fecha?fecha_inicio=" + fechaExcepcionInicio + "&fecha_fin=" + fechaExcepcionFin);
 
                 if (httpResponse.IsSuccessStatusCode)
                 {

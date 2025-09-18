@@ -12,7 +12,7 @@ namespace DAO
         Task<(DExcepcionIngresoVisita, string error)> CrearExcepcionIngresoVisita(string excepcionIngresoVisita);
         Task<(DExcepcionIngresoVisita, string error)> BuscarExcepcionIngresoVisitaXId(int idExcepcionIngresoVisita);
         Task<(List<DExcepcionIngresoVisita>, string error)> RetornarExcepcionesIngresoXCiudadano(int idCiudadano);
-        Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngresoXFecha(string fechaExcepcion);
+        Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngresoXFecha(string fechaExcepcionInicio, string fechaExcepcionFin);
         Task<(bool, string error)> AnularExcepcion(int id, string dataAnular);
         Task<(bool, string error)> CumplimentarExcepcion(int id, string dataCumplimentar);
     }
