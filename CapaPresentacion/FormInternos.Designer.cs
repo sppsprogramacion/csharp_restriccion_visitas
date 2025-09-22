@@ -55,7 +55,7 @@
             this.dtvInternos.Location = new System.Drawing.Point(12, 93);
             this.dtvInternos.Name = "dtvInternos";
             this.dtvInternos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtvInternos.Size = new System.Drawing.Size(677, 264);
+            this.dtvInternos.Size = new System.Drawing.Size(677, 345);
             this.dtvInternos.TabIndex = 2;
             this.dtvInternos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtvInternos_KeyDown);
             // 

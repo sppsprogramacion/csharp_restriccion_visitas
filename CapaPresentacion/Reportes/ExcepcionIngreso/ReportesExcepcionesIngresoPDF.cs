@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace CapaPresentacion.Reportes.ExcepcionIngreso
 {
@@ -28,9 +29,9 @@ namespace CapaPresentacion.Reportes.ExcepcionIngreso
 
             var fuenteLogo = FontFactory.GetFont(FontFactory.TIMES, 9, BaseColor.BLACK);
             var fuenteOrganismo = FontFactory.GetFont(FontFactory.TIMES, 10, BaseColor.BLACK);
-            var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
-            var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 11, BaseColor.BLACK);
-            var fuenteTabla = FontFactory.GetFont(FontFactory.HELVETICA, 9, BaseColor.BLACK);
+            var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 11, BaseColor.BLACK);
+            var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.BLACK);
+            var fuenteTabla = FontFactory.GetFont(FontFactory.HELVETICA, 8, BaseColor.BLACK);
 
             //logo encabezado
             // Cargar directamente desde Resources
@@ -89,17 +90,17 @@ namespace CapaPresentacion.Reportes.ExcepcionIngreso
             PdfPTable tablaVinculos = new PdfPTable(4);
             tablaVinculos.WidthPercentage = 100;
             tablaVinculos.SetWidths(new float[] { 1.4f, 1.4f,0.5f, 3.7f });
-            tablaVinculos.AddCell("Interno");
-            tablaVinculos.AddCell("Visita");
-            tablaVinculos.AddCell("fecha");
-            tablaVinculos.AddCell("Detalle");
+            tablaVinculos.AddCell(new Paragraph("Interno", fuenteNormal));
+            tablaVinculos.AddCell(new Paragraph("Visita", fuenteNormal));
+            tablaVinculos.AddCell(new Paragraph("Fecha", fuenteNormal));
+            tablaVinculos.AddCell(new Paragraph("Detalle", fuenteNormal));
 
             // Filas dinámicas
             foreach (var excepcion in listaExcepciones)
             {
                 tablaVinculos.AddCell(new Paragraph(excepcion.interno.apellido.ToString() + " " + excepcion.interno.nombre.ToString(), fuenteTabla));
                 tablaVinculos.AddCell(new Paragraph(excepcion.ciudadano.apellido + " " + excepcion.ciudadano.nombre, fuenteTabla));
-                tablaVinculos.AddCell(new Paragraph(excepcion.fecha_excepcion.ToString(), fuenteTabla));
+                tablaVinculos.AddCell(new Paragraph(excepcion.fecha_excepcion.ToShortDateString(), fuenteTabla));
                 tablaVinculos.AddCell(new Paragraph(excepcion.motivo.ToString() + " - " + excepcion.detalle_excepcion.ToString(), fuenteTabla));
             }
 

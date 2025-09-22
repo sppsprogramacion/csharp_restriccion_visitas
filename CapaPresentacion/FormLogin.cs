@@ -69,8 +69,10 @@ namespace CapaPresentacion
             string dataLogin = JsonConvert.SerializeObject(data);
 
             btnLogin.Enabled = false;
+            btnCerrarSistema.Enabled = false;
             (bool acceso, string error) = await nAuth.LoginUsuario(dataLogin);
             btnLogin.Enabled = true;
+            btnCerrarSistema.Enabled = true;
 
             if (acceso)
             {

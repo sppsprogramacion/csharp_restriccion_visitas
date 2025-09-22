@@ -60,7 +60,7 @@ namespace CapaPresentacion
             tabVisita.Enabled = false;
             idCiudadano = Convert.ToInt32(formVisitas.idCiudadanoGlobal);
             (DCiudadano dCiudadanoX, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
-            tabVisita.Enabled = true;
+            
 
             this.dCiudadanoGlo = dCiudadanoX;
 
@@ -107,6 +107,7 @@ namespace CapaPresentacion
             txtOrganismoAlta.Text = this.dCiudadanoGlo.organismo_alta.organismo;
             pictureFoto.Load(this.dCiudadanoGlo.foto);
 
+            tabVisita.Enabled = true;
             this.ControlEsVisita();
             this.ControlTieneDiscapacidad();
             this.ControlEdad();

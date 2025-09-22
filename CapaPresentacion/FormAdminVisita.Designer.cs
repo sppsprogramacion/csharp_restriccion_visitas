@@ -158,7 +158,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgvSabana = new System.Windows.Forms.DataGridView();
             this.tabNovedades = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.btnNuevaNovedad = new System.Windows.Forms.Button();
@@ -238,7 +238,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.tabSabana.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvSabana)).BeginInit();
             this.tabNovedades.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -1725,7 +1725,7 @@
             this.tabSabana.Controls.Add(this.dateTimePicker2);
             this.tabSabana.Controls.Add(this.label24);
             this.tabSabana.Controls.Add(this.dateTimePicker3);
-            this.tabSabana.Controls.Add(this.dataGridView1);
+            this.tabSabana.Controls.Add(this.dtgvSabana);
             this.tabSabana.Location = new System.Drawing.Point(4, 25);
             this.tabSabana.Name = "tabSabana";
             this.tabSabana.Padding = new System.Windows.Forms.Padding(3);
@@ -1800,13 +1800,13 @@
             this.dateTimePicker3.Size = new System.Drawing.Size(115, 21);
             this.dateTimePicker3.TabIndex = 47;
             // 
-            // dataGridView1
+            // dtgvSabana
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 145);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(756, 449);
-            this.dataGridView1.TabIndex = 46;
+            this.dtgvSabana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvSabana.Location = new System.Drawing.Point(15, 145);
+            this.dtgvSabana.Name = "dtgvSabana";
+            this.dtgvSabana.Size = new System.Drawing.Size(756, 449);
+            this.dtgvSabana.TabIndex = 46;
             // 
             // tabNovedades
             // 
@@ -2125,6 +2125,7 @@
             this.groupBox13.TabIndex = 94;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Cumplimentar / Anular";
+            this.groupBox13.Visible = false;
             // 
             // btnAnularExcepcion
             // 
@@ -2592,7 +2593,7 @@
             this.groupBox5.PerformLayout();
             this.tabSabana.ResumeLayout(false);
             this.tabSabana.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvSabana)).EndInit();
             this.tabNovedades.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -2668,7 +2669,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgvSabana;
         private System.Windows.Forms.Button btnGuardarModificarParentesco;
         private System.Windows.Forms.Button btnCancelarModificarParentesco;
         private System.Windows.Forms.Label label26;
