@@ -81,5 +81,20 @@ namespace CapaPresentacion
                 
             }
         }
+
+        private void dtvInternos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtBuscarApellidoInternos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

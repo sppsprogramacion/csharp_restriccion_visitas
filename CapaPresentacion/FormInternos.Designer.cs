@@ -48,6 +48,7 @@
             this.label28.TabIndex = 75;
             this.label28.Text = "BUSCAR INTERNO";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label28.Click += new System.EventHandler(this.label28_Click);
             // 
             // dtvInternos
             // 
@@ -57,6 +58,7 @@
             this.dtvInternos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvInternos.Size = new System.Drawing.Size(677, 345);
             this.dtvInternos.TabIndex = 2;
+            this.dtvInternos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvInternos_CellContentClick);
             this.dtvInternos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtvInternos_KeyDown);
             // 
             // txtBuscarApellidoInternos
@@ -65,6 +67,7 @@
             this.txtBuscarApellidoInternos.Name = "txtBuscarApellidoInternos";
             this.txtBuscarApellidoInternos.Size = new System.Drawing.Size(216, 20);
             this.txtBuscarApellidoInternos.TabIndex = 0;
+            this.txtBuscarApellidoInternos.TextChanged += new System.EventHandler(this.txtBuscarApellidoInternos_TextChanged);
             // 
             // label26
             // 

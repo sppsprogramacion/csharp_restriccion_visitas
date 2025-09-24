@@ -752,7 +752,7 @@ namespace CapaPresentacion
 
             if (listaParentescos.Count == 0)
             {
-                MessageBox.Show("No se encontraron registros par", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se encontraron registros.", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
