@@ -58,6 +58,7 @@ namespace CapaPresentacion
                 return;
             }
             //fin validadr formulario
+
             NAuth nAuth = new NAuth();
 
             var data = new
