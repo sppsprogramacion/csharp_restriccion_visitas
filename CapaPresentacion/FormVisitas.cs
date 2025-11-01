@@ -140,9 +140,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void dtgvVisitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }
