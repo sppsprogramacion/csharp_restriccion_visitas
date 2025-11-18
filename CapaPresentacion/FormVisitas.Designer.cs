@@ -176,8 +176,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormVisitas";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Visitas";
+            this.Text = "  ";
             this.Load += new System.EventHandler(this.Visitas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvVisitas)).EndInit();
             this.groupBox1.ResumeLayout(false);

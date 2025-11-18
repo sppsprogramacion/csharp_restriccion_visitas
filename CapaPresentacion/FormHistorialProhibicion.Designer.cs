@@ -341,6 +341,7 @@
             this.Controls.Add(this.label28);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHistorialProhibicion";
+            this.ShowInTaskbar = false;
             this.Text = "Historial Prohibicion";
             this.Load += new System.EventHandler(this.FormHistorialProhibicion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHistorialProhibicion)).EndInit();

@@ -46,6 +46,7 @@ namespace CapaPresentacion.Validaciones
         public DateTime dtpFechaExcepcion { get; set; }
         public string txtMotivoExcepcion { get; set; }
         public string txtDetalleExcepcion { get; set; }
+        public string txtIdInternoExcepcion { get; set; }
         //cumplimentar y anular
         public string txtDetalleCumplAnularExcepcion { get; set; }
 

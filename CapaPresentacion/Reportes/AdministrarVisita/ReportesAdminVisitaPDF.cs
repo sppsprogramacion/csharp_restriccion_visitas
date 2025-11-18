@@ -18,7 +18,7 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
         {
             MemoryStream ms = new MemoryStream();
 
-            Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+            Document doc = new Document(PageSize.A4.Rotate(), 50, 50, 50, 50);
 
             PdfWriter writer = PdfWriter.GetInstance(doc, ms);
             writer.CloseStream = false; // evita cerrar el MemoryStream al cerrar el documento
@@ -27,8 +27,8 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             var fuenteLogo = FontFactory.GetFont(FontFactory.TIMES, 9, BaseColor.BLACK);
             var fuenteOrganismo = FontFactory.GetFont(FontFactory.TIMES, 10, BaseColor.BLACK);
-            var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
-            var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 11, BaseColor.BLACK);
+            var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10, BaseColor.BLACK);
+            var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.BLACK);
 
             //logo encabezado
             //string rutaImagen = Path.Combine(Application.StartupPath, "Resources/Img-reportes/", "logo_spps2.png");
@@ -46,7 +46,7 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             // Crear tabla con 2 columnas
             PdfPTable tablaEncabezado = new PdfPTable(1);
-            tablaEncabezado.WidthPercentage = 50; // ocupa la mitad de la página
+            tablaEncabezado.WidthPercentage = 35; // ocupa la mitad de la página
             tablaEncabezado.HorizontalAlignment = Element.ALIGN_LEFT; // tabla a la izquierda
 
             // Centrar contenido de todas las celdas
@@ -99,13 +99,17 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             doc.Add(new Paragraph(" "));
 
-            PdfPTable tablaVinculos = new PdfPTable(4);
+            PdfPTable tablaVinculos = new PdfPTable(8);
             tablaVinculos.WidthPercentage = 100;
-            tablaVinculos.SetWidths(new float[] { 2.1f, 1f, 1.3f, 0.6f });
+            tablaVinculos.SetWidths(new float[] { 2.5f, 1.2f, 1.3f, 0.6f, 0.6f, 0.9f, 0.9f, 2.5f });
             tablaVinculos.AddCell("Interno");
             tablaVinculos.AddCell("Parentesco");
             tablaVinculos.AddCell("Unidad");
             tablaVinculos.AddCell("Vigente");
+            tablaVinculos.AddCell("Prohibido");
+            tablaVinculos.AddCell("Inicio");
+            tablaVinculos.AddCell("Fin");
+            tablaVinculos.AddCell("Detalle");
 
             // Filas dinámicas
             foreach (var vinculo in listaVinculos)
@@ -114,6 +118,11 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
                 tablaVinculos.AddCell(new Paragraph(vinculo.parentesco.parentesco,fuenteNormal));
                 tablaVinculos.AddCell(new Paragraph(vinculo.interno.organismo.organismo.ToString(), fuenteNormal));
                 tablaVinculos.AddCell(new Paragraph(vinculo.vigente ? "SI" : "NO", fuenteNormal));
+                tablaVinculos.AddCell(new Paragraph(vinculo.prohibido ? "SI" : "NO", fuenteNormal));
+                tablaVinculos.AddCell(new Paragraph(vinculo.fecha_inicio?.ToString("dd/MM/yyyy") ?? "", fuenteNormal));
+                tablaVinculos.AddCell(new Paragraph(vinculo.fecha_fin?.ToString("dd/MM/yyyy") ?? "", fuenteNormal));
+                tablaVinculos.AddCell(new Paragraph(vinculo.detalles_prohibicion, fuenteNormal));
+
             }
 
             doc.Add(tablaVinculos);

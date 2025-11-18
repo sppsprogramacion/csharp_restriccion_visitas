@@ -230,6 +230,21 @@ namespace CapaPresentacion
             btnGuardar.Enabled = habilitar;
             btnCancelar.Enabled = habilitar;
             btnBuscarApellido.Enabled = !habilitar;
+            btnInterno.Enabled = habilitar;
+        }
+
+        private void btnInterno_Click(object sender, EventArgs e)
+        {
+            using (FormInternos formInternos = new FormInternos())
+            {
+                // Aquí se abre el FormularioB
+                if (formInternos.ShowDialog() == DialogResult.OK)
+                {
+                    // Recién después de cerrar FormularioB, puedo leer el dato
+                    txtApellidoInterno.Text = formInternos.InternoSeleccionadoApellido;
+                    txtNombreInterno.Text = formInternos.InternoSeleccionadoNombre;
+                }
+            }
         }
         //FIN HABILITAR CONTROLES...............................................
 

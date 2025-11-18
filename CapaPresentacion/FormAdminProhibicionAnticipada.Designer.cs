@@ -870,6 +870,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdminProhibicionAnticipada";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrar Prohibicion Anticipada";
             this.Load += new System.EventHandler(this.FormAdminProhibicionAnticipada_Load_1);

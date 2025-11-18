@@ -65,7 +65,6 @@
             this.txtBuscarApellidoInternos.Name = "txtBuscarApellidoInternos";
             this.txtBuscarApellidoInternos.Size = new System.Drawing.Size(216, 20);
             this.txtBuscarApellidoInternos.TabIndex = 0;
-           
             // 
             // label26
             // 
@@ -104,6 +103,7 @@
             this.Controls.Add(this.label28);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInternos";
+            this.ShowInTaskbar = false;
             this.Text = "Buscar interno";
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).EndInit();
             this.ResumeLayout(false);

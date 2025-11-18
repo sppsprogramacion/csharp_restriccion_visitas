@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminVisita));
             this.tabVisita = new System.Windows.Forms.TabControl();
             this.pagDatosPersonales = new System.Windows.Forms.TabPage();
@@ -2519,6 +2520,8 @@
             this.dgvRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistroDiario.Location = new System.Drawing.Point(15, 77);
             this.dgvRegistroDiario.Name = "dgvRegistroDiario";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRegistroDiario.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRegistroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegistroDiario.Size = new System.Drawing.Size(1041, 414);
             this.dgvRegistroDiario.TabIndex = 3;
@@ -2563,6 +2566,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdminVisita";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmAdminVisita_Load);

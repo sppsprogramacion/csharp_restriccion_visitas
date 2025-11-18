@@ -15,7 +15,8 @@ namespace CapaPresentacion
     public partial class FormInternos : Form
     {
         public string IdInternoSeleccionado { get; private set; }
-        public string InternoSeleccionado { get; private set; }
+        public string InternoSeleccionadoApellido { get; private set; }
+        public string InternoSeleccionadoNombre { get; private set; }
 
 
         public FormInternos()
@@ -37,7 +38,8 @@ namespace CapaPresentacion
                 .Select(c => new
                 {
                     id_interno = c.id_interno,
-                    Interno = c.apellido + " " + c.nombre,
+                    Apellido = c.apellido,
+                    Nombre = c.nombre,
                     Prontuario = c.prontuario,
                     Sexo = c.sexo.sexo
                     
@@ -68,7 +70,8 @@ namespace CapaPresentacion
                 if (dtvInternos.SelectedRows.Count > 0)
                 {
                     IdInternoSeleccionado = Convert.ToString(this.dtvInternos.CurrentRow.Cells["id_interno"].Value);
-                    InternoSeleccionado = Convert.ToString(this.dtvInternos.CurrentRow.Cells["interno"].Value);
+                    InternoSeleccionadoApellido = Convert.ToString(this.dtvInternos.CurrentRow.Cells["Apellido"].Value);
+                    InternoSeleccionadoNombre = Convert.ToString(this.dtvInternos.CurrentRow.Cells["Nombre"].Value);
 
                     this.DialogResult = DialogResult.OK; // Para indicar que cerró bien
                     this.Close();

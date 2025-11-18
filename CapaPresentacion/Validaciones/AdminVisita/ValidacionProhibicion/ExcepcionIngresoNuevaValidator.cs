@@ -23,7 +23,11 @@ namespace CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion
             RuleFor(x => x.dtpFechaExcepcion.ToString())
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("La fecha de excepcion es obligatoria");
-            
+            RuleFor(x => x.txtIdInternoExcepcion)
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty().WithMessage("Debe ingresar un valor para el identificador del interno (id interno).")
+                .Must(BeAnInteger).WithMessage("El el identificador del interno (id interno) debe ser un numero entero.");
+
         }
 
 

@@ -1603,6 +1603,7 @@ namespace CapaPresentacion
                 dtpFechaExcepcion = dtpFechaExcepcion.Value,
                 txtMotivoExcepcion = txtMotivoExcepcion.Text,
                 txtDetalleExcepcion = txtDetalleExcepcion.Text,
+                txtIdInternoExcepcion = txtIdInternoExcepcion.Text,
             };
 
             var validator = new ExcepcionIngresoNuevaValidator();
@@ -1994,7 +1995,7 @@ namespace CapaPresentacion
                 {
                     // Recién después de cerrar FormularioB, puedo leer el dato
                     txtIdInternoExcepcion.Text = formInternos.IdInternoSeleccionado;
-                    txtInternoExcepcion.Text = formInternos.InternoSeleccionado;
+                    txtInternoExcepcion.Text = formInternos.InternoSeleccionadoApellido + " " + formInternos.InternoSeleccionadoNombre;
                 }
             }
         }

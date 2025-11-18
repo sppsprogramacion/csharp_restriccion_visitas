@@ -503,6 +503,7 @@
             this.Controls.Add(this.groupBox12);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormExcepcionesIngreso";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = resources.GetString("$this.Text");
             this.groupCumplimentarAnular.ResumeLayout(false);
