@@ -1630,7 +1630,8 @@ namespace CapaPresentacion
                 interno_id = Convert.ToInt32(txtIdInternoExcepcion.Text),
                 motivo = txtMotivoExcepcion.Text,
                 detalle_excepcion = txtDetalleExcepcion.Text,
-                fecha_excepcion = dtpFechaExcepcion.Value
+                fecha_excepcion = dtpFechaExcepcion.Value,
+                es_visita_ordinaria = chkEsParaOrdinaria.Checked
             };
 
             string dataExcepcion = JsonConvert.SerializeObject(data);
@@ -1689,6 +1690,7 @@ namespace CapaPresentacion
                         txtInternoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Interno"].Value.ToString();
                         dtpFechaExcepcion.Value = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaExcepcion"].Value.ToString());
                         txtFechaCargaExcepcion.Text = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaCarga"].Value).ToString("dd/MM/yyyy");
+                        chkEsParaOrdinaria.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["VisitaOrdinaria"].Value.ToString());
                         txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
                         txtUsuarioCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Usuario"].Value.ToString();
                         chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Cumplimentado"].Value.ToString());
@@ -1851,6 +1853,7 @@ namespace CapaPresentacion
             txtMotivoExcepcion.Text = string.Empty;
             txtDetalleExcepcion.ReadOnly = !habilitar;
             txtDetalleExcepcion.Text = string.Empty;
+            chkEsParaOrdinaria.Enabled = habilitar;
 
             //limpia
             txtIdExcepcion.Text = string.Empty;
@@ -1859,6 +1862,7 @@ namespace CapaPresentacion
             txtUsuarioCargaExcepcion.Text = string.Empty;
             chkCumplimentadoExcepcion.Checked = false;
             chkAnuladoExcepcion.Checked = false;
+            chkEsParaOrdinaria.Checked = false;
 
             //habilita botones
             btnInterno.Enabled = habilitar;
@@ -1917,6 +1921,7 @@ namespace CapaPresentacion
                     Detalle = c.detalle_excepcion,
                     Interno = c.interno.apellido + " " + c.interno.nombre,
                     FechaCarga = c.fecha_carga,
+                    VisitaOrdinaria = c.es_visita_ordinaria,
                     Organismo = c.organismo.organismo,
                     Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
                     Cumplimentado = c.cumplimentado,

@@ -17,7 +17,8 @@ namespace CapaDatos
         public string detalle_excepcion { get; set; }
         public DateTime fecha_excepcion { get; set; }
         public bool cumplimentado { get; set; }
-        public bool anulado { get; set; }        
+        public bool anulado { get; set; }
+        public bool es_visita_ordinaria { get; set; }        
         public DateTime fecha_carga { get; set; }
         public int organismo_id { get; set; }
         public DOrganismo organismo { get; set; }
