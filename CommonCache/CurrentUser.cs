@@ -52,6 +52,7 @@ namespace CommonCache
             id_usuario = 0;
             apellido = string.Empty; ;
             nombre = string.Empty; ;
+            organismo = string.Empty;
             is_active = false;
             roles = null;
         }
