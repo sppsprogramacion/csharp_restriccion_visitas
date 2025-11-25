@@ -250,10 +250,10 @@ namespace CapaPresentacion
                     FechaExcepcion = c.fecha_excepcion,
                     Cumplimentado = c.cumplimentado,
                     Detalle = c.detalle_excepcion,
+                    Controlado = c.controlado,
                     FechaCarga = c.fecha_carga,
                     Organismo = c.organismo.organismo,
-                    Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
-                    Anulado = c.anulado
+                    Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre
 
                 })
                 .ToList();

@@ -93,7 +93,7 @@
             this.btnProhibicionesAnticipadas.Name = "btnProhibicionesAnticipadas";
             this.btnProhibicionesAnticipadas.Size = new System.Drawing.Size(120, 70);
             this.btnProhibicionesAnticipadas.TabIndex = 1;
-            this.btnProhibicionesAnticipadas.Text = "Prohibiciones Antiicpadas";
+            this.btnProhibicionesAnticipadas.Text = "Prohibiciones Anticipadas";
             this.btnProhibicionesAnticipadas.UseVisualStyleBackColor = false;
             this.btnProhibicionesAnticipadas.Click += new System.EventHandler(this.btnProhibicionesAnticipadas_Click);
             // 

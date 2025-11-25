@@ -1694,7 +1694,7 @@ namespace CapaPresentacion
                         txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
                         txtUsuarioCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Usuario"].Value.ToString();
                         chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Cumplimentado"].Value.ToString());
-                        chkAnuladoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Anulado"].Value.ToString());
+                        chkControladoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Controlado"].Value.ToString());
 
                     }
                     else
@@ -1861,7 +1861,7 @@ namespace CapaPresentacion
             txtOrganismoExepcion.Text = string.Empty;
             txtUsuarioCargaExcepcion.Text = string.Empty;
             chkCumplimentadoExcepcion.Checked = false;
-            chkAnuladoExcepcion.Checked = false;
+            chkControladoExcepcion.Checked = false;
             chkEsParaOrdinaria.Checked = false;
 
             //habilita botones
@@ -1925,6 +1925,7 @@ namespace CapaPresentacion
                     Organismo = c.organismo.organismo,
                     Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
                     Cumplimentado = c.cumplimentado,
+                    Controlado = c.controlado,
                     Anulado = c.anulado
 
                 })

@@ -193,6 +193,7 @@
             this.lblDetalleCumplAnularExcepcion = new System.Windows.Forms.Label();
             this.txtDetalleCumplAnularExcepcion = new System.Windows.Forms.TextBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.chkEsParaOrdinaria = new System.Windows.Forms.CheckBox();
             this.btnInterno = new System.Windows.Forms.Button();
             this.txtInternoExcepcion = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
@@ -201,7 +202,7 @@
             this.txtFechaCargaExcepcion = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
             this.txtIdExcepcion = new System.Windows.Forms.TextBox();
-            this.chkAnuladoExcepcion = new System.Windows.Forms.CheckBox();
+            this.chkControladoExcepcion = new System.Windows.Forms.CheckBox();
             this.chkCumplimentadoExcepcion = new System.Windows.Forms.CheckBox();
             this.label53 = new System.Windows.Forms.Label();
             this.txtUsuarioCargaExcepcion = new System.Windows.Forms.TextBox();
@@ -221,7 +222,6 @@
             this.dgvRegistroDiario = new System.Windows.Forms.DataGridView();
             this.btnVerRegistroDiario = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
-            this.chkEsParaOrdinaria = new System.Windows.Forms.CheckBox();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -2222,7 +2222,7 @@
             this.groupBox12.Controls.Add(this.txtFechaCargaExcepcion);
             this.groupBox12.Controls.Add(this.label54);
             this.groupBox12.Controls.Add(this.txtIdExcepcion);
-            this.groupBox12.Controls.Add(this.chkAnuladoExcepcion);
+            this.groupBox12.Controls.Add(this.chkControladoExcepcion);
             this.groupBox12.Controls.Add(this.chkCumplimentadoExcepcion);
             this.groupBox12.Controls.Add(this.label53);
             this.groupBox12.Controls.Add(this.txtUsuarioCargaExcepcion);
@@ -2245,6 +2245,18 @@
             this.groupBox12.TabIndex = 93;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Excepcion para ingreso";
+            // 
+            // chkEsParaOrdinaria
+            // 
+            this.chkEsParaOrdinaria.AutoSize = true;
+            this.chkEsParaOrdinaria.Enabled = false;
+            this.chkEsParaOrdinaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEsParaOrdinaria.Location = new System.Drawing.Point(12, 118);
+            this.chkEsParaOrdinaria.Name = "chkEsParaOrdinaria";
+            this.chkEsParaOrdinaria.Size = new System.Drawing.Size(182, 19);
+            this.chkEsParaOrdinaria.TabIndex = 3;
+            this.chkEsParaOrdinaria.Text = "ES PARA VISITA ORDINARIA";
+            this.chkEsParaOrdinaria.UseVisualStyleBackColor = true;
             // 
             // btnInterno
             // 
@@ -2328,17 +2340,17 @@
             this.txtIdExcepcion.Size = new System.Drawing.Size(105, 21);
             this.txtIdExcepcion.TabIndex = 7;
             // 
-            // chkAnuladoExcepcion
+            // chkControladoExcepcion
             // 
-            this.chkAnuladoExcepcion.AutoSize = true;
-            this.chkAnuladoExcepcion.Enabled = false;
-            this.chkAnuladoExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAnuladoExcepcion.Location = new System.Drawing.Point(410, 266);
-            this.chkAnuladoExcepcion.Name = "chkAnuladoExcepcion";
-            this.chkAnuladoExcepcion.Size = new System.Drawing.Size(83, 19);
-            this.chkAnuladoExcepcion.TabIndex = 86;
-            this.chkAnuladoExcepcion.Text = "ANULADO";
-            this.chkAnuladoExcepcion.UseVisualStyleBackColor = true;
+            this.chkControladoExcepcion.AutoSize = true;
+            this.chkControladoExcepcion.Enabled = false;
+            this.chkControladoExcepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkControladoExcepcion.Location = new System.Drawing.Point(410, 266);
+            this.chkControladoExcepcion.Name = "chkControladoExcepcion";
+            this.chkControladoExcepcion.Size = new System.Drawing.Size(109, 19);
+            this.chkControladoExcepcion.TabIndex = 86;
+            this.chkControladoExcepcion.Text = "CONTROLADO";
+            this.chkControladoExcepcion.UseVisualStyleBackColor = true;
             // 
             // chkCumplimentadoExcepcion
             // 
@@ -2554,18 +2566,6 @@
             this.label28.TabIndex = 74;
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chkEsParaOrdinaria
-            // 
-            this.chkEsParaOrdinaria.AutoSize = true;
-            this.chkEsParaOrdinaria.Enabled = false;
-            this.chkEsParaOrdinaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEsParaOrdinaria.Location = new System.Drawing.Point(12, 118);
-            this.chkEsParaOrdinaria.Name = "chkEsParaOrdinaria";
-            this.chkEsParaOrdinaria.Size = new System.Drawing.Size(182, 19);
-            this.chkEsParaOrdinaria.TabIndex = 3;
-            this.chkEsParaOrdinaria.Text = "ES PARA VISITA ORDINARIA";
-            this.chkEsParaOrdinaria.UseVisualStyleBackColor = true;
             // 
             // FormAdminVisita
             // 
@@ -2784,7 +2784,7 @@
         private System.Windows.Forms.TextBox txtOrganismoExepcion;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.CheckBox chkCumplimentadoExcepcion;
-        private System.Windows.Forms.CheckBox chkAnuladoExcepcion;
+        private System.Windows.Forms.CheckBox chkControladoExcepcion;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Button btnAnularExcepcion;
         private System.Windows.Forms.Button btnCumplimentarExcepcion;

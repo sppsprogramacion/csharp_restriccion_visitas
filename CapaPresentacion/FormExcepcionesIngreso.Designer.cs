@@ -439,9 +439,9 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(146, 38);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(121, 15);
+            this.label21.Size = new System.Drawing.Size(71, 15);
             this.label21.TabIndex = 105;
-            this.label21.Text = "FECHA EXCEPCION:";
+            this.label21.Text = "FECHA FIN:";
             // 
             // dtpFechaFinExcepcion
             // 
@@ -458,9 +458,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(9, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 15);
+            this.label3.Size = new System.Drawing.Size(87, 15);
             this.label3.TabIndex = 107;
-            this.label3.Text = "FECHA EXCEPCION:";
+            this.label3.Text = "FECHA INICIO:";
             // 
             // dtpFechaInicioExcepcion
             // 
