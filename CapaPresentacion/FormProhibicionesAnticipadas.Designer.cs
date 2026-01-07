@@ -56,10 +56,10 @@
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnInterno = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnInterno = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibicionesAnticipadas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -253,7 +253,6 @@
             this.txtNombreInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreInterno.Location = new System.Drawing.Point(262, 210);
             this.txtNombreInterno.Name = "txtNombreInterno";
-            this.txtNombreInterno.ReadOnly = true;
             this.txtNombreInterno.Size = new System.Drawing.Size(249, 21);
             this.txtNombreInterno.TabIndex = 10;
             // 
@@ -264,7 +263,6 @@
             this.txtApellidoInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidoInterno.Location = new System.Drawing.Point(10, 210);
             this.txtApellidoInterno.Name = "txtApellidoInterno";
-            this.txtApellidoInterno.ReadOnly = true;
             this.txtApellidoInterno.Size = new System.Drawing.Size(228, 21);
             this.txtApellidoInterno.TabIndex = 9;
             // 
@@ -373,6 +371,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nueva prohibicón";
             // 
+            // btnInterno
+            // 
+            this.btnInterno.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnInterno.Enabled = false;
+            this.btnInterno.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInterno.ForeColor = System.Drawing.Color.White;
+            this.btnInterno.Location = new System.Drawing.Point(528, 201);
+            this.btnInterno.Name = "btnInterno";
+            this.btnInterno.Size = new System.Drawing.Size(80, 30);
+            this.btnInterno.TabIndex = 114;
+            this.btnInterno.Text = "BUSCAR";
+            this.btnInterno.UseVisualStyleBackColor = false;
+            this.btnInterno.Click += new System.EventHandler(this.btnInterno_Click);
+            // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.Indigo;
@@ -418,22 +432,6 @@
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnInterno
-            // 
-            this.btnInterno.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnInterno.Enabled = false;
-            this.btnInterno.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnInterno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInterno.ForeColor = System.Drawing.Color.White;
-            this.btnInterno.Location = new System.Drawing.Point(528, 201);
-            this.btnInterno.Name = "btnInterno";
-            this.btnInterno.Size = new System.Drawing.Size(80, 30);
-            this.btnInterno.TabIndex = 114;
-            this.btnInterno.Text = "BUSCAR";
-            this.btnInterno.UseVisualStyleBackColor = false;
-            this.btnInterno.Click += new System.EventHandler(this.btnInterno_Click);
             // 
             // FormProhibicionesAnticipadas
             // 
