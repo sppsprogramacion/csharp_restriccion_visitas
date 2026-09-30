@@ -602,8 +602,12 @@ namespace CapaPresentacion
             }
             else
             {
-
+                dtgvProhibiciones.Columns[0].Width = 50;
                 dtgvProhibiciones.Columns[2].Width = 300;
+                dtgvProhibiciones.Columns[3].Width = 80;
+                dtgvProhibiciones.Columns[4].Width = 80;
+                dtgvProhibiciones.Columns[5].Width = 80;
+                dtgvProhibiciones.Columns[6].Width = 150;
             }
 
             foreach (DataGridViewRow row in dtgvProhibiciones.Rows)
