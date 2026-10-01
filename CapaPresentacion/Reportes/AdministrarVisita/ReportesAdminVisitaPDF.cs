@@ -1,12 +1,12 @@
-﻿using iTextSharp.text.pdf;
+﻿using CommonCache;
+using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using CapaDatos;
-using System.Windows.Forms;
-using CommonCache;
 using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
+using CapaDatos;
 
 namespace CapaPresentacion.Reportes.AdministrarVisita
 {
