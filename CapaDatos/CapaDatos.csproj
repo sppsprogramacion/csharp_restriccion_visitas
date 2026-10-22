@@ -45,6 +45,8 @@
     <Compile Include="DBitacoraProhibicionVisita.cs" />
     <Compile Include="DCiudadano.cs" />
     <Compile Include="DDepartamento.cs" />
+    <Compile Include="DEntradaSalidaSabanaCiudadano.cs" />
+    <Compile Include="DEntradaSalidaSabanaInterno.cs" />
     <Compile Include="DExcepcionIngresoVisita.cs" />
     <Compile Include="DInterno.cs" />
     <Compile Include="DLogin.cs" />

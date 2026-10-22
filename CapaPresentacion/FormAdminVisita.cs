@@ -1403,6 +1403,68 @@ namespace CapaPresentacion
         //FIN REGION PARENTESCOS..........................................................
         //.................................................................................
 
+        //REGION SABANAS
+        #region Sabanas
+
+        private void btnVerSabana_Click(object sender, EventArgs e)
+        {
+            this.CargarDataGridSabana();
+        }
+
+
+        //METODO PARA OBTENER LA LISTA DE SABANA DEL CIUDADANO
+        async private void CargarDataGridSabana()
+        {
+            NEntradaSalida nEntradaSalida = new NEntradaSalida();
+            (List<DEntradaSalidaSabanaCiudadano> listaSabana, string errorResponse) = await nEntradaSalida.ListaSabanaXCiudadano(Convert.ToInt32(txtIdCiudadano.Text), dtpFechaInicioSabana.Value.ToString("yyyy-MM-dd"), dtpFechaFinSabana.Value.ToString("yyyy-MM-dd"));
+
+            if (listaSabana == null)
+            {
+                MessageBox.Show(errorResponse, "Atencion Ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var datosfiltrados = listaSabana
+                .Select(c => new
+                {
+                    Fecha = c.fecha_registro,
+                    Interno = c.nombre_interno,
+                    Parentesco = c.parentesco,
+                    Entrada = c.hora_registro,
+                    Salida = c.hora_egreso,
+                    Menores = c.menores,
+                    Organismo = c.organismo
+                })
+                .ToList();
+
+            dtgIngresos.DataSource = datosfiltrados;
+
+            if (listaSabana.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                dtgIngresos.Columns[0].Width = 80;
+                dtgIngresos.Columns[1].Width = 250;
+                dtgIngresos.Columns[2].Width = 90;
+                dtgIngresos.Columns[3].Width = 70;
+                dtgIngresos.Columns[4].Width = 70;
+                dtgIngresos.Columns[5].Width = 300;
+                dtgIngresos.Columns[6].Width = 150;
+
+            }
+        }
+
+        //FIN METODO PARA OBTENER LA LISTA DE SABANA DEL CIUDADANO
+        //----------------------------------------------------------------------------------
+
+
+
+        #endregion Sabanas
+        //FIN REGION SABANAS
+        //-----------------------------------------------------------------------------------
 
         //REGION NOVEDADES
         #region Novedades
@@ -1576,7 +1638,6 @@ namespace CapaPresentacion
         }
 
         #endregion
-
         //FIN REGION NOVEDADES............................................................
         //.................................................................................
 
@@ -1950,6 +2011,8 @@ namespace CapaPresentacion
             }
         }
 
+        //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
+
         private async void btnVerRegistroDiario_Click(object sender, EventArgs e)
         {
             if (this.txtIdCiudadano.Text == string.Empty)
@@ -2010,26 +2073,11 @@ namespace CapaPresentacion
             }
         }
 
-        private void groupBox10_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtgvNovedades_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox11_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
-
         #endregion Excepxiones
         //FIN REGION EXCEPCIONES.........................................................
         //...............................................................................
+
+
     }
 
 

@@ -47,6 +47,7 @@
     <Compile Include="BitacoraProhibicionAnticipadaDaoImplement.cs" />
     <Compile Include="BitacoraProhibicionVisitaDaoImplement.cs" />
     <Compile Include="CiudadanoDaoImpl.cs" />
+    <Compile Include="EntradaSalidaDaoImplement.cs" />
     <Compile Include="EstadoCivilDaoImpl.cs" />
     <Compile Include="AuthDaoImpl.cs" />
     <Compile Include="ExcepcionIngresoVisitaDaoImpl.cs" />

@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminVisita));
             this.tabVisita = new System.Windows.Forms.TabControl();
             this.pagDatosPersonales = new System.Windows.Forms.TabPage();
@@ -153,13 +157,14 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnVerParentescos = new System.Windows.Forms.Button();
             this.tabSabana = new System.Windows.Forms.TabPage();
+            this.dtpFechaInicioSabana = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaFinSabana = new System.Windows.Forms.DateTimePicker();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.dtgIngresos = new System.Windows.Forms.DataGridView();
             this.btnImprimirSabana = new System.Windows.Forms.Button();
             this.btnVerSabana = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dtgvSabana = new System.Windows.Forms.DataGridView();
             this.tabNovedades = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.btnNuevaNovedad = new System.Windows.Forms.Button();
@@ -240,7 +245,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvParentescos)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.tabSabana.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvSabana)).BeginInit();
+            this.groupBox14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgIngresos)).BeginInit();
             this.tabNovedades.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -1721,13 +1727,13 @@
             // 
             // tabSabana
             // 
+            this.tabSabana.Controls.Add(this.dtpFechaInicioSabana);
+            this.tabSabana.Controls.Add(this.dtpFechaFinSabana);
+            this.tabSabana.Controls.Add(this.groupBox14);
             this.tabSabana.Controls.Add(this.btnImprimirSabana);
             this.tabSabana.Controls.Add(this.btnVerSabana);
             this.tabSabana.Controls.Add(this.label21);
-            this.tabSabana.Controls.Add(this.dateTimePicker2);
             this.tabSabana.Controls.Add(this.label24);
-            this.tabSabana.Controls.Add(this.dateTimePicker3);
-            this.tabSabana.Controls.Add(this.dtgvSabana);
             this.tabSabana.Location = new System.Drawing.Point(4, 25);
             this.tabSabana.Name = "tabSabana";
             this.tabSabana.Padding = new System.Windows.Forms.Padding(3);
@@ -1736,6 +1742,81 @@
             this.tabSabana.Text = "Sabana";
             this.tabSabana.UseVisualStyleBackColor = true;
             // 
+            // dtpFechaInicioSabana
+            // 
+            this.dtpFechaInicioSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInicioSabana.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicioSabana.Location = new System.Drawing.Point(13, 30);
+            this.dtpFechaInicioSabana.Name = "dtpFechaInicioSabana";
+            this.dtpFechaInicioSabana.Size = new System.Drawing.Size(115, 21);
+            this.dtpFechaInicioSabana.TabIndex = 117;
+            // 
+            // dtpFechaFinSabana
+            // 
+            this.dtpFechaFinSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFinSabana.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFinSabana.Location = new System.Drawing.Point(150, 30);
+            this.dtpFechaFinSabana.Name = "dtpFechaFinSabana";
+            this.dtpFechaFinSabana.Size = new System.Drawing.Size(115, 21);
+            this.dtpFechaFinSabana.TabIndex = 116;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.dtgIngresos);
+            this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox14.ForeColor = System.Drawing.Color.Black;
+            this.groupBox14.Location = new System.Drawing.Point(4, 73);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(1051, 587);
+            this.groupBox14.TabIndex = 115;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Entradas de visitas";
+            // 
+            // dtgIngresos
+            // 
+            this.dtgIngresos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgIngresos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgIngresos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgIngresos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgIngresos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgIngresos.EnableHeadersVisualStyles = false;
+            this.dtgIngresos.GridColor = System.Drawing.Color.DimGray;
+            this.dtgIngresos.Location = new System.Drawing.Point(7, 20);
+            this.dtgIngresos.MultiSelect = false;
+            this.dtgIngresos.Name = "dtgIngresos";
+            this.dtgIngresos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgIngresos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dtgIngresos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgIngresos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgIngresos.Size = new System.Drawing.Size(1035, 561);
+            this.dtgIngresos.TabIndex = 2;
+            // 
             // btnImprimirSabana
             // 
             this.btnImprimirSabana.BackColor = System.Drawing.Color.White;
@@ -1743,7 +1824,7 @@
             this.btnImprimirSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimirSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimirSabana.ForeColor = System.Drawing.Color.Indigo;
-            this.btnImprimirSabana.Location = new System.Drawing.Point(577, 99);
+            this.btnImprimirSabana.Location = new System.Drawing.Point(453, 11);
             this.btnImprimirSabana.Name = "btnImprimirSabana";
             this.btnImprimirSabana.Size = new System.Drawing.Size(194, 40);
             this.btnImprimirSabana.TabIndex = 96;
@@ -1757,58 +1838,33 @@
             this.btnVerSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerSabana.ForeColor = System.Drawing.Color.White;
-            this.btnVerSabana.Location = new System.Drawing.Point(15, 94);
+            this.btnVerSabana.Location = new System.Drawing.Point(284, 10);
             this.btnVerSabana.Name = "btnVerSabana";
             this.btnVerSabana.Size = new System.Drawing.Size(160, 45);
             this.btnVerSabana.TabIndex = 51;
             this.btnVerSabana.Text = "VER SABANAS";
             this.btnVerSabana.UseVisualStyleBackColor = false;
+            this.btnVerSabana.Click += new System.EventHandler(this.btnVerSabana_Click);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(12, 34);
+            this.label21.Location = new System.Drawing.Point(12, 10);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(87, 15);
             this.label21.TabIndex = 50;
             this.label21.Text = "FECHA INICIO:";
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(15, 54);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(115, 21);
-            this.dateTimePicker2.TabIndex = 49;
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(147, 34);
+            this.label24.Location = new System.Drawing.Point(147, 10);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(71, 15);
             this.label24.TabIndex = 48;
             this.label24.Text = "FECHA FIN:";
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(150, 54);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(115, 21);
-            this.dateTimePicker3.TabIndex = 47;
-            // 
-            // dtgvSabana
-            // 
-            this.dtgvSabana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvSabana.Location = new System.Drawing.Point(15, 145);
-            this.dtgvSabana.Name = "dtgvSabana";
-            this.dtgvSabana.Size = new System.Drawing.Size(756, 449);
-            this.dtgvSabana.TabIndex = 46;
             // 
             // tabNovedades
             // 
@@ -1838,7 +1894,6 @@
             this.groupBox11.TabIndex = 94;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Cargar novedad";
-            this.groupBox11.Enter += new System.EventHandler(this.groupBox11_Enter);
             // 
             // btnNuevaNovedad
             // 
@@ -1927,7 +1982,6 @@
             this.groupBox10.TabIndex = 80;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Novedad";
-            this.groupBox10.Enter += new System.EventHandler(this.groupBox10_Enter);
             // 
             // label47
             // 
@@ -2055,7 +2109,6 @@
             this.dtgvNovedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvNovedades.Size = new System.Drawing.Size(1035, 262);
             this.dtgvNovedades.TabIndex = 49;
-            this.dtgvNovedades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvNovedades_CellContentClick);
             this.dtgvNovedades.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvNovedades_KeyDown);
             // 
             // btnVerNovedades
@@ -2534,8 +2587,8 @@
             this.dgvRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistroDiario.Location = new System.Drawing.Point(15, 77);
             this.dgvRegistroDiario.Name = "dgvRegistroDiario";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvRegistroDiario.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRegistroDiario.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvRegistroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegistroDiario.Size = new System.Drawing.Size(1041, 414);
             this.dgvRegistroDiario.TabIndex = 3;
@@ -2611,7 +2664,8 @@
             this.groupBox5.PerformLayout();
             this.tabSabana.ResumeLayout(false);
             this.tabSabana.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvSabana)).EndInit();
+            this.groupBox14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgIngresos)).EndInit();
             this.tabNovedades.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -2684,10 +2738,7 @@
         private System.Windows.Forms.DataGridView dtgvNovedades;
         private System.Windows.Forms.Button btnVerNovedades;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DataGridView dtgvSabana;
         private System.Windows.Forms.Button btnGuardarModificarParentesco;
         private System.Windows.Forms.Button btnCancelarModificarParentesco;
         private System.Windows.Forms.Label label26;
@@ -2824,5 +2875,9 @@
         private System.Windows.Forms.Button btnImprimirSabana;
         private System.Windows.Forms.Button btnVerSabana;
         private System.Windows.Forms.CheckBox chkEsParaOrdinaria;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicioSabana;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinSabana;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.DataGridView dtgIngresos;
     }
 }
