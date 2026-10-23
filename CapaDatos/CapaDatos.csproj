@@ -49,6 +49,7 @@
     <Compile Include="DEntradaSalidaSabanaInterno.cs" />
     <Compile Include="DExcepcionIngresoVisita.cs" />
     <Compile Include="DInterno.cs" />
+    <Compile Include="DInternoSabanaResponse.cs" />
     <Compile Include="DLogin.cs" />
     <Compile Include="DLoginResponse.cs" />
     <Compile Include="DMotivoAtencion.cs" />
