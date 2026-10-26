@@ -15,5 +15,8 @@ namespace CapaDatos
         public string jurisdiccion { get; set; }
         public string organismo { get; set; }
         public DateTime fecha_alojamiento { get; set; }
+
+        public List<DEntradaSalidaSabanaInterno> listaEntradasResponse { get; set; }
+        public List<DVisitaInterno> listaVinculosResponse { get; set; }
     }
 }

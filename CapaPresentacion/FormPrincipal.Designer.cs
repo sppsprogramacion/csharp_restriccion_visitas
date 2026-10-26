@@ -33,7 +33,7 @@
             this.lblEncabezado = new System.Windows.Forms.Label();
             this.btnCerrarSistema = new System.Windows.Forms.Button();
             this.btnProhibicionesAnticipadas = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnInernosSabana = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnExcepcionesIngreso = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -97,19 +97,20 @@
             this.btnProhibicionesAnticipadas.UseVisualStyleBackColor = false;
             this.btnProhibicionesAnticipadas.Click += new System.EventHandler(this.btnProhibicionesAnticipadas_Click);
             // 
-            // button1
+            // btnInernosSabana
             // 
-            this.button1.BackColor = System.Drawing.Color.Orange;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(405, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 70);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Internos";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnInernosSabana.BackColor = System.Drawing.Color.Orange;
+            this.btnInernosSabana.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInernosSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInernosSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInernosSabana.ForeColor = System.Drawing.Color.White;
+            this.btnInernosSabana.Location = new System.Drawing.Point(405, 56);
+            this.btnInernosSabana.Name = "btnInernosSabana";
+            this.btnInernosSabana.Size = new System.Drawing.Size(120, 70);
+            this.btnInernosSabana.TabIndex = 3;
+            this.btnInernosSabana.Text = "Sabana de Internos";
+            this.btnInernosSabana.UseVisualStyleBackColor = false;
+            this.btnInernosSabana.Click += new System.EventHandler(this.btnInernosSabana_Click);
             // 
             // lblUsuario
             // 
@@ -156,7 +157,7 @@
             this.Controls.Add(this.btnExcepcionesIngreso);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnInernosSabana);
             this.Controls.Add(this.btnProhibicionesAnticipadas);
             this.Controls.Add(this.btnCerrarSistema);
             this.Controls.Add(this.lblEncabezado);
@@ -179,7 +180,7 @@
         private System.Windows.Forms.Label lblEncabezado;
         private System.Windows.Forms.Button btnCerrarSistema;
         private System.Windows.Forms.Button btnProhibicionesAnticipadas;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInernosSabana;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnExcepcionesIngreso;

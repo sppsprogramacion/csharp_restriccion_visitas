@@ -153,6 +153,12 @@
     <Compile Include="FormInternos.Designer.cs">
       <DependentUpon>FormInternos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSabanaBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSabanaBuscar.Designer.cs">
+      <DependentUpon>FormSabanaBuscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,12 @@
     </Compile>
     <Compile Include="FormProhibicionesAnticipadas.Designer.cs">
       <DependentUpon>FormProhibicionesAnticipadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSabanaCiudadano.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSabanaCiudadano.Designer.cs">
+      <DependentUpon>FormSabanaCiudadano.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSabanaInternos.cs">
       <SubType>Form</SubType>
@@ -222,11 +234,17 @@
     <EmbeddedResource Include="FormInternos.resx">
       <DependentUpon>FormInternos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSabanaBuscar.resx">
+      <DependentUpon>FormSabanaBuscar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProhibicionesAnticipadas.resx">
       <DependentUpon>FormProhibicionesAnticipadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSabanaCiudadano.resx">
+      <DependentUpon>FormSabanaCiudadano.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSabanaInternos.resx">
       <DependentUpon>FormSabanaInternos.cs</DependentUpon>
