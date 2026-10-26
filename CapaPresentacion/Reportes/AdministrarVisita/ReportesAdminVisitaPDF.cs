@@ -27,8 +27,8 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             var fuenteLogo = FontFactory.GetFont(FontFactory.TIMES, 9, BaseColor.BLACK);
             var fuenteOrganismo = FontFactory.GetFont(FontFactory.TIMES, 10, BaseColor.BLACK);
-            var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10, BaseColor.BLACK);
-            var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.BLACK);
+            var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 9, BaseColor.BLACK);
+            var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 9, BaseColor.BLACK);
 
             //logo encabezado
             //string rutaImagen = Path.Combine(Application.StartupPath, "Resources/Img-reportes/", "logo_spps2.png");
@@ -76,7 +76,7 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
             });
             //fin fecha.............................
 
-            doc.Add(new Paragraph(" "));
+            //doc.Add(new Paragraph(" "));
 
             //datos ciudadano
             doc.Add(new Paragraph(" Apellido y nombre: " + ciudadanox.apellido + " " + ciudadanox.nombre , fuenteNormal));
@@ -90,26 +90,26 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
             doc.Add(tablaDatos);
             //fin datos ciudadano
 
-            doc.Add(new Paragraph(" "));
+            //doc.Add(new Paragraph(" "));
 
             Paragraph titulo = new Paragraph("Vinculos de la visita", fuenteTitulo);
             titulo.Alignment = Element.ALIGN_CENTER;
+            titulo.SpacingAfter = 8;
             doc.Add(titulo);
 
-
-            doc.Add(new Paragraph(" "));
+            //doc.Add(new Paragraph(" "));
 
             PdfPTable tablaVinculos = new PdfPTable(8);
             tablaVinculos.WidthPercentage = 100;
-            tablaVinculos.SetWidths(new float[] { 2.5f, 1.2f, 1.3f, 0.6f, 0.6f, 0.9f, 0.9f, 2.5f });
-            tablaVinculos.AddCell("Interno");
-            tablaVinculos.AddCell("Parentesco");
-            tablaVinculos.AddCell("Unidad");
-            tablaVinculos.AddCell("Vigente");
-            tablaVinculos.AddCell("Prohibido");
-            tablaVinculos.AddCell("Inicio");
-            tablaVinculos.AddCell("Fin");
-            tablaVinculos.AddCell("Detalle");
+            tablaVinculos.SetWidths(new float[] { 2.5f, 1.0f, 1.5f, 0.6f, 0.7f, 0.7f, 0.7f, 2.6f });
+            tablaVinculos.AddCell(new Paragraph("Interno", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Parentesco", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Unidad", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Vigente", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Prohibido", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Inicio", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Fin", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Detalle", fuenteTitulo));
 
             // Filas dinámicas
             foreach (var vinculo in listaVinculos)

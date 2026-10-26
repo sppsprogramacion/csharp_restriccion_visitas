@@ -1,11 +1,14 @@
 ﻿using CapaDatos;
 using CapaNegocio;
 using CapaPresentacion.FuncionesGenerales;
+using CapaPresentacion.Reportes.AdministrarVisita;
+using PdfiumViewer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,13 +57,14 @@ namespace CapaPresentacion
 
             //CARGAR DATOS DEL INTERNO
             txtDni.Text = this.ciudadanoSabanaGlobal.dni.ToString();
-            txtVisita.Text = this.ciudadanoSabanaGlobal.nombre_interno;
+            txtVisita.Text = this.ciudadanoSabanaGlobal.nombre_visita;
+            pictureFoto.Load(this.ciudadanoSabanaGlobal.foto);
 
             //CARGAR VINCULOS
             var datosfiltrados = this.ciudadanoSabanaGlobal.listaVinculosResponse
                 .Select(c => new
                 {
-                    Id = c.id_visita_interno,
+                    IdInterno = c.interno_id,
                     Interno = c.interno.apellido + " " + c.interno.nombre,
                     Prontuario = c.interno.prontuario,
                     Unidad = c.interno.organismo.organismo,
@@ -86,8 +90,12 @@ namespace CapaPresentacion
             }
             else
             {
-
+                dtgvParentescos.Columns[0].Width = 50;
                 dtgvParentescos.Columns[1].Width = 200;
+                dtgvParentescos.Columns[3].Width = 150;
+                dtgvParentescos.Columns[5].Width = 70;
+                dtgvParentescos.Columns[6].Width = 70;
+                dtgvParentescos.Columns[7].Width = 70;
             }
 
             //CARGAR SABANA DE INGRESO DE VISITAS
@@ -124,6 +132,108 @@ namespace CapaPresentacion
                 dtgIngresos.Columns[5].Width = 300;
                 dtgIngresos.Columns[6].Width = 150;
 
+            }
+        }
+
+        private void dtgvParentescos_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                if (dtgvParentescos.SelectedRows.Count > 0)
+                {
+                    int id_interno;
+                    id_interno = Convert.ToInt32(dtgvParentescos.CurrentRow.Cells["IdInterno"].Value.ToString());
+
+                    
+
+                    if (id_interno > 0)
+                    {
+                        txtIdInterno.Text = id_interno.ToString();
+                        txtInternoVinculado.Text = dtgvParentescos.CurrentRow.Cells["Interno"].Value.ToString();
+                        txtParentesco.Text = dtgvParentescos.CurrentRow.Cells["Parentesco"].Value.ToString();
+                        txtDetalleProhibicionParentesco.Text = dtgvParentescos.CurrentRow.Cells["DetalleProhib"].Value?.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una vinculo.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        private async void btnImprimirVinculos_Click(object sender, EventArgs e)
+        {
+            NCiudadano nCiudadano = new NCiudadano();
+            NVisitaInterno nVisitaInterno = new NVisitaInterno();
+
+            //buscar ciudadano
+            this.Enabled = false;
+            (DCiudadano dCiudadanoX, string errorCiudadanoResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadanoGlobal);
+            this.Enabled = true;
+
+            if (dCiudadanoX == null)
+            {
+                
+                MessageBox.Show(errorCiudadanoResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //buscar vinculos
+            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(idCiudadanoGlobal);
+
+            if (listaParentescos == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Generar PDF en memoria
+            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(dCiudadanoX, listaParentescos);
+
+            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
+            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
+
+            PdfDocument pdfDocument = null;
+
+            try
+            {
+                pdfDocument = PdfDocument.Load(ms);
+
+                Form formVisor = new Form
+                {
+                    Text = "Vista previa PDF",
+                    Width = 800,
+                    Height = 600
+                };
+
+                PdfViewer pdfViewer = new PdfViewer
+                {
+                    Dock = DockStyle.Fill,
+                    Document = pdfDocument
+                };
+
+                formVisor.Controls.Add(pdfViewer);
+
+                formVisor.FormClosed += (s, args) =>
+                {
+                    // Liberar recursos al cerrar el visor
+                    pdfViewer.Document.Dispose();
+                    pdfViewer.Dispose();
+                    formVisor.Dispose();
+                    ms.Dispose();
+                    pdfDocument = null;
+                };
+
+                formVisor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
+                ms.Dispose();
+                pdfDocument?.Dispose();
             }
         }
     }

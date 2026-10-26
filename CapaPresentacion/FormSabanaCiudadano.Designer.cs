@@ -36,10 +36,18 @@
             this.tabPrincipal = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.pictureFoto = new System.Windows.Forms.PictureBox();
+            this.txtFechaAlojamiento = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtVisita = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.txtJurisdiccionVer = new System.Windows.Forms.TextBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.txtEstadoProcesalVer = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.txtOrganismoAlojamientoVer = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dtgvParentescos = new System.Windows.Forms.DataGridView();
             this.btnImprimirVinculos = new System.Windows.Forms.Button();
@@ -50,7 +58,7 @@
             this.label39 = new System.Windows.Forms.Label();
             this.txtInternoVinculado = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.txtIdVisitaInterno = new System.Windows.Forms.TextBox();
+            this.txtIdInterno = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.tabSabana = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
@@ -60,14 +68,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnImprimirSabana = new System.Windows.Forms.Button();
             this.dtgIngresos = new System.Windows.Forms.DataGridView();
-            this.txtOrganismoAlojamientoVer = new System.Windows.Forms.TextBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.txtEstadoProcesalVer = new System.Windows.Forms.TextBox();
-            this.label69 = new System.Windows.Forms.Label();
-            this.txtJurisdiccionVer = new System.Windows.Forms.TextBox();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.txtFechaAlojamiento = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPrincipal.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -138,6 +138,16 @@
             this.pictureFoto.TabIndex = 259;
             this.pictureFoto.TabStop = false;
             // 
+            // txtFechaAlojamiento
+            // 
+            this.txtFechaAlojamiento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFechaAlojamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaAlojamiento.Location = new System.Drawing.Point(561, 81);
+            this.txtFechaAlojamiento.Name = "txtFechaAlojamiento";
+            this.txtFechaAlojamiento.ReadOnly = true;
+            this.txtFechaAlojamiento.Size = new System.Drawing.Size(135, 21);
+            this.txtFechaAlojamiento.TabIndex = 258;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -180,6 +190,80 @@
             this.txtDni.Size = new System.Drawing.Size(103, 21);
             this.txtDni.TabIndex = 252;
             // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.ForeColor = System.Drawing.Color.White;
+            this.label71.Location = new System.Drawing.Point(558, 65);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(137, 13);
+            this.label71.TabIndex = 226;
+            this.label71.Text = "FECHA ALOJAMIENTO";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.ForeColor = System.Drawing.Color.White;
+            this.label70.Location = new System.Drawing.Point(290, 65);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(172, 13);
+            this.label70.TabIndex = 223;
+            this.label70.Text = "ORGANISMO ALOJAMIENTO";
+            // 
+            // txtJurisdiccionVer
+            // 
+            this.txtJurisdiccionVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJurisdiccionVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJurisdiccionVer.Location = new System.Drawing.Point(149, 82);
+            this.txtJurisdiccionVer.Name = "txtJurisdiccionVer";
+            this.txtJurisdiccionVer.ReadOnly = true;
+            this.txtJurisdiccionVer.Size = new System.Drawing.Size(135, 21);
+            this.txtJurisdiccionVer.TabIndex = 251;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.ForeColor = System.Drawing.Color.White;
+            this.label69.Location = new System.Drawing.Point(6, 65);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(126, 13);
+            this.label69.TabIndex = 227;
+            this.label69.Text = "ESTADO PROCESAL";
+            // 
+            // txtEstadoProcesalVer
+            // 
+            this.txtEstadoProcesalVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEstadoProcesalVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstadoProcesalVer.Location = new System.Drawing.Point(10, 82);
+            this.txtEstadoProcesalVer.Name = "txtEstadoProcesalVer";
+            this.txtEstadoProcesalVer.ReadOnly = true;
+            this.txtEstadoProcesalVer.Size = new System.Drawing.Size(135, 21);
+            this.txtEstadoProcesalVer.TabIndex = 250;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.ForeColor = System.Drawing.Color.White;
+            this.label67.Location = new System.Drawing.Point(146, 65);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(94, 13);
+            this.label67.TabIndex = 229;
+            this.label67.Text = "JURISDICCION";
+            // 
+            // txtOrganismoAlojamientoVer
+            // 
+            this.txtOrganismoAlojamientoVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOrganismoAlojamientoVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOrganismoAlojamientoVer.Location = new System.Drawing.Point(291, 82);
+            this.txtOrganismoAlojamientoVer.Name = "txtOrganismoAlojamientoVer";
+            this.txtOrganismoAlojamientoVer.ReadOnly = true;
+            this.txtOrganismoAlojamientoVer.Size = new System.Drawing.Size(264, 21);
+            this.txtOrganismoAlojamientoVer.TabIndex = 249;
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.dtgvParentescos);
@@ -200,6 +284,7 @@
             this.dtgvParentescos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvParentescos.Size = new System.Drawing.Size(959, 151);
             this.dtgvParentescos.TabIndex = 63;
+            this.dtgvParentescos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvParentescos_KeyDown);
             // 
             // btnImprimirVinculos
             // 
@@ -214,6 +299,7 @@
             this.btnImprimirVinculos.TabIndex = 98;
             this.btnImprimirVinculos.Text = "Imprimir vinculos";
             this.btnImprimirVinculos.UseVisualStyleBackColor = false;
+            this.btnImprimirVinculos.Click += new System.EventHandler(this.btnImprimirVinculos_Click);
             // 
             // groupBox5
             // 
@@ -223,7 +309,7 @@
             this.groupBox5.Controls.Add(this.label39);
             this.groupBox5.Controls.Add(this.txtInternoVinculado);
             this.groupBox5.Controls.Add(this.label26);
-            this.groupBox5.Controls.Add(this.txtIdVisitaInterno);
+            this.groupBox5.Controls.Add(this.txtIdInterno);
             this.groupBox5.Controls.Add(this.label25);
             this.groupBox5.Location = new System.Drawing.Point(13, 426);
             this.groupBox5.Name = "groupBox5";
@@ -269,9 +355,9 @@
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.Location = new System.Drawing.Point(6, 19);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(22, 15);
+            this.label39.Size = new System.Drawing.Size(79, 15);
             this.label39.TabIndex = 78;
-            this.label39.Text = "ID:";
+            this.label39.Text = "ID INTERNO:";
             // 
             // txtInternoVinculado
             // 
@@ -292,14 +378,14 @@
             this.label26.TabIndex = 66;
             this.label26.Text = "INTERNO:";
             // 
-            // txtIdVisitaInterno
+            // txtIdInterno
             // 
-            this.txtIdVisitaInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdVisitaInterno.Location = new System.Drawing.Point(9, 39);
-            this.txtIdVisitaInterno.Name = "txtIdVisitaInterno";
-            this.txtIdVisitaInterno.ReadOnly = true;
-            this.txtIdVisitaInterno.Size = new System.Drawing.Size(80, 21);
-            this.txtIdVisitaInterno.TabIndex = 77;
+            this.txtIdInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdInterno.Location = new System.Drawing.Point(9, 39);
+            this.txtIdInterno.Name = "txtIdInterno";
+            this.txtIdInterno.ReadOnly = true;
+            this.txtIdInterno.Size = new System.Drawing.Size(80, 21);
+            this.txtIdInterno.TabIndex = 77;
             // 
             // label25
             // 
@@ -442,90 +528,6 @@
             this.dtgIngresos.Size = new System.Drawing.Size(1035, 512);
             this.dtgIngresos.TabIndex = 2;
             // 
-            // txtOrganismoAlojamientoVer
-            // 
-            this.txtOrganismoAlojamientoVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOrganismoAlojamientoVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOrganismoAlojamientoVer.Location = new System.Drawing.Point(291, 82);
-            this.txtOrganismoAlojamientoVer.Name = "txtOrganismoAlojamientoVer";
-            this.txtOrganismoAlojamientoVer.ReadOnly = true;
-            this.txtOrganismoAlojamientoVer.Size = new System.Drawing.Size(264, 21);
-            this.txtOrganismoAlojamientoVer.TabIndex = 249;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.ForeColor = System.Drawing.Color.White;
-            this.label67.Location = new System.Drawing.Point(146, 65);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(94, 13);
-            this.label67.TabIndex = 229;
-            this.label67.Text = "JURISDICCION";
-            // 
-            // txtEstadoProcesalVer
-            // 
-            this.txtEstadoProcesalVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEstadoProcesalVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstadoProcesalVer.Location = new System.Drawing.Point(10, 82);
-            this.txtEstadoProcesalVer.Name = "txtEstadoProcesalVer";
-            this.txtEstadoProcesalVer.ReadOnly = true;
-            this.txtEstadoProcesalVer.Size = new System.Drawing.Size(135, 21);
-            this.txtEstadoProcesalVer.TabIndex = 250;
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.ForeColor = System.Drawing.Color.White;
-            this.label69.Location = new System.Drawing.Point(6, 65);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(126, 13);
-            this.label69.TabIndex = 227;
-            this.label69.Text = "ESTADO PROCESAL";
-            // 
-            // txtJurisdiccionVer
-            // 
-            this.txtJurisdiccionVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJurisdiccionVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJurisdiccionVer.Location = new System.Drawing.Point(149, 82);
-            this.txtJurisdiccionVer.Name = "txtJurisdiccionVer";
-            this.txtJurisdiccionVer.ReadOnly = true;
-            this.txtJurisdiccionVer.Size = new System.Drawing.Size(135, 21);
-            this.txtJurisdiccionVer.TabIndex = 251;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.ForeColor = System.Drawing.Color.White;
-            this.label70.Location = new System.Drawing.Point(290, 65);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(172, 13);
-            this.label70.TabIndex = 223;
-            this.label70.Text = "ORGANISMO ALOJAMIENTO";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label71.ForeColor = System.Drawing.Color.White;
-            this.label71.Location = new System.Drawing.Point(558, 65);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(137, 13);
-            this.label71.TabIndex = 226;
-            this.label71.Text = "FECHA ALOJAMIENTO";
-            // 
-            // txtFechaAlojamiento
-            // 
-            this.txtFechaAlojamiento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFechaAlojamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaAlojamiento.Location = new System.Drawing.Point(561, 81);
-            this.txtFechaAlojamiento.Name = "txtFechaAlojamiento";
-            this.txtFechaAlojamiento.ReadOnly = true;
-            this.txtFechaAlojamiento.Size = new System.Drawing.Size(135, 21);
-            this.txtFechaAlojamiento.TabIndex = 258;
-            // 
             // FormSabanaCiudadano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -574,7 +576,7 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtInternoVinculado;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txtIdVisitaInterno;
+        private System.Windows.Forms.TextBox txtIdInterno;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TabPage tabSabana;
         private System.Windows.Forms.GroupBox groupBox14;

@@ -54,9 +54,9 @@ namespace CapaPresentacion
             formExepcionesIngreso.ShowDialog();
         }
 
-        private void btnInernosSabana_Click(object sender, EventArgs e)
+        private void btnSabanaVisitasInternos_Click(object sender, EventArgs e)
         {
-            FormSabanaBuscar formInternosBuscar  = new FormSabanaBuscar();
+            FormSabanaBuscar formInternosBuscar = new FormSabanaBuscar();
 
             formInternosBuscar.ShowDialog();
         }

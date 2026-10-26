@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPrincipal = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -58,18 +58,20 @@
             this.txtParentesco = new System.Windows.Forms.TextBox();
             this.txtDetalleProhibicionParentesco = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
-            this.txtInternoVinculado = new System.Windows.Forms.TextBox();
+            this.txtVisita = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.txtIdVisitaInterno = new System.Windows.Forms.TextBox();
+            this.txtIdVisita = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.tabSabana = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.btnImprimirSabana = new System.Windows.Forms.Button();
-            this.dtgIngresos = new System.Windows.Forms.DataGridView();
-            this.txtFechaInicioVer = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtFechaFinVer = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtFechaInicioVer = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnImprimirSabana = new System.Windows.Forms.Button();
+            this.dtgIngresos = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtgvProhibiciones = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPrincipal.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -80,6 +82,8 @@
             this.tabSabana.SuspendLayout();
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgIngresos)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibiciones)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -89,18 +93,19 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1072, 637);
+            this.tabControl1.Size = new System.Drawing.Size(1072, 680);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPrincipal
             // 
+            this.tabPrincipal.Controls.Add(this.groupBox3);
             this.tabPrincipal.Controls.Add(this.groupBox6);
             this.tabPrincipal.Controls.Add(this.groupBox7);
             this.tabPrincipal.Controls.Add(this.groupBox5);
             this.tabPrincipal.Location = new System.Drawing.Point(4, 22);
             this.tabPrincipal.Name = "tabPrincipal";
             this.tabPrincipal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPrincipal.Size = new System.Drawing.Size(1064, 611);
+            this.tabPrincipal.Size = new System.Drawing.Size(1064, 654);
             this.tabPrincipal.TabIndex = 0;
             this.tabPrincipal.Text = "Inicio";
             this.tabPrincipal.UseVisualStyleBackColor = true;
@@ -294,7 +299,7 @@
             this.groupBox7.Controls.Add(this.dtgvParentescos);
             this.groupBox7.Controls.Add(this.btnImprimirVinculos);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(9, 191);
+            this.groupBox7.Location = new System.Drawing.Point(9, 186);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(974, 229);
             this.groupBox7.TabIndex = 97;
@@ -309,6 +314,7 @@
             this.dtgvParentescos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvParentescos.Size = new System.Drawing.Size(959, 151);
             this.dtgvParentescos.TabIndex = 63;
+            this.dtgvParentescos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvParentescos_KeyDown);
             // 
             // btnImprimirVinculos
             // 
@@ -323,6 +329,7 @@
             this.btnImprimirVinculos.TabIndex = 98;
             this.btnImprimirVinculos.Text = "Imprimir vinculos";
             this.btnImprimirVinculos.UseVisualStyleBackColor = false;
+            this.btnImprimirVinculos.Click += new System.EventHandler(this.btnImprimirVinculos_Click);
             // 
             // groupBox5
             // 
@@ -330,13 +337,13 @@
             this.groupBox5.Controls.Add(this.txtParentesco);
             this.groupBox5.Controls.Add(this.txtDetalleProhibicionParentesco);
             this.groupBox5.Controls.Add(this.label39);
-            this.groupBox5.Controls.Add(this.txtInternoVinculado);
+            this.groupBox5.Controls.Add(this.txtVisita);
             this.groupBox5.Controls.Add(this.label26);
-            this.groupBox5.Controls.Add(this.txtIdVisitaInterno);
+            this.groupBox5.Controls.Add(this.txtIdVisita);
             this.groupBox5.Controls.Add(this.label25);
             this.groupBox5.Location = new System.Drawing.Point(13, 426);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(740, 181);
+            this.groupBox5.Size = new System.Drawing.Size(391, 220);
             this.groupBox5.TabIndex = 96;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Parentesco actual";
@@ -345,7 +352,7 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(6, 72);
+            this.label42.Location = new System.Drawing.Point(7, 109);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(144, 15);
             this.label42.TabIndex = 82;
@@ -354,7 +361,7 @@
             // txtParentesco
             // 
             this.txtParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtParentesco.Location = new System.Drawing.Point(485, 38);
+            this.txtParentesco.Location = new System.Drawing.Point(10, 85);
             this.txtParentesco.Name = "txtParentesco";
             this.txtParentesco.ReadOnly = true;
             this.txtParentesco.Size = new System.Drawing.Size(227, 21);
@@ -365,11 +372,11 @@
             this.txtDetalleProhibicionParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDetalleProhibicionParentesco.Enabled = false;
             this.txtDetalleProhibicionParentesco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetalleProhibicionParentesco.Location = new System.Drawing.Point(9, 91);
+            this.txtDetalleProhibicionParentesco.Location = new System.Drawing.Point(10, 128);
             this.txtDetalleProhibicionParentesco.Multiline = true;
             this.txtDetalleProhibicionParentesco.Name = "txtDetalleProhibicionParentesco";
             this.txtDetalleProhibicionParentesco.ReadOnly = true;
-            this.txtDetalleProhibicionParentesco.Size = new System.Drawing.Size(312, 65);
+            this.txtDetalleProhibicionParentesco.Size = new System.Drawing.Size(372, 80);
             this.txtDetalleProhibicionParentesco.TabIndex = 81;
             // 
             // label39
@@ -378,43 +385,43 @@
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.Location = new System.Drawing.Point(6, 19);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(22, 15);
+            this.label39.Size = new System.Drawing.Size(60, 15);
             this.label39.TabIndex = 78;
-            this.label39.Text = "ID:";
+            this.label39.Text = "ID VISITA:";
             // 
-            // txtInternoVinculado
+            // txtVisita
             // 
-            this.txtInternoVinculado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInternoVinculado.Location = new System.Drawing.Point(103, 39);
-            this.txtInternoVinculado.Name = "txtInternoVinculado";
-            this.txtInternoVinculado.ReadOnly = true;
-            this.txtInternoVinculado.Size = new System.Drawing.Size(372, 21);
-            this.txtInternoVinculado.TabIndex = 64;
+            this.txtVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVisita.Location = new System.Drawing.Point(72, 39);
+            this.txtVisita.Name = "txtVisita";
+            this.txtVisita.ReadOnly = true;
+            this.txtVisita.Size = new System.Drawing.Size(310, 21);
+            this.txtVisita.TabIndex = 64;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(100, 19);
+            this.label26.Location = new System.Drawing.Point(69, 19);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(64, 15);
+            this.label26.Size = new System.Drawing.Size(42, 15);
             this.label26.TabIndex = 66;
-            this.label26.Text = "INTERNO:";
+            this.label26.Text = "VISITA";
             // 
-            // txtIdVisitaInterno
+            // txtIdVisita
             // 
-            this.txtIdVisitaInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdVisitaInterno.Location = new System.Drawing.Point(9, 39);
-            this.txtIdVisitaInterno.Name = "txtIdVisitaInterno";
-            this.txtIdVisitaInterno.ReadOnly = true;
-            this.txtIdVisitaInterno.Size = new System.Drawing.Size(80, 21);
-            this.txtIdVisitaInterno.TabIndex = 77;
+            this.txtIdVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdVisita.Location = new System.Drawing.Point(9, 39);
+            this.txtIdVisita.Name = "txtIdVisita";
+            this.txtIdVisita.ReadOnly = true;
+            this.txtIdVisita.Size = new System.Drawing.Size(57, 21);
+            this.txtIdVisita.TabIndex = 77;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(481, 19);
+            this.label25.Location = new System.Drawing.Point(6, 66);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(91, 15);
             this.label25.TabIndex = 72;
@@ -448,64 +455,27 @@
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Entradas de visitas";
             // 
-            // btnImprimirSabana
+            // txtFechaFinVer
             // 
-            this.btnImprimirSabana.BackColor = System.Drawing.Color.White;
-            this.btnImprimirSabana.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
-            this.btnImprimirSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimirSabana.ForeColor = System.Drawing.Color.Indigo;
-            this.btnImprimirSabana.Location = new System.Drawing.Point(848, 14);
-            this.btnImprimirSabana.Name = "btnImprimirSabana";
-            this.btnImprimirSabana.Size = new System.Drawing.Size(194, 40);
-            this.btnImprimirSabana.TabIndex = 117;
-            this.btnImprimirSabana.Text = "Imprimir sabana";
-            this.btnImprimirSabana.UseVisualStyleBackColor = false;
+            this.txtFechaFinVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFechaFinVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaFinVer.ForeColor = System.Drawing.Color.Black;
+            this.txtFechaFinVer.Location = new System.Drawing.Point(159, 38);
+            this.txtFechaFinVer.Name = "txtFechaFinVer";
+            this.txtFechaFinVer.ReadOnly = true;
+            this.txtFechaFinVer.Size = new System.Drawing.Size(135, 21);
+            this.txtFechaFinVer.TabIndex = 262;
             // 
-            // dtgIngresos
+            // label3
             // 
-            this.dtgIngresos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgIngresos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgIngresos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtgIngresos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgIngresos.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dtgIngresos.EnableHeadersVisualStyles = false;
-            this.dtgIngresos.GridColor = System.Drawing.Color.DimGray;
-            this.dtgIngresos.Location = new System.Drawing.Point(7, 71);
-            this.dtgIngresos.MultiSelect = false;
-            this.dtgIngresos.Name = "dtgIngresos";
-            this.dtgIngresos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgIngresos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dtgIngresos.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dtgIngresos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgIngresos.Size = new System.Drawing.Size(1035, 512);
-            this.dtgIngresos.TabIndex = 2;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(156, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.TabIndex = 261;
+            this.label3.Text = "FECHA FIN";
             // 
             // txtFechaInicioVer
             // 
@@ -529,34 +499,91 @@
             this.label2.TabIndex = 259;
             this.label2.Text = "FECHA INICIO";
             // 
-            // txtFechaFinVer
+            // btnImprimirSabana
             // 
-            this.txtFechaFinVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFechaFinVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaFinVer.ForeColor = System.Drawing.Color.Black;
-            this.txtFechaFinVer.Location = new System.Drawing.Point(159, 38);
-            this.txtFechaFinVer.Name = "txtFechaFinVer";
-            this.txtFechaFinVer.ReadOnly = true;
-            this.txtFechaFinVer.Size = new System.Drawing.Size(135, 21);
-            this.txtFechaFinVer.TabIndex = 262;
+            this.btnImprimirSabana.BackColor = System.Drawing.Color.White;
+            this.btnImprimirSabana.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnImprimirSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirSabana.ForeColor = System.Drawing.Color.Indigo;
+            this.btnImprimirSabana.Location = new System.Drawing.Point(848, 14);
+            this.btnImprimirSabana.Name = "btnImprimirSabana";
+            this.btnImprimirSabana.Size = new System.Drawing.Size(194, 40);
+            this.btnImprimirSabana.TabIndex = 117;
+            this.btnImprimirSabana.Text = "Imprimir sabana";
+            this.btnImprimirSabana.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // dtgIngresos
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(156, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
-            this.label3.TabIndex = 261;
-            this.label3.Text = "FECHA FIN";
+            this.dtgIngresos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgIngresos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgIngresos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dtgIngresos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgIngresos.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dtgIngresos.EnableHeadersVisualStyles = false;
+            this.dtgIngresos.GridColor = System.Drawing.Color.DimGray;
+            this.dtgIngresos.Location = new System.Drawing.Point(7, 71);
+            this.dtgIngresos.MultiSelect = false;
+            this.dtgIngresos.Name = "dtgIngresos";
+            this.dtgIngresos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgIngresos.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.dtgIngresos.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dtgIngresos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgIngresos.Size = new System.Drawing.Size(1035, 512);
+            this.dtgIngresos.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dtgvProhibiciones);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(410, 426);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(635, 220);
+            this.groupBox3.TabIndex = 256;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Prohibiciones";
+            // 
+            // dtgvProhibiciones
+            // 
+            this.dtgvProhibiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvProhibiciones.Location = new System.Drawing.Point(6, 20);
+            this.dtgvProhibiciones.Name = "dtgvProhibiciones";
+            this.dtgvProhibiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvProhibiciones.Size = new System.Drawing.Size(622, 188);
+            this.dtgvProhibiciones.TabIndex = 2;
             // 
             // FormSabanaInternos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1084, 664);
+            this.ClientSize = new System.Drawing.Size(1084, 691);
             this.Controls.Add(this.tabControl1);
             this.Name = "FormSabanaInternos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -575,6 +602,8 @@
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgIngresos)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibiciones)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -594,9 +623,9 @@
         private System.Windows.Forms.TextBox txtParentesco;
         private System.Windows.Forms.TextBox txtDetalleProhibicionParentesco;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.TextBox txtInternoVinculado;
+        private System.Windows.Forms.TextBox txtVisita;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txtIdVisitaInterno;
+        private System.Windows.Forms.TextBox txtIdVisita;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label71;
@@ -619,5 +648,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtFechaInicioVer;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dtgvProhibiciones;
     }
 }

@@ -2012,7 +2012,10 @@ namespace CapaPresentacion
         }
 
         //FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ............................
-
+        
+        #endregion Excepxiones
+        //FIN REGION EXCEPCIONES.........................................................
+        //...............................................................................
         private async void btnVerRegistroDiario_Click(object sender, EventArgs e)
         {
             if (this.txtIdCiudadano.Text == string.Empty)
@@ -2073,9 +2076,12 @@ namespace CapaPresentacion
             }
         }
 
-        #endregion Excepxiones
-        //FIN REGION EXCEPCIONES.........................................................
-        //...............................................................................
+        private void btnImprimirSabana_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
 
 
     }

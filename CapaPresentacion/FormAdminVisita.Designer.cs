@@ -1830,6 +1830,7 @@
             this.btnImprimirSabana.TabIndex = 96;
             this.btnImprimirSabana.Text = "Imprimir";
             this.btnImprimirSabana.UseVisualStyleBackColor = false;
+            this.btnImprimirSabana.Click += new System.EventHandler(this.btnImprimirSabana_Click);
             // 
             // btnVerSabana
             // 
