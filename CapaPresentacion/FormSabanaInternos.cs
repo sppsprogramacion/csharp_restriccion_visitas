@@ -1,11 +1,14 @@
 ﻿using CapaDatos;
 using CapaNegocio;
 using CapaPresentacion.FuncionesGenerales;
+using CapaPresentacion.Reportes.SabanasVisitasInternos;
+using PdfiumViewer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -165,6 +168,111 @@ namespace CapaPresentacion
             }
         }
 
+        private void btnImprimirVinculos_Click(object sender, EventArgs e)
+        {
+
+
+            // Generar PDF en memoria
+            MemoryStream msOriginal = ReportesSabanaVisitasInternos.RepPdfVinculosDelInterno(internoSabanaGlobal);
+
+            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
+            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
+
+            PdfDocument pdfDocument = null;
+
+            try
+            {
+                pdfDocument = PdfDocument.Load(ms);
+
+                Form formVisor = new Form
+                {
+                    Text = "Vista previa PDF",
+                    Width = 800,
+                    Height = 600,
+                    StartPosition = FormStartPosition.CenterScreen,
+                };
+
+                PdfViewer pdfViewer = new PdfViewer
+                {
+                    Dock = DockStyle.Fill,
+                    Document = pdfDocument
+                };
+
+                formVisor.Controls.Add(pdfViewer);
+
+                formVisor.FormClosed += (s, args) =>
+                {
+                    // Liberar recursos al cerrar el visor
+                    pdfViewer.Document.Dispose();
+                    pdfViewer.Dispose();
+                    formVisor.Dispose();
+                    ms.Dispose();
+                    pdfDocument = null;
+                };
+
+                formVisor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
+                ms.Dispose();
+                pdfDocument?.Dispose();
+            }
+        }
+
+
+
+        private void btnImprimirSabana_Click(object sender, EventArgs e)
+        {
+            // Generar PDF en memoria
+            MemoryStream msOriginal = ReportesSabanaVisitasInternos.RepPdfInternoSabana(internoSabanaGlobal);
+
+            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
+            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
+
+            PdfDocument pdfDocument = null;
+
+            try
+            {
+                pdfDocument = PdfDocument.Load(ms);
+
+                Form formVisor = new Form
+                {
+                    Text = "Vista previa PDF",
+                    Width = 800,
+                    Height = 600,
+                    StartPosition = FormStartPosition.CenterScreen,
+                };
+
+                PdfViewer pdfViewer = new PdfViewer
+                {
+                    Dock = DockStyle.Fill,
+                    Document = pdfDocument
+                };
+
+                formVisor.Controls.Add(pdfViewer);
+
+                formVisor.FormClosed += (s, args) =>
+                {
+                    // Liberar recursos al cerrar el visor
+                    pdfViewer.Document.Dispose();
+                    pdfViewer.Dispose();
+                    formVisor.Dispose();
+                    ms.Dispose();
+                    pdfDocument = null;
+                };
+
+                formVisor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
+                ms.Dispose();
+                pdfDocument?.Dispose();
+            }
+        }
+
+
         //METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES
         async private void CargarDataGridProhibiciones(int idCiudadano)
         {
@@ -228,12 +336,10 @@ namespace CapaPresentacion
 
 
         }
+        //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES
+        //--------------------------------------------------------------------------------------------...........
 
-        //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES...........
-        private void btnImprimirVinculos_Click(object sender, EventArgs e)
-        {
 
-        }
 
     }
 }

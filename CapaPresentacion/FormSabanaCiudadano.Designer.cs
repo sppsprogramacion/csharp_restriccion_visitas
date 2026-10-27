@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPrincipal = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -62,12 +62,13 @@
             this.label25 = new System.Windows.Forms.Label();
             this.tabSabana = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.txtFechaFinVer = new System.Windows.Forms.TextBox();
+            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtFechaInicioVer = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnImprimirSabana = new System.Windows.Forms.Button();
             this.dtgIngresos = new System.Windows.Forms.DataGridView();
+            this.btnVerSabana = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPrincipal.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -410,9 +411,10 @@
             // 
             // groupBox14
             // 
-            this.groupBox14.Controls.Add(this.txtFechaFinVer);
+            this.groupBox14.Controls.Add(this.btnVerSabana);
+            this.groupBox14.Controls.Add(this.dtpFechaInicio);
+            this.groupBox14.Controls.Add(this.dtpFechaFin);
             this.groupBox14.Controls.Add(this.label3);
-            this.groupBox14.Controls.Add(this.txtFechaInicioVer);
             this.groupBox14.Controls.Add(this.label2);
             this.groupBox14.Controls.Add(this.btnImprimirSabana);
             this.groupBox14.Controls.Add(this.dtgIngresos);
@@ -425,16 +427,23 @@
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Entradas de visitas";
             // 
-            // txtFechaFinVer
+            // dtpFechaInicio
             // 
-            this.txtFechaFinVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFechaFinVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaFinVer.ForeColor = System.Drawing.Color.Black;
-            this.txtFechaFinVer.Location = new System.Drawing.Point(159, 38);
-            this.txtFechaFinVer.Name = "txtFechaFinVer";
-            this.txtFechaFinVer.ReadOnly = true;
-            this.txtFechaFinVer.Size = new System.Drawing.Size(135, 21);
-            this.txtFechaFinVer.TabIndex = 262;
+            this.dtpFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicio.Location = new System.Drawing.Point(9, 38);
+            this.dtpFechaInicio.Name = "dtpFechaInicio";
+            this.dtpFechaInicio.Size = new System.Drawing.Size(115, 22);
+            this.dtpFechaInicio.TabIndex = 264;
+            // 
+            // dtpFechaFin
+            // 
+            this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFin.Location = new System.Drawing.Point(159, 38);
+            this.dtpFechaFin.Name = "dtpFechaFin";
+            this.dtpFechaFin.Size = new System.Drawing.Size(115, 22);
+            this.dtpFechaFin.TabIndex = 263;
             // 
             // label3
             // 
@@ -446,17 +455,6 @@
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 261;
             this.label3.Text = "FECHA FIN";
-            // 
-            // txtFechaInicioVer
-            // 
-            this.txtFechaInicioVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFechaInicioVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaInicioVer.ForeColor = System.Drawing.Color.Black;
-            this.txtFechaInicioVer.Location = new System.Drawing.Point(9, 38);
-            this.txtFechaInicioVer.Name = "txtFechaInicioVer";
-            this.txtFechaInicioVer.ReadOnly = true;
-            this.txtFechaInicioVer.Size = new System.Drawing.Size(135, 21);
-            this.txtFechaInicioVer.TabIndex = 260;
             // 
             // label2
             // 
@@ -482,51 +480,67 @@
             this.btnImprimirSabana.TabIndex = 117;
             this.btnImprimirSabana.Text = "Imprimir sabana";
             this.btnImprimirSabana.UseVisualStyleBackColor = false;
+            this.btnImprimirSabana.Click += new System.EventHandler(this.btnImprimirSabana_Click);
             // 
             // dtgIngresos
             // 
             this.dtgIngresos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgIngresos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgIngresos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgIngresos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dtgIngresos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgIngresos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgIngresos.DefaultCellStyle = dataGridViewCellStyle22;
             this.dtgIngresos.EnableHeadersVisualStyles = false;
             this.dtgIngresos.GridColor = System.Drawing.Color.DimGray;
             this.dtgIngresos.Location = new System.Drawing.Point(7, 71);
             this.dtgIngresos.MultiSelect = false;
             this.dtgIngresos.Name = "dtgIngresos";
             this.dtgIngresos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgIngresos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dtgIngresos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgIngresos.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
+            this.dtgIngresos.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dtgIngresos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgIngresos.Size = new System.Drawing.Size(1035, 512);
             this.dtgIngresos.TabIndex = 2;
+            // 
+            // btnVerSabana
+            // 
+            this.btnVerSabana.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerSabana.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerSabana.ForeColor = System.Drawing.Color.White;
+            this.btnVerSabana.Location = new System.Drawing.Point(303, 15);
+            this.btnVerSabana.Name = "btnVerSabana";
+            this.btnVerSabana.Size = new System.Drawing.Size(160, 45);
+            this.btnVerSabana.TabIndex = 265;
+            this.btnVerSabana.Text = "VER SABANAS";
+            this.btnVerSabana.UseVisualStyleBackColor = false;
+            this.btnVerSabana.Click += new System.EventHandler(this.btnVerSabana_Click);
             // 
             // FormSabanaCiudadano
             // 
@@ -580,9 +594,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TabPage tabSabana;
         private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.TextBox txtFechaFinVer;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFechaInicioVer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnImprimirSabana;
         private System.Windows.Forms.DataGridView dtgIngresos;
@@ -594,5 +606,8 @@
         private System.Windows.Forms.TextBox txtEstadoProcesalVer;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.TextBox txtOrganismoAlojamientoVer;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
+        private System.Windows.Forms.DateTimePicker dtpFechaFin;
+        private System.Windows.Forms.Button btnVerSabana;
     }
 }

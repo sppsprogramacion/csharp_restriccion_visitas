@@ -42,12 +42,7 @@ namespace CapaPresentacion
                 texto = "Apellido en: Todas las unidades"
             });
 
-            listaElegir.Add(new DElegirBusquedaInterno
-            {
-                id_busqueda = "prontuario",
-                texto = "Prontuario"
-            });
-
+            
             cmbBusqueda.ValueMember = "id_busqueda";    // id
             cmbBusqueda.DisplayMember = "texto";  // texto
             cmbBusqueda.DataSource = listaElegir;

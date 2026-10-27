@@ -2,6 +2,7 @@
 using CapaNegocio;
 using CapaPresentacion.FuncionesGenerales;
 using CapaPresentacion.Reportes.AdministrarVisita;
+using CapaPresentacion.Reportes.SabanasVisitasInternos;
 using PdfiumViewer;
 using System;
 using System.Collections.Generic;
@@ -99,8 +100,8 @@ namespace CapaPresentacion
             }
 
             //CARGAR SABANA DE INGRESO DE VISITAS
-            txtFechaInicioVer.Text = fechaInicioGlobal.ToShortDateString();
-            txtFechaFinVer.Text = fechaFinGlobal.ToShortDateString();
+            dtpFechaInicio.Value = fechaInicioGlobal;
+            dtpFechaFin.Value = fechaFinGlobal;
 
             var datosfiltradosSabana = this.ciudadanoSabanaGlobal.listaEntradasResponse
                 .Select(c => new
@@ -164,34 +165,12 @@ namespace CapaPresentacion
             }
         }
 
-        private async void btnImprimirVinculos_Click(object sender, EventArgs e)
+        private void btnImprimirVinculos_Click(object sender, EventArgs e)
         {
-            NCiudadano nCiudadano = new NCiudadano();
-            NVisitaInterno nVisitaInterno = new NVisitaInterno();
-
-            //buscar ciudadano
-            this.Enabled = false;
-            (DCiudadano dCiudadanoX, string errorCiudadanoResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadanoGlobal);
-            this.Enabled = true;
-
-            if (dCiudadanoX == null)
-            {
-                
-                MessageBox.Show(errorCiudadanoResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            //buscar vinculos
-            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(idCiudadanoGlobal);
-
-            if (listaParentescos == null)
-            {
-                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            
 
             // Generar PDF en memoria
-            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(dCiudadanoX, listaParentescos);
+            MemoryStream msOriginal = ReportesSabanaVisitasInternos.RepPdfVinculosDeLaVisita(ciudadanoSabanaGlobal);
 
             // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
             MemoryStream ms = new MemoryStream(msOriginal.ToArray());
@@ -206,7 +185,8 @@ namespace CapaPresentacion
                 {
                     Text = "Vista previa PDF",
                     Width = 800,
-                    Height = 600
+                    Height = 600,
+                    StartPosition = FormStartPosition.CenterScreen,
                 };
 
                 PdfViewer pdfViewer = new PdfViewer
@@ -236,5 +216,110 @@ namespace CapaPresentacion
                 pdfDocument?.Dispose();
             }
         }
+
+        private void btnVerSabana_Click(object sender, EventArgs e)
+        {
+            this.CargarDataGridSabana();
+        }
+
+        private void btnImprimirSabana_Click(object sender, EventArgs e)
+        {
+            // Generar PDF en memoria
+            MemoryStream msOriginal = ReportesSabanaVisitasInternos.RepPdfCiudadanoSabana(ciudadanoSabanaGlobal);
+
+            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
+            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
+
+            PdfDocument pdfDocument = null;
+
+            try
+            {
+                pdfDocument = PdfDocument.Load(ms);
+
+                Form formVisor = new Form
+                {
+                    Text = "Vista previa PDF",
+                    Width = 800,
+                    Height = 600,
+                    StartPosition = FormStartPosition.CenterScreen,
+                };
+
+                PdfViewer pdfViewer = new PdfViewer
+                {
+                    Dock = DockStyle.Fill,
+                    Document = pdfDocument
+                };
+
+                formVisor.Controls.Add(pdfViewer);
+
+                formVisor.FormClosed += (s, args) =>
+                {
+                    // Liberar recursos al cerrar el visor
+                    pdfViewer.Document.Dispose();
+                    pdfViewer.Dispose();
+                    formVisor.Dispose();
+                    ms.Dispose();
+                    pdfDocument = null;
+                };
+
+                formVisor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
+                ms.Dispose();
+                pdfDocument?.Dispose();
+            }
+        }
+
+
+        //METODO PARA OBTENER LA LISTA DE SABANA DEL CIUDADANO
+        async private void CargarDataGridSabana()
+        {
+            NEntradaSalida nEntradaSalida = new NEntradaSalida();
+            (List<DEntradaSalidaSabanaCiudadano> listaSabana, string errorResponse) = await nEntradaSalida.ListaSabanaXCiudadano(idCiudadanoGlobal, dtpFechaInicio.Value.ToString("yyyy-MM-dd"), dtpFechaFin.Value.ToString("yyyy-MM-dd"));
+
+            if (listaSabana == null)
+            {
+                MessageBox.Show(errorResponse, "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            this.ciudadanoSabanaGlobal.listaEntradasResponse = listaSabana;
+            
+            var datosfiltrados = listaSabana
+                .Select(c => new
+                {
+                    Fecha = c.fecha_registro,
+                    Interno = c.nombre_interno,
+                    Parentesco = c.parentesco,
+                    Entrada = c.hora_registro,
+                    Salida = c.hora_egreso,
+                    Menores = c.menores,
+                    Organismo = c.organismo
+                })
+                .ToList();
+
+            dtgIngresos.DataSource = datosfiltrados;
+
+            if (listaSabana.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                dtgIngresos.Columns[0].Width = 80;
+                dtgIngresos.Columns[1].Width = 250;
+                dtgIngresos.Columns[2].Width = 90;
+                dtgIngresos.Columns[3].Width = 70;
+                dtgIngresos.Columns[4].Width = 70;
+                dtgIngresos.Columns[5].Width = 300;
+                dtgIngresos.Columns[6].Width = 150;
+
+            }
+        }        
+        //FIN METODO PARA OBTENER LA LISTA DE SABANA DEL CIUDADANO
+        //----------------------------------------------------------------------------------
     }
 }

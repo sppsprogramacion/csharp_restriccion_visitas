@@ -18,7 +18,7 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
         {
             MemoryStream ms = new MemoryStream();
 
-            Document doc = new Document(PageSize.A4.Rotate(), 50, 50, 50, 50);
+            Document doc = new Document(PageSize.A4.Rotate(), 50, 50, 40, 50);
 
             PdfWriter writer = PdfWriter.GetInstance(doc, ms);
             writer.CloseStream = false; // evita cerrar el MemoryStream al cerrar el documento
@@ -35,15 +35,15 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
             //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaImagen);
 
             // Cargar directamente desde Resources
-            System.Drawing.Image logoImg = Properties.Resources.logo_spps2;
+            //System.Drawing.Image logoImg = Properties.Resources.logo_spps2;
             // Convertir a iTextSharp Image
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(logoImg, System.Drawing.Imaging.ImageFormat.Png);
-            string organismo = CurrentUser.Instance.organismo.ToUpper();
-            logo.ScaleAbsolute(40, 40);
-            logo.SetAbsolutePosition(150, 770);
-            doc.Add(logo);
-            doc.Add(new Paragraph(" "));
+            //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(logoImg, System.Drawing.Imaging.ImageFormat.Png);
+            //logo.ScaleAbsolute(40, 40);
+            //logo.SetAbsolutePosition(150, 770);
+            //doc.Add(logo);
+            //doc.Add(new Paragraph(" "));
 
+            string organismo = CurrentUser.Instance.organismo.ToUpper();
             // Crear tabla con 2 columnas
             PdfPTable tablaEncabezado = new PdfPTable(1);
             tablaEncabezado.WidthPercentage = 35; // ocupa la mitad de la página
@@ -132,7 +132,8 @@ namespace CapaPresentacion.Reportes.AdministrarVisita
 
             return ms;
         }
-    
-    } 
-    
+        //FIN VINCULOS DE LA VISITA
+        //----------------------------------------------------------------------------------
+    }
+
 }
