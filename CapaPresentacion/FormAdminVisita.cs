@@ -3,6 +3,7 @@ using CapaNegocio;
 using CapaPresentacion.FuncionesGenerales;
 using CapaPresentacion.Reportes;
 using CapaPresentacion.Reportes.AdministrarVisita;
+using CapaPresentacion.Reportes.SabanasVisitasInternos;
 using CapaPresentacion.Validaciones;
 using CapaPresentacion.Validaciones.AdminVisita.EdicionProhibicion;
 using CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion;
@@ -28,6 +29,8 @@ namespace CapaPresentacion
         //VARIABLES GLOBALES
         DCiudadano dCiudadanoGlo = new DCiudadano();
         List<DVisitaInterno> listaVisitaInternosGlo = new List<DVisitaInterno>();
+        private List<DEntradaSalidaSabanaCiudadano> listaSabanaGlobal = new List<DEntradaSalidaSabanaCiudadano>();
+        List<DVisitaInterno> listaVinculosGlobal = new List<DVisitaInterno>();
 
         private ErrorProvider errorProvider = new ErrorProvider();
         //la accion puede ser prohibir, levantar o quitar
@@ -731,6 +734,9 @@ namespace CapaPresentacion
                 return;
             }
 
+            //cargar lista global
+            this.listaVinculosGlobal = listaParentescos;
+
             var datosfiltrados = listaParentescos
                 .Select(c => new
                 {
@@ -804,18 +810,20 @@ namespace CapaPresentacion
         //BOTON IMPRIMIR VINCULOS
         private async void btnImprimirVinculos_Click(object sender, EventArgs e)
         {
-            NVisitaInterno nVisitaInterno = new NVisitaInterno();
+            //NVisitaInterno nVisitaInterno = new NVisitaInterno();
 
-            (List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadanoGlo.id_ciudadano);
+            //(List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadanoGlo.id_ciudadano);
 
-            if (listaParentescos == null)
-            {
-                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            //if (listaParentescos == null)
+            //{
+            //    MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
+
+
 
             // Generar PDF en memoria
-            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(this.dCiudadanoGlo ,listaParentescos);
+            MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(this.dCiudadanoGlo ,listaVinculosGlobal);
 
             // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
             MemoryStream ms = new MemoryStream(msOriginal.ToArray());
@@ -830,7 +838,8 @@ namespace CapaPresentacion
                 {
                     Text = "Vista previa PDF",
                     Width = 800,
-                    Height = 600
+                    Height = 600,
+                    StartPosition = FormStartPosition.CenterScreen,
                 };
 
                 PdfViewer pdfViewer = new PdfViewer
@@ -1423,6 +1432,8 @@ namespace CapaPresentacion
                 MessageBox.Show(errorResponse, "Atencion Ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
+            this.listaSabanaGlobal = listaSabana;
 
             var datosfiltrados = listaSabana
                 .Select(c => new
@@ -2078,12 +2089,106 @@ namespace CapaPresentacion
 
         private void btnImprimirSabana_Click(object sender, EventArgs e)
         {
+            //Crear objeto ciudadanoSabana
+            DCiudadanoSabanaResponse ciudadanoSabanaResponse = new DCiudadanoSabanaResponse();
+            ciudadanoSabanaResponse.nombre_visita = txtApellido.Text + " " + txtNombre.Text;
+            ciudadanoSabanaResponse.dni = Convert.ToInt32(txtDni.Text);
+            ciudadanoSabanaResponse.listaEntradasResponse = listaSabanaGlobal;
 
+            // Generar PDF en memoria
+            MemoryStream msOriginal = ReportesSabanaVisitasInternos.RepPdfCiudadanoSabana(ciudadanoSabanaResponse);
+
+            // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
+            MemoryStream ms = new MemoryStream(msOriginal.ToArray());
+
+            PdfDocument pdfDocument = null;
+
+            try
+            {
+                pdfDocument = PdfDocument.Load(ms);
+
+                Form formVisor = new Form
+                {
+                    Text = "Vista previa PDF",
+                    Width = 800,
+                    Height = 600,
+                    StartPosition = FormStartPosition.CenterScreen,
+                };
+
+                PdfViewer pdfViewer = new PdfViewer
+                {
+                    Dock = DockStyle.Fill,
+                    Document = pdfDocument
+                };
+
+                formVisor.Controls.Add(pdfViewer);
+
+                formVisor.FormClosed += (s, args) =>
+                {
+                    // Liberar recursos al cerrar el visor
+                    pdfViewer.Document.Dispose();
+                    pdfViewer.Dispose();
+                    formVisor.Dispose();
+                    ms.Dispose();
+                    pdfDocument = null;
+                };
+
+                formVisor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar PDF: " + ex.Message);
+                ms.Dispose();
+                pdfDocument?.Dispose();
+            }
         }
 
-        
+        private async void btnMenoresACargo_Click(object sender, EventArgs e)
+        {
+            if (this.txtIdCiudadano.Text == string.Empty)
+            {
+                MessageBox.Show("debe esperar que cargue los datos del ciudadano", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                NMenorACargo nMenorACargo = new NMenorACargo();
+                (List<DMenorACargo> listaMenoresACargo, string errorResponse) = await nMenorACargo.retornarListaVigentesXAdulto(Convert.ToInt32(this.txtIdCiudadano.Text));
+
+                if (listaMenoresACargo == null)
+                {
+                    MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
 
+                var datosFiltrados = listaMenoresACargo
+                .Select(c => new
+                {
+                    Id = c.id_menor_a_cargo,
+                    Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
+                    Parentesco = c.parentesco_menor.parentesco_menor,
+                    DniMenor = c.ciudadanoMenor.dni,
+                    EdadMenor = c.edadMenor
+
+                })
+                .ToList();
+
+                dgvMenores.DataSource = datosFiltrados;
+
+                if (listaMenoresACargo.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+
+                    dgvMenores.Columns[0].Width = 50;
+                    dgvMenores.Columns[1].Width = 220;
+                    dgvMenores.Columns[2].Width = 80;
+                }
+            }
+        }
     }
 
 

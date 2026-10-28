@@ -20,12 +20,12 @@ namespace CapaPresentacion
     {
         //VARIABLES GLOBALES
         private ErrorProvider errorProvider = new ErrorProvider();
+        DInternoSabanaResponse internoSabanaGlobal = new DInternoSabanaResponse();
 
         int idInternoGlobal = 0;
         DateTime fechaInicioGlobal;
         DateTime fechaFinGlobal;
 
-        DInternoSabanaResponse internoSabanaGlobal = new DInternoSabanaResponse();
         
         public FormSabanaInternos(int idInternoX, DateTime fechaInicio, DateTime fechaFin)
         {
@@ -101,8 +101,8 @@ namespace CapaPresentacion
             }
 
             //CARGAR SABANA DE INGRESO DE VISITAS
-            txtFechaInicioVer.Text = fechaInicioGlobal.ToShortDateString();
-            txtFechaFinVer.Text = fechaFinGlobal.ToShortDateString();
+            dtpFechaInicio.Value = fechaInicioGlobal;
+            dtpFechaFin.Value = fechaFinGlobal;
 
             var datosfiltradosSabana = this.internoSabanaGlobal.listaEntradasResponse
                 .Select(c => new
@@ -220,7 +220,10 @@ namespace CapaPresentacion
             }
         }
 
-
+        private void btnVerSabana_Click(object sender, EventArgs e)
+        {
+            this.CargarDataGridSabana();
+        }
 
         private void btnImprimirSabana_Click(object sender, EventArgs e)
         {
@@ -271,6 +274,55 @@ namespace CapaPresentacion
                 pdfDocument?.Dispose();
             }
         }
+
+        //METODO PARA OBTENER LA LISTA DE SABANA DEL CIUDADANO
+        async private void CargarDataGridSabana()
+        {
+            NEntradaSalida nEntradaSalida = new NEntradaSalida();
+            (List<DEntradaSalidaSabanaInterno> listaSabana, string errorResponse) = await nEntradaSalida.ListaSabanaXInterno(idInternoGlobal, dtpFechaInicio.Value.ToString("yyyy-MM-dd"), dtpFechaFin.Value.ToString("yyyy-MM-dd"));
+
+            if (listaSabana == null)
+            {
+                MessageBox.Show(errorResponse, "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            this.internoSabanaGlobal.listaEntradasResponse = listaSabana;
+
+            var datosfiltrados = listaSabana
+                .Select(c => new
+                {
+                    Fecha = c.fecha_registro,
+                    Visita = c.nombre_visita,
+                    Parentesco = c.parentesco,
+                    Entrada = c.hora_registro,
+                    Salida = c.hora_egreso,
+                    Menores = c.menores,
+                    Organismo = c.organismo
+                })
+                .ToList();
+
+            dtgIngresos.DataSource = datosfiltrados;
+
+            if (listaSabana.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                dtgIngresos.Columns[0].Width = 80;
+                dtgIngresos.Columns[1].Width = 250;
+                dtgIngresos.Columns[2].Width = 90;
+                dtgIngresos.Columns[3].Width = 70;
+                dtgIngresos.Columns[4].Width = 70;
+                dtgIngresos.Columns[5].Width = 300;
+                dtgIngresos.Columns[6].Width = 150;
+
+            }
+        }
+        //FIN METODO PARA OBTENER LA LISTA DE SABANA DEL CIUDADANO
+        //----------------------------------------------------------------------------------
 
 
         //METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES
@@ -336,6 +388,7 @@ namespace CapaPresentacion
 
 
         }
+                
         //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES
         //--------------------------------------------------------------------------------------------...........
 

@@ -28,26 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPrincipal = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.pictureFoto = new System.Windows.Forms.PictureBox();
-            this.txtFechaAlojamiento = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtVisita = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
-            this.label71 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
-            this.txtJurisdiccionVer = new System.Windows.Forms.TextBox();
+            this.txtEdad = new System.Windows.Forms.TextBox();
             this.label69 = new System.Windows.Forms.Label();
-            this.txtEstadoProcesalVer = new System.Windows.Forms.TextBox();
+            this.txtSexo = new System.Windows.Forms.TextBox();
             this.label67 = new System.Windows.Forms.Label();
-            this.txtOrganismoAlojamientoVer = new System.Windows.Forms.TextBox();
+            this.txtDomicilio = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dtgvParentescos = new System.Windows.Forms.DataGridView();
             this.btnImprimirVinculos = new System.Windows.Forms.Button();
@@ -62,13 +60,13 @@
             this.label25 = new System.Windows.Forms.Label();
             this.tabSabana = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.btnVerSabana = new System.Windows.Forms.Button();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnImprimirSabana = new System.Windows.Forms.Button();
             this.dtgIngresos = new System.Windows.Forms.DataGridView();
-            this.btnVerSabana = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPrincipal.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -108,18 +106,16 @@
             // 
             this.groupBox6.BackColor = System.Drawing.Color.Indigo;
             this.groupBox6.Controls.Add(this.pictureFoto);
-            this.groupBox6.Controls.Add(this.txtFechaAlojamiento);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Controls.Add(this.txtVisita);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.txtDni);
-            this.groupBox6.Controls.Add(this.label71);
             this.groupBox6.Controls.Add(this.label70);
-            this.groupBox6.Controls.Add(this.txtJurisdiccionVer);
+            this.groupBox6.Controls.Add(this.txtEdad);
             this.groupBox6.Controls.Add(this.label69);
-            this.groupBox6.Controls.Add(this.txtEstadoProcesalVer);
+            this.groupBox6.Controls.Add(this.txtSexo);
             this.groupBox6.Controls.Add(this.label67);
-            this.groupBox6.Controls.Add(this.txtOrganismoAlojamientoVer);
+            this.groupBox6.Controls.Add(this.txtDomicilio);
             this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox6.Location = new System.Drawing.Point(13, 15);
@@ -139,22 +135,12 @@
             this.pictureFoto.TabIndex = 259;
             this.pictureFoto.TabStop = false;
             // 
-            // txtFechaAlojamiento
-            // 
-            this.txtFechaAlojamiento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFechaAlojamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaAlojamiento.Location = new System.Drawing.Point(561, 81);
-            this.txtFechaAlojamiento.Name = "txtFechaAlojamiento";
-            this.txtFechaAlojamiento.ReadOnly = true;
-            this.txtFechaAlojamiento.Size = new System.Drawing.Size(135, 21);
-            this.txtFechaAlojamiento.TabIndex = 258;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(122, 16);
+            this.label12.Location = new System.Drawing.Point(115, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 15);
             this.label12.TabIndex = 255;
@@ -164,10 +150,10 @@
             // 
             this.txtVisita.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVisita.Location = new System.Drawing.Point(125, 35);
+            this.txtVisita.Location = new System.Drawing.Point(118, 35);
             this.txtVisita.Name = "txtVisita";
             this.txtVisita.ReadOnly = true;
-            this.txtVisita.Size = new System.Drawing.Size(571, 21);
+            this.txtVisita.Size = new System.Drawing.Size(684, 21);
             this.txtVisita.TabIndex = 254;
             // 
             // label11
@@ -191,37 +177,26 @@
             this.txtDni.Size = new System.Drawing.Size(103, 21);
             this.txtDni.TabIndex = 252;
             // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label71.ForeColor = System.Drawing.Color.White;
-            this.label71.Location = new System.Drawing.Point(558, 65);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(137, 13);
-            this.label71.TabIndex = 226;
-            this.label71.Text = "FECHA ALOJAMIENTO";
-            // 
             // label70
             // 
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label70.ForeColor = System.Drawing.Color.White;
-            this.label70.Location = new System.Drawing.Point(290, 65);
+            this.label70.Location = new System.Drawing.Point(181, 65);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(172, 13);
+            this.label70.Size = new System.Drawing.Size(71, 13);
             this.label70.TabIndex = 223;
-            this.label70.Text = "ORGANISMO ALOJAMIENTO";
+            this.label70.Text = "DOMICILIO";
             // 
-            // txtJurisdiccionVer
+            // txtEdad
             // 
-            this.txtJurisdiccionVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJurisdiccionVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJurisdiccionVer.Location = new System.Drawing.Point(149, 82);
-            this.txtJurisdiccionVer.Name = "txtJurisdiccionVer";
-            this.txtJurisdiccionVer.ReadOnly = true;
-            this.txtJurisdiccionVer.Size = new System.Drawing.Size(135, 21);
-            this.txtJurisdiccionVer.TabIndex = 251;
+            this.txtEdad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEdad.Location = new System.Drawing.Point(118, 82);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.ReadOnly = true;
+            this.txtEdad.Size = new System.Drawing.Size(59, 21);
+            this.txtEdad.TabIndex = 251;
             // 
             // label69
             // 
@@ -230,40 +205,40 @@
             this.label69.ForeColor = System.Drawing.Color.White;
             this.label69.Location = new System.Drawing.Point(6, 65);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(126, 13);
+            this.label69.Size = new System.Drawing.Size(40, 13);
             this.label69.TabIndex = 227;
-            this.label69.Text = "ESTADO PROCESAL";
+            this.label69.Text = "SEXO";
             // 
-            // txtEstadoProcesalVer
+            // txtSexo
             // 
-            this.txtEstadoProcesalVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEstadoProcesalVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstadoProcesalVer.Location = new System.Drawing.Point(10, 82);
-            this.txtEstadoProcesalVer.Name = "txtEstadoProcesalVer";
-            this.txtEstadoProcesalVer.ReadOnly = true;
-            this.txtEstadoProcesalVer.Size = new System.Drawing.Size(135, 21);
-            this.txtEstadoProcesalVer.TabIndex = 250;
+            this.txtSexo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSexo.Location = new System.Drawing.Point(10, 82);
+            this.txtSexo.Name = "txtSexo";
+            this.txtSexo.ReadOnly = true;
+            this.txtSexo.Size = new System.Drawing.Size(103, 21);
+            this.txtSexo.TabIndex = 250;
             // 
             // label67
             // 
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label67.ForeColor = System.Drawing.Color.White;
-            this.label67.Location = new System.Drawing.Point(146, 65);
+            this.label67.Location = new System.Drawing.Point(115, 65);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(94, 13);
+            this.label67.Size = new System.Drawing.Size(41, 13);
             this.label67.TabIndex = 229;
-            this.label67.Text = "JURISDICCION";
+            this.label67.Text = "EDAD";
             // 
-            // txtOrganismoAlojamientoVer
+            // txtDomicilio
             // 
-            this.txtOrganismoAlojamientoVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOrganismoAlojamientoVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOrganismoAlojamientoVer.Location = new System.Drawing.Point(291, 82);
-            this.txtOrganismoAlojamientoVer.Name = "txtOrganismoAlojamientoVer";
-            this.txtOrganismoAlojamientoVer.ReadOnly = true;
-            this.txtOrganismoAlojamientoVer.Size = new System.Drawing.Size(264, 21);
-            this.txtOrganismoAlojamientoVer.TabIndex = 249;
+            this.txtDomicilio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDomicilio.Location = new System.Drawing.Point(182, 82);
+            this.txtDomicilio.Name = "txtDomicilio";
+            this.txtDomicilio.ReadOnly = true;
+            this.txtDomicilio.Size = new System.Drawing.Size(620, 21);
+            this.txtDomicilio.TabIndex = 249;
             // 
             // groupBox7
             // 
@@ -427,6 +402,21 @@
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Entradas de visitas";
             // 
+            // btnVerSabana
+            // 
+            this.btnVerSabana.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerSabana.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerSabana.ForeColor = System.Drawing.Color.White;
+            this.btnVerSabana.Location = new System.Drawing.Point(303, 15);
+            this.btnVerSabana.Name = "btnVerSabana";
+            this.btnVerSabana.Size = new System.Drawing.Size(160, 45);
+            this.btnVerSabana.TabIndex = 265;
+            this.btnVerSabana.Text = "VER SABANAS";
+            this.btnVerSabana.UseVisualStyleBackColor = false;
+            this.btnVerSabana.Click += new System.EventHandler(this.btnVerSabana_Click);
+            // 
             // dtpFechaInicio
             // 
             this.dtpFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -486,61 +476,46 @@
             // 
             this.dtgIngresos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgIngresos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgIngresos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgIngresos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgIngresos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgIngresos.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgIngresos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgIngresos.EnableHeadersVisualStyles = false;
             this.dtgIngresos.GridColor = System.Drawing.Color.DimGray;
             this.dtgIngresos.Location = new System.Drawing.Point(7, 71);
             this.dtgIngresos.MultiSelect = false;
             this.dtgIngresos.Name = "dtgIngresos";
             this.dtgIngresos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgIngresos.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            this.dtgIngresos.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgIngresos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dtgIngresos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgIngresos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgIngresos.Size = new System.Drawing.Size(1035, 512);
             this.dtgIngresos.TabIndex = 2;
-            // 
-            // btnVerSabana
-            // 
-            this.btnVerSabana.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnVerSabana.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnVerSabana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerSabana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerSabana.ForeColor = System.Drawing.Color.White;
-            this.btnVerSabana.Location = new System.Drawing.Point(303, 15);
-            this.btnVerSabana.Name = "btnVerSabana";
-            this.btnVerSabana.Size = new System.Drawing.Size(160, 45);
-            this.btnVerSabana.TabIndex = 265;
-            this.btnVerSabana.Text = "VER SABANAS";
-            this.btnVerSabana.UseVisualStyleBackColor = false;
-            this.btnVerSabana.Click += new System.EventHandler(this.btnVerSabana_Click);
             // 
             // FormSabanaCiudadano
             // 
@@ -598,14 +573,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnImprimirSabana;
         private System.Windows.Forms.DataGridView dtgIngresos;
-        private System.Windows.Forms.TextBox txtFechaAlojamiento;
-        private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox txtJurisdiccionVer;
+        private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.TextBox txtEstadoProcesalVer;
+        private System.Windows.Forms.TextBox txtSexo;
         private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.TextBox txtOrganismoAlojamientoVer;
+        private System.Windows.Forms.TextBox txtDomicilio;
         private System.Windows.Forms.DateTimePicker dtpFechaInicio;
         private System.Windows.Forms.DateTimePicker dtpFechaFin;
         private System.Windows.Forms.Button btnVerSabana;

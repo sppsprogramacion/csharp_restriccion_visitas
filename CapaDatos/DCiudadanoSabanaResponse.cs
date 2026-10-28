@@ -11,6 +11,8 @@ namespace CapaDatos
         public int id_ciudadano { get; set; }
         public int dni { get; set; }
         public string nombre_visita { get; set; }
+        public string sexo { get; set; }
+        public int edad { get; set; }
         public string domicilio { get; set; }
         public string foto { get; set; }
 

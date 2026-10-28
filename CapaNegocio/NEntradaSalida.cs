@@ -23,6 +23,18 @@ namespace CapaNegocio
         }
         //FIN LISTA SABANA POR CIUDADANO..................................
 
+        //LISTA SABANA POR INTERNMO
+        public async Task<(List<DEntradaSalidaSabanaInterno>, string error)> ListaSabanaXInterno(int idInterno, string fechaInicio, string fechaFin)
+        {
+            IEntradaSalidaDao entradaSalidaDao = new EntradaSalidaDaoImplement();
+
+            (List<DEntradaSalidaSabanaInterno> listaEntradas, string errorResponse) = await entradaSalidaDao.ListaEntradaSalidaSabanaXinterno(idInterno, fechaInicio, fechaFin);
+
+
+            return (listaEntradas, errorResponse);
+        }
+        //FIN LISTA SABANA POR INTERNO..................................
+
         //SABANA POR CIUDADANO
         public async Task<(DCiudadanoSabanaResponse, string error)> BuscarCiudadanoSabanaXInterno(int idCiudadano, string fechaInicio, string fechaFin)
         {

@@ -20,13 +20,13 @@ namespace CapaPresentacion
     public partial class FormSabanaCiudadano : Form
     {
         //VARIABLES GLOBALES
-        private ErrorProvider errorProvider = new ErrorProvider();
+        private ErrorProvider errorProvider = new ErrorProvider();        
+        DCiudadanoSabanaResponse ciudadanoSabanaGlobal = new DCiudadanoSabanaResponse();
 
         int idCiudadanoGlobal = 0;
         DateTime fechaInicioGlobal;
         DateTime fechaFinGlobal;
 
-        DCiudadanoSabanaResponse ciudadanoSabanaGlobal = new DCiudadanoSabanaResponse();
 
         public FormSabanaCiudadano(int idCiudadanoX, DateTime fechaInicio, DateTime fechaFin)
         {
@@ -59,6 +59,9 @@ namespace CapaPresentacion
             //CARGAR DATOS DEL INTERNO
             txtDni.Text = this.ciudadanoSabanaGlobal.dni.ToString();
             txtVisita.Text = this.ciudadanoSabanaGlobal.nombre_visita;
+            txtSexo.Text = this.ciudadanoSabanaGlobal.sexo;
+            txtEdad.Text = this.ciudadanoSabanaGlobal.edad.ToString();
+            txtDomicilio.Text = this.ciudadanoSabanaGlobal.domicilio;
             pictureFoto.Load(this.ciudadanoSabanaGlobal.foto);
 
             //CARGAR VINCULOS

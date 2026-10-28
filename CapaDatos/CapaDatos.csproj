@@ -47,6 +47,7 @@
     <Compile Include="DCiudadanoSabanaResponse.cs" />
     <Compile Include="DDepartamento.cs" />
     <Compile Include="DElegirBusquedaInterno.cs" />
+    <Compile Include="DEntradaSalida.cs" />
     <Compile Include="DEntradaSalidaSabanaCiudadano.cs" />
     <Compile Include="DEntradaSalidaSabanaInterno.cs" />
     <Compile Include="DExcepcionIngresoVisita.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="DInternoSabanaResponse.cs" />
     <Compile Include="DLogin.cs" />
     <Compile Include="DLoginResponse.cs" />
+    <Compile Include="DMenorACargo.cs" />
     <Compile Include="DMotivoAtencion.cs" />
     <Compile Include="DMunicipio.cs" />
     <Compile Include="DNacionalidad.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="DOrganismo.cs" />
     <Compile Include="DPais.cs" />
     <Compile Include="DParentesco.cs" />
+    <Compile Include="DParentescoMenor.cs" />
     <Compile Include="DProhibicionAnticipada.cs" />
     <Compile Include="DProhibicionVisita.cs" />
     <Compile Include="DProvincia.cs" />

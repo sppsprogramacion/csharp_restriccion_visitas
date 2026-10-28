@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaNegocio;
 
 namespace CapaPresentacion.Reportes.SabanasVisitasInternos
 {
@@ -72,8 +73,9 @@ namespace CapaPresentacion.Reportes.SabanasVisitasInternos
             //datos ciudadano
             doc.Add(new Paragraph(" Apellido y nombre: " + dCiudadanoSabanaResponse.nombre_visita, fuenteNormal));
             doc.Add(new Paragraph(" DNI: " + dCiudadanoSabanaResponse.dni, fuenteNormal));
+            doc.Add(new Paragraph(" Sexo: " + dCiudadanoSabanaResponse.sexo + "      -      Edad: " + dCiudadanoSabanaResponse.edad, fuenteNormal));
             doc.Add(new Paragraph(" Domicilio: " + dCiudadanoSabanaResponse.domicilio, fuenteNormal));
-            
+
             //fin datos ciudadano
 
             //doc.Add(new Paragraph(" "));
@@ -190,27 +192,42 @@ namespace CapaPresentacion.Reportes.SabanasVisitasInternos
 
             //doc.Add(new Paragraph(" "));
 
-            PdfPTable tablaVinculos = new PdfPTable(7);
+            PdfPTable tablaVinculos = new PdfPTable(5);
             tablaVinculos.WidthPercentage = 100;
-            tablaVinculos.SetWidths(new float[] { 2.5f, 1.0f, 0.6f, 0.7f, 0.7f, 0.7f, 2.6f });
+            tablaVinculos.SetWidths(new float[] { 2.5f, 1.0f, 0.6f, 2.1f, 2.6f });
             tablaVinculos.AddCell(new Paragraph("Visita", fuenteTitulo));
             tablaVinculos.AddCell(new Paragraph("Parentesco", fuenteTitulo));
             tablaVinculos.AddCell(new Paragraph("Vigente", fuenteTitulo));
-            tablaVinculos.AddCell(new Paragraph("Prohibido", fuenteTitulo));
-            tablaVinculos.AddCell(new Paragraph("Inicio", fuenteTitulo));
-            tablaVinculos.AddCell(new Paragraph("Fin", fuenteTitulo));
-            tablaVinculos.AddCell(new Paragraph("Detalle", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Prohibicion de vinculo", fuenteTitulo));
+            tablaVinculos.AddCell(new Paragraph("Prohibiciones de ingreso", fuenteTitulo));
 
             // Filas dinámicas
             foreach (var vinculo in listaVinculos)
             {
+                List<DProhibicionVisita> listaProhibiciones = vinculo.ciudadano.prohibiciones_visita;
+                string prohibicionesIngresoAux = "";
+                foreach (var prohibicion in listaProhibiciones)
+                {
+                    prohibicionesIngresoAux = "Inicio: " + prohibicion.fecha_inicio.ToString("dd/MM/yyyy")
+                                        + ", Fin: " + prohibicion.fecha_fin.ToString("dd/MM/yyyy")
+                                        + ", detalle: " + prohibicion.detalle
+                                        + ", organismo: " + prohibicion.organismo.organismo
+                                        + " // " + prohibicionesIngresoAux;
+                }
+
+                string prohibicionVinculoAux = "";
+                if (vinculo.prohibido)
+                {
+                    prohibicionVinculoAux = "Inicio: " + vinculo.fecha_inicio?.ToString("dd/MM/yyyy")
+                                        + ", Fin: " + vinculo.fecha_fin?.ToString("dd/MM/yyyy")
+                                        + ", detalle: " + vinculo.detalles_prohibicion;
+                }
+
                 tablaVinculos.AddCell(new Paragraph(vinculo.ciudadano.apellido.ToString() + " " + vinculo.ciudadano.nombre.ToString(), fuenteNormal));
                 tablaVinculos.AddCell(new Paragraph(vinculo.parentesco.parentesco, fuenteNormal));
                 tablaVinculos.AddCell(new Paragraph(vinculo.vigente ? "SI" : "NO", fuenteNormal));
-                tablaVinculos.AddCell(new Paragraph(vinculo.prohibido ? "SI" : "NO", fuenteNormal));
-                tablaVinculos.AddCell(new Paragraph(vinculo.fecha_inicio?.ToString("dd/MM/yyyy") ?? "", fuenteNormal));
-                tablaVinculos.AddCell(new Paragraph(vinculo.fecha_fin?.ToString("dd/MM/yyyy") ?? "", fuenteNormal));
-                tablaVinculos.AddCell(new Paragraph(vinculo.detalles_prohibicion, fuenteNormal));
+                tablaVinculos.AddCell(new Paragraph(prohibicionVinculoAux, fuenteNormal));
+                tablaVinculos.AddCell(new Paragraph(prohibicionesIngresoAux, fuenteNormal));
 
             }
 

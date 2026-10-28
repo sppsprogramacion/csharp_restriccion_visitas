@@ -52,6 +52,7 @@
     <Compile Include="AuthDaoImpl.cs" />
     <Compile Include="ExcepcionIngresoVisitaDaoImpl.cs" />
     <Compile Include="InternoDaolmpl.cs" />
+    <Compile Include="MenorACargoDaoImplement.cs" />
     <Compile Include="NovedadCiudadanoDaoImpl.cs" />
     <Compile Include="OrganismoDaoImpl.cs" />
     <Compile Include="ParentescoDaoImpl.cs" />
