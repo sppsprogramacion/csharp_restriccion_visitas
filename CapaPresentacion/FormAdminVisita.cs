@@ -808,20 +808,9 @@ namespace CapaPresentacion
         //FIN VER PARENTESCOS....................................................
 
         //BOTON IMPRIMIR VINCULOS
-        private async void btnImprimirVinculos_Click(object sender, EventArgs e)
+        private void btnImprimirVinculos_Click(object sender, EventArgs e)
         {
-            //NVisitaInterno nVisitaInterno = new NVisitaInterno();
-
-            //(List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.RetornarListaParentescos(this.dCiudadanoGlo.id_ciudadano);
-
-            //if (listaParentescos == null)
-            //{
-            //    MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    return;
-            //}
-
-
-
+            
             // Generar PDF en memoria
             MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(this.dCiudadanoGlo ,listaVinculosGlobal);
 
