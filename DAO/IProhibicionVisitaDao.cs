@@ -23,6 +23,8 @@ namespace DAO
         Task<(DProhibicionVisita, string error)> BuscarProhibicionVisitaXId(int idProhibicionvisita);
 
         Task<(List<DProhibicionVisita>, string error)> RetornarProhibicionesVisitaXCiudadano(int idCiudadano);
+        Task<(List<DProhibicionVisita>, string error)> ListaProhibicionesXOrganismoFecha(string fechaInicio, string fechaFin);
+
 
 
     }

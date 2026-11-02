@@ -292,6 +292,7 @@
             this.btnVerProhibiciones.TabIndex = 93;
             this.btnVerProhibiciones.Text = "VER PROHIBICIONES";
             this.btnVerProhibiciones.UseVisualStyleBackColor = false;
+            this.btnVerProhibiciones.Click += new System.EventHandler(this.btnVerProhibiciones_Click);
             // 
             // dtpFechaInicioSabana
             // 

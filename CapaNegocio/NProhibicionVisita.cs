@@ -68,7 +68,7 @@ namespace CapaNegocio
         //FIN ANULAR UNA PROHIBICION..................................
 
 
-        //RETORNAR PROHIBICIONES VISITA POR CIUDADANO
+        //RETORNAR LISTA PROHIBICIONES VISITA POR CIUDADANO
         public async Task<(List<DProhibicionVisita>, string error)> RetornarListaProhibicionesVisita(int idCiudadano)
         {
             IProhibicionVisitaDao prohibicionVisitaDao = new ProhibicinVisitaDaoImpl();
@@ -78,6 +78,20 @@ namespace CapaNegocio
 
             return (listaProhibicionesVisita, errorResponse);
         }
-        //FIN RETORNAR PROHIBICIONES VISITA POR CIUDADANO..................................
+        //FIN RETORNAR LISTA PROHIBICIONES VISITA POR CIUDADANO
+        //...........................................................................
+
+        //RETORNAR LISTA PROHIBICIONES por ORGANISMO Y FECHA
+        public async Task<(List<DProhibicionVisita>, string error)> RetornarListaProhibicionesXOrganismoFecha(string fechaInicio, string fechaFin)
+        {
+            IProhibicionVisitaDao prohibicionVisitaDao = new ProhibicinVisitaDaoImpl();
+
+            (List<DProhibicionVisita> listaProhibicionesVisita, string errorResponse) = await prohibicionVisitaDao.ListaProhibicionesXOrganismoFecha(fechaInicio, fechaFin);
+
+
+            return (listaProhibicionesVisita, errorResponse);
+        }
+        //FIN RETORNAR LISTA PROHIBICIONES por ORGANISMO Y FECHA
+        //...........................................................................
     }
 }

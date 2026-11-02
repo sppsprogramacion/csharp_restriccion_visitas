@@ -60,5 +60,12 @@ namespace CapaPresentacion
 
             formInternosBuscar.ShowDialog();
         }
+
+        private void btnConsultasProhibiciones_Click(object sender, EventArgs e)
+        {
+            FormConsultaProhibiciones formConsultas = new FormConsultaProhibiciones();
+
+            formConsultas.ShowDialog();
+        }
     }
 }

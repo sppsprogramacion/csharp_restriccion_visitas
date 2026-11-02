@@ -37,6 +37,7 @@
             this.btnExcepcionesIngreso = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSabanaVisitasInternos = new System.Windows.Forms.Button();
+            this.btnConsultasProhibiciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,7 +116,7 @@
             this.btnExcepcionesIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcepcionesIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcepcionesIngreso.ForeColor = System.Drawing.Color.White;
-            this.btnExcepcionesIngreso.Location = new System.Drawing.Point(278, 56);
+            this.btnExcepcionesIngreso.Location = new System.Drawing.Point(282, 56);
             this.btnExcepcionesIngreso.Name = "btnExcepcionesIngreso";
             this.btnExcepcionesIngreso.Size = new System.Drawing.Size(120, 70);
             this.btnExcepcionesIngreso.TabIndex = 79;
@@ -135,7 +136,7 @@
             // 
             // btnSabanaVisitasInternos
             // 
-            this.btnSabanaVisitasInternos.BackColor = System.Drawing.Color.Orange;
+            this.btnSabanaVisitasInternos.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSabanaVisitasInternos.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSabanaVisitasInternos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSabanaVisitasInternos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,12 +149,28 @@
             this.btnSabanaVisitasInternos.UseVisualStyleBackColor = false;
             this.btnSabanaVisitasInternos.Click += new System.EventHandler(this.btnSabanaVisitasInternos_Click);
             // 
+            // btnConsultasProhibiciones
+            // 
+            this.btnConsultasProhibiciones.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnConsultasProhibiciones.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnConsultasProhibiciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultasProhibiciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultasProhibiciones.ForeColor = System.Drawing.Color.White;
+            this.btnConsultasProhibiciones.Location = new System.Drawing.Point(563, 56);
+            this.btnConsultasProhibiciones.Name = "btnConsultasProhibiciones";
+            this.btnConsultasProhibiciones.Size = new System.Drawing.Size(140, 70);
+            this.btnConsultasProhibiciones.TabIndex = 81;
+            this.btnConsultasProhibiciones.Text = "Consulta prohibiciones";
+            this.btnConsultasProhibiciones.UseVisualStyleBackColor = false;
+            this.btnConsultasProhibiciones.Click += new System.EventHandler(this.btnConsultasProhibiciones_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(916, 606);
+            this.Controls.Add(this.btnConsultasProhibiciones);
             this.Controls.Add(this.btnSabanaVisitasInternos);
             this.Controls.Add(this.btnExcepcionesIngreso);
             this.Controls.Add(this.lblUsuario);
@@ -184,6 +201,7 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnExcepcionesIngreso;
         private System.Windows.Forms.Button btnSabanaVisitasInternos;
+        private System.Windows.Forms.Button btnConsultasProhibiciones;
     }
 }
 
