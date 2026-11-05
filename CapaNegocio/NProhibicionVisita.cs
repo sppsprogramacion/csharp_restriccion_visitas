@@ -93,5 +93,18 @@ namespace CapaNegocio
         }
         //FIN RETORNAR LISTA PROHIBICIONES por ORGANISMO Y FECHA
         //...........................................................................
+
+        //RETORNAR LISTA  PROHIBICIONES VIGENTES por ORGANISMO Y FECHA
+        public async Task<(List<DProhibicionVisita>, string error)> RetornarListaProhibicionesVigentesXOrganismoFecha(string fechaInicio, string fechaFin)
+        {
+            IProhibicionVisitaDao prohibicionVisitaDao = new ProhibicinVisitaDaoImpl();
+
+            (List<DProhibicionVisita> listaProhibicionesVisita, string errorResponse) = await prohibicionVisitaDao.ListaProhibicionesVigentesXOrganismoFecha(fechaInicio, fechaFin);
+
+
+            return (listaProhibicionesVisita, errorResponse);
+        }
+        //FIN RETORNAR LISTA PROHIBICIONES VIGENTES por ORGANISMO Y FECHA
+        //...........................................................................
     }
 }

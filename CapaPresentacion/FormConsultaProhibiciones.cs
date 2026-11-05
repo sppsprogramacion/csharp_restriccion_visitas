@@ -21,18 +21,39 @@ namespace CapaPresentacion
 
         private void btnVerProhibiciones_Click(object sender, EventArgs e)
         {
-            this.CargarDataGridProhibiciones();
+            this.CargarDataGridProhibiciones("todas");
         }
 
+        private void btnProhibicionesVigentes_Click(object sender, EventArgs e)
+        {
+            this.CargarDataGridProhibiciones("vigentes");
+        }
+
+
         //METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES
-        async private void CargarDataGridProhibiciones()
+        async private void CargarDataGridProhibiciones(string tipoConsulta)
         {
             NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
-            (List<DProhibicionVisita> listaProhibicionesVisita, string errorResponse) = await nProhibicionVisita.RetornarListaProhibicionesXOrganismoFecha(this.dtpFechaInicioSabana.Value.ToString("yyyy-MM-dd"), this.dtpFechaFinSabana.Value.ToString("yyyy-MM-dd"));
+            List<DProhibicionVisita> listaProhibicionesVisita = null;
+            string error = "";
+
+            if (tipoConsulta == "todas")
+            {
+                (List<DProhibicionVisita> listaProhibicionesVisitaResponse, string errorResponse) = await nProhibicionVisita.RetornarListaProhibicionesXOrganismoFecha(this.dtpFechaInicioSabana.Value.ToString("yyyy-MM-dd"), this.dtpFechaFinSabana.Value.ToString("yyyy-MM-dd"));
+                listaProhibicionesVisita = listaProhibicionesVisitaResponse;
+                error = errorResponse;
+            }
+
+            if (tipoConsulta == "vigentes")
+            {
+                (List<DProhibicionVisita> listaProhibicionesVisitaResponse, string errorResponse) = await nProhibicionVisita.RetornarListaProhibicionesVigentesXOrganismoFecha(this.dtpFechaInicioSabana.Value.ToString("yyyy-MM-dd"), this.dtpFechaFinSabana.Value.ToString("yyyy-MM-dd"));
+                listaProhibicionesVisita = listaProhibicionesVisitaResponse;
+                error = errorResponse;
+            }
 
             if (listaProhibicionesVisita == null)
             {
-                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(error, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -40,6 +61,8 @@ namespace CapaPresentacion
                 .Select(c => new
                 {
                     Id = c.id_prohibicion_visita,
+                    Visita= c.ciudadano.apellido + " " + c.ciudadano.nombre,
+                    Dni = c.ciudadano.dni,
                     Disposicion = c.disposicion,
                     Detalle = c.detalle,
                     FechaInicio = c.fecha_inicio,
@@ -47,8 +70,7 @@ namespace CapaPresentacion
                     FechaProhibicion = c.fecha_prohibicion,
                     Organismo = c.organismo.organismo,
                     Prohibida = c.vigente,
-                    TipoLevantamiento = c.tipo_levantamiento,
-                    Anulado = c.anulado
+                    TipoLevantamiento = c.tipo_levantamiento
 
                 })
                 .ToList();
@@ -63,11 +85,13 @@ namespace CapaPresentacion
             else
             {
                 dtgvProhibiciones.Columns[0].Width = 50;
-                dtgvProhibiciones.Columns[2].Width = 300;
-                dtgvProhibiciones.Columns[3].Width = 80;
-                dtgvProhibiciones.Columns[4].Width = 80;
+                dtgvProhibiciones.Columns[1].Width = 180;
+                dtgvProhibiciones.Columns[2].Width = 80;
+                dtgvProhibiciones.Columns[4].Width = 300;
                 dtgvProhibiciones.Columns[5].Width = 80;
-                dtgvProhibiciones.Columns[6].Width = 150;
+                dtgvProhibiciones.Columns[6].Width = 80;
+                dtgvProhibiciones.Columns[7].Width = 80;
+                dtgvProhibiciones.Columns[8].Width = 150;
             }
 
             foreach (DataGridViewRow row in dtgvProhibiciones.Rows)
@@ -78,11 +102,6 @@ namespace CapaPresentacion
                     row.DefaultCellStyle.ForeColor = Color.Black;    // Cambiar color del texto
                 }
 
-                if (row.Cells["Anulado"].Value != null && Convert.ToBoolean(row.Cells["Anulado"].Value) == true)
-                {
-                    row.DefaultCellStyle.BackColor = Color.Black; // Cambiar color de fondo
-                    row.DefaultCellStyle.ForeColor = Color.White;    // Cambiar color del texto
-                }
             }
 
 

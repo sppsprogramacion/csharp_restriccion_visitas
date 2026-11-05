@@ -53,6 +53,8 @@
             this.dtpFechaFinSabana = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.btnProhibicionesVigentes = new System.Windows.Forms.Button();
+            this.btnControlarProhibiciones = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibiciones)).BeginInit();
@@ -332,12 +334,43 @@
             this.label24.TabIndex = 118;
             this.label24.Text = "FECHA FIN:";
             // 
+            // btnProhibicionesVigentes
+            // 
+            this.btnProhibicionesVigentes.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnProhibicionesVigentes.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnProhibicionesVigentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProhibicionesVigentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProhibicionesVigentes.ForeColor = System.Drawing.Color.White;
+            this.btnProhibicionesVigentes.Location = new System.Drawing.Point(446, 5);
+            this.btnProhibicionesVigentes.Name = "btnProhibicionesVigentes";
+            this.btnProhibicionesVigentes.Size = new System.Drawing.Size(233, 45);
+            this.btnProhibicionesVigentes.TabIndex = 122;
+            this.btnProhibicionesVigentes.Text = "VER PROHIBICIONES VIGENTES";
+            this.btnProhibicionesVigentes.UseVisualStyleBackColor = false;
+            this.btnProhibicionesVigentes.Click += new System.EventHandler(this.btnProhibicionesVigentes_Click);
+            // 
+            // btnControlarProhibiciones
+            // 
+            this.btnControlarProhibiciones.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnControlarProhibiciones.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnControlarProhibiciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnControlarProhibiciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControlarProhibiciones.ForeColor = System.Drawing.Color.White;
+            this.btnControlarProhibiciones.Location = new System.Drawing.Point(692, 5);
+            this.btnControlarProhibiciones.Name = "btnControlarProhibiciones";
+            this.btnControlarProhibiciones.Size = new System.Drawing.Size(160, 45);
+            this.btnControlarProhibiciones.TabIndex = 123;
+            this.btnControlarProhibiciones.Text = "CONTROLAR PROHIBICIONES";
+            this.btnControlarProhibiciones.UseVisualStyleBackColor = false;
+            // 
             // FormConsultaProhibiciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1058, 711);
+            this.Controls.Add(this.btnControlarProhibiciones);
+            this.Controls.Add(this.btnProhibicionesVigentes);
             this.Controls.Add(this.dtpFechaInicioSabana);
             this.Controls.Add(this.dtpFechaFinSabana);
             this.Controls.Add(this.label21);
@@ -384,5 +417,7 @@
         private System.Windows.Forms.DateTimePicker dtpFechaFinSabana;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnProhibicionesVigentes;
+        private System.Windows.Forms.Button btnControlarProhibiciones;
     }
 }
