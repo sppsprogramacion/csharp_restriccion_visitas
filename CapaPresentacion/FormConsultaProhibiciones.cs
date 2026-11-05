@@ -30,6 +30,81 @@ namespace CapaPresentacion
         }
 
 
+
+        private async void btnControlarProhibiciones_Click(object sender, EventArgs e)
+        {
+            NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
+
+            this.Enabled = false;
+            (bool respuestaEditar, string errorResponse) = await nProhibicionVisita.LevantarProhibicionesConcontrol();
+            this.Enabled = true;
+
+            if (respuestaEditar)
+            {
+                MessageBox.Show("Se levantaron prohibiciones correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                //cargar lista de prhibiciones en datagrid
+                this.CargarDataGridProhibiciones("vigentes");
+            }
+            else
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void dtgvProhibiciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+
+                if (dtgvProhibiciones.SelectedRows.Count > 0)
+                {
+                    int idProhibicion;
+                    idProhibicion = Convert.ToInt32(dtgvProhibiciones.CurrentRow.Cells["ID"].Value.ToString());
+
+                    if (idProhibicion > 0)
+                    {
+                        txtIdProhibicion.Text = idProhibicion.ToString();
+                        txtVisita.Text = dtgvProhibiciones.CurrentRow.Cells["Visita"].Value.ToString();
+                        txtDni.Text = dtgvProhibiciones.CurrentRow.Cells["Dni"].Value.ToString();
+
+                        txtDisposicion.Text = dtgvProhibiciones.CurrentRow.Cells["Disposicion"].Value.ToString();
+                        txtDetalle.Text = dtgvProhibiciones.CurrentRow.Cells["Detalle"].Value.ToString();
+                        dtpFechaInicio.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaInicio"].Value.ToString());
+                        dtpFechaFin.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaFin"].Value.ToString());
+                        txtOrganismo.Text = dtgvProhibiciones.CurrentRow.Cells["Organismo"].Value.ToString();
+                        dtpFechaProhibicion.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaProhibicion"].Value.ToString());
+                        chkVigente.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Prohibida"].Value.ToString());
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una prohibición.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            if (txtIdProhibicion.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar una prohibición", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var frmHistorial = new FormHistorialProhibicion(Convert.ToInt32(txtIdProhibicion.Text));
+                frmHistorial.ShowDialog();
+            }
+        }
+
+
         //METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES
         async private void CargarDataGridProhibiciones(string tipoConsulta)
         {
@@ -105,7 +180,7 @@ namespace CapaPresentacion
             }
 
 
-        }
+        }        
         //FIN METODO PARA OBTENER LA LISTA DE PROHIBICIONES Y CARGARLO EN UN DATA GRID DE PROHIBICIONES...........
 
     }

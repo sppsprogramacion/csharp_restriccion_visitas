@@ -15,6 +15,7 @@ namespace DAO
         Task<(bool, string error)> EditarProhibicionVisita(int id, string prohibicionVisita);
 
         Task<(bool, string error)> LevantarProhibicionVisita(int id, string dataLevantar);
+        Task<(bool, string error)> LevantarProhibicionesConcontrol();
 
         Task<(bool, string error)> ProhibirProhibicionVisita(int id, string dataProhibir);
 
