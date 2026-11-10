@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminVisita));
             this.tabVisita = new System.Windows.Forms.TabControl();
             this.pagDatosPersonales = new System.Windows.Forms.TabPage();
+            this.btnMenoresACargo = new System.Windows.Forms.Button();
+            this.dgvMenores = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
@@ -228,10 +230,9 @@
             this.dgvRegistroDiario = new System.Windows.Forms.DataGridView();
             this.btnVerRegistroDiario = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
-            this.dgvMenores = new System.Windows.Forms.DataGridView();
-            this.btnMenoresACargo = new System.Windows.Forms.Button();
             this.tabVisita.SuspendLayout();
             this.pagDatosPersonales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMenores)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
@@ -260,7 +261,6 @@
             this.groupBox12.SuspendLayout();
             this.tabRegistroDiario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMenores)).BeginInit();
             this.SuspendLayout();
             // 
             // tabVisita
@@ -293,6 +293,31 @@
             this.pagDatosPersonales.TabIndex = 0;
             this.pagDatosPersonales.Text = "Datos Personales";
             this.pagDatosPersonales.UseVisualStyleBackColor = true;
+            // 
+            // btnMenoresACargo
+            // 
+            this.btnMenoresACargo.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnMenoresACargo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMenoresACargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenoresACargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenoresACargo.ForeColor = System.Drawing.Color.White;
+            this.btnMenoresACargo.Location = new System.Drawing.Point(547, 399);
+            this.btnMenoresACargo.Name = "btnMenoresACargo";
+            this.btnMenoresACargo.Size = new System.Drawing.Size(183, 45);
+            this.btnMenoresACargo.TabIndex = 70;
+            this.btnMenoresACargo.Text = "VER MENORES A CARGO";
+            this.btnMenoresACargo.UseVisualStyleBackColor = false;
+            this.btnMenoresACargo.Click += new System.EventHandler(this.btnMenoresACargo_Click);
+            // 
+            // dgvMenores
+            // 
+            this.dgvMenores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMenores.Location = new System.Drawing.Point(547, 450);
+            this.dgvMenores.Name = "dgvMenores";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvMenores.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMenores.Size = new System.Drawing.Size(504, 105);
+            this.dgvMenores.TabIndex = 69;
             // 
             // groupBox1
             // 
@@ -2626,31 +2651,6 @@
             this.label28.Text = "ADMINISTRAR VISITA";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgvMenores
-            // 
-            this.dgvMenores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenores.Location = new System.Drawing.Point(547, 450);
-            this.dgvMenores.Name = "dgvMenores";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvMenores.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvMenores.Size = new System.Drawing.Size(504, 105);
-            this.dgvMenores.TabIndex = 69;
-            // 
-            // btnMenoresACargo
-            // 
-            this.btnMenoresACargo.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnMenoresACargo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnMenoresACargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenoresACargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenoresACargo.ForeColor = System.Drawing.Color.White;
-            this.btnMenoresACargo.Location = new System.Drawing.Point(547, 399);
-            this.btnMenoresACargo.Name = "btnMenoresACargo";
-            this.btnMenoresACargo.Size = new System.Drawing.Size(183, 45);
-            this.btnMenoresACargo.TabIndex = 70;
-            this.btnMenoresACargo.Text = "VER MENORES A CARGO";
-            this.btnMenoresACargo.UseVisualStyleBackColor = false;
-            this.btnMenoresACargo.Click += new System.EventHandler(this.btnMenoresACargo_Click);
-            // 
             // FormAdminVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2670,6 +2670,7 @@
             this.Load += new System.EventHandler(this.frmAdminVisita_Load);
             this.tabVisita.ResumeLayout(false);
             this.pagDatosPersonales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMenores)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -2711,7 +2712,6 @@
             this.groupBox12.PerformLayout();
             this.tabRegistroDiario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMenores)).EndInit();
             this.ResumeLayout(false);
 
         }

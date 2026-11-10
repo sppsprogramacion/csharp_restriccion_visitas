@@ -58,6 +58,7 @@
     <Compile Include="IProvinciaDao.cs" />
     <Compile Include="IRegistroDiarioDao.cs" />
     <Compile Include="ISexoDao.cs" />
+    <Compile Include="IUsuarioDao.cs" />
     <Compile Include="IVisitaInternoDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

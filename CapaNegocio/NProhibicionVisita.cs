@@ -47,7 +47,7 @@ namespace CapaNegocio
         //-----------------------------------------------------------------------------------
 
 
-        //FIN LEVANTAR PROHIBICIONES CON CONTROL
+        //FIN LEVANTAR MANUAL PROHIBICION
         public async Task<(bool, string error)> LevantarManualProhibicion(int id, string dataLevantar)
         {
             IProhibicionVisitaDao prohibicionVisitaDao = new ProhibicinVisitaDaoImpl();

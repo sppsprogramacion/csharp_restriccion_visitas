@@ -17,6 +17,27 @@ namespace CapaPresentacion
         public FormPrincipal()
         {
             InitializeComponent();
+
+
+            bool esAdmin = CurrentUser.Instance.roles != null && CurrentUser.Instance.roles.Contains("restriccionAdmin");
+
+            if (esAdmin)
+            {
+                btnAdministrarUsuarios.Visible = true;
+            }
+            else
+            {
+                btnAdministrarUsuarios.Visible = false;
+            }
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            FormularioAyudas.AjustarFormulario(this);
+            this.ControlBox = false;
+
+            lblEncabezado.Text = lblEncabezado.Text + " - " + CurrentUser.Instance.organismo;
+            lblUsuario.Text = CurrentUser.Instance.nombre.ToUpper() + " " + CurrentUser.Instance.apellido.ToUpper();
         }
 
         private void btnVerVisitas_Click(object sender, EventArgs e)
@@ -38,14 +59,7 @@ namespace CapaPresentacion
             formProhibicionesAnticipadas.ShowDialog();
         }
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-            FormularioAyudas.AjustarFormulario(this);
-            this.ControlBox = false;
-
-            lblEncabezado.Text = lblEncabezado.Text + " - " + CurrentUser.Instance.organismo;
-            lblUsuario.Text = CurrentUser.Instance.nombre.ToUpper() + " " + CurrentUser.Instance.apellido.ToUpper();
-        }
+        
 
         private void btnExcepcionesIngreso_Click(object sender, EventArgs e)
         {
@@ -66,6 +80,20 @@ namespace CapaPresentacion
             FormConsultaProhibiciones formConsultas = new FormConsultaProhibiciones();
 
             formConsultas.ShowDialog();
+        }
+        
+        private void picUsuario_Click(object sender, EventArgs e)
+        {
+            FormCuentaUsuario formCuentaUsuario = new FormCuentaUsuario();
+
+            formCuentaUsuario.ShowDialog();
+        }
+
+        private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
+        {
+
+            FormAdministrarUsuarios formAdministrarUsuarios = new FormAdministrarUsuarios();
+            formAdministrarUsuarios.ShowDialog();
         }
     }
 }

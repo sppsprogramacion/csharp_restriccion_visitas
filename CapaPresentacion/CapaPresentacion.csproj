@@ -123,6 +123,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAdministrarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdministrarUsuarios.Designer.cs">
+      <DependentUpon>FormAdministrarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAdminProhibicionAnticipada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     <Compile Include="Validaciones\Login\Validacion\LoginValidator.cs" />
     <Compile Include="Validaciones\ProhibicionesAnticipadas\Datos\ProhibicionAnticipadaDatos.cs" />
     <Compile Include="Validaciones\ProhibicionesAnticipadas\ValidacionesProhibicionesAnticipadas\ProhibicionAnticipadaNuevaValidator.cs" />
+    <EmbeddedResource Include="FormAdministrarUsuarios.resx">
+      <DependentUpon>FormAdministrarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAdminProhibicionAnticipada.resx">
       <DependentUpon>FormAdminProhibicionAnticipada.cs</DependentUpon>
     </EmbeddedResource>

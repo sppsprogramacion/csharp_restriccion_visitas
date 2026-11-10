@@ -35,10 +35,11 @@
             this.btnProhibicionesAnticipadas = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnExcepcionesIngreso = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSabanaVisitasInternos = new System.Windows.Forms.Button();
             this.btnConsultasProhibiciones = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnAdministrarUsuarios = new System.Windows.Forms.Button();
+            this.picUsuario = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVerVisitas
@@ -124,16 +125,6 @@
             this.btnExcepcionesIngreso.UseVisualStyleBackColor = false;
             this.btnExcepcionesIngreso.Click += new System.EventHandler(this.btnExcepcionesIngreso_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.usuario3;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 569);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 77;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnSabanaVisitasInternos
             // 
             this.btnSabanaVisitasInternos.BackColor = System.Drawing.Color.DarkOrange;
@@ -164,17 +155,45 @@
             this.btnConsultasProhibiciones.UseVisualStyleBackColor = false;
             this.btnConsultasProhibiciones.Click += new System.EventHandler(this.btnConsultasProhibiciones_Click);
             // 
+            // btnAdministrarUsuarios
+            // 
+            this.btnAdministrarUsuarios.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnAdministrarUsuarios.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAdministrarUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministrarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(716, 56);
+            this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
+            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(140, 70);
+            this.btnAdministrarUsuarios.TabIndex = 82;
+            this.btnAdministrarUsuarios.Text = "Administrar usuarios";
+            this.btnAdministrarUsuarios.UseVisualStyleBackColor = false;
+            this.btnAdministrarUsuarios.Visible = false;
+            this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click);
+            // 
+            // picUsuario
+            // 
+            this.picUsuario.Image = global::CapaPresentacion.Properties.Resources.usuario3;
+            this.picUsuario.Location = new System.Drawing.Point(12, 569);
+            this.picUsuario.Name = "picUsuario";
+            this.picUsuario.Size = new System.Drawing.Size(25, 25);
+            this.picUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUsuario.TabIndex = 77;
+            this.picUsuario.TabStop = false;
+            this.picUsuario.Click += new System.EventHandler(this.picUsuario_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(916, 606);
+            this.Controls.Add(this.btnAdministrarUsuarios);
             this.Controls.Add(this.btnConsultasProhibiciones);
             this.Controls.Add(this.btnSabanaVisitasInternos);
             this.Controls.Add(this.btnExcepcionesIngreso);
             this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picUsuario);
             this.Controls.Add(this.btnProhibicionesAnticipadas);
             this.Controls.Add(this.btnCerrarSistema);
             this.Controls.Add(this.lblEncabezado);
@@ -185,7 +204,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,11 +216,12 @@
         private System.Windows.Forms.Label lblEncabezado;
         private System.Windows.Forms.Button btnCerrarSistema;
         private System.Windows.Forms.Button btnProhibicionesAnticipadas;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picUsuario;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnExcepcionesIngreso;
         private System.Windows.Forms.Button btnSabanaVisitasInternos;
         private System.Windows.Forms.Button btnConsultasProhibiciones;
+        private System.Windows.Forms.Button btnAdministrarUsuarios;
     }
 }
 
