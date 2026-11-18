@@ -11,9 +11,9 @@ namespace Conexion
     {
         //private static string url = "http://149.50.146.202:3000/api";
 
-        //private static string url = "http://localhost:3000/api";
+        private static string url = "http://localhost:3000/api";
 
-        private static string url = "http://programacionspps.online/api";
+        //private static string url = "http://programacionspps.online/api";
 
         public static string getConexion()
         {
